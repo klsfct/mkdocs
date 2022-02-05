@@ -1,0 +1,2033 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>应急响应 - klsfct Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1window" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            klsfct Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              应急响应
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        红队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link md-tabs__link--active">
+        蓝队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/aboutme/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    klsfct Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          红队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="红队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          红队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
+        漏洞库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        溯源分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E9%92%93%E9%B1%BC/" class="md-nav__link">
+        钓鱼
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          蓝队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="蓝队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          蓝队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          应急响应
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        应急响应
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1window" class="md-nav__link">
+    第1篇：Window入侵排查
+  </a>
+  
+    <nav class="md-nav" aria-label="第1篇：Window入侵排查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00" class="md-nav__link">
+    0x00 前言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01" class="md-nav__link">
+    0x01 入侵排查思路
+  </a>
+  
+    <nav class="md-nav" aria-label="0x01 入侵排查思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 检查系统账号安全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 检查异常端口、进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 检查启动项、计划任务、服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 检查系统相关信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 自动化查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 日志分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02" class="md-nav__link">
+    0x02 工具篇
+  </a>
+  
+    <nav class="md-nav" aria-label="0x02 工具篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 病毒分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 病毒查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 病毒动态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 在线病毒扫描网站
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-webshell" class="md-nav__link">
+    2.5 webshell查杀
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2linux" class="md-nav__link">
+    第2篇：Linux入侵排查
+  </a>
+  
+    <nav class="md-nav" aria-label="第2篇：Linux入侵排查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_1" class="md-nav__link">
+    0x00 前言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_1" class="md-nav__link">
+    0x01 入侵排查思路
+  </a>
+  
+    <nav class="md-nav" aria-label="0x01 入侵排查思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    1.1 账号安全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    1.2 历史命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13_1" class="md-nav__link">
+    1.3 检查异常端口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14_1" class="md-nav__link">
+    1.4 检查异常进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15_1" class="md-nav__link">
+    1.5 检查开机启动项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16_1" class="md-nav__link">
+    1.6 检查定时任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 检查服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    1.8 检查异常文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    1.9 检查系统日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_1" class="md-nav__link">
+    0x02 工具篇
+  </a>
+  
+    <nav class="md-nav" aria-label="0x02 工具篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-rootkit" class="md-nav__link">
+    2.1 Rootkit查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 病毒查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-webshell" class="md-nav__link">
+    2.3 webshell查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-rpm-check" class="md-nav__link">
+    2.4 RPM check检查
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-linux" class="md-nav__link">
+    2.5 linux安全检查脚本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3webshell" class="md-nav__link">
+    第3篇：常见的Webshell查杀工具
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4webshell" class="md-nav__link">
+    第4篇：如何发现隐藏的Webshell后门
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    第5篇：勒索病毒自救指南
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
+        日志分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../window实战.md" class="md-nav__link">
+        window实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/linux实战.md" class="md-nav__link">
+        linux实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/web实战.md" class="md-nav__link">
+        web实战
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/aboutme/" class="md-nav__link">
+        about me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1window" class="md-nav__link">
+    第1篇：Window入侵排查
+  </a>
+  
+    <nav class="md-nav" aria-label="第1篇：Window入侵排查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00" class="md-nav__link">
+    0x00 前言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01" class="md-nav__link">
+    0x01 入侵排查思路
+  </a>
+  
+    <nav class="md-nav" aria-label="0x01 入侵排查思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 检查系统账号安全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2 检查异常端口、进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 检查启动项、计划任务、服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 检查系统相关信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15" class="md-nav__link">
+    1.5 自动化查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    1.6 日志分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02" class="md-nav__link">
+    0x02 工具篇
+  </a>
+  
+    <nav class="md-nav" aria-label="0x02 工具篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1 病毒分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    2.2 病毒查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3 病毒动态
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4 在线病毒扫描网站
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-webshell" class="md-nav__link">
+    2.5 webshell查杀
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2linux" class="md-nav__link">
+    第2篇：Linux入侵排查
+  </a>
+  
+    <nav class="md-nav" aria-label="第2篇：Linux入侵排查">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_1" class="md-nav__link">
+    0x00 前言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_1" class="md-nav__link">
+    0x01 入侵排查思路
+  </a>
+  
+    <nav class="md-nav" aria-label="0x01 入侵排查思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    1.1 账号安全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12_1" class="md-nav__link">
+    1.2 历史命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13_1" class="md-nav__link">
+    1.3 检查异常端口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14_1" class="md-nav__link">
+    1.4 检查异常进程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15_1" class="md-nav__link">
+    1.5 检查开机启动项
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16_1" class="md-nav__link">
+    1.6 检查定时任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    1.7 检查服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    1.8 检查异常文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    1.9 检查系统日志
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_1" class="md-nav__link">
+    0x02 工具篇
+  </a>
+  
+    <nav class="md-nav" aria-label="0x02 工具篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-rootkit" class="md-nav__link">
+    2.1 Rootkit查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22_1" class="md-nav__link">
+    2.2 病毒查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-webshell" class="md-nav__link">
+    2.3 webshell查杀
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-rpm-check" class="md-nav__link">
+    2.4 RPM check检查
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-linux" class="md-nav__link">
+    2.5 linux安全检查脚本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3webshell" class="md-nav__link">
+    第3篇：常见的Webshell查杀工具
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4webshell" class="md-nav__link">
+    第4篇：如何发现隐藏的Webshell后门
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    第5篇：勒索病毒自救指南
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>应急响应</h1>
+
+<h2 id="1window"><a href="https://bypass007.github.io/Emergency-Response-Notes/Summary/第1篇：Window入侵排查.html">第1篇：Window入侵排查</a><a class="headerlink" href="#1window" title="Permanent link">&para;</a></h2>
+<h3 id="0x00">0x00 前言<a class="headerlink" href="#0x00" title="Permanent link">&para;</a></h3>
+<p>当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事件时，急需第一时间进行处理，使企业的网络信息系统在最短时间内恢复正常工作，进一步查找入侵来源，还原入侵事故过程，同时给出解决方案与防范措施，为企业挽回或减少经济损失。</p>
+<p>常见的应急响应事件分类：</p>
+<p>web入侵：网页挂马、主页篡改、Webshell</p>
+<p>系统入侵：病毒木马、勒索软件、远控后门</p>
+<p>网络攻击：DDOS攻击、DNS劫持、ARP欺骗</p>
+<p>针对常见的攻击事件，结合工作中应急响应事件分析和解决的方法，总结了一些Window服务器入侵排查的思路。</p>
+<h3 id="0x01">0x01 入侵排查思路<a class="headerlink" href="#0x01" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 检查系统账号安全<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>1、查看服务器是否有弱口令，远程管理端口是否对公网开放。</p>
+<ul>
+<li>检查方法：据实际情况咨询相关服务器管理员。</li>
+</ul>
+<p>2、查看服务器是否存在可疑账号、新增账号。</p>
+<ul>
+<li>检查方法：打开 cmd 窗口，输入<code>lusrmgr.msc</code>命令，查看是否有新增/可疑的账号，如有管理员群组的（Administrators）里的新增账户，如有，请立即禁用或删除掉。</li>
+</ul>
+<p>3、查看服务器是否存在隐藏账号、克隆账号。</p>
+<ul>
+<li>检查方法：</li>
+</ul>
+<p>a、打开注册表 ，查看管理员对应键值。</p>
+<p>b、使用D盾_web查杀工具，集成了对克隆账号检测的功能。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/sum-1-1.png" /></p>
+<p>4、结合日志，查看管理员登录时间、用户名是否存在异常。</p>
+<ul>
+<li>检查方法：</li>
+</ul>
+<p>a、Win+R打开运行，输入“eventvwr.msc”，回车运行，打开“事件查看器”。</p>
+<p>b、导出Windows日志--安全，利用Log Parser进行分析。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/sum-1-2.png" /></p>
+<h4 id="12">1.2 检查异常端口、进程<a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p>1、检查端口连接情况，是否有远程连接、可疑连接。</p>
+<ul>
+<li>检查方法：</li>
+</ul>
+<p>a、netstat -ano 查看目前的网络连接，定位可疑的ESTABLISHED</p>
+<p>b、根据netstat 定位出的pid，再通过tasklist命令进行进程定位 tasklist | findstr “PID”</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/sum-1-3.png" /></p>
+<p>2、进程</p>
+<ul>
+<li>检查方法：</li>
+</ul>
+<p>a、开始--运行--输入msinfo32，依次点击“软件环境→正在运行任务”就可以查看到进程的详细信息，比如进程路径、进程ID、文件创建日期、启动时间等。</p>
+<p>b、打开D盾_web查杀工具，进程查看，关注没有签名信息的进程。</p>
+<p>c、通过微软官方提供的 Process Explorer 等工具进行排查 。</p>
+<p>d、查看可疑的进程及其子进程。可以通过观察以下内容：</p>
+<div class="highlight"><pre><span></span><code>      没有签名验证信息的进程
+      没有描述信息的进程
+      进程的属主
+      进程的路径是否合法
+      CPU或内存资源占用长时间过高的进程
+</code></pre></div>
+<p>3、小技巧：</p>
+<p>a、查看端口对应的PID： netstat -ano | findstr “port”</p>
+<p>b、查看进程对应的PID：任务管理器--查看--选择列--PID 或者 tasklist | findstr “PID”</p>
+<p>c、查看进程对应的程序位置：</p>
+<p>任务管理器--选择对应进程--右键打开文件位置</p>
+<p>运行输入 wmic，cmd界面 输入 process</p>
+<p>d、tasklist /svc 进程--PID--服务</p>
+<p>e、查看Windows服务所对应的端口： %system%/system32/drivers/etc/services（一般%system%就是C:\Windows）</p>
+<h4 id="13">1.3 检查启动项、计划任务、服务<a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<p>1、检查服务器是否有异常的启动项。</p>
+<ul>
+<li>检查方法：</li>
+</ul>
+<p>a、登录服务器，单击【开始】&gt;【所有程序】&gt;【启动】，默认情况下此目录在是一个空目录，确认是否有非业务程序在该目录下。 b、单击开始菜单 &gt;【运行】，输入 msconfig，查看是否存在命名异常的启动项目，是则取消勾选命名异常的启动项目，并到命令中显示的路径删除文件。 c、单击【开始】&gt;【运行】，输入 regedit，打开注册表，查看开机启动项是否正常，特别注意如下三个注册表项： HKEY_CURRENT_USER\software\micorsoft\windows\currentversion\run HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Runonce 检查右侧是否有启动异常的项目，如有请删除，并建议安装杀毒软件进行病毒查杀，清除残留病毒或木马。</p>
+<p>d、利用安全软件查看启动项、开机时间管理等。</p>
+<p>e、组策略，运行gpedit.msc。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/sum-1-4.png" /></p>
+<p>2、检查计划任务</p>
+<ul>
+<li>检查方法：</li>
+</ul>
+<p>a、单击【开始】&gt;【设置】&gt;【控制面板】&gt;【任务计划】，查看计划任务属性，便可以发现木马文件的路径。</p>
+<p>b、单击【开始】&gt;【运行】；输入 cmd，然后输入at，检查计算机与网络上的其它计算机之间的会话或计划任务，如有，则确认是否为正常连接。</p>
+<p>3、服务自启动</p>
+<ul>
+<li>检查方法：单击【开始】&gt;【运行】，输入services.msc，注意服务状态和启动类型，检查是否有异常服务。</li>
+</ul>
+<h4 id="14">1.4 检查系统相关信息<a class="headerlink" href="#14" title="Permanent link">&para;</a></h4>
+<p>1、查看系统版本以及补丁信息</p>
+<ul>
+<li>检查方法：单击【开始】&gt;【运行】，输入systeminfo，查看系统信息</li>
+</ul>
+<p>2、查找可疑目录及文件</p>
+<ul>
+<li>检查方法：</li>
+</ul>
+<p>a、 查看用户目录，新建账号会在这个目录生成一个用户目录，查看是否有新建用户目录。</p>
+<p>Window 2003 C:\Documents and Settings</p>
+<p>Window 2008R2 C:\Users\</p>
+<p>b、单击【开始】&gt;【运行】，输入%UserProfile%\Recent，分析最近打开分析可疑文件。</p>
+<p>c、在服务器各个目录，可根据文件夹内文件列表时间进行排序，查找可疑文件。</p>
+<p>d、回收站、浏览器下载目录、浏览器历史记录</p>
+<p>e、修改时间在创建时间之前的为可疑文件</p>
+<p>3、得到发现WEBSHELL、远控木马的创建时间，如何找出同一时间范围内创建的文件？</p>
+<p>a、利用 Registry Workshop 注册表编辑器的搜索功能，可以找到最后写入时间区间的文件。</p>
+<p>b、利用计算机自带文件搜索功能，指定修改时间进行搜索。</p>
+<h4 id="15">1.5 自动化查杀<a class="headerlink" href="#15" title="Permanent link">&para;</a></h4>
+<ul>
+<li>病毒查杀</li>
+<li>检查方法：下载安全软件，更新最新病毒库，进行全盘扫描。</li>
+<li>webshell查杀</li>
+<li>检查方法：选择具体站点路径进行webshell查杀，建议使用两款webshell查杀工具同时查杀，可相互补充规则库的不足。</li>
+</ul>
+<h4 id="16">1.6 日志分析<a class="headerlink" href="#16" title="Permanent link">&para;</a></h4>
+<p>系统日志</p>
+<ul>
+<li>分析方法：</li>
+</ul>
+<p>a、前提：开启审核策略，若日后系统出现故障、安全事故则可以查看系统的日志文件，排除故障，追查入侵者的信息等。</p>
+<p>b、Win+R打开运行，输入“eventvwr.msc”，回车运行，打开“事件查看器”。</p>
+<p>C、导出应用程序日志、安全日志、系统日志，利用Log Parser进行分析。</p>
+<p>WEB访问日志</p>
+<ul>
+<li>分析方法：</li>
+</ul>
+<p>a、找到中间件的web日志，打包到本地方便进行分析。</p>
+<p>b、推荐工具：Window下，推荐用 EmEditor 进行日志分析，支持大文本，搜索效率还不错。</p>
+<p>Linux下，使用Shell命令组合查询分析</p>
+<h3 id="0x02">0x02 工具篇<a class="headerlink" href="#0x02" title="Permanent link">&para;</a></h3>
+<h4 id="21">2.1 病毒分析<a class="headerlink" href="#21" title="Permanent link">&para;</a></h4>
+<p>PCHunter：<a href="http://www.xuetr.com/">http://www.xuetr.com</a></p>
+<p>火绒剑：<a href="https://www.huorong.cn/">https://www.huorong.cn</a></p>
+<p>Process Explorer：<a href="https://docs.microsoft.com/zh-cn/sysinternals/downloads/process-explorer">https://docs.microsoft.com/zh-cn/sysinternals/downloads/process-explorer</a></p>
+<p>processhacker：<a href="https://processhacker.sourceforge.io/downloads.php">https://processhacker.sourceforge.io/downloads.php</a></p>
+<p>autoruns：<a href="https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns">https://docs.microsoft.com/en-us/sysinternals/downloads/autoruns</a></p>
+<p>OTL：<a href="https://www.bleepingcomputer.com/download/otl/">https://www.bleepingcomputer.com/download/otl/</a></p>
+<p>SysInspector：<a href="http://download.eset.com.cn/download/detail/?product=sysinspector">http://download.eset.com.cn/download/detail/?product=sysinspector</a></p>
+<h4 id="22">2.2 病毒查杀<a class="headerlink" href="#22" title="Permanent link">&para;</a></h4>
+<p>卡巴斯基：<a href="http://devbuilds.kaspersky-labs.com/devbuilds/KVRT/latest/full/KVRT.exe">http://devbuilds.kaspersky-labs.com/devbuilds/KVRT/latest/full/KVRT.exe</a> （推荐理由：绿色版、最新病毒库）</p>
+<p>大蜘蛛：<a href="http://free.drweb.ru/download+cureit+free">http://free.drweb.ru/download+cureit+free</a>（推荐理由：扫描快、一次下载只能用1周，更新病毒库）</p>
+<p>火绒安全软件：<a href="https://www.huorong.cn/">https://www.huorong.cn</a></p>
+<p>360杀毒：<a href="http://sd.360.cn/download_center.html">http://sd.360.cn/download_center.html</a></p>
+<h4 id="23">2.3 病毒动态<a class="headerlink" href="#23" title="Permanent link">&para;</a></h4>
+<p>CVERC-国家计算机病毒应急处理中心：<a href="http://www.cverc.org.cn/">http://www.cverc.org.cn</a></p>
+<p>微步在线威胁情报社区：<a href="https://x.threatbook.cn/">https://x.threatbook.cn</a></p>
+<p>火绒安全论坛：<a href="http://bbs.huorong.cn/forum-59-1.html">http://bbs.huorong.cn/forum-59-1.html</a></p>
+<p>爱毒霸社区：<a href="http://bbs.duba.net/">http://bbs.duba.net</a></p>
+<p>腾讯电脑管家：<a href="http://bbs.guanjia.qq.com/forum-2-1.html">http://bbs.guanjia.qq.com/forum-2-1.html</a></p>
+<h4 id="24">2.4 在线病毒扫描网站<a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<p><a href="http://www.virscan.org/">http://www.virscan.org</a> //多引擎在线病毒扫描网 v1.02，当前支持 41 款杀毒引擎</p>
+<p><a href="https://habo.qq.com/">https://habo.qq.com</a> //腾讯哈勃分析系统</p>
+<p><a href="https://virusscan.jotti.org/">https://virusscan.jotti.org</a> //Jotti恶意软件扫描系统</p>
+<p><a href="http://www.scanvir.com/">http://www.scanvir.com</a> //针对计算机病毒、手机病毒、可疑文件等进行检测分析</p>
+<h4 id="25-webshell">2.5 webshell查杀<a class="headerlink" href="#25-webshell" title="Permanent link">&para;</a></h4>
+<p>D盾_Web查杀：<a href="http://www.d99net.net/index.asp">http://www.d99net.net/index.asp</a></p>
+<p>河马webshell查杀：<a href="http://www.shellpub.com/">http://www.shellpub.com</a></p>
+<p>深信服Webshell网站后门检测工具：<a href="http://edr.sangfor.com.cn/backdoor_detection.html">http://edr.sangfor.com.cn/backdoor_detection.html</a></p>
+<p>Safe3：<a href="http://www.uusec.com/webshell.zip">http://www.uusec.com/webshell.zip</a></p>
+<h2 id="2linux"><a href="https://bypass007.github.io/Emergency-Response-Notes/Summary/第2篇：Linux入侵排查.html">第2篇：Linux入侵排查</a><a class="headerlink" href="#2linux" title="Permanent link">&para;</a></h2>
+<h3 id="0x00_1">0x00 前言<a class="headerlink" href="#0x00_1" title="Permanent link">&para;</a></h3>
+<p>当企业发生黑客入侵、系统崩溃或其它影响业务正常运行的安全事件时，急需第一时间进行处理，使企业的网络信息系统在最短时间内恢复正常工作，进一步查找入侵来源，还原入侵事故过程，同时给出解决方案与防范措施，为企业挽回或减少经济损失。</p>
+<p>针对常见的攻击事件，结合工作中应急响应事件分析和解决的方法，总结了一些Linux服务器入侵排查的思路。</p>
+<h3 id="0x01_1">0x01 入侵排查思路<a class="headerlink" href="#0x01_1" title="Permanent link">&para;</a></h3>
+<h4 id="11_1">1.1 账号安全<a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h4>
+<p><strong>基本使用：</strong></p>
+<div class="highlight"><pre><span></span><code>1、用户信息文件/etc/passwd
+root:x:0:0:root:/root:/bin/bash
+account:password:UID:GID:GECOS:directory:shell
+用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell
+注意：无密码只允许本机登陆，远程不允许登陆
+
+2、影子文件/etc/shadow
+root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::
+用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之后的宽限天数：账号失效时间：保留
+who     查看当前登录用户（tty本地登陆  pts远程登录）
+w       查看系统信息，想知道某一时刻用户的行为
+uptime  查看登陆多久、多少用户，负载
+</code></pre></div>
+<p><strong>入侵排查：</strong></p>
+<div class="highlight"><pre><span></span><code>1、查询特权用户特权用户(uid 为0)
+[root@localhost ~]# awk -F: &#39;$3==0{print $1}&#39; /etc/passwd
+2、查询可以远程登录的帐号信息
+[root@localhost ~]# awk &#39;/\$1|\$6/{print $1}&#39; /etc/shadow
+3、除root帐号外，其他帐号是否存在sudo权限。如非管理需要，普通帐号应删除sudo权限
+[root@localhost ~]# more /etc/sudoers | grep -v &quot;^#\|^$&quot; | grep &quot;ALL=(ALL)&quot;
+4、禁用或删除多余及可疑的帐号
+    usermod -L user    禁用帐号，帐号无法登录，/etc/shadow第二栏为!开头
+    userdel user       删除user用户
+    userdel -r user    将删除user用户，并且将/home目录下的user目录一并删除
+</code></pre></div>
+<h4 id="12_1">1.2 历史命令<a class="headerlink" href="#12_1" title="Permanent link">&para;</a></h4>
+<p><strong>基本使用：</strong></p>
+<div class="highlight"><pre><span></span><code>通过.bash_history查看帐号执行过的系统命令
+1、root的历史命令
+histroy
+2、打开/home各帐号目录下的.bash_history，查看普通帐号的历史命令
+
+为历史的命令增加登录的IP地址、执行命令时间等信息：
+1）保存1万条命令
+sed -i &#39;s/^HISTSIZE=1000/HISTSIZE=10000/g&#39; /etc/profile
+2）在/etc/profile的文件尾部添加如下行数配置信息：
+######jiagu history xianshi#########
+USER_IP=`who -u am i 2&gt;/dev/null | awk &#39;{print $NF}&#39; | sed -e &#39;s/[()]//g&#39;`
+if [ &quot;$USER_IP&quot; = &quot;&quot; ]
+then
+USER_IP=`hostname`
+fi
+export HISTTIMEFORMAT=&quot;%F %T $USER_IP `whoami` &quot;
+shopt -s histappend
+export PROMPT_COMMAND=&quot;history -a&quot;
+######### jiagu history xianshi ##########
+3）source /etc/profile让配置生效
+
+生成效果： 1  2018-07-10 19:45:39 192.168.204.1 root source /etc/profile
+
+3、历史操作命令的清除：history -c
+但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。
+</code></pre></div>
+<p><strong>入侵排查：</strong></p>
+<div class="highlight"><pre><span></span><code>进入用户目录下
+cat .bash_history &gt;&gt; history.txt
+</code></pre></div>
+<h4 id="13_1">1.3 检查异常端口<a class="headerlink" href="#13_1" title="Permanent link">&para;</a></h4>
+<p>使用netstat 网络连接命令，分析可疑端口、IP、PID</p>
+<div class="highlight"><pre><span></span><code>netstat -antlp|more
+
+查看下pid所对应的进程文件路径，
+运行ls -l /proc/$PID/exe或file /proc/$PID/exe（$PID 为对应的pid 号）
+</code></pre></div>
+<h4 id="14_1">1.4 检查异常进程<a class="headerlink" href="#14_1" title="Permanent link">&para;</a></h4>
+<p>使用ps命令，分析进程</p>
+<div class="highlight"><pre><span></span><code>ps aux | grep pid
+</code></pre></div>
+<h4 id="15_1">1.5 检查开机启动项<a class="headerlink" href="#15_1" title="Permanent link">&para;</a></h4>
+<p><strong>基本使用：</strong></p>
+<p>系统运行级别示意图：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运行级别</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="center">关机</td>
+</tr>
+<tr>
+<td align="center">1</td>
+<td align="center">单用户模式，可以想象为windows的安全模式，主要用于系统修复</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">不完全的命令行模式，不含NFS服务</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">完全的命令行模式，就是标准字符界面</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">系统保留</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">图形模式</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">重启动</td>
+</tr>
+</tbody>
+</table>
+<p>查看运行级别命令 runlevel</p>
+<p>系统默认允许级别</p>
+<div class="highlight"><pre><span></span><code>vi  /etc/inittab
+id=3：initdefault  系统开机后直接进入哪个运行级别
+</code></pre></div>
+<p>开机启动配置文件</p>
+<div class="highlight"><pre><span></span><code>/etc/rc.local
+/etc/rc.d/rc[0~6].d
+</code></pre></div>
+<p>例子:当我们需要开机启动自己的脚本时，只需要将可执行脚本丢在/etc/init.d目录下，然后在/etc/rc.d/rc*.d中建立软链接即可</p>
+<div class="highlight"><pre><span></span><code>root@localhost ~]# ln -s /etc/init.d/sshd /etc/rc.d/rc3.d/S100ssh
+</code></pre></div>
+<p>此处sshd是具体服务的脚本文件，S100ssh是其软链接，S开头代表加载时自启动；如果是K开头的脚本文件，代表运行级别加载时需要关闭的。</p>
+<p><strong>入侵排查：</strong></p>
+<p>启动项文件： more /etc/rc.local /etc/rc.d/rc[0~6].d ls -l /etc/rc.d/rc3.d/</p>
+<h4 id="16_1">1.6 检查定时任务<a class="headerlink" href="#16_1" title="Permanent link">&para;</a></h4>
+<p><strong>基本使用</strong></p>
+<p>1、利用crontab创建计划任务</p>
+<ul>
+<li>基本命令</li>
+</ul>
+<p>crontab -l 列出某个用户cron服务的详细内容</p>
+<p>Tips：默认编写的crontab文件会保存在 (/var/spool/cron/用户名 例如: /var/spool/cron/root</p>
+<p>crontab -r 删除每个用户cront任务(谨慎：删除所有的计划任务)</p>
+<p>crontab -e 使用编辑器编辑当前的crontab文件</p>
+<p>如：<em>/1</em> * echo "hello world" &gt;&gt; /tmp/test.txt 每分钟写入文件</p>
+<p>2、利用anacron实现异步定时任务调度</p>
+<ul>
+<li>使用案例</li>
+</ul>
+<p>每天运行 /home/backup.sh脚本： vi /etc/anacrontab @daily 10 example.daily /bin/bash /home/backup.sh</p>
+<p>当机器在 backup.sh 期望被运行时是关机的，anacron会在机器开机十分钟之后运行它，而不用再等待 7天。</p>
+<p><strong>入侵排查</strong></p>
+<p>重点关注以下目录中是否存在恶意脚本</p>
+<div class="highlight"><pre><span></span><code>/var/spool/cron/* 
+/etc/crontab
+/etc/cron.d/*
+/etc/cron.daily/* 
+/etc/cron.hourly/* 
+/etc/cron.monthly/*
+/etc/cron.weekly/
+/etc/anacrontab
+/var/spool/anacron/*
+</code></pre></div>
+<p>小技巧：</p>
+<div class="highlight"><pre><span></span><code> more /etc/cron.daily/*  查看目录下所有文件
+</code></pre></div>
+<h4 id="17">1.7 检查服务<a class="headerlink" href="#17" title="Permanent link">&para;</a></h4>
+<p><strong>服务自启动</strong></p>
+<p>第一种修改方法：</p>
+<div class="highlight"><pre><span></span><code>chkconfig [--level 运行级别] [独立服务名] [on|off]
+chkconfig –level  2345 httpd on  开启自启动
+chkconfig httpd on （默认level是2345）
+</code></pre></div>
+<p>第二种修改方法：</p>
+<div class="highlight"><pre><span></span><code>修改/etc/re.d/rc.local 文件  
+加入 /etc/init.d/httpd start
+</code></pre></div>
+<p>第三种修改方法：</p>
+<p>使用ntsysv命令管理自启动，可以管理独立服务和xinetd服务。</p>
+<p><strong>入侵排查</strong></p>
+<p>1、查询已安装的服务：</p>
+<p>RPM包安装的服务</p>
+<div class="highlight"><pre><span></span><code>chkconfig  --list  查看服务自启动状态，可以看到所有的RPM包安装的服务
+ps aux | grep crond 查看当前服务
+
+系统在3与5级别下的启动项 
+中文环境
+chkconfig --list | grep &quot;3:启用\|5:启用&quot;
+英文环境
+chkconfig --list | grep &quot;3:on\|5:on&quot;
+</code></pre></div>
+<p>源码包安装的服务</p>
+<div class="highlight"><pre><span></span><code>查看服务安装位置 ，一般是在/user/local/
+service httpd start
+搜索/etc/rc.d/init.d/  查看是否存在
+</code></pre></div>
+<h4 id="18">1.8 检查异常文件<a class="headerlink" href="#18" title="Permanent link">&para;</a></h4>
+<p>1、查看敏感目录，如/tmp目录下的文件，同时注意隐藏文件夹，以“..”为名的文件夹具有隐藏属性</p>
+<p>2、得到发现WEBSHELL、远控木马的创建时间，如何找出同一时间范围内创建的文件？</p>
+<p>可以使用find命令来查找，如 find /opt -iname "*" -atime 1 -type f 找出 /opt 下一天前访问过的文件</p>
+<p>3、针对可疑文件可以使用stat进行创建修改时间。</p>
+<h4 id="19">1.9 检查系统日志<a class="headerlink" href="#19" title="Permanent link">&para;</a></h4>
+<p>日志默认存放位置：/var/log/</p>
+<p>查看日志配置情况：more /etc/rsyslog.conf</p>
+<table>
+<thead>
+<tr>
+<th align="center">日志文件</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">/var/log/cron</td>
+<td align="center">记录了系统定时任务相关的日志</td>
+</tr>
+<tr>
+<td align="center">/var/log/cups</td>
+<td align="center">记录打印信息的日志</td>
+</tr>
+<tr>
+<td align="center">/var/log/dmesg</td>
+<td align="center">记录了系统在开机时内核自检的信息，也可以使用dmesg命令直接查看内核自检信息</td>
+</tr>
+<tr>
+<td align="center">/var/log/mailog</td>
+<td align="center">记录邮件信息</td>
+</tr>
+<tr>
+<td align="center">/var/log/message</td>
+<td align="center">记录系统重要信息的日志。这个日志文件中会记录Linux系统的绝大多数重要信息，如果系统出现问题时，首先要检查的就应该是这个日志文件</td>
+</tr>
+<tr>
+<td align="center">/var/log/btmp</td>
+<td align="center">记录错误登录日志，这个文件是二进制文件，不能直接vi查看，而要使用lastb命令查看</td>
+</tr>
+<tr>
+<td align="center">/var/log/lastlog</td>
+<td align="center">记录系统中所有用户最后一次登录时间的日志，这个文件是二进制文件，不能直接vi，而要使用lastlog命令查看</td>
+</tr>
+<tr>
+<td align="center">/var/log/wtmp</td>
+<td align="center">永久记录所有用户的登录、注销信息，同时记录系统的启动、重启、关机事件。同样这个文件也是一个二进制文件，不能直接vi，而需要使用last命令来查看</td>
+</tr>
+<tr>
+<td align="center">/var/log/utmp</td>
+<td align="center">记录当前已经登录的用户信息，这个文件会随着用户的登录和注销不断变化，只记录当前登录用户的信息。同样这个文件不能直接vi，而要使用w,who,users等命令来查询</td>
+</tr>
+<tr>
+<td align="center">/var/log/secure</td>
+<td align="center">记录验证和授权方面的信息，只要涉及账号和密码的程序都会记录，比如SSH登录，su切换用户，sudo授权，甚至添加用户和修改用户密码都会记录在这个日志文件中</td>
+</tr>
+</tbody>
+</table>
+<p>日志分析技巧：</p>
+<div class="highlight"><pre><span></span><code>1、定位有多少IP在爆破主机的root帐号：    
+grep &quot;Failed password for root&quot; /var/log/secure | awk &#39;{print $11}&#39; | sort | uniq -c | sort -nr | more
+
+定位有哪些IP在爆破：
+grep &quot;Failed password&quot; /var/log/secure|grep -E -o &quot;(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)&quot;|uniq -c
+
+爆破用户名字典是什么？
+ grep &quot;Failed password&quot; /var/log/secure|perl -e &#39;while($_=&lt;&gt;){ /for(.*?) from/; print &quot;$1\n&quot;;}&#39;|uniq -c|sort -nr
+
+2、登录成功的IP有哪些：     
+grep &quot;Accepted &quot; /var/log/secure | awk &#39;{print $11}&#39; | sort | uniq -c | sort -nr | more
+
+登录成功的日期、用户名、IP：
+grep &quot;Accepted &quot; /var/log/secure | awk &#39;{print $1,$2,$3,$9,$11}&#39; 
+
+3、增加一个用户kali日志：
+Jul 10 00:12:15 localhost useradd[2382]: new group: name=kali, GID=1001
+Jul 10 00:12:15 localhost useradd[2382]: new user: name=kali, UID=1001, GID=1001, home=/home/kali
+, shell=/bin/bash
+Jul 10 00:12:58 localhost passwd: pam_unix(passwd:chauthtok): password changed for kali
+#grep &quot;useradd&quot; /var/log/secure 
+
+4、删除用户kali日志：
+Jul 10 00:14:17 localhost userdel[2393]: delete user &#39;kali&#39;
+Jul 10 00:14:17 localhost userdel[2393]: removed group &#39;kali&#39; owned by &#39;kali&#39;
+Jul 10 00:14:17 localhost userdel[2393]: removed shadow group &#39;kali&#39; owned by &#39;kali&#39;
+# grep &quot;userdel&quot; /var/log/secure
+
+5、su切换用户：
+Jul 10 00:38:13 localhost su: pam_unix(su-l:session): session opened for user good by root(uid=0)
+
+sudo授权执行:
+sudo -l
+Jul 10 00:43:09 localhost sudo:    good : TTY=pts/4 ; PWD=/home/good ; USER=root ; COMMAND=/sbin/shutdown -r now
+</code></pre></div>
+<h3 id="0x02_1">0x02 工具篇<a class="headerlink" href="#0x02_1" title="Permanent link">&para;</a></h3>
+<h4 id="21-rootkit">2.1 Rootkit查杀<a class="headerlink" href="#21-rootkit" title="Permanent link">&para;</a></h4>
+<ul>
+<li>chkrootkit</li>
+</ul>
+<p>网址：<a href="http://www.chkrootkit.org/">http://www.chkrootkit.org</a></p>
+<div class="highlight"><pre><span></span><code>使用方法：
+wget ftp://ftp.pangeia.com.br/pub/seg/pac/chkrootkit.tar.gz
+tar zxvf chkrootkit.tar.gz
+cd chkrootkit-0.52
+make sense
+#编译完成没有报错的话执行检查
+./chkrootkit
+</code></pre></div>
+<ul>
+<li>rkhunter</li>
+</ul>
+<p>网址：<a href="http://rkhunter.sourceforge.net/">http://rkhunter.sourceforge.net</a></p>
+<div class="highlight"><pre><span></span><code>使用方法：
+Wget https://nchc.dl.sourceforge.net/project/rkhunter/rkhunter/1.4.4/rkhunter-1.4.4.tar.gz
+tar -zxvf rkhunter-1.4.4.tar.gz
+cd rkhunter-1.4.4
+./installer.sh --install
+rkhunter -c
+</code></pre></div>
+<h4 id="22_1">2.2 病毒查杀<a class="headerlink" href="#22_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Clamav</li>
+</ul>
+<p>ClamAV的官方下载地址为：<a href="http://www.clamav.net/download.html">http://www.clamav.net/download.html</a></p>
+<p>安装方式一：</p>
+<div class="highlight"><pre><span></span><code>1、安装zlib：
+wget http://nchc.dl.sourceforge.net/project/libpng/zlib/1.2.7/zlib-1.2.7.tar.gz 
+tar -zxvf  zlib-1.2.7.tar.gz
+cd zlib-1.2.7
+#安装一下gcc编译环境： yum install gcc
+CFLAGS=&quot;-O3 -fPIC&quot; ./configure --prefix= /usr/local/zlib/
+make &amp;&amp; make install
+
+2、添加用户组clamav和组成员clamav：
+groupadd clamav
+useradd -g clamav -s /bin/false -c &quot;Clam AntiVirus&quot; clamav
+
+3、安装Clamav
+tar –zxvf clamav-0.97.6.tar.gz
+cd clamav-0.97.6
+./configure --prefix=/opt/clamav --disable-clamav -with-zlib=/usr/local/zlib
+make
+make install
+
+4、配置Clamav
+mkdir /opt/clamav/logs
+mkdir /opt/clamav/updata
+touch /opt/clamav/logs/freshclam.log
+touch /opt/clamav/logs/clamd.log
+cd /opt/clamav/logs
+chown clamav:clamav clamd.log
+chown clamav:clamav freshclam.log
+
+5、ClamAV 使用：
+ /opt/clamav/bin/freshclam 升级病毒库
+./clamscan –h 查看相应的帮助信息
+./clamscan -r /home  扫描所有用户的主目录就使用
+./clamscan -r --bell -i /bin  扫描bin目录并且显示有问题的文件的扫描结果
+</code></pre></div>
+<p>安装方式二：</p>
+<div class="highlight"><pre><span></span><code>#安装
+yum install -y clamav
+#更新病毒库
+freshclam
+#扫描方法
+clamscan -r /etc --max-dir-recursion=5 -l /root/etcclamav.log
+clamscan -r /bin --max-dir-recursion=5 -l /root/binclamav.log
+clamscan -r /usr --max-dir-recursion=5 -l /root/usrclamav.log
+#扫描并杀毒
+clamscan -r  --remove  /usr/bin/bsd-port
+clamscan -r  --remove  /usr/bin/
+clamscan -r --remove  /usr/local/zabbix/sbin
+#查看日志发现
+cat /root/usrclamav.log |grep FOUND
+</code></pre></div>
+<h4 id="23-webshell">2.3 webshell查杀<a class="headerlink" href="#23-webshell" title="Permanent link">&para;</a></h4>
+<p>linux版：</p>
+<div class="highlight"><pre><span></span><code>河马webshell查杀：http://www.shellpub.com
+深信服Webshell网站后门检测工具：http://edr.sangfor.com.cn/backdoor_detection.html
+</code></pre></div>
+<h4 id="24-rpm-check">2.4 RPM check检查<a class="headerlink" href="#24-rpm-check" title="Permanent link">&para;</a></h4>
+<p>系统完整性可以通过rpm自带的-Va来校验检查所有的rpm软件包，查看哪些命令是否被替换了：</p>
+<div class="highlight"><pre><span></span><code>./rpm -Va &gt; rpm.log
+</code></pre></div>
+<p>如果一切均校验正常将不会产生任何输出，如果有不一致的地方，就会显示出来，输出格式是8位长字符串，每个字符都用以表示文件与RPM数据库中一种属性的比较结果 ，如果是. (点) 则表示测试通过。</p>
+<div class="highlight"><pre><span></span><code>验证内容中的8个信息的具体内容如下：
+        S         文件大小是否改变
+        M         文件的类型或文件的权限（rwx）是否被改变
+        5         文件MD5校验是否改变（可以看成文件内容是否改变）
+        D         设备中，从代码是否改变
+        L         文件路径是否改变
+        U         文件的属主（所有者）是否改变
+        G         文件的属组是否改变
+        T         文件的修改时间是否改变
+</code></pre></div>
+<p>如果命令被替换了，如果还原回来：</p>
+<div class="highlight"><pre><span></span><code>文件提取还原案例：
+rpm  -qf /bin/ls  查询ls命令属于哪个软件包
+mv  /bin/ls /tmp  先把ls转移到tmp目录下，造成ls命令丢失的假象
+rpm2cpio /mnt/cdrom/Packages/coreutils-8.4-19.el6.i686.rpm | cpio -idv ./bin/ls 提取rpm包中ls命令到当前目录的/bin/ls下
+cp /root/bin/ls  /bin/ 把ls命令复制到/bin/目录 修复文件丢失
+</code></pre></div>
+<h4 id="25-linux">2.5 linux安全检查脚本<a class="headerlink" href="#25-linux" title="Permanent link">&para;</a></h4>
+<p>Github项目地址：</p>
+<p><a href="https://github.com/grayddq/GScan">https://github.com/grayddq/GScan</a></p>
+<p><a href="https://github.com/ppabc/security_check">https://github.com/ppabc/security_check</a></p>
+<p><a href="https://github.com/T0xst/linux">https://github.com/T0xst/linux</a></p>
+<p><strong>尽信书不如无书，工具只是辅助，别太过于依赖，关键在于你如何解决问题的思路。</strong></p>
+<h2 id="3webshell"><a href="https://bypass007.github.io/Emergency-Response-Notes/Summary/第3篇：常见的Webshell查杀工具.html">第3篇：常见的Webshell查杀工具</a><a class="headerlink" href="#3webshell" title="Permanent link">&para;</a></h2>
+<p>当网站服务器被入侵时，我们需要一款Webshell检测工具，来帮助我们发现webshell，进一步排查系统可能存在的安全漏洞。</p>
+<p>本文推荐了10款Webshll检测工具，用于网站入侵排查。当然，目前市场上的很多主机安全产品也都提供这种WebShell检测能力，比如阿里云、青藤云、safedog等，本文暂不讨论。</p>
+<hr />
+<p><strong>1、D盾_Web查杀</strong></p>
+<p>阿D出品，使用自行研发不分扩展名的代码分析引擎，能分析更为隐藏的WebShell后门行为。</p>
+<p>兼容性：只提供Windows版本。</p>
+<p>工具下载地址：<a href="http://www.d99net.net/down/WebShellKill_V2.0.9.zip">http://www.d99net.net/down/WebShellKill_V2.0.9.zip</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-1.png" /></p>
+<p><strong>2、百度WEBDIR+</strong></p>
+<p>下一代WebShell检测引擎，采用先进的动态监测技术，结合多种引擎零规则查杀。</p>
+<p>兼容性：提供在线查杀木马，免费开放API支持批量检测。</p>
+<p>在线查杀地址：<a href="https://scanner.baidu.com/">https://scanner.baidu.com/</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-2.png" /></p>
+<p><strong>3、河马</strong></p>
+<p>专注webshell查杀研究，拥有海量webshell样本和自主查杀技术，采用传统特征+云端大数据双引擎的查杀技术。查杀速度快、精度高、误报低。</p>
+<p>兼容性：支持Windows、linux，支持在线查杀。</p>
+<p>官方网站：<a href="https://www.shellpub.com/">https://www.shellpub.com/</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-3.png" /></p>
+<p><strong>4、Web Shell Detector</strong></p>
+<p>Webshell Detector具有“ Webshell”签名数据库，可帮助识别高达99％的“ Webshell”。</p>
+<p>兼容性：提供php/python脚本，可跨平台，在线检测。</p>
+<p>官方网站：<a href="http://www.shelldetector.com/">http://www.shelldetector.com/</a></p>
+<p>github项目地址：<a href="https://github.com/emposha/PHP-Shell-Detector">https://github.com/emposha/PHP-Shell-Detector</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-4.png" /></p>
+<p><strong>5、CloudWalker（牧云）</strong></p>
+<p>一个可执行的命令行版本 Webshell 检测工具。目前，项目已停止更新。</p>
+<p>兼容性，提供linux版本，Windows 暂不支持。</p>
+<p>在线查杀demo：<a href="https://webshellchop.chaitin.cn/">https://webshellchop.chaitin.cn/</a></p>
+<p>github项目地址：<a href="https://github.com/chaitin/cloudwalker">https://github.com/chaitin/cloudwalker</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-5.png" /></p>
+<p><strong>6、Sangfor WebShellKill</strong></p>
+<p>Sangfor WebShellKill(网站后门检测工具)是一款web后门专杀工具，不仅支持webshell的扫描，同时还支持暗链的扫描。是一款融合了多重检测引擎的查杀工具。能更精准地检测出WEB网站已知和未知的后门文件。</p>
+<p>兼容性：支持Windows、linux</p>
+<p>工具下载地址：<a href="http://edr.sangfor.com.cn/backdoor_detection.html">http://edr.sangfor.com.cn/backdoor_detection.html</a>（已停止访问）</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-6.png" /></p>
+<p><strong>7、深度学习模型检测PHP Webshell</strong></p>
+<p>一个深度学习PHP webshell查杀引擎demo，提供在线样本检测。</p>
+<p>在线查杀地址：<a href="http://webshell.cdxy.me/">http://webshell.cdxy.me/</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-7.png" /></p>
+<p><strong>8、PHP Malware Finder</strong></p>
+<p>PHP-malware-finder 是一款优秀的检测webshell和恶意软件混淆代码的工具</p>
+<p>兼容性：提供linux版本，Windows 暂不支持。</p>
+<p>github项目地址：<a href="https://github.com/jvoisin/php-malware-finder">https://github.com/jvoisin/php-malware-finder</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-8.png" /></p>
+<p><strong>9、findWebshell</strong></p>
+<p>这个项目是一款基于python开发的webshell检查工具，可以根据特征码匹配检查任意类型的webshell后门。</p>
+<p>github项目地址：<a href="https://github.com/he1m4n6a/findWebshell">https://github.com/he1m4n6a/findWebshell</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-9.png" /></p>
+<p><strong>10、在线webshell查杀工具</strong></p>
+<p>在线查杀地址：<a href="http://tools.bugscaner.com/killwebshell/">http://tools.bugscaner.com/killwebshell/</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200407-10.png" /></p>
+<h2 id="4webshell"><a href="https://bypass007.github.io/Emergency-Response-Notes/Summary/第4篇：如何发现隐藏的Webshell后门.html">第4篇：如何发现隐藏的Webshell后门</a><a class="headerlink" href="#4webshell" title="Permanent link">&para;</a></h2>
+<p>试想一下，如果你的网站被入侵，攻击者留下隐藏的后门，你真的都可以找出来嘛？面对一个大中型的应用系统，数以百万级的代码行，是不可能做到每个文件每段代码进行手工检查的。</p>
+<p>即使是一款拥有99.9%的Webshell检出率的检测引擎，依然可能存在Webshell绕过的情况。另外，像暗链、网页劫持、页面跳转等常见的黑帽SEO手法，也很难通过手动检测或工具检测全部识别出来。</p>
+<p>最好的方式就是做文件完整性验证。通过与原始代码对比，可以快速发现文件是否被篡改以及被篡改的位置。当然，第一个前提是，你所在的团队已具备代码版本管理的能力，如果你是个人站长，相信你已经备份了原始代码。</p>
+<p>本文将结合实际应用，介绍几种文件完整性验证方式，可以帮助你找出代码中所有隐藏的后门。</p>
+<hr />
+<p><strong>1、文件MD5校验</strong></p>
+<p>下载D盾_Web查杀工具的时候，我们可以留意到下载的压缩包里，除了有一个exe可执行文件，还有一个文件md5值。这个是软件作者在发布软件时，通过md5算法计算出该exe文件的“特征值”。</p>
+<div class="highlight"><pre><span></span><code>下载地址：http://www.d99net.net/down/WebShellKill_V2.0.9.zip
+文件MD5：29285decadbce3918a4f8429ec33df46   WebShellKill.exe
+</code></pre></div>
+<p>当用户下载软件时，可以使用相同的校验算法计算下载到exe文件的特征值，并与软件开发者发布的特征值比较。如果两个特征值相同，则认为下载到的exe文件是正确的。如果两个特征值不同，则认为下载到exe文件是被篡改过的。</p>
+<p>那同理可得，我们可以将所有网站文件计算一次hash值保存，当出现应急情况时，重新计算一次hash值，并与上次保存的hash值进行对比，从而输出新创建的、修改过及删除的文件列表。</p>
+<p>文件hash值计算：</p>
+<div class="highlight"><pre><span></span><code>def md5sum(file):
+    m=hashlib.md5()
+    if os.path.isfile(file):
+        f=open(file,&#39;rb&#39;)
+        for line in f:
+            m.update(line)
+        f.close
+    else:
+        m.update(file)
+    return (m.hexdigest())
+</code></pre></div>
+<p>对文件进行哈希值重新计算，进行校验对比，测试效果：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-1.png" /></p>
+<p>如上图，在上传目录新增了一个evil.php文件，还有一个被篡改的文件是low.php。使用常见的编辑器NotePad++进行对比，可以发现low.php文件里被插入了一句话webshell。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-2.png" /></p>
+<p><strong>2、diff命令</strong></p>
+<p>在linux中，我们经常使用diff来比较两个文本文件的差异。同样，我们可以通过一行命令快速找出两个项目文件的差异。</p>
+<div class="highlight"><pre><span></span><code>diff -c -a -r cms1 cms2
+</code></pre></div>
+<p>如下图所示，前三行列出了两个要对比的文件目录的差异，可以发现low.php文件被篡改过，篡改的内容是<code>@eval($_POST['g']);</code>。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-3.png" /></p>
+<p>备注：如果只是想查看两个文件是否不同又不想显示差异之处的话，可以加上－q选项。</p>
+<p><strong>3、版本控制工具</strong></p>
+<p>版本控制工具，比如说git，重新上传代码到git，add+commit+push，然后打开项目，点击commits，在历史提交版本里面，查看文件更改内容，很容易就可以发现代码被篡改的地方了。</p>
+<p>另外，也可以通过git diff 用来比较文件之间的不同。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-4.png" /></p>
+<p><strong>4、文件对比工具</strong></p>
+<p>关键词：代码对比工具，你会找到很多好用的工具，这里我们推荐两款效果还不错的工具，Beyond Compare和WinMerge。</p>
+<p><strong>Beyond Compare</strong></p>
+<p>Beyond Compare是一套由Scooter Software推出的文件比较工具。主要用途是对比两个文件夹或者文件，并将差异以颜色标示，比较范围包括目录，文档内容等。</p>
+<p>下载地址：<a href="http://www.scootersoftware.com/download.php">http://www.scootersoftware.com/download.php</a></p>
+<p>软件使用示例，通过文件夹比较，找出文件夹中的差异内容。</p>
+<p>1、双击Beyond Compare ，打开软件主页，选择文件夹比较。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-5.png" /></p>
+<p>2、在双边栏输入文件夹路径，点击显示差别，列出差异部分的内容，紫色部分为新增文件，红色部分为篡改文件。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-6.png" /></p>
+<p>3、双击具体文件，进入代码对比，找到代码差异部分。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-7.png" /></p>
+<p><strong>WinMerge</strong></p>
+<p>WinMerge是一款运行于Windows系统下的文件比较和合并工具，使用它可以非常方便地比较文件夹和文件，以易于理解的可视文本格式显示差异。</p>
+<p>下载地址：<a href="https://winmerge.org/downloads/">https://winmerge.org/downloads/</a></p>
+<p>1、文件--打开，选择文件或文件夹，然后点击进行比较。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-8.png" /></p>
+<p>2、在同一个界面里，通过颜色和文本提示，显示文件夹内容差异。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200411-9.png" /></p>
+<h2 id="5"><a href="https://bypass007.github.io/Emergency-Response-Notes/Summary/第5篇：勒索病毒自救指南.html">第5篇：勒索病毒自救指南</a><a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>经常会有一些小伙伴问：中了勒索病毒，该怎么办，可以解密吗？</p>
+<p>第一次遇到勒索病毒是在早几年的时候，客户因网站访问异常，进而远程协助进行排查。登录服务器，在站点目录下发现所有的脚本文件及附件后缀名被篡改，每个文件夹下都有一个文件打开后显示勒索提示信息，这便是勒索病毒的特征。</p>
+<p>出于职业习惯，我打包了部分加密文件样本和勒索病毒提示信息用于留档，就在今天，我又重新上传了样本，至今依然无法解密。</p>
+<p>作为一个安全工程师，而非一个专业的病毒分析师，我们可以借助各大安全公司的能力，寻找勒索病毒的解密工具。</p>
+<p>本文整理了一份勒索病毒自救指南，通过勒索病毒索引引擎查找勒索病毒相关信息，再通过各个安全公司提供的免费勒索软件解密工具解密。当然，能否解密全凭运气，so，平时还是勤打补丁多备份。</p>
+<p><strong>勒索病毒搜索引擎</strong></p>
+<p>在勒索病毒搜索引擎输入病毒名、勒索邮箱、被加密后文件的后缀名，或直接上传被加密文件、勒索提示信息，即可可快速查找到病毒详情和解密工具。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/Summary/image/20200406-1.png" /></p>
+<p>这些网站的解密能力还在持续更新中，是值得收藏的几个勒索病毒工具型网站。</p>
+<p>【360】 勒索病毒搜索引擎，支持检索超过800种常见勒索病毒，</p>
+<div class="highlight"><pre><span></span><code>http://lesuobingdu.360.cn
+</code></pre></div>
+<p>【腾讯】 勒索病毒搜索引擎，支持检索超过 300 种常见勒索病毒</p>
+<div class="highlight"><pre><span></span><code>https://guanjia.qq.com/pr/ls/
+</code></pre></div>
+<p>【启明】VenusEye勒索病毒搜索引擎，超300种勒索病毒家族</p>
+<div class="highlight"><pre><span></span><code>https://lesuo.venuseye.com.cn/
+</code></pre></div>
+<p>【奇安信】勒索病毒搜索引擎</p>
+<div class="highlight"><pre><span></span><code>https://lesuobingdu.qianxin.com/
+</code></pre></div>
+<p>【深信服】勒索病毒搜索引擎</p>
+<div class="highlight"><pre><span></span><code>https://edr.sangfor.com.cn/#/information/ransom_search
+</code></pre></div>
+<hr />
+<p><strong>勒索软件解密工具集</strong></p>
+<p>很多安全公司都提供了免费的勒索病毒解密工具下载，收集和整理相关下载地址，可以帮助我们了解和获取最新的勒索病毒解密工具。</p>
+<p>【腾讯哈勃】勒索软件专杀工具</p>
+<div class="highlight"><pre><span></span><code>https://habo.qq.com/tool/index
+</code></pre></div>
+<p>【金山毒霸】勒索病毒免疫工具</p>
+<div class="highlight"><pre><span></span><code>http://www.duba.net/dbt/wannacry.html
+</code></pre></div>
+<p>【火绒】安全工具下载</p>
+<div class="highlight"><pre><span></span><code>http://bbs.huorong.cn/forum-55-1.html
+</code></pre></div>
+<p>【瑞星】解密工具下载</p>
+<div class="highlight"><pre><span></span><code>http://it.rising.com.cn/fanglesuo/index.html
+</code></pre></div>
+<p>【nomoreransom】勒索软件解密工具集</p>
+<div class="highlight"><pre><span></span><code>https://www.nomoreransom.org/zh/index.html
+</code></pre></div>
+<p>【MalwareHunterTeam】勒索软件解密工具集</p>
+<div class="highlight"><pre><span></span><code>https://id-ransomware.malwarehunterteam.com/
+</code></pre></div>
+<p>【卡巴斯基】免费勒索解密器</p>
+<div class="highlight"><pre><span></span><code>https://noransom.kaspersky.com/
+</code></pre></div>
+<p>【Avast】免费勒索软件解密工具</p>
+<div class="highlight"><pre><span></span><code>https://www.avast.com/zh-cn/ransomware-decryption-tools
+</code></pre></div>
+<p>【Emsisoft】免费勒索软件解密工具</p>
+<div class="highlight"><pre><span></span><code>https://www.emsisoft.com/ransomware-decryption-tools/free-download
+</code></pre></div>
+<p>【Github项目】勒索病毒解密工具收集汇总</p>
+<div class="highlight"><pre><span></span><code>https://github.com/jiansiting/Decryption-Tools
+</code></pre></div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-05 21:07:01</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 目录" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              目录
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-footer__link md-footer__link--next" aria-label="下一页: 日志分析" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              日志分析
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2022
+    </div>
+  
+  <a >keep learning ，stay foolish ，continue thinking</a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/klsfct" target="_blank" rel="noopener" title="圆周 on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>
