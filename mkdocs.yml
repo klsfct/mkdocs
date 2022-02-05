@@ -1,0 +1,150 @@
+site_name: klsfct Docs
+
+
+
+
+nav:
+  - 主页: 'index.md'
+  - 红队:
+    - 目录 : redteam/红队目录.md
+    - 信息收集   : redteam/信息收集.md
+    - 漏洞库     : redteam/漏洞库.md
+    - 溯源分析   : redteam/溯源分析.md
+    - 钓鱼      : redteam/钓鱼.md
+    - 信息收集   : redteam/信息收集.md
+    - 信息收集   : redteam/信息收集.md
+    - Styling your docs: blueteam/styling-your-docs.md
+
+  - 蓝队: 
+    - 目录       : blueteam/蓝队目录.md
+    - 信息收集   : redteam/信息收集.md
+    - 漏洞库     : blueteam/漏洞库.md
+    - 信息收集2   : 'redteam/信息收集.md'
+    - 信息收集   : redteam/信息收集.md
+  - About:
+    #- License: 'about/license.md'
+    - about me: 'about/aboutme.md'
+
+
+
+#主题
+theme:
+  name: 'material'  #传统空白格式，上无分栏，左侧分栏
+ # name: 'readthedocs' #gitbook模式
+ # name: 'mkdocs'  #传统空白格式
+  #name: 'custommill'
+  highlightjs: true
+  palette:
+        primary: "black"
+        accent: "deep orange"
+  language: "zh"
+
+  logo: 'images/logo.jpg'
+  #特性
+  features:
+    - navigation.instant #当即时加载启用
+    - navigation.tracking #启用锚定跟踪
+    - navigation.tabs #选项卡启用
+    #- navigation.tabs.sticky #启用粘贴标签时，导航标签将锁定在标题下方，并且在向下滚动时始终保持可见
+    - navigation.sections #配合可为二级目录，部分被启用时，顶层部分在侧边栏中以组的形式呈现在1220px 以上的视图端口中，但是在移动设备上保持不变
+    - navigation.expand #边栏不自动折叠
+    - navigation.indexes #启用节索引页面时，文档可以直接附加到节中，这对于提供概述页面特别有用
+    - navigation.top #返回到顶部的按钮
+    - header.autohide #启用自动隐藏时，当用户滚动超过某个阈值时，标头将自动隐藏
+
+
+  extra:
+    social:
+      - type: 'github'
+        link: 'https://github.com/squidfunk'
+      - type: 'twitter'
+        link: 'https://twitter.com/squidfunk'
+      - type: 'linkedin'
+        link: 'https://www.linkedin.com/in/squidfunk'
+
+#额外
+
+# extra:
+#   social:
+#     - type: 'github'
+#       link: 'https://github.com/squidfunk'
+#     - type: 'twitter'
+#       link: 'https://twitter.com/squidfunk'
+#     - type: 'linkedin'
+#       link: 'https://www.linkedin.com/in/squidfunk'
+
+#插件专用和
+plugins:
+  - search
+  - git-revision-date-localized:  # 在文档最后，添加 markdown 的最后修改时间 https://squidfunk.github.io/mkdocs-material/plugins/revision-date/
+      type: iso_datetime
+  #- tags : #增加页面标签https://github.com/jldiaz/mkdocs-plugin-tags
+   
+   #   folder: tags
+   #   filename: tags.md
+     
+#markdown
+markdown_extensions: 
+  - admonition # 支持 markdown 文档的 notify 等样式 https://squidfunk.github.io/mkdocs-material/extensions/admonition/#bug
+  - codehilite: # 给 markdown 的代码得数着色，https://squidfunk.github.io/mkdocs-material/extensions/codehilite/
+      guess_lang: false
+      linenums: false
+  - toc: # 给 markdown 标题，加上锚点 https://squidfunk.github.io/mkdocs-material/extensions/permalinks/
+      permalink: true
+
+  - footnotes
+  - meta
+  - def_list
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_png
+      #emoji_generator: !!python/name:pymdownx.emoji.to_svg
+      #emoji_generator: !!python/name:pymdownx.emoji.to_png_sprite
+      #emoji_generator: !!python/name:pymdownx.emoji.to_svg_sprite
+      #emoji_generator: !!python/name:pymdownx.emoji.to_awesome
+      #emoji_generator: !!python/name:pymdownx.emoji.to_alt
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist
+  - pymdownx.tilde
+
+
+  - admonition  # 提示块
+  - footnotes  # 脚注
+  - meta  # 定义元数据，通过文章上下文控制，如disqus
+  - pymdownx.caret  # 下划线上标
+  - pymdownx.tilde  # 删除线下标
+  - pymdownx.critic  # 增加删除修改高亮注释，可修饰行内或段落
+  - pymdownx.details  # 提示块可折叠
+  - pymdownx.inlinehilite  # 行内代码高亮
+  - pymdownx.mark  # 文本高亮
+  - pymdownx.smartsymbols  # 符号转换
+  - pymdownx.superfences  # 代码嵌套在列表里
+  - codehilite:    # 代码高亮，显示行号
+      guess_lang: false
+      linenums: true
+  - toc:  # 锚点
+      permalink: true
+#  - pymdownx.arithmatex  # 数学公式
+  - pymdownx.betterem:  # 对加粗和斜体更好的检测
+      smart_enable: all
+#  - pymdownx.emoji:  # 表情
+#      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+#  - pymdownx.magiclink  # 自动识别超链接
+  - pymdownx.tasklist:  # 复选框checklist
+      custom_checkbox: true
+
+#js插件百度统计
+extra_javascript:
+    - 'js/baidu-tongji.js'
+
+extra_css:
+  - js/stylesheets/extra.css
