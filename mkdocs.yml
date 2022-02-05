@@ -11,16 +11,17 @@ nav:
     - 漏洞库     : redteam/漏洞库.md
     - 溯源分析   : redteam/溯源分析.md
     - 钓鱼      : redteam/钓鱼.md
-    - 信息收集3   : redteam/信息收集.md
-    - 信息收集   : redteam/信息收集.md
-    - Styling your docs: blueteam/styling-your-docs.md
+#    - 信息收集3   : redteam/信息收集.md
+#    - 信息收集   : redteam/信息收集.md
+#    - Styling your docs: blueteam/styling-your-docs.md
 
   - 蓝队: 
     - 目录       : blueteam/蓝队目录.md
-    - 信息收集   : redteam/信息收集.md
-    - 漏洞库     : blueteam/漏洞库.md
-    - 信息收集2   : 'redteam/信息收集.md'
-    - 信息收集   : redteam/信息收集.md
+    - 应急响应   :  blueteam/应急响应.md
+    - 日志分析   : blueteam/日志分析.md
+    - window实战   : blueteam/window实战.md
+    - linux实战   : redteam/linux实战.md
+    - web实战   : redteam/web实战.md
   - About:
     #- License: 'about/license.md'
     - about me: 'about/aboutme.md'
@@ -52,26 +53,18 @@ theme:
     - navigation.top #返回到顶部的按钮
     - header.autohide #启用自动隐藏时，当用户滚动超过某个阈值时，标头将自动隐藏
 
+#额外配置
+extra:
+  social:
+    - icon: fontawesome/brands/github # (1)!
+      link: 'https://github.com/klsfct'
+      name: 圆周 on github
 
-  extra:
-    social:
-      - type: 'github'
-        link: 'https://github.com/squidfunk'
-      - type: 'twitter'
-        link: 'https://twitter.com/squidfunk'
-      - type: 'linkedin'
-        link: 'https://www.linkedin.com/in/squidfunk'
+  generator: false #是否显示怎么制作的
+##版权
+copyright: Copyright &copy; 2017 - 2022 
 
-#额外
 
-# extra:
-#   social:
-#     - type: 'github'
-#       link: 'https://github.com/squidfunk'
-#     - type: 'twitter'
-#       link: 'https://twitter.com/squidfunk'
-#     - type: 'linkedin'
-#       link: 'https://www.linkedin.com/in/squidfunk'
 
 #插件专用和
 plugins:
