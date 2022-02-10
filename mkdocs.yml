@@ -5,6 +5,17 @@ site_name: klsfct Docs
 
 nav:
   - 主页: 'index.md'
+  - 安全wiki: 
+    - 目录 : 安全wiki/目录.md
+    - 安全基础 : 安全wiki/安全基础.md
+    - web安全 : 安全wiki/Web安全.md
+    - 数据安全 : 安全wiki/数据安全.md
+    - cms安全 : 安全wiki/CMS安全.md
+    - 流量分析 : 安全wiki/流量分析.md
+    - 服务器、中间件安全 : 安全wiki/服务器、中间件安全.md
+    - 应急响应 : 安全wiki/应急响应.md
+    - 渗透测试 : 安全wiki/渗透测试.md
+
   - 红队:
     - 目录 : redteam/红队目录.md
     - 信息收集   : redteam/信息收集.md
