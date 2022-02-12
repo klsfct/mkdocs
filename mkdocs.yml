@@ -33,6 +33,13 @@ nav:
     - window实战   : blueteam/window实战.md
     - linux实战   : redteam/linux实战.md
     - web实战   : redteam/web实战.md
+
+#  - 挖洞相关 :
+#    -众测总结 : 挖洞相关/众测项目.md
+  - 挖洞相关: 
+    - 众测项目       : 挖洞相关/众测项目.md
+    - 思路方法  :  挖洞相关/众测项目.md
+
   - About:
     #- License: 'about/license.md'
     - about me: 'about/aboutme.md'

