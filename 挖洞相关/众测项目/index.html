@@ -1,0 +1,1947 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>思路方法 - klsfct Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            klsfct Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              思路方法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        安全wiki
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        红队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        蓝队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        挖洞相关
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/aboutme/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    klsfct Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          安全wiki
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安全wiki" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          安全wiki
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        安全基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/Web%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        web安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        数据安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/CMS%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        cms安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        流量分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        服务器、中间件安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        渗透测试
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          红队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="红队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          红队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
+        漏洞库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        溯源分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E9%92%93%E9%B1%BC/" class="md-nav__link">
+        钓鱼
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          蓝队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="蓝队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          蓝队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
+        日志分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/window实战.md" class="md-nav__link">
+        window实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/linux实战.md" class="md-nav__link">
+        linux实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/web实战.md" class="md-nav__link">
+        web实战
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          挖洞相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="挖洞相关" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          挖洞相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./" class="md-nav__link">
+        众测项目
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          思路方法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        思路方法
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    一、拦截框架下注入的过程拆解
+  </a>
+  
+    <nav class="md-nav" aria-label="一、拦截框架下注入的过程拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.数据库层面基础铺垫
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2waf" class="md-nav__link">
+    2.层层递进分析WAF求证据
+  </a>
+  
+    <nav class="md-nav" aria-label="2.层层递进分析WAF求证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waf" class="md-nav__link">
+    waf的原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waf_1" class="md-nav__link">
+    WAF关键技术
+  </a>
+  
+    <nav class="md-nav" aria-label="WAF关键技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waf_2" class="md-nav__link">
+    waf的识别
+  </a>
+  
+    <nav class="md-nav" aria-label="waf的识别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+    基于Cookie值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    基于HTTP响应
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    特定资源文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waf_3" class="md-nav__link">
+    全局过waf的几个思考点
+  </a>
+  
+    <nav class="md-nav" aria-label="全局过waf的几个思考点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-waf" class="md-nav__link">
+    1. 架构层绕过WAF
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 架构层绕过WAF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1寻找源站
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2利用同网段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3利用边界漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-waf" class="md-nav__link">
+    2. 资源限制角度绕过WAF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-waf" class="md-nav__link">
+    3 协议层面绕过WAF的检测
+  </a>
+  
+    <nav class="md-nav" aria-label="3 协议层面绕过WAF的检测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1协议覆盖不全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2协议解析不正确
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33web" class="md-nav__link">
+    3.3协议解析与后WEB容器的协议解析不一致
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 规则层面的绕过
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 规则层面的绕过">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-sql" class="md-nav__link">
+    4.1. SQL注入绕过
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2.文件包含
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.框架层的语句分析
+  </a>
+  
+    <nav class="md-nav" aria-label="3.框架层的语句分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jpql" class="md-nav__link">
+    基于jpql类型的绕过分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hibernate" class="md-nav__link">
+    基于Hibernate类型的绕过分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    二、基于三方调用框架分析利用
+  </a>
+  
+    <nav class="md-nav" aria-label="二、基于三方调用框架分析利用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webservice" class="md-nav__link">
+    WEBSERVICE接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dwr" class="md-nav__link">
+    DWR接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hessian" class="md-nav__link">
+    HESSIAN接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gwt" class="md-nav__link">
+    GWT接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessionexc" class="md-nav__link">
+    三、趣味的SESSION和EXC
+  </a>
+  
+    <nav class="md-nav" aria-label="三、趣味的SESSION和EXC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    SESSION污染
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xxeexcel" class="md-nav__link">
+    XXE在EXCEL中的应用场景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/aboutme/" class="md-nav__link">
+        about me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    一、拦截框架下注入的过程拆解
+  </a>
+  
+    <nav class="md-nav" aria-label="一、拦截框架下注入的过程拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.数据库层面基础铺垫
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2waf" class="md-nav__link">
+    2.层层递进分析WAF求证据
+  </a>
+  
+    <nav class="md-nav" aria-label="2.层层递进分析WAF求证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waf" class="md-nav__link">
+    waf的原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waf_1" class="md-nav__link">
+    WAF关键技术
+  </a>
+  
+    <nav class="md-nav" aria-label="WAF关键技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waf_2" class="md-nav__link">
+    waf的识别
+  </a>
+  
+    <nav class="md-nav" aria-label="waf的识别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+    基于Cookie值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    基于HTTP响应
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    特定资源文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waf_3" class="md-nav__link">
+    全局过waf的几个思考点
+  </a>
+  
+    <nav class="md-nav" aria-label="全局过waf的几个思考点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-waf" class="md-nav__link">
+    1. 架构层绕过WAF
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 架构层绕过WAF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1寻找源站
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2利用同网段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3利用边界漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-waf" class="md-nav__link">
+    2. 资源限制角度绕过WAF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-waf" class="md-nav__link">
+    3 协议层面绕过WAF的检测
+  </a>
+  
+    <nav class="md-nav" aria-label="3 协议层面绕过WAF的检测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1协议覆盖不全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2协议解析不正确
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33web" class="md-nav__link">
+    3.3协议解析与后WEB容器的协议解析不一致
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 规则层面的绕过
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 规则层面的绕过">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-sql" class="md-nav__link">
+    4.1. SQL注入绕过
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2.文件包含
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.框架层的语句分析
+  </a>
+  
+    <nav class="md-nav" aria-label="3.框架层的语句分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jpql" class="md-nav__link">
+    基于jpql类型的绕过分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hibernate" class="md-nav__link">
+    基于Hibernate类型的绕过分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    二、基于三方调用框架分析利用
+  </a>
+  
+    <nav class="md-nav" aria-label="二、基于三方调用框架分析利用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webservice" class="md-nav__link">
+    WEBSERVICE接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dwr" class="md-nav__link">
+    DWR接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hessian" class="md-nav__link">
+    HESSIAN接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gwt" class="md-nav__link">
+    GWT接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessionexc" class="md-nav__link">
+    三、趣味的SESSION和EXC
+  </a>
+  
+    <nav class="md-nav" aria-label="三、趣味的SESSION和EXC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    SESSION污染
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xxeexcel" class="md-nav__link">
+    XXE在EXCEL中的应用场景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>思路方法</h1>
+
+<h2 id="_1">前言<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>主要针对SRC和众测，探讨自己的方法</p>
+<p>怎么分析，怎么去绕，怎么去获取证据，等等</p>
+<h2 id="_2">一、拦截框架下注入的过程拆解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>越来越多的web系统，随着运维方安全意识的提高，网络设备的投入，
+以及安全编码规范的介入，漏洞的发现从过去的简单粗暴，到现在举步
+维艰，怎么去判断漏洞的存在，进而根据漏洞获取证据数据，这个是个
+众测平台选手的痛点</p>
+<h3 id="1">1.数据库层面基础铺垫<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>判断性SQL语句的形式</p>
+</li>
+<li>
+<p>条件判断函数方法分析</p>
+</li>
+</ol>
+<p>mysql</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="p">(</span><span class="mi">1</span><span class="o">=</span><span class="p">(</span><span class="k">select</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">REGEXP</span><span class="w"> </span><span class="k">if</span><span class="p">(</span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mh">0x00</span><span class="p">)),</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="nf">IFNULL</span><span class="p">(</span><span class="k">ascii</span><span class="p">(</span><span class="nf">substr</span><span class="p">(</span><span class="k">user</span><span class="p">(),</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="mi">114</span><span class="o">%</span><span class="k">ascii</span><span class="p">(</span><span class="nf">substr</span><span class="w"></span>
+<span class="p">(</span><span class="k">user</span><span class="p">(),</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))),</span><span class="s1">&#39;yes’)</span>
+<span class="s1">IFNULL(hex(substr(user(),1,1))/(114%hex(substr(user(),1,1))),&#39;</span><span class="n">yes’</span><span class="p">)</span><span class="w"></span>
+<span class="nf">IFNULL</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="nf">locate</span><span class="p">(</span><span class="nf">substr</span><span class="p">(</span><span class="k">user</span><span class="p">(),</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;r&#39;</span><span class="p">)),</span><span class="s1">&#39;yes’)</span>
+<span class="s1">IFNULL(1/(locate(right(left(lower(user()),1),1),&#39;</span><span class="n">r</span><span class="s1">&#39;)),&#39;</span><span class="w"> </span><span class="n">yes’</span><span class="p">)</span><span class="w"></span>
+<span class="k">left</span><span class="p">(</span><span class="k">user</span><span class="p">(),</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="p">(</span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>oracle</p>
+<div class="highlight"><pre><span></span><code><span class="n">NVL</span><span class="p">(</span><span class="n">TO_CHAR</span><span class="p">(</span><span class="n">DBMS_XMLGEN</span><span class="p">.</span><span class="n">getxml</span><span class="p">(</span><span class="s1">&#39;select 1 from dual where 1337&gt;1&#39;</span><span class="p">)),</span><span class="s1">&#39;1&#39;</span><span class="p">)</span><span class="o">!=</span><span class="mi">1</span><span class="w"></span>
+<span class="n">NVL2</span><span class="p">(</span><span class="k">NULLIF</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;ca&#39;</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="n">INSTR</span><span class="p">(</span><span class="s1">&#39;abcd&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="mi">2018</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">21</span><span class="err">’</span><span class="o">-</span><span class="w"> </span><span class="n">decode</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">to_date</span><span class="p">(</span><span class="n">decode</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">),</span><span class="s1">&#39;yyyy</span>
+<span class="s1">-mm-dd&#39;</span><span class="p">))</span><span class="o">-</span><span class="err">’</span><span class="w"></span>
+<span class="n">to_date</span><span class="p">(</span><span class="n">decode</span><span class="p">(</span><span class="n">substr</span><span class="p">(</span><span class="k">user</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">),</span><span class="s1">&#39;yyyy-mm-dd’))</span>
+<span class="s1">decode(sign(INSTR(USER,&#39;</span><span class="n">A</span><span class="s1">&#39;, 2, 1)),0,to_number(&#39;</span><span class="n">x</span><span class="err">&#39;</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+<p>sqlserver</p>
+<div class="highlight"><pre><span></span><code><span class="n">PATINDEX</span><span class="p">(</span><span class="s1">&#39;Wa%25&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Washington&#39;</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"></span>
+<span class="k">right</span><span class="p">(</span><span class="k">left</span><span class="p">(</span><span class="k">lower</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">),</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="o">=</span><span class="s1">&#39;a’</span>
+<span class="s1">isnull(nullif(substring(&#39;</span><span class="n">abc</span><span class="s1">&#39;,1,1),&#39;</span><span class="n">a</span><span class="s1">&#39;),&#39;</span><span class="k">c</span><span class="s1">&#39;)=&#39;</span><span class="k">c</span><span class="err">&#39;</span><span class="w"> </span>
+<span class="n">regexp_like</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="k">case</span><span class="w"> </span><span class="k">when</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">then</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="mi">0</span><span class="n">x00end</span><span class="p">))</span><span class="w"></span>
+</code></pre></div>
+<ol>
+<li>通用型判断SQL语句</li>
+</ol>
+<h3 id="2waf">2.层层递进分析WAF求证据<a class="headerlink" href="#2waf" title="Permanent link">&para;</a></h3>
+<h4 id="waf">waf的原理<a class="headerlink" href="#waf" title="Permanent link">&para;</a></h4>
+<p>WAF的发展主要经历了IPS架构，<a href="https://so.csdn.net/so/search?q=反向代理&amp;spm=1001.2101.3001.7020">反向代理</a>，透明代理和流模式。</p>
+<p><img alt="image-20220212184205807" src="images/image-20220212184205807.png" /></p>
+<h4 id="waf_1">WAF关键技术<a class="headerlink" href="#waf_1" title="Permanent link">&para;</a></h4>
+<p>WAF透明代理技术原理</p>
+<p><img alt="img" src="images/watermark%2Ctype_ZmFuZ3poZW5naGVpdGk%2Cshadow_10%2Ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MjY1MTM3%2Csize_16%2Ccolor_FFFFFF%2Ct_70.jpeg" /></p>
+<p>waf通信</p>
+<p><img alt="img" src="images/watermark%2Ctype_ZmFuZ3poZW5naGVpdGk%2Cshadow_10%2Ctext_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM4MjY1MTM3%2Csize_16%2Ccolor_FFFFFF%2Ct_70-16446623081992.png" /></p>
+<p>WAF主要会更改如下数据包内容项：</p>
+<ul>
+<li>客户端TCP源端口</li>
+<li>客户端源MAC/服务器源MAC地址</li>
+<li>长短连接协议版本</li>
+<li>MIME类型</li>
+</ul>
+<h5 id="waf_2">waf的识别<a class="headerlink" href="#waf_2" title="Permanent link">&para;</a></h5>
+<h6 id="cookie"><strong>基于Cookie值</strong><a class="headerlink" href="#cookie" title="Permanent link">&para;</a></h6>
+<p>Citrix Netscaler（2013年使用广泛）</p>
+<p>Citrix Netscaler”会在HTTP返回头部Cookie位置加入“ns_af”的值，可以以此判断为Citrix Netscaler的WAF，国内此类WAF很少</p>
+<p><strong>F5 BIG IP ASM</strong></p>
+<div class="highlight"><pre><span></span><code>F5 BiG IP ASM会在Cookie中加入“TS+随机字符串”的Cookie信息，
+</code></pre></div>
+<h6 id="http"><strong>基于HTTP响应</strong><a class="headerlink" href="#http" title="Permanent link">&para;</a></h6>
+<p><strong>Mod_Security</strong></p>
+<p>Mod_Security是为Apache设计的开源Web防护模块，一个恶意的请求Mod_Security会在响应头返回“406 Not acceptable”</p>
+<p><strong>WebKnight</strong></p>
+<p>WebKnight是用来设计在IIS下面使用的WAF设备，较为常见。WebKnight会对恶意的请求返回“999 No Hacking”</p>
+<p><strong>F5 BIG IP</strong></p>
+<p>F5 BIG IP会对恶意请求返回“419 Unknown”的信息</p>
+<p><strong>dotDefender</strong></p>
+<p>dotDefender用来防护.net的程序，会对恶意请求返回“dotDefender Blocked Your Request”</p>
+<h6 id="_3"><strong>特定资源文件</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h6>
+<p>部分特定WAF在返回的告警页面含特定的CSS或者JS文件，可以作为判断的依据，这类情况在WAF类里比较少，可归并到HTTP响应中。</p>
+<p>Sqlmap中Waf检测方法（81种，包括360，安全狗，safe3，云锁）</p>
+<div class="highlight"><pre><span></span><code><span class="n">sqlmap</span><span class="o">.</span><span class="n">py</span> <span class="o">-</span><span class="n">u</span> <span class="err">“</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">xxx</span><span class="o">.</span><span class="n">com</span><span class="err">”</span> <span class="o">--</span><span class="n">identify</span><span class="o">-</span><span class="n">waf</span> <span class="o">--</span><span class="n">batch</span>
+</code></pre></div>
+<h4 id="waf_3">全局过waf的几个思考点<a class="headerlink" href="#waf_3" title="Permanent link">&para;</a></h4>
+<h5 id="1-waf">1. 架构层绕过WAF<a class="headerlink" href="#1-waf" title="Permanent link">&para;</a></h5>
+<h6 id="11">1.1寻找源站<a class="headerlink" href="#11" title="Permanent link">&para;</a></h6>
+<p>信息泄露发现源站IP  思路太多，邮件</p>
+<p>穷举IP地址 完成一次国内IP扫描只需要8-9小时</p>
+<h6 id="12">1.2利用同网段<a class="headerlink" href="#12" title="Permanent link">&para;</a></h6>
+<p>云服务商买一台VPS，通过VPS攻击目标站点，因为流量是局域网，可能不经过WAF检测，实现绕过</p>
+<h6 id="13">1.3利用边界漏洞<a class="headerlink" href="#13" title="Permanent link">&para;</a></h6>
+<p>寻找子站的SSRF漏洞。如果子站访问目标站不经过WAF集群，可以利用SSRF漏洞来绕过WAF</p>
+<h5 id="2-waf">2. 资源限制角度绕过WAF<a class="headerlink" href="#2-waf" title="Permanent link">&para;</a></h5>
+<p>WAF只检测前面的几K字节、1M、或2M，只需要在POST BODY前面添加许多无用数据，把攻击payload放在最后即可绕过WAF检测</p>
+<h5 id="3-waf">3 协议层面绕过WAF的检测<a class="headerlink" href="#3-waf" title="Permanent link">&para;</a></h5>
+<h6 id="31">3.1协议覆盖不全<a class="headerlink" href="#31" title="Permanent link">&para;</a></h6>
+<p>Waf未能覆盖Content-Type: multipart/form-data从而导致被绕过。或者WAF会认为它是文件上传请求，从而只检测文件上传，导致被绕过</p>
+<h6 id="32">3.2协议解析不正确<a class="headerlink" href="#32" title="Permanent link">&para;</a></h6>
+<p>例如文件上传，上传文件名的修改test.jpg/shell.php</p>
+<h6 id="33web">3.3协议解析与后WEB容器的协议解析不一致<a class="headerlink" href="#33web" title="Permanent link">&para;</a></h6>
+<p>文件名覆盖  在multipart协议中，一个文件上传块存在多个Content-Disposition，将以最后一个Content-Disposition的filename值作为上传的文件名 第一个文件名shell.123 第二个shell.php 上传后是shell.php</p>
+<p>Content-Disposition: form-data;name="myfile"; filename="p3.txt""  </p>
+<p>Content-Disposition: form-data;name="myfile"; filename="t3.jsp"</p>
+<p>在一个Content-Disposition 中，存在多个filename </p>
+<p>Content-Disposition: form-data;name="myfile"; filename="p3.txt";filename="t3.jsp"  </p>
+<p>遗漏文件名  </p>
+<p>当WAF遇到“name=”myfile";;”时，认为没有解析到filename。而后端容器继续解析到的文件名是t3.jsp Content-Disposition: form-data;name="myfile";; filename="t3.jsp"。  </p>
+<p>未解析所有文件  </p>
+<p>multipart协议中，一个POST请求可以同时上传多个文件。如图，许多WAF只检查第一个上传文件，没有检查上传的所有文件，而实际后端容器会解析所有上传的文件名，攻击者只需把paylaod放在后面的文件PART  </p>
+<p>文件名解析兼容性  </p>
+<p>multipart协议中，文件名的形式为“filename="abc.php"”。但是Tomcat、PHP等容器解析协议时会做一些兼容，能正确解析 ”filename="abc.php”、”filename=abc.php”、 ”filename='abc.php’”。而WAF只按照协议标准去解析，无法解析文件名，但是后端容器能正确获得文件名，从而导致被绕过。场景的绕过形式：</p>
+<ul>
+<li>Content-Disposition: form-data; name="file"; filename=abc.php</li>
+<li>Content-Disposition: form-data; name="file"; filename="abc.php</li>
+<li>Content-Disposition: form-data; name="file"; filename='abc.php’</li>
+</ul>
+<p>3.4参数污染</p>
+<p>请求中包含2个参数名相同的参数typeid，第一个是正常参数的值正常，第二个参数才是payload。如果WAF解析参数使用第一个值，没检查第二个值，将导致绕过。这是很久很久的一个CASE，现在几乎没有WAF存在这个问题。</p>
+<p>/forum.php？ typeid=644&amp;typeid=if(now()%3dsysdate()%2csleep(19.844)%2c0)/<em>'XOR(if(now()%3dsysdate()%2csleep(19.844)%2c0))OR'%22XOR(if(now()%3dsysdate()%2csleep(19.844)%2c0))OR%22</em>/</p>
+<h5 id="4">4. 规则层面的绕过<a class="headerlink" href="#4" title="Permanent link">&para;</a></h5>
+<p>对基于正则表达式的WAF，绕过WAF规则主要思考安全工程师写WAF规则时在想什么，容易忽略什么，推断一些可能绕过的方式，然后多次尝试进行验证。隶属于漏洞层面过waf</p>
+<h6 id="41-sql">4.1. SQL注入绕过<a class="headerlink" href="#41-sql" title="Permanent link">&para;</a></h6>
+<p>绕过SQL注入规则主要利用WAF规则本身的问题、未考虑到SQL语法变形、及后端数据库SQL语句语法特性</p>
+<p>注释符绕过  </p>
+<p>/<em>xxx</em>/是注释，也可以充当空白符。因为 /<strong>/可使得MySQL对sql语句(union/</strong>/select)词法解析成功。事实上许多WAF都考虑到/**/可以作为空白分，但是waf检测 “/*.<em>*/”很消耗性能，工程师会折中，可能在检测中间引入一些特殊字符，例如：/</em>\w+*/。或者，WAF可能只中间检查n个字符“/*.{,n}*/”。根据以上想法，可以逐步测试绕过方法：</p>
+<ul>
+<li>先测试最基本的：union/**/select</li>
+<li>再测试中间引入特殊字：union/<em>aaaa%01bbs</em>/select</li>
+<li>最后测试注释长度：union/<em>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</em>/select</li>
+</ul>
+<p>同理，对于/<em>!xxx</em>/，可以采取类似的思路绕过WAF。</p>
+<p>空白符绕过  </p>
+<p>基于正则表达式的WAF， SQL注入规则使用正则表达式的“\s”匹配空格，例如”select\s+union”。利用正则表达式的空白符与MySQL空白符的不同可绕过WAF规则。如何这些MySQL的特性？通过fuzz,每次更改正常SQL语句的某部分，替换为其他字符，判断语法是否正确，即可判断出来MySQL语法特性。当然，也可以通过分析MySQL词法来发现语法特性，从而找到绕过方法。</p>
+<p>利用空白符进行绕过，测试WAF时尽可能减少其他原因的影响，例如”union select”被拦截，只需把中间空白符替换为”%250C”, “%25A0”进行绕过测试。</p>
+<ul>
+<li>union%250Cselect</li>
+<li>union%25A0select</li>
+</ul>
+<p><img alt="img" src="images/2019012415182088.png" /></p>
+<p>函数分隔符</p>
+<p>对基于正则表达式的WAF，我们猜测安全工程师写WAF规则时，可能不知道函数名与左括号之间可以存在特殊字符，或者遗漏可以存在特殊字符。例如匹配函数”concat()”的规则写法，“concat(”或者”concat\s*(”，就没有考虑到一些特殊字符。相应的绕过方法，在特殊位置引入特殊的分隔符，逐个测试。这些特殊分隔符发现也是通过Fuzz出来的。</p>
+<ul>
+<li>concat%2520(</li>
+<li>concat/**/(</li>
+<li>concat%250c(</li>
+<li>concat%25a0(</li>
+</ul>
+<p>举一反三，寻找类似的关键位置，Fuzz特殊字符，发现更多的绕过新方法。猜测工程师们写规则因为各种原因容易遗漏的点，进行绕过WAF检测。</p>
+<p>浮点数词法解析</p>
+<p>利用MySQL解析浮点数的特点，正则表达式无法匹配出单词union，但是MySQL词法解析成功解析出浮点数、sql关键字union。</p>
+<ul>
+<li>select * from users where id=8E0union select 1,2,3,4,5,6,7,8,9,0</li>
+<li>select * from users where id=8.0union select 1,2,3,4,5,6,7,8,9,0</li>
+<li>select * from users where id=\Nunion select 1,2,3,4,5,6,7,8,9,0  </li>
+</ul>
+<p>利用error-based进行SQL注入</p>
+<p>Error-based的SQL注入函数非常容易被忽略，导致WAF规则过滤不完整。随着对MySQL研究越来越深，被发现可用于error-based SQL注入的函数越来越多，同时也给绕过WAF造就了更多机会。常见的函数：</p>
+<ul>
+<li>extractvalue(1, concat(0x5c,md5(3)));</li>
+<li>updatexml(1, concat(0x5d,md5(3)),1);</li>
+<li>GeometryCollection((select*from(select*from(select@@version)f)x))</li>
+<li>polygon((select*from(select name_const(version(),1))x))</li>
+<li>linestring() </li>
+<li>multipoint() </li>
+<li>multilinestring() </li>
+<li>multipolygon() </li>
+</ul>
+<p>利用Error-based的SQL注入函数进行绕过时，可以结合函数分隔符，或其他方法灵活运用。</p>
+<p>Mysql特殊语法</p>
+<p>最有效的发现手段，还是去读读MySQL词法分析源代码。和协议绕过类似，挖掘SQL标准与MySQL的词法分析差异是发现WAF SQL注入绕过的有效手段。以下是MySQL语法的一个特写(ps:不是我发现的)：</p>
+<p>select{x table_name}from{x information_schema.tables};</p>
+<p>综合利用实例</p>
+<p>以上都是SQL注入绕过中的技术点，在实际渗透测试中，需要灵活综合利用才能达到完整绕过，读取数据数据。以下给出完整绕过WAF SQ注入检测的实例。如图，本例中综合多个绕过技术点，最终实现完整绕过实现读取数据。</p>
+<ul>
+<li>利用浮点数词法解析，绕过union select 的检测。</li>
+<li>同样，函数分隔符思想集和浮点数词法解析，绕过关键字from的检测。</li>
+<li>最后空白分分割绕过INFORMATION_SCHEMA.TABLES的检查</li>
+</ul>
+<h6 id="42">4.2.文件包含<a class="headerlink" href="#42" title="Permanent link">&para;</a></h6>
+<p>文件包含分为相对路径、绝对路径文件包含。在相对路径文件包含中，最终根据Linux虚拟文件系统(vfs)的规则查找文件，通过分析vfs的文件路径解析规则，提取其中规则特点，用这些特点去绕过WAF。在绝对文件路径包含中，主要是根据攻击场景，WAF未过滤一些协议、未过滤某些特殊路径。</p>
+<p>相对路径的绕过</p>
+<p>写WAF文件包含规则时，如果检测单一的”../”，误报会非常多，所以WAF文件包含规则通常会检测连续的“../"。根据vfs解析路径的语法，解析到“//”文件路径不变，解析到“/./”文件路径依然。 通过避免连续的"../"，从而绕过WAF文件包含规则。Eg: ././..///./.././/../etc//passwd，它等价于../../../etc/passwd</p>
+<p>绝对路径的绕过</p>
+<ul>
+<li>WAF没有考虑到路径中插入“/./”、“//”对于vfs解析路径是等价的，导致可被绕过。例如 /etc/./passwd 与 /etc/passwd 是等价的。还可以通过组合“/./”、“//”进行绕过，eg. /etc///.//././/passwd。</li>
+<li>对于绝对路径文件包含，WAF一般会拦截常见路径，而不会防御所有的绝对路径。因此，在渗透测试中，可以包含其他的路径下一些文件，例如/usr/local/nginx/conf/nginx.conf。</li>
+<li>如果WAF只检测连续的../，检查开始路径为Linux的目录名，可以采用/wtt/../绕过WAF文件包含检测。 例如，“/wtt/../etc/passwd”， wtt不是Linux标准目录，不会被规则匹配。WAF只检测连续的../，但是只使用一个../，不被拦截。最终读取/etc/passwd文件。</li>
+</ul>
+<p>利用WAF未检测的协议。PHP 文件包含支持的协议，在渗透测试中，看环境选择可行的方法</p>
+<blockquote>
+<ul>
+<li>
+<p>file:// — Accessing local filesystem </p>
+</li>
+<li>
+<p>http:// — Accessing HTTP(s) URLs </p>
+</li>
+<li>
+<p>ftp:// — Accessing FTP(s) URLs </p>
+</li>
+<li>
+<p>php:// — Accessing various I/O streams </p>
+</li>
+<li>
+<p>zlib:// — Compression Streams data:// — Data (RFC 2397) </p>
+</li>
+<li>
+<p>glob:// — Find pathnames matching pattern </p>
+</li>
+<li>
+<p>phar:// — PHP Archive </p>
+</li>
+<li>
+<p>ssh2:// — Secure Shell 2 </p>
+</li>
+<li>
+<p>rar:// — RAR </p>
+</li>
+<li>
+<p>ogg:// — Audio streams </p>
+</li>
+<li>
+<p>expect:// — Process Interaction Streams</p>
+</li>
+</ul>
+</blockquote>
+<p>总结</p>
+<p>一个好WAF不是吹出来的，是实践检验出来的。研究WAF的绕过手段，是为了更好的提升WAF的防御能力。在研究突破的过程中，不要仅仅停留在正则表达式，基本漏洞原理，需要对涉及并深入更多的领域，例如HTTP协议理解和PHP、Tomcat对HTTP协议源码分析，MySQL词法分析，和Fuzz的思路等。在此过程中，会有许多乐趣，也会有各方面能力的提升。</p>
+<h3 id="3">3.框架层的语句分析<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
+<h4 id="jpql"><a href="https://blog.csdn.net/dtttyc/article/details/80001826">基于jpql类型的绕过分析</a><a class="headerlink" href="#jpql" title="Permanent link">&para;</a></h4>
+<p>jpql与SQL的区别就是SQL是面向对象关系数据库，他操作的是数据表和数据列，而jpql操作的对象是实体对象和实体属性</p>
+<p><img alt="image-20220212203110763" src="images/image-20220212203110763.png" /></p>
+<p>ORM注入
+数字类型（ JPQL ）：
+SELECT e FROM user e WHERE e.id = SQL('(select 1 from
+dual where 1=1)’) and SQL('(SELECT 1)=1’)
+字符类型（JPQL）：
+通常指的是类似hibernate一类具有安全语法检测的注入</p>
+<p><img alt="image-20220212203124622" src="images/image-20220212203124622.png" /></p>
+<h4 id="hibernate">基于Hibernate类型的绕过分析<a class="headerlink" href="#hibernate" title="Permanent link">&para;</a></h4>
+<p>ORM注入
+数字类型（ Hibernate ORM ）：
+test\'' or 1&lt;length((select version())) – 翻译成为HQL语句就变为：
+SELECT p FROM pl.btbw.persistent.Post p where
+p.name='test\'' or 1&lt;length((select version())) – ' 最后转变为真正的SQL语句：
+select post0_.id as id1_0_, post0_.name as name2_0_ from
+post post0_ where post0_.name=‘test\'' or
+1&lt;length((select version())) -- ' 这样我们就会逃逸出来一个语句或者方法
+通常指的是类似hibernate一类具有安全语法检测的注入</p>
+<h2 id="_4">二、基于三方调用框架分析利用<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h4 id="webservice">WEBSERVICE接口<a class="headerlink" href="#webservice" title="Permanent link">&para;</a></h4>
+<p>1.默认的安全配置2.未授权的访问3.自身未修复漏洞WEBSERVICE</p>
+<p>Jws文件审计  </p>
+<p>​   通常而言jws文件也是axis2发布的一种表现形式，然后更多的被
+审计人员忽略</p>
+<ol>
+<li>在web目录全局查找jws结尾的文件</li>
+<li>根据对应的web访问目录通过浏览器进行访问</li>
+<li>对其相应的接口进行审计</li>
+</ol>
+<p>SOAPMonitor</p>
+<p>用来进行webservice管理发布，调试等等，这里面存在一个反序
+列化的问题</p>
+<ol>
+<li>访问根路径/SOAPMonitor , 右键源码就可以看到一个配置项
+内容</li>
+<li>远程调试时候开放默认5001端口进行对象传输</li>
+<li>寻找对应的执行链构造payload进行rec</li>
+</ol>
+<p>Axis2</p>
+<p>对于整个项目通过axis2或者axis发布的服务，从统计经验上来讲，
+未授权大面积存在，而且低版本的从全局上就存在xml实体注入
+漏洞</p>
+<ol>
+<li>访问对应的webservice路径，比如/services/或者
+/servlet/AxisServlet</li>
+<li>对所有接口对应的类进行审计，通常默认情况下都是一一对应</li>
+<li>低版本构造xxe payload可以进行漏洞测试</li>
+</ol>
+<p>Xfire</p>
+<p>Web发布容器，已经停止维护，截至到最后一个版本，在
+webservice上还是存在xml实体注入</p>
+<ol>
+<li>访问根路径/services，暴露对应的webservices接口</li>
+<li>构造payload全局造成xml实体注入</li>
+</ol>
+<h4 id="dwr">DWR接口<a class="headerlink" href="#dwr" title="Permanent link">&para;</a></h4>
+<ol>
+<li>实际的网站发布debug模式是关闭状态，我们做黑盒测试就要去猜测
+两个默认目录,分别为/exec/和/dwr</li>
+<li>审计可以套用左边的请求包的模板，在你认为存在问题的地方构造
+java接口调用的请求数据包</li>
+<li>网站发布dwr接口，通常都是未授权调用，包含内容比较多，比如用
+户，管理等api接口</li>
+<li>如果参数构造有不确定因素，可以把对应的dwr接口空实现，然后转
+接到我们自己可以本地模拟的代码上面来</li>
+</ol>
+<p><img alt="image-20220212205026690" src="images/image-20220212205026690.png" /></p>
+<h4 id="hessian">HESSIAN接口<a class="headerlink" href="#hessian" title="Permanent link">&para;</a></h4>
+<p><img alt="image-20220212205139268" src="images/image-20220212205139268.png" /></p>
+<h4 id="gwt">GWT接口<a class="headerlink" href="#gwt" title="Permanent link">&para;</a></h4>
+<h2 id="sessionexc">三、趣味的SESSION和EXC<a class="headerlink" href="#sessionexc" title="Permanent link">&para;</a></h2>
+<h4 id="session">SESSION污染<a class="headerlink" href="#session" title="Permanent link">&para;</a></h4>
+<p>场景：在进行一些操作时,很常见的写法是先将验证码存储于Session当中，将验证码作为图片或是手机验证码,邮箱等方式发送给用户,对其进行身份的验证.</p>
+<p>通常在这种情况下会很容易引发一个问题, 该场景常见于php中:用户A找回密码,需要进行手机校验码的校验,服务器把发送出去的验证码放在了Session中,此时用户必须输入正确的验证码才能成功的进行密码重置</p>
+<p>场景: 在php中,session使用文件的方式存储,它的唯一性不是很好(多个应用可以访问同一个Session)</p>
+<p>某程序员开发了一套CMS，把他作为一个demo部署在了自己的官网A上某程序员开发了一套CMS，把他作为一个demo部署在了自己的官网B ，但是这两个域名都解析到了同一服务器上,可能就会产生很大的问题</p>
+<p>但是如果在没发送验证码的情况下，那么session中code为空,再将请求提交的验证码置为空，使用php的情况下会导致false == false，即条件为真，验证码匹配成功， 出现这一问题的原因是由于服务器没有正确的处理session，在使用之后必须对其进行销毁,并且需要对session进行空验证</p>
+<p><img alt="image-20220212215803922" src="images/image-20220212215803922.png" /></p>
+<p>在未登录http://admin.test.com的情况下,通过先访问http://<a href="http://www.test.com/">www.test.com/</a>
+demo站点对自己的session进行一次赋值,伪造出身份
+那么这个session是可以被http://admin.test.com访问到的,所以造成的混淆使用
+引发安全问题</p>
+<h4 id="xxeexcel">XXE在EXCEL中的应用场景<a class="headerlink" href="#xxeexcel" title="Permanent link">&para;</a></h4>
+<p>应用场景：
+在很多系统，不管是后台还是前台，我们经常会碰到，导入/导
+出这样的字样，从统计的角度来看，百分之八十以上都是excel，
+例如，导入人员信息/导出人员信息，录入系统配置/导出系统配
+置等等</p>
+<p>技巧变形：
+从某种意义上，我们是不需要去修改workbook.xml，有时候我
+们想要达到的目的就是，导出来之后，然后根据格式，外部实体
+引入，读取系统文件，比如/etc/passwd等，可以在导入的时候
+进行操作，那么我们就应该去修改xl/worksheets/sheet1.xml
+调用的实体 替换模板数据即可，这时候当我们导入时候，就会把
+系统敏感文件读取出来</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-12 22:18:34</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="./" class="md-footer__link md-footer__link--prev" aria-label="上一页: 众测项目" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              众测项目
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../about/aboutme/" class="md-footer__link md-footer__link--next" aria-label="下一页: about me" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              about me
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2022
+    </div>
+  
+  <a >keep learning ，stay foolish ，continue thinking</a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/klsfct" target="_blank" rel="noopener" title="圆周 on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+    
+  </body>
+</html>
