@@ -38,7 +38,7 @@ nav:
 #    -众测总结 : 挖洞相关/众测项目.md
   - 挖洞相关: 
     - 众测项目       : 挖洞相关/众测项目.md
-    - 思路方法  :  挖洞相关/众测项目.md
+    - 思路方法  :  挖洞相关/思路方法.md
 
   - About:
     #- License: 'about/license.md'
@@ -155,7 +155,7 @@ markdown_extensions:
 
 #js插件百度统计
 extra_javascript:
-    - 'js/baidu-tongji.js'
-
+   # - 'js/baidu-tongji.js'
+    - 'js/google-tongji.js'
 extra_css:
   - js/stylesheets/extra.css
