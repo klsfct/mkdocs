@@ -495,10 +495,23 @@
     渗透思路
   </a>
   
+    <nav class="md-nav" aria-label="渗透思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    端口对应的服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     流程
   </a>
   
@@ -513,7 +526,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     域内横向移动
   </a>
   
@@ -841,7 +854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E6%80%9D%E8%B7%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
         思路方法
       </a>
     </li>
@@ -936,10 +949,23 @@
     渗透思路
   </a>
   
+    <nav class="md-nav" aria-label="渗透思路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    端口对应的服务
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     流程
   </a>
   
@@ -954,7 +980,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     域内横向移动
   </a>
   
@@ -981,7 +1007,7 @@
   <h1>渗透测试</h1>
 
 <h2 id="_1">渗透思路<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>端口对应的服务</p>
+<h3 id="_2">端口对应的服务<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>21端口，ftp 可爆破或者尝试匿名anonymous/空登录</p>
 <table>
 <thead>
@@ -994,11 +1020,61 @@
 <tbody>
 <tr>
 <td>22 ssh</td>
+<td>爆破<br>28个退格</td>
+<td></td>
+</tr>
+<tr>
+<td>23 telnet</td>
 <td>爆破</td>
 <td></td>
 </tr>
 <tr>
+<td>25 smtp</td>
+<td>邮件伪造</td>
+<td></td>
+</tr>
+<tr>
+<td>53 dns</td>
+<td>dns区域传输dns劫持<br>dns缓存投毒 dns欺骗<br>深度利用利用dns隧道技术刺头防火墙</td>
+<td></td>
+</tr>
+<tr>
+<td>67/68 dhcp</td>
+<td>劫持欺骗</td>
+<td></td>
+</tr>
+<tr>
 <td>80 web</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>110 pop3</td>
+<td>爆破</td>
+<td></td>
+</tr>
+<tr>
+<td>139 samba</td>
+<td>未授权访问<br/>远程代码执行漏洞</td>
+<td></td>
+</tr>
+<tr>
+<td>143 iamp</td>
+<td>爆破</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
 <td></td>
 <td></td>
 </tr>
@@ -1008,8 +1084,23 @@
 <td></td>
 </tr>
 <tr>
+<td>1433 sqlserver</td>
+<td>溢出攻击<br>空密码入侵。1433还有一个漏洞，就是如果默认安装的话，用户名是sa,密码是空的</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
 <td>3306 mysql</td>
 <td>暴破<br/>成功后用mysql写入webshell，或者构造vbs写入服务器启动项，启动时添加管理员账号打开3389端口</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1044,7 +1135,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_2">流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">流程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>信息收集</p>
 <p>漏洞挖掘</p>
 <p>漏洞利用&amp;权限提升</p>
@@ -1078,7 +1169,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="_3">域内横向移动<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<h3 id="_4">域内横向移动<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -1111,7 +1202,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-10 20:02:48</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-15 15:24:38</span>
       
     
   </small>
@@ -1201,7 +1292,7 @@
     
       <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
-        <script src="../../js/baidu-tongji.js"></script>
+        <script src="../../js/google-tongji.js"></script>
       
     
   </body>
