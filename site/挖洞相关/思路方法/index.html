@@ -216,13 +216,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="../%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-tabs__link">
+      <a href="../%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-tabs__link md-tabs__link--active">
         挖洞相关
       </a>
     </li>
@@ -725,12 +727,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       
       
@@ -771,11 +775,345 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          思路方法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         思路方法
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    一、拦截框架下注入的过程拆解
+  </a>
+  
+    <nav class="md-nav" aria-label="一、拦截框架下注入的过程拆解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1.数据库层面基础铺垫
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2waf" class="md-nav__link">
+    2.层层递进分析WAF求证据
+  </a>
+  
+    <nav class="md-nav" aria-label="2.层层递进分析WAF求证据">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waf" class="md-nav__link">
+    waf的原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waf_1" class="md-nav__link">
+    WAF关键技术
+  </a>
+  
+    <nav class="md-nav" aria-label="WAF关键技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#waf_2" class="md-nav__link">
+    waf的识别
+  </a>
+  
+    <nav class="md-nav" aria-label="waf的识别">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+    基于Cookie值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http" class="md-nav__link">
+    基于HTTP响应
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    特定资源文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waf_3" class="md-nav__link">
+    全局过waf的几个思考点
+  </a>
+  
+    <nav class="md-nav" aria-label="全局过waf的几个思考点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-waf" class="md-nav__link">
+    1. 架构层绕过WAF
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 架构层绕过WAF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1寻找源站
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2利用同网段
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3利用边界漏洞
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-waf" class="md-nav__link">
+    2. 资源限制角度绕过WAF
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-waf" class="md-nav__link">
+    3 协议层面绕过WAF的检测
+  </a>
+  
+    <nav class="md-nav" aria-label="3 协议层面绕过WAF的检测">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    3.1协议覆盖不全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    3.2协议解析不正确
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33web" class="md-nav__link">
+    3.3协议解析与后WEB容器的协议解析不一致
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4. 规则层面的绕过
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 规则层面的绕过">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-sql" class="md-nav__link">
+    4.1. SQL注入绕过
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    4.2.文件包含
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3.框架层的语句分析
+  </a>
+  
+    <nav class="md-nav" aria-label="3.框架层的语句分析">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jpql" class="md-nav__link">
+    基于jpql类型的绕过分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hibernate" class="md-nav__link">
+    基于Hibernate类型的绕过分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    二、基于三方调用框架分析利用
+  </a>
+  
+    <nav class="md-nav" aria-label="二、基于三方调用框架分析利用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webservice" class="md-nav__link">
+    WEBSERVICE接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dwr" class="md-nav__link">
+    DWR接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hessian" class="md-nav__link">
+    HESSIAN接口
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gwt" class="md-nav__link">
+    GWT接口
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sessionexc" class="md-nav__link">
+    三、趣味的SESSION和EXC
+  </a>
+  
+    <nav class="md-nav" aria-label="三、趣味的SESSION和EXC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#session" class="md-nav__link">
+    SESSION污染
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xxeexcel" class="md-nav__link">
+    XXE在EXCEL中的应用场景
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1532,6 +1870,41 @@ demo站点对自己的session进行一次赋值,伪造出身份
       
         <footer class="md-footer">
   
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 众测项目" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              众测项目
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../about/aboutme/" class="md-footer__link md-footer__link--next" aria-label="下一页: about me" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              about me
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -1567,7 +1940,7 @@ demo站点对自己的session进行一次赋值,伪造出身份
     
       <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
-        <script src="../../js/baidu-tongji.js"></script>
+        <script src="../../js/google-tongji.js"></script>
       
     
   </body>
