@@ -17,7 +17,7 @@ nav:
     - 渗透测试 : 安全wiki/渗透测试.md
     - 安全测试项目梳理 : 安全wiki/安全测试项目梳理.md
 
- - 实战相关: 
+  - 实战相关: 
     - 目录 : 实战相关/目录.md
     - 漏洞测试 : 实战相关/漏洞测试.md
     - 内部渗透比赛 : 实战相关/内部渗透比赛.md
@@ -31,7 +31,7 @@ nav:
     - 代理转发与隧道   : redteam/代理转发与隧道.md
     - 提权系列   : redteam/提取系列.md
     - 域渗透   : redteam/域渗透测试一条龙.md
-    
+
 #    - Styling your docs: blueteam/styling-your-docs.md
 
   - 蓝队: 
