@@ -15,6 +15,12 @@ nav:
     - 服务器、中间件安全 : 安全wiki/服务器、中间件安全.md
     - 应急响应 : 安全wiki/应急响应.md
     - 渗透测试 : 安全wiki/渗透测试.md
+    - 安全测试项目梳理 : 安全wiki/安全测试项目梳理.md
+
+ - 实战相关: 
+    - 目录 : 实战相关/目录.md
+    - 漏洞测试 : 实战相关/漏洞测试.md
+    - 内部渗透比赛 : 实战相关/内部渗透比赛.md
 
   - 红队:
     - 目录 : redteam/红队目录.md
@@ -22,8 +28,10 @@ nav:
     - 漏洞库     : redteam/漏洞库.md
     - 溯源分析   : redteam/溯源分析.md
     - 钓鱼      : redteam/钓鱼.md
-#    - 信息收集3   : redteam/信息收集.md
-#    - 信息收集   : redteam/信息收集.md
+    - 代理转发与隧道   : redteam/代理转发与隧道.md
+    - 提权系列   : redteam/提取系列.md
+    - 域渗透   : redteam/域渗透测试一条龙.md
+    
 #    - Styling your docs: blueteam/styling-your-docs.md
 
   - 蓝队: 

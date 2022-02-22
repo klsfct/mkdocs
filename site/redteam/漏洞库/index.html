@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#shiro" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -579,11 +579,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shiro" class="md-nav__link">
-    shiro类
+  <a href="#_1" class="md-nav__link">
+    未授权访问
   </a>
   
-    <nav class="md-nav" aria-label="shiro类">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log4j" class="md-nav__link">
+    log4j漏洞
+  </a>
+  
+    <nav class="md-nav" aria-label="log4j漏洞">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -817,7 +824,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     历史漏洞相关信息
   </a>
   
@@ -1156,11 +1163,18 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#shiro" class="md-nav__link">
-    shiro类
+  <a href="#_1" class="md-nav__link">
+    未授权访问
   </a>
   
-    <nav class="md-nav" aria-label="shiro类">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log4j" class="md-nav__link">
+    log4j漏洞
+  </a>
+  
+    <nav class="md-nav" aria-label="log4j漏洞">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1394,7 +1408,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     历史漏洞相关信息
   </a>
   
@@ -1429,7 +1443,55 @@
   <h1>漏洞库</h1>
 
 <p>日常exp</p>
-<h2 id="shiro">shiro类<a class="headerlink" href="#shiro" title="Permanent link">&para;</a></h2>
+<h2 id="_1">未授权访问<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>l redis未授权访问 l memcache未授权访问 l docker未授权访问 l k8s未授权访问</p>
+<p>, 爆破</p>
+<h2 id="log4j">log4j漏洞<a class="headerlink" href="#log4j" title="Permanent link">&para;</a></h2>
+<p>Apache Log4j2 是一个基于 Java 的日志记录工具。该工具重写了 Log4j 框架，并且引入了大量丰富的特性。该日志框架被大量用于业务系统开发，用来记录日志信息。
+在大多数情况下，开发者可能会将用户输入导致的错误信息写入日志中。攻击者利用此特性可通过该漏洞构造特殊的数据请求包，最终触发远程代码执行。
+该漏洞危害等级：严重
+影响范围：2.0 &lt;= Apache log4j2 &lt;= 2.14.1</p>
+<div class="highlight"><pre><span></span><code><span class="p">#</span><span class="nn">1</span><span class="p">.</span><span class="nc">日志的由来</span><span class="w"></span>
+<span class="o">(</span><span class="nt">1</span><span class="o">)</span><span class="nt">历史</span><span class="p">:</span><span class="nd">system</span><span class="p">.</span><span class="nc">out</span><span class="p">.</span><span class="nc">println</span><span class="w"> </span><span class="nt">关键数据放在控制台调试</span><span class="o">,</span><span class="nt">过多的输入繁琐</span><span class="w"></span>
+<span class="o">(</span><span class="nt">2</span><span class="o">)</span><span class="nt">现在</span><span class="p">:</span><span class="nd">写在一个文件xx</span><span class="p">.</span><span class="nc">log</span><span class="o">,</span><span class="nt">利于排查问题</span><span class="o">,</span><span class="nt">所以日志框架诞生了</span><span class="w"></span>
+
+
+<span class="p">#</span><span class="nn">2</span><span class="p">.</span><span class="nc">日志可以分为接口和实现类</span><span class="w"></span>
+<span class="o">(</span><span class="nt">1</span><span class="o">)</span><span class="nt">接口类似JDBC-mysql驱动</span><span class="o">,</span><span class="nt">就是一个抽象层</span><span class="w"></span>
+<span class="o">(</span><span class="nt">2</span><span class="o">)</span><span class="nt">平时给项目中导入具体的日志就行了</span><span class="w"></span>
+
+<span class="p">#</span><span class="nn">3</span><span class="p">.</span><span class="nc">常见的日志类型</span><span class="w"></span>
+<span class="nt">日志框架</span><span class="w"></span>
+<span class="nt">JCL</span><span class="err">（</span><span class="nt">Jakarta</span><span class="w"> </span><span class="nt">Commons</span><span class="w"> </span><span class="nt">Logging</span><span class="err">）</span><span class="w"></span>
+<span class="nt">SLF4j</span><span class="err">（</span><span class="nt">Simple</span><span class="w"> </span><span class="nt">Logging</span><span class="w"> </span><span class="nt">Facade</span><span class="w"> </span><span class="nt">for</span><span class="w"> </span><span class="nt">Java</span><span class="err">）</span><span class="w"> </span>
+<span class="nt">jboss-logging</span><span class="w"></span>
+<span class="nt">日志实现</span><span class="w"></span>
+<span class="nt">Log4j</span><span class="w">  </span><span class="nt">--</span><span class="o">&gt;</span><span class="w"> </span><span class="nt">升级</span><span class="w"> </span><span class="nt">Logback</span><span class="w"> </span>
+<span class="nt">JUL</span><span class="err">（</span><span class="nt">java</span><span class="p">.</span><span class="nc">util</span><span class="p">.</span><span class="nc">logging官方</span><span class="err">）</span><span class="w"></span>
+<span class="nt">Log4j2</span><span class="w"> </span><span class="o">(</span><span class="nt">太过新</span><span class="o">,</span><span class="nt">许多未适配</span><span class="o">)</span><span class="w"></span>
+
+
+<span class="p">#</span><span class="nn">4</span><span class="p">.</span><span class="nc">框架自带的日志</span><span class="w"></span>
+<span class="nt">Spring框架默认是用JCL</span><span class="o">,</span><span class="w"></span>
+<span class="nt">SpringBoot选用SLF4j和logback</span><span class="w"></span>
+<span class="nt">slf4j会与其他框架Spring</span><span class="err">（</span><span class="nt">commons-logging</span><span class="err">）</span><span class="w"></span>
+<span class="nt">Hibernate</span><span class="err">（</span><span class="nt">jboss-logging</span><span class="err">）</span><span class="w"></span>
+
+
+<span class="p">#</span><span class="nn">5</span><span class="p">.</span><span class="nc">如果我们需要用slf4j</span><span class="o">+</span><span class="nt">log4j2也有办法</span><span class="o">,</span><span class="nt">只要加一个适配层即可</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1">#3.漏洞简单介绍</span>
+<span class="err">递归</span><span class="p">:</span> <span class="no">Apache</span> <span class="no">Log4j2</span> <span class="err">某些功能存在递归解析功能，攻击者可直接构造恶意请求，触发远程代码执行漏洞。漏洞利用无需特殊配置。</span>
+<span class="err">受影响范围</span><span class="ss">:Apache</span> <span class="no">Log4j</span> <span class="mi">2</span><span class="o">.</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">rc2</span>
+
+<span class="c1">#4.修复建议</span>
+<span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="err">版本升级</span><span class="p">:</span><span class="err">请尽快升级</span><span class="no">Apache</span> <span class="no">Log4j2所有相关应用到最新的</span> <span class="n">log4j</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">rc2</span> <span class="err">版本，地址</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">logging</span><span class="o">-</span><span class="n">log4j2</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">tag</span><span class="o">/</span><span class="n">log4j</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="mi">15</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">rc2</span>
+<span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="err">受影响的应用及组件</span><span class="p">:</span> <span class="n">spring</span><span class="o">-</span><span class="n">boot</span><span class="o">-</span><span class="n">starter</span><span class="o">-</span><span class="n">log4j2</span><span class="o">/</span><span class="no">Apache</span> <span class="no">Struts2</span><span class="o">/</span><span class="no">Apache</span> <span class="no">Solr</span><span class="o">/</span><span class="no">Apache</span> <span class="no">Druid</span><span class="o">/</span><span class="no">Apache</span> <span class="no">Flink</span>
+<span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="err">升级</span><span class="no">JDK</span><span class="p">(</span><span class="err">临时方案</span><span class="p">)</span><span class="ss">:jdk版本至6u211</span> <span class="o">/</span> <span class="mi">7</span><span class="n">u201</span> <span class="o">/</span> <span class="mi">8</span><span class="n">u191</span> <span class="o">/</span> <span class="mi">11</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="err">以上，可以在一定程度上限制</span><span class="no">JNDI等漏洞利用方式</span>
+<span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="err">修改配置参数</span><span class="p">:</span><span class="err">大于</span><span class="mi">2</span><span class="o">.</span><span class="mi">10</span><span class="err">版本的</span><span class="no">Log4j</span>
+<span class="o">--</span><span class="err">可设置</span> <span class="n">log4j2</span><span class="o">.</span><span class="n">formatMsgNoLookups</span> <span class="err">为</span> <span class="no">True</span>
+<span class="o">--</span><span class="err">或者将</span> <span class="no">JndiLookup</span> <span class="err">类从</span> <span class="n">classpath</span> <span class="err">中去除，例如</span> <span class="n">zip</span> <span class="o">-</span><span class="n">q</span> <span class="o">-</span><span class="n">d</span> <span class="n">log4j</span><span class="o">-</span><span class="n">core</span><span class="o">-*.</span><span class="n">jar</span> <span class="n">org</span><span class="o">/</span><span class="n">apache</span><span class="o">/</span><span class="n">logging</span><span class="o">/</span><span class="n">log4j</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">lookup</span><span class="o">/</span><span class="no">JndiLookup</span><span class="o">.</span><span class="n">class</span>
+</code></pre></div>
 <h3 id="apache-shiro">Apache shiro 反序列化漏洞<a class="headerlink" href="#apache-shiro" title="Permanent link">&para;</a></h3>
 <p>Shiro-550, Shiro-721</p>
 <ol>
@@ -2358,7 +2420,7 @@ Apache服务器，性能稳定可靠。数据存取集中控制，避免了数�
    <a href="https://www.cnblogs.com/AtesetEnginner/p/12106741.html">https://www.cnblogs.com/AtesetEnginner/p/12106741.html</a> </p>
 </li>
 </ol>
-<h2 id="_1">历史漏洞相关信息<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">历史漏洞相关信息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="cve-2020-0796">CVE-2020-0796 永恒之黑漏洞相关<a class="headerlink" href="#cve-2020-0796" title="Permanent link">&para;</a></h3>
 <ol>
 <li>漏洞简介

