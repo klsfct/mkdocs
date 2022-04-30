@@ -1,6 +1,6 @@
 ### 条件竞争漏洞
 
-### xxs漏洞
+### xss漏洞
 
 反射、dom、存储
 
@@ -245,7 +245,7 @@ mailto, jar, netdoc, 一 般利用file协议读取文件，利用http协议探�
 防御:配置XML处理器使用禁用DTD、禁止外部实体解析、通过黑名单过滤用
 户提交的XML数据。
 
-### 一句话
+### 一句话木马
 
 ASP: <%eval request("cmd")%>
 ASP.NET: (aspx)
@@ -261,3 +261,14 @@ PHP中eval、aser. call _user. func等函数会将字符串当作PHP代码执行
 PHP注入会使攻击者执行任意代码getshel从而控制网站或服务器。系统注入。
 使攻击者继承web服务器程序权限执行系统命令、读写文件、反弹shell,
 !从而控制整个网站甚至服务器。
+
+### 信息泄露
+
+配置文件访问
+• httpd.conf
+• htaccess
+• HTPASSWD
+• boot.ini
+• etc/passwd
+• Php.ini
+• Web.xml
