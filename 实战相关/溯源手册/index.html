@@ -1,0 +1,1976 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
+    
+    
+      
+        <title>溯源手册 - klsfct Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#000000">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="black" data-md-color-accent="deep-orange">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            klsfct Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              溯源手册
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        安全wiki
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        实战相关
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        红队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+        蓝队
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-tabs__link">
+        挖洞相关
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/aboutme/" class="md-tabs__link">
+        About
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+      
+  <img src="../../images/logo.jpg" alt="logo">
+
+    </a>
+    klsfct Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" data-md-state="indeterminate" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          安全wiki
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="安全wiki" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          安全wiki
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        安全基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/Web%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        web安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        数据安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/CMS%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        cms安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        流量分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8/" class="md-nav__link">
+        服务器、中间件安全
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        渗透测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E6%A2%B3%E7%90%86/" class="md-nav__link">
+        安全测试项目梳理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" data-md-state="indeterminate" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          实战相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="实战相关" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          实战相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+        漏洞测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%86%85%E9%83%A8%E6%B8%97%E9%80%8F%E6%AF%94%E8%B5%9B/" class="md-nav__link">
+        内部渗透比赛
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" data-md-state="indeterminate" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          红队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="红队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          红队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+        信息收集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
+        漏洞库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+        溯源分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E9%92%93%E9%B1%BC/" class="md-nav__link">
+        钓鱼
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91%E4%B8%8E%E9%9A%A7%E9%81%93/" class="md-nav__link">
+        代理转发与隧道
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/提取系列.md" class="md-nav__link">
+        提权系列
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/域渗透测试一条龙.md" class="md-nav__link">
+        域渗透
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" data-md-state="indeterminate" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          蓝队
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="蓝队" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          蓝队
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+        目录
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+        应急响应
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
+        日志分析
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueteam/window实战.md" class="md-nav__link">
+        window实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/linux实战.md" class="md-nav__link">
+        linux实战
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../redteam/web实战.md" class="md-nav__link">
+        web实战
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" data-md-state="indeterminate" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          挖洞相关
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="挖洞相关" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          挖洞相关
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+        众测项目
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E6%80%9D%E8%B7%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
+        思路方法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" data-md-state="indeterminate" type="checkbox" id="__nav_7" checked>
+      
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          About
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="About" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          About
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/aboutme/" class="md-nav__link">
+        about me
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    技巧篇
+  </a>
+  
+    <nav class="md-nav" aria-label="技巧篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    溯源结果框架
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    溯源常用手法
+  </a>
+  
+    <nav class="md-nav" aria-label="溯源常用手法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    已知域名获取信息
+  </a>
+  
+    <nav class="md-nav" aria-label="已知域名获取信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#whois" class="md-nav__link">
+    历史whois
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssl" class="md-nav__link">
+    SSL证书
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    解析记录
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip" class="md-nav__link">
+    已知IP获取信息
+  </a>
+  
+    <nav class="md-nav" aria-label="已知IP获取信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    反查域名
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip_1" class="md-nav__link">
+    IP信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip_2" class="md-nav__link">
+    IP定位
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    已知ID/姓名/手机号/邮箱获取信息
+  </a>
+  
+    <nav class="md-nav" aria-label="已知ID/姓名/手机号/邮箱获取信息">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    手机号/邮箱
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id_1" class="md-nav__link">
+    ID/姓名
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    恶意文件
+  </a>
+  
+    <nav class="md-nav" aria-label="恶意文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    需要准备的工具
+  </a>
+  
+    <nav class="md-nav" aria-label="需要准备的工具">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    逆向类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    网络、进程监控类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    固件分析类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    在线沙箱
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    常规溯源手法
+  </a>
+  
+    <nav class="md-nav" aria-label="常规溯源手法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    文件识别
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    计算哈希值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    查找字符串
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    查找导入函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    解析宏
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    侦壳操作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    动态调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    多线程调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    调试子进程
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    跳板机
+  </a>
+  
+    <nav class="md-nav" aria-label="跳板机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+    <nav class="md-nav" aria-label="Linux">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    端口查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    进程查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    定时任务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    历史命令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    用户
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    日志
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webshell" class="md-nav__link">
+    Webshell查找
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    检查系统账号安全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    端口查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    进程查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    检查启动项、计划任务、服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webshell_1" class="md-nav__link">
+    Webshell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    实战篇
+  </a>
+  
+    <nav class="md-nav" aria-label="实战篇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1web" class="md-nav__link">
+    1.web攻击溯源篇
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2.钓鱼邮件分析篇
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+  <h1>溯源手册</h1>
+
+<p><strong>溯源手册</strong></p>
+<p>本溯源手册，分技巧与实战两大篇幅旨在帮助大家可以快速上手并在实战中运用，也可充当字典的作用，在溯源过程中可以翻一翻，更全面的溯源，故某些内容可能会简化。</p>
+<h2 id="_1">技巧篇<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>通常情况下，接到溯源任务时，获得的信息如下</p>
+<p>攻击时间\
+攻击IP\
+预警平台\
+攻击类型\
+恶意文件\
+受攻击域名/IP</p>
+<p>其中攻击IP、攻击类型、恶意文件、攻击详情是溯源入手的点。</p>
+<p>通过攻击类型分析攻击详情的请求包，看有没有攻击者特征，通过获取到的IP地址进行威胁情报查询来判断所用的IP具体是代理IP还是真实IP地址。</p>
+<ul>
+<li>
+<p>如端口扫描大概率为个人vps或空间搜索引擎，在接到大量溯源任务时可优先溯源。</p>
+</li>
+<li>
+<p>如命令执行大概率为未经任何隐匿的网络、移动网络、接到脚本扫描任务的肉鸡，在接到大量溯源任务时可优先溯源。</p>
+</li>
+<li>
+<p>如爬虫大概率为空间搜索引擎，可放到最后溯源。</p>
+</li>
+<li>
+<p>如恶意文件可获得c2地址、未删除的带有敏感信息的代码（如常用ID、组织信息）、持续化控制代码（C2地址指在APT攻击里的命令与控制，若获取到C2地址可以使我们的溯源目标更有针对性）</p>
+</li>
+</ul>
+<p>&nbsp;</p>
+<ul>
+<li>持续化控制代码需要详细分析，如采用DGA域名上线的方法，分析出域名算法，预测之后的域名可有效减少损失，增加溯源面。</li>
+</ul>
+<h3 id="_2">溯源结果框架<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>在受到攻击、扫描之后，进行一系列溯源操作后，理想情况下想要获得如下数据，来刻画攻击者画像。</p>
+<p>姓名/ID：\
+攻击IP：\
+地理位置：\
+QQ:\
+微信：\
+邮箱：\
+手机号：\
+支付宝：\
+IP地址所属公司：\
+IP地址关联域名：\
+其他社交账号信息（如微博/src/id证明）：\
+人物照片：\
+跳板机（可选）：\
+（ps：以上为最理想结果情况，溯源到名字公司加分最高）</p>
+<p>在写溯源报告时，应避免单一面石锤，需要反复验证，避免中途溯源错人，各个溯源线索可以串起来，要具有逻辑性。</p>
+<h3 id="_3">溯源常用手法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>本节将按照获取到的数据展开分来来讲，最后可能融会贯通，互相适用。</p>
+<p>威胁情报平台</p>
+<p><a href="https://x.threatbook.cn/">https://x.threatbook.cn/</a>\
+<a href="https://ti.qianxin.com/">https://ti.qianxin.com/</a>\
+<a href="https://ti.360.cn/">https://ti.360.cn/</a>\
+<a href="https://www.venuseye.com.cn/">https://www.venuseye.com.cn/</a></p>
+<p>不要过于依赖威胁情报，仅供参考 平台大多为社区维护，存在误报以及时效性问题，可能最后跟真正攻击者毫无关系。</p>
+<h4 id="_4"><strong>已知域名获取信息</strong><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<h5 id="whois">历史whois<a class="headerlink" href="#whois" title="Permanent link">&para;</a></h5>
+<p>通过威胁情报平台我们可以获取域名解析记录、历史whois、子域名、SSL证书等如图：</p>
+<p><img alt="image-20220516222325559" src="images/image-20220516222325559.png" /></p>
+<p><a href="https://whois.chinaz.com/reverse?ddlSearchMode=4"><span class="underline">https://whois.chinaz.com/reverse?ddlSearchMode=4</span></a></p>
+<p><a href="https://community.riskiq.com/"><span class="underline">https://community.riskiq.com/</span></a></p>
+<p>可获得</p>
+<p>ID</p>
+<p>姓名</p>
+<p>邮箱</p>
+<h5 id="ssl">SSL证书<a class="headerlink" href="#ssl" title="Permanent link">&para;</a></h5>
+<p>可获得</p>
+<p>ID</p>
+<p>邮箱</p>
+<h5 id="_5">解析记录<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
+<p>通过解析记录可以获得域名A记录从而获取到域名后的IP地址。</p>
+<p>A记录 ------ 映射域bai名到一个或多个IP</p>
+<p>CNAME------ 映射域名到另一个域名（子域名）</p>
+<p>域名解析记录：<a href="http://www.jsons.cn/nslookup/">http://www.jsons.cn/nslookup/</a></p>
+<p>全球ping，查看现绑定ip，看是否域名使用了CDN技术。</p>
+<p><a href="http://ping.chinaz.com/"><span class="underline">http://ping.chinaz.com/</span></a></p>
+<p>fofa</p>
+<h4 id="ip"><strong>已知IP获取信息</strong><a class="headerlink" href="#ip" title="Permanent link">&para;</a></h4>
+<h5 id="_6">反查域名<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>威胁情报平台</p>
+</li>
+<li>
+<p><a href="https://www.ipip.net/ip.html"><span class="underline">https://www.ipip.net/ip.html</span></a></p>
+</li>
+<li>
+<p><a href="https://www.aizhan.com/"><span class="underline">https://www.aizhan.com/</span></a></p>
+</li>
+<li>
+<p><a href="https://www.whois.com/"><span class="underline">https://www.whois.com/</span></a></p>
+</li>
+</ul>
+<h5 id="ip_1">IP信息<a class="headerlink" href="#ip_1" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p>威胁情报平台</p>
+</li>
+<li>
+<p><a href="https://www.ipip.net/"><span class="underline">https://www.ipip.net/</span></a></p>
+</li>
+<li>
+<p><a href="http://ipwhois.cnnic.net.cn/index.jsp"><span class="underline">http://ipwhois.cnnic.net.cn/index.jsp</span></a></p>
+</li>
+<li>
+<p>可获得</p>
+<ul>
+<li>
+<p>是否为移动网络、IDC等</p>
+</li>
+<li>
+<p>IP段所属公司</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="ip_2">IP定位<a class="headerlink" href="#ip_2" title="Permanent link">&para;</a></h5>
+<ul>
+<li>
+<p><a href="https://chaipip.com/"><span class="underline">https://chaipip.com/</span></a></p>
+</li>
+<li>
+<p><a href="https://www.opengps.cn/Data/IP/ipplus.aspx"><span class="underline">https://www.opengps.cn/Data/IP/ipplus.aspx</span></a></p>
+</li>
+</ul>
+<p><img alt="image-20220516222356310" src="images/image-20220516222356310.png" /></p>
+<h4 id="id"><strong>已知ID/姓名/手机号/邮箱获取信息</strong><a class="headerlink" href="#id" title="Permanent link">&para;</a></h4>
+<h5 id="_7">手机号/邮箱<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h5>
+<p>sgk</p>
+<p>查支付宝转账，验证姓名。</p>
+<p>通过部分平台账号找回密码，可猜手机号。</p>
+<p>QQ添加好友搜索</p>
+<p>微信添加好友搜索</p>
+<p><a href="https://www.reg007.com/"><span class="underline">https://www.reg007.com/</span></a></p>
+<p>社交平台查找（抖音、脉脉搜索等）</p>
+<h5 id="id_1">ID/姓名<a class="headerlink" href="#id_1" title="Permanent link">&para;</a></h5>
+<p>sgk</p>
+<p>谷歌/百度</p>
+<p>src搜索</p>
+<p>微博搜索</p>
+<p>贴吧搜索</p>
+<p>社交平台查找（抖音、脉脉搜索等）</p>
+<h4 id="_8"><strong>恶意文件</strong><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<p>恶意文件通常会从邮件的路径获得，可以将邮件全格式保存，用十六进制编辑器查看，可以获得发送邮件IP地址。</p>
+<h5 id="_9"><strong>需要准备的工具</strong><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
+<h6 id="_10">逆向类<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h6>
+<p>Ida</p>
+<p>JEB</p>
+<p>文件编辑类</p>
+<p>010 editor</p>
+<p>Winhex</p>
+<h6 id="_11">网络、进程监控类<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h6>
+<p>processmonitor</p>
+<p>Wireshark</p>
+<p>科来网络分析系统</p>
+<p>SRsniffer</p>
+<h6 id="_12">固件分析类<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h6>
+<p>Binwalk</p>
+<p>BIN2BMP</p>
+<p>PIXD</p>
+<h6 id="_13">在线沙箱<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h6>
+<p>微步云沙箱 <a href="https://s.threatbook.cn/"><span class="underline">https://s.threatbook.cn/</span></a></p>
+<p>奇安信云沙箱 <a href="https://sandbox.ti.qianxin.com/sandbox/page"><span class="underline">https://sandbox.ti.qianxin.com/sandbox/page</span></a></p>
+<p>腾讯哈勃 <a href="https://habo.qq.com/"><span class="underline">https://habo.qq.com/</span></a></p>
+<p>Joe Sandbox：<a href="https://www.joesandbox.com/"><span class="underline">https://www.joesandbox.com/</span></a></p>
+<h5 id="_14"><strong>常规溯源手法</strong><a class="headerlink" href="#_14" title="Permanent link">&para;</a></h5>
+<h6 id="_15"><strong>文件识别</strong><a class="headerlink" href="#_15" title="Permanent link">&para;</a></h6>
+<p>常见的可执行程序格式有PE，ELF，MACH-O等，不同的格式有不同的标志信息（参考理论篇），知道了目标文件的格式后才能确定对应的分析方法和分析工具。</p>
+<p>可以使用16进制解析器载入可执行程序，然后查看是哪种类型的文件。</p>
+<p><img alt="image-20220516222436320" src="images/image-20220516222436320.png" /></p>
+<p><img alt="image-20220516222443170" src="images/image-20220516222443170.png" /></p>
+<p>一般二进制文件的前四个字节为文件格式的magic，可以通过从网络搜索获得文件的信息，或者使用相关的工具（PEID，file）等进行自动识别。</p>
+<h6 id="_16"><strong>计算哈希值</strong><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h6>
+<p>哈希是一种用来唯一标识目标程序的常用方法。目标程序通过一个哈希算法，会产生出一段唯一的用于标识这个样本的哈希值，我们可以将这个值理解为是目标程序的指纹。常用的哈希算法有MD5、Sha-1以及CRC32等。由于仅仅采用一种算法，特别是MD5算法，有可能使得不同程序产生同样的哈希结果，所以一般会运用多种哈希验证文件的唯一性。</p>
+<p><img alt="image-20220516222509766" src="images/image-20220516222509766.png" /></p>
+<h6 id="_17"><strong>查找字符串</strong><a class="headerlink" href="#_17" title="Permanent link">&para;</a></h6>
+<p>程序中的字符串就是一串可打印的字符序列，一个程序通常都会包含一些字符串，比如打印输出信息、连接的URL，或者是程序所调用的API函数等。从字符串中进行搜索是获取程序功能提示的一种简单方法。（在IDA和OD中都可以查找字符串）并不是所有的字符串都是有意义的，但是利用这个结果，也能够给我们的静态分析带来很大的便利了。</p>
+<p><img alt="image-20220516222519627" src="images/image-20220516222519627.png" /></p>
+<h6 id="_18"><strong>查找导入函数</strong><a class="headerlink" href="#_18" title="Permanent link">&para;</a></h6>
+<p>如果软件被加壳的话，那么导入表中的函数会很少，所以可以从这里判断文件是否被加壳。如果没有加壳，那么导入表中会列出程序使用的大部分函数（除去程序动态获得的），我们就可以通过这些函数大致判断一下程序的行为。</p>
+<p><img alt="image-20220516222535574" src="images/image-20220516222535574.png" /></p>
+<h6 id="_19"><strong>解析宏</strong><a class="headerlink" href="#_19" title="Permanent link">&para;</a></h6>
+<p>使用IDA反汇编程序的时候，IDA并不会将宏的名字解析出来，相反，它只会使用宏对应的数字进行显示，如下如所示：</p>
+<p><img alt="image-20220516222544611" src="images/image-20220516222544611.png" /></p>
+<p>如果只看这些数字，完全无法得知什么情况，好在IDA提供了解析机制，可以将数字转换为宏名。在对应的数字上右键，选择Enum：</p>
+<p><img alt="image-20220516223207337" src="images/image-20220516223207337.png" /></p>
+<p>然后在弹出的对话框中选择对应的宏即可</p>
+<p><img alt="image-20220516223306285" src="images/image-20220516223306285.png" /></p>
+<p>替换后的结果如下，这样的话，就方便了静态查看代码</p>
+<p><img alt="image-20220516223313357" src="images/image-20220516223313357.png" /></p>
+<h6 id="_20"><strong>侦壳操作</strong><a class="headerlink" href="#_20" title="Permanent link">&para;</a></h6>
+<p>病毒木马编写者经常会使用加壳技术来让他们的恶意程序难以被检测或分析。正常的程序总是会包含很多字符串。而加了壳的恶意代码通过分析所得到的可打印字符串就会很少。如果查找出的程序的字符串很少时，那么这个程序就很有可能是加了壳的。此时往往就需要使用其它方法来进一步检测它们的行为。(常用PEiD进行查壳)</p>
+<p><img alt="image-20220516223328123" src="images/image-20220516223328123.png" /></p>
+<h6 id="_21"><strong>动态调试</strong><a class="headerlink" href="#_21" title="Permanent link">&para;</a></h6>
+<p>使用调试器对病毒进行分析在反病毒工作中扮演着十分重要的角色。调试器允许你查看任意内存地址的内容、寄存器的内容以及每个函数的参数。调试器也允许你在任意时刻改变关于程序执行的任何东西。比如你可以在任意时刻改变一个变量的值------前提是你需要获得关于这个变量足够的信息，包括在内存中的位置。在实际的动态调试过程中，最常用的是OllyDBG和WinDbg，前者是病毒分析人员使用最多的调试器，缺点是不支持内核调试，如果想调试内核，WinDbg基本上就是唯一的选择了。虽然IDA Pro也能够进行动态调试，但是它远远不如OD方便。因此在实际分析的过程中，往往是将二者结合使用的。因为如果用IDA Pro在静态分析中遇到了十分抽象的函数，那么用OD动态地执行一下，该函数的功能往往就能一目了然了</p>
+<h6 id="_22"><strong>多线程调试</strong><a class="headerlink" href="#_22" title="Permanent link">&para;</a></h6>
+<p>D调试软件时，它每次只能跟一个线程，如果遇到的软件创建了很多线程，那么调试起来就比较麻烦了，本节介绍一下多线程的调试方法。</p>
+<p>首先看一下线程创建的函数：</p>
+<p>HANDLE CreateThread(</p>
+<p>LPSECURITY_ATTRIBUTES lpThreadAttributes,//SD</p>
+<p>SIZE_T dwStackSize,//initialstacksize</p>
+<p>LPTHREAD_START_ROUTINE lpStartAddress,//threadfunction</p>
+<p>LPVOID lpParameter,//threadargument</p>
+<p>DWORD dwCreationFlags,//creationoption</p>
+<p>LPDWORD lpThreadId//threadidentifier</p>
+<p>)</p>
+<p>重点看第三个和第四个函数，其中第三个参数指定了新线程的入口地址，第四个参数为新线程所需的参数，当程序调用此函数来创建线程的时候，定位到线程的入口地址设置断点，一般情况下，程序会在后面调用Sleep或WaitForSingleObject函数，这样的话，程序的控制权就到了新线程里面。</p>
+<p><img alt="image-20220516223342286" src="images/image-20220516223342286.png" /></p>
+<p>如果程序没有调用Sleep或WaitForSingleObject函数，那么可以修改函数的代码，强制程序调用这两个函数，这样程序就转到新线程中执行。另一种方法是修改程序的EIP，使其指向新线程入口，如果有参数的话，还要修改寄存器的值，使其指向参数地址，不过这种方法可能会造成寄存器内容不正确，环境异常，从而造成程序执行崩溃。</p>
+<p>还有一种方法来调试多线程。如果程序多次调用CreateThread，确定一个我们打算调试的线程，并让这个线程创建成功，当程序再调用CreateThread创建线程的时候，直接修改此函数，让它直接返回，这样就不会再创建线程了，我们就可以只调试一个线程。</p>
+<h6 id="_23"><strong>调试子进程</strong><a class="headerlink" href="#_23" title="Permanent link">&para;</a></h6>
+<p>有些样本并不是单独运行的，它在运行过程中可能会创建子进程来完成恶意功能，遇到这种情况，就需要进入子进程中进行调试。</p>
+<p>如果父进程创建子进程时是以suspended的方式创建的，那么父进程会向子进程进行代码注入，写入之后会调用ResumeThread函数恢复子进程的运行。遇到这种情况，要确定父进程写入代码的地址，当代码写入之后，调用ResumeThread恢复子进程运行前，附加到子进程中，在代码注入的地址下断点并F9让子进程运行。这时再回到父进程中，运行函数ResumeThread，这样子进程就可以断在代码注入的地址了。</p>
+<p>还有一种创建子进程的方式，就只是简单的开启一个子进程运行，这种情况比较简单，需要注意的一点就是父进程创建子进程时传给子进程的参数，使用OD打开要运行的子进程，传入所需的参数即可开始调试。</p>
+<h4 id="_24"><strong>跳板机</strong><a class="headerlink" href="#_24" title="Permanent link">&para;</a></h4>
+<p>本节进行跳板机上信息搜集，查看跳板机是被哪个IP入侵的，是否留下一些黑客工具带有个人或组织信息，继续向上溯源</p>
+<p>本节需要溯源人员对linux及windows系统命令有一定掌握。</p>
+<p>关于如何攻破跳板机</p>
+<p>一般跳板机大多数为黑客的全网漏洞扫描脚本批量攻击拿下的肉鸡，故其比较容易拿下。不排除黑客通过定点、手动攻击、购买等途径获得的跳板机。</p>
+<p>进行全端口探测,尝试默认密码、找Web服务进行攻击。</p>
+<p>一些影响范围广泛、利用简单的漏洞 如：Phpstudy后门、Weblogic漏洞、Struts2漏洞、路由器监控摄像器等终端漏洞。</p>
+<p>遇到CS server可通过csbruter工具爆破密码。</p>
+<p>常见的日志分析工具：</p>
+<p>windows：logparser</p>
+<p>linux：主要为一些命令的使用例：split sed cat sort uniq awk等</p>
+<p>跳板机的溯源过程，可以主要从端口、进程、定时任务、日志来入手</p>
+<h5 id="linux"><strong>Linux</strong><a class="headerlink" href="#linux" title="Permanent link">&para;</a></h5>
+<h6 id="_25">端口查询<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h6>
+<p>使用 netstat 网络连接命令，分析可疑端口、IP、PID</p>
+<p>部分系统可使用lsof -i</p>
+<p>查看下 pid 所对应的进程文件路径，</p>
+<p>运行 ls -l /proc/$PID/exe 或 file /proc/$PID/exe（$PID 为对应的 pid 号）</p>
+<h6 id="_26">进程查询<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h6>
+<p>使用 ps 命令，分析进程</p>
+<p>ps aux | grep pid</p>
+<h6 id="_27">定时任务<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h6>
+<p>1、利用 crontab 查询创建的定时任务</p>
+<p>基本命令</p>
+<p>crontab -l 列出某个用户cron服务的详细内容</p>
+<p>Tips：默认编写的crontab文件会保存在 (/var/spool/cron/用户名 例如: /var/spool/cron/root</p>
+<p>crontab -r 删除每个用户cront任务(谨慎：删除所有的计划任务)</p>
+<p>crontab -e 使用编辑器编辑当前的crontab文件</p>
+<p>如：*/1 * * * * echo \"hello world\" >> /tmp/test.txt 每分钟写入文件</p>
+<p>2、利用 anacron 命令实现异步定时任务调度</p>
+<p>使用案例</p>
+<p>每天运行 /home/backup.sh 脚本：</p>
+<p>vi /etc/anacrontab</p>
+<p>\@daily 10 example.daily /bin/bash /home/backup.sh</p>
+<p>当机器在 backup.sh 期望被运行时是关机的，anacron会在机器开机十分钟之后运行它，而不用再等待 7天。</p>
+<h6 id="_28">历史命令<a class="headerlink" href="#_28" title="Permanent link">&para;</a></h6>
+<p>1、root 用户的历史命令</p>
+<p>histroy</p>
+<p>2、打开 /home 各帐号目录下的 .bash_history，查看普通帐号执行的历史命令。</p>
+<p>为历史的命令增加登录的 IP 地址、执行命令时间等信息：</p>
+<p>1）保存1万条命令</p>
+<p>sed -i \'s/^HISTSIZE=1000/HISTSIZE=10000/g\' /etc/profile</p>
+<p>2）在/etc/profile的文件尾部添加如下行数配置信息：</p>
+<p>USER_IP=`who -u am i 2>/dev/null | awk \'{print $NF}\' | sed -e \'s/[()]//g\'`</p>
+<p>if [ \"$USER_IP\" = \"\" ]</p>
+<p>then</p>
+<p>USER_IP=`hostname`</p>
+<p>fi</p>
+<p>export HISTTIMEFORMAT=\"%F %T $USER_IP `whoami` \"</p>
+<p>shopt -s histappend</p>
+<p>export PROMPT_COMMAND=\"history -a\"</p>
+<p>3）source /etc/profile 让配置生效</p>
+<h6 id="_29">用户<a class="headerlink" href="#_29" title="Permanent link">&para;</a></h6>
+<p>who 查看当前登录用户（tty 本地登陆 pts 远程登录）</p>
+<p>w 查看系统信息，想知道某一时刻用户的行为</p>
+<p>uptime 查看登陆多久、多少用户，负载状态</p>
+<p>1、用户信息文件 /etc/passwd</p>
+<p>root<img alt="❌" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/274c.png" title=":x:" />0:0:root:/root:/bin/bash</p>
+<p>account:password:UID:GID:GECOS:directory:shell</p>
+<p>用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后的 shell</p>
+<p>注意：无密码只允许本机登陆，远程不允许登陆</p>
+<p>2、影子文件 /etc/shadow每个:为一次分割</p>
+<p>root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::</p>
+<p>用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之后的宽限天数：账号失效时间：保留</p>
+<h6 id="_30">日志<a class="headerlink" href="#_30" title="Permanent link">&para;</a></h6>
+<p>日志默认存放位置：/var/log</p>
+<hr />
+<p>日志文件           说明</p>
+<hr />
+<p>/var/log/cron      记录了系统定时任务相关的日志</p>
+<p>/var/log/cups      记录打印信息的日志</p>
+<p>/var/log/dmesg     记录了系统在开机时内核自检的信息，也可以使用dmesg命令直接查看内核自检信息</p>
+<p>/var/log/mailog    记录邮件信息</p>
+<p>/var/log/message   记录系统重要信息的日志。这个日志文件中会记录Linux系统的绝大多数重要信息，如果系统出现问题时，首先要检查的就应该是这个日志文件</p>
+<p>/var/log/btmp      记录错误登录日志，这个文件是二进制文件，不能直接vi查看，而要使用lastb命令查看</p>
+<p>/var/log/lastlog   记录系统中所有用户最后一次登录时间的日志，这个文件是二进制文件，不能直接vi，而要使用lastlog命令查看</p>
+<p>/var/log/wtmp      永久记录所有用户的登录、注销信息，同时记录系统的启动、重启、关机事件。同样这个文件也是一个二进制文件，不能直接vi，而需要使用last命令来查看</p>
+<p>/var/log/utmp      记录当前已经登录的用户信息，这个文件会随着用户的登录和注销不断变化，只记录当前登录用户的信息。同样这个文件不能直接vi，而要使用w,who,users等命令来查询</p>
+<p>/var/log/secure    记录验证和授权方面的信息，只要涉及账号和密码的程序都会记录，比如SSH登录，su切换用户，sudo授权，甚至添加用户和修改用户密码都会记录在这个日志文件中</p>
+<p>Web访问日志通常为access.log文件可以使用find命令进行查找</p>
+<p>查找最近修改过的文件命令</p>
+<p>例：find ./* -mmin -5 Tips： mmin分钟 mtime 天</p>
+<p>日志分析小技巧：</p>
+<p>登录成功的IP有哪些：</p>
+<p>grep \"Accepted \" /var/log/secure | awk \'{print $11}\' | sort | uniq -c | sort -nr | more</p>
+<p>登录成功的日期、用户名、IP：</p>
+<p>grep \"Accepted \" /var/log/secure | awk \'{print $1,$2,$3,$9,$11}\'</p>
+<h6 id="webshell">Webshell查找<a class="headerlink" href="#webshell" title="Permanent link">&para;</a></h6>
+<p>河马 webshell：<a href="http://www.shellpub.com">http://www.shellpub.com</a></p>
+<h5 id="windows"><strong>Windows</strong><a class="headerlink" href="#windows" title="Permanent link">&para;</a></h5>
+<h6 id="_31">检查系统账号安全<a class="headerlink" href="#_31" title="Permanent link">&para;</a></h6>
+<p>1、查看服务器是否存在可疑账号、新增账号。</p>
+<p>检查方法：打开 cmd 窗口，输入 lusrmgr.msc 命令，查看是否有新增/可疑的账号，如有管理员群组的（Administrators）里的新增账户，如有，请立即禁用或删除掉。</p>
+<p>2、查看服务器是否存在隐藏账号、克隆账号。</p>
+<p>检查方法：</p>
+<p>a、打开注册表 ，查看管理员对应键值。</p>
+<p>b、使用D盾_web查杀工具，集成了对克隆账号检测的功能。</p>
+<p>3、结合日志，查看管理员登录时间、用户名是否存在异常。</p>
+<p>检查方法：</p>
+<p>a、Win+R 打开运行，输入\"eventvwr.msc\"，回车运行，打开"事件查看器"。</p>
+<p>b、导出 Windows 日志 -- 安全，利用微软官方工具 Log Parser 进行分析。</p>
+<h6 id="_32">端口查询<a class="headerlink" href="#_32" title="Permanent link">&para;</a></h6>
+<p>1、检查端口连接情况，是否有远程连接、可疑连接。</p>
+<p>检查方法：</p>
+<p>a、使用netstat -ano 命令查看目前的网络连接，定位可疑的 ESTABLISHED</p>
+<p>b、根据 netstat 命令定位出的 PID 编号，再通过 tasklist 命令进行进程定位 tasklist | findstr \"PID\"</p>
+<h6 id="_33">进程查询<a class="headerlink" href="#_33" title="Permanent link">&para;</a></h6>
+<p>检查方法：</p>
+<p>a、开始 -- 运行 -- 输入 msinfo32 命令，依次点击 \"软件环境 -- 正在运行任务\" 就可以查看到进程的详细信息，比如进程路径、进程ID、文件创建日期以及启动时间等。</p>
+<p>b、打开D盾_web查杀工具，进程查看，关注没有签名信息的进程。</p>
+<p>c、通过微软官方提供的 Process Explorer 等工具进行排查 。</p>
+<p>d、查看可疑的进程及其子进程。可以通过观察以下内容：</p>
+<p>没有签名验证信息的进程</p>
+<p>没有描述信息的进程</p>
+<p>进程的属主</p>
+<p>进程的路径是否合法</p>
+<p>CPU 或内存资源占用长时间过高的进程</p>
+<p>3、小技巧：</p>
+<p>a、查看端口对应的 PID：netstat -ano | findstr \"port\"</p>
+<p>b、查看进程对应的 PID：任务管理器 -- 查看 -- 选择列 -- PID 或者 tasklist | findstr \"PID\"</p>
+<p>c、查看进程对应的程序位置：</p>
+<p>任务管理器 -- 选择对应进程 -- 右键打开文件位置</p>
+<p>运行输入 wmic，cmd 界面输入 process</p>
+<p>d、tasklist /svc 进程 -- PID -- 服务</p>
+<p>e、查看Windows服务所对应的端口：</p>
+<p>%systemroot%/system32/drivers/etc/services（一般 %systemroot% 就是 C:\Windows 路径）</p>
+<h6 id="_34">检查启动项、计划任务、服务<a class="headerlink" href="#_34" title="Permanent link">&para;</a></h6>
+<p>1、检查服务器是否有异常的启动项。</p>
+<p>检查方法：</p>
+<p>a、登录服务器，单击【开始】>【所有程序】>【启动】，默认情况下此目录在是一个空目录，确认是否有非业务程序在该目录下。 b、单击开始菜单 >【运行】，输入 msconfig，查看是否存在命名异常的启动项目，是则取消勾选命名异常的启动项目，并到命令中显示的路径删除文件。 c、单击【开始】>【运行】，输入 regedit，打开注册表，查看开机启动项是否正常，特别注意如下三个注册表项：</p>
+<p>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\run</p>
+<p>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</p>
+<p>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Runonce</p>
+<h6 id="webshell_1">Webshell<a class="headerlink" href="#webshell_1" title="Permanent link">&para;</a></h6>
+<p>使用D盾进行全盘扫描，对脚本文件进行人工判断。</p>
+<h2 id="_35"><strong>实战篇</strong><a class="headerlink" href="#_35" title="Permanent link">&para;</a></h2>
+<p>本篇内容主要以\"2020HW\"行动发生的真实攻击事件为主，目的是用实战案列给大家最直观的感受，部分内容已脱敏。</p>
+<h3 id="1web">1.web攻击溯源篇<a class="headerlink" href="#1web" title="Permanent link">&para;</a></h3>
+<p>（1）9.13日，18:10:43分蜜罐设备告警，发现攻击者对自定义蜜罐界面进行端口扫描，在研判时发现该攻击者IP地址为总部统一下发的高危预警IP，随立即对其展开攻击溯源工作。</p>
+<p>我们获取到IP后，首先对其进行威胁情报收集，推荐使用微步在线威胁情报社区。如图：</p>
+<p><img alt="image-20220516223819152" src="images/image-20220516223819152.png" /></p>
+<p>（2）通过ping该域名来获取其使用的真实地址，得到地61.188.254.133，通过该地址反查域名得到xxooxxoo.xyz，再查询该域名的whois信息，我们得到了攻击者的初步信息。</p>
+<p><img alt="image-20220516223826432" src="images/image-20220516223826432.png" /></p>
+<p><img alt="image-20220516223831585" src="images/image-20220516223831585.png" /></p>
+<p>在实战过程中，往往我们反查IP地址获取到的域名是获取不到有效的利用信息的，此时我们需要更加耐心，查询其历史注册域名，通过不断的IP反查，域名反查来获取更多信息，渗透的本质是信息收集，溯源的本身也是信息收集的一种体现。</p>
+<p>（3）通过前两步的分析，我们得到了攻击者的手机号与姓名，我们可以通过社交平台及APP来验证攻击者的真实性，也可以通过社工库来获取攻击者的更多信息，社工库源自Telegram（由于需要翻墙这里不再提供截图，大家自行查找）。</p>
+<p>1.支付宝通过转账功能可以验证其姓名真实性。</p>
+<p>通过QQ号，进入QQ空间获取到大量个人信息（朋友圈，QQ空间这种社交圈子大家尽量还是设置为不允许陌生人访问）</p>
+<p>此时可以判断攻击者曾就职于腾讯。同时通过QQ空间我们还发现攻击者曾开发过微信公众号，通过搜索引擎搜索获取到的scjtqs关键词，我们获取到了攻击者的github信息，一些开发项目的信息，可以证明攻击者是IT行业从业者。</p>
+<h3 id="2">2.钓鱼邮件分析篇<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<p>钓鱼邮件攻击多为两种，一是带有附件的word宏病毒，二是引导受害者进入钓鱼网站来获取受害者的敏感信息。识别钓鱼邮件首先关注发件人的地址信息，以及攻击者发过来的恶意链接地址（将鼠标光标移动至恶意链接地址在浏览器左下角可以看到相关地址）。同时在大家日常工作中要提高自己的安全意识，不要使用以自己生日命名的密码或者简单的密码组合，不要再互联网中经常使用个人信息来进行注册，往往攻击者再获取到内部人员邮箱之后进行的攻击会使内部员工大面积中招。</p>
+<p><strong>一、事件描述：</strong></p>
+<p>2020年09月17日 17:11:00我方拿到钓鱼邮件样本，随立即对其展开分析工作。通过云沙箱对样本进行分析，发现其为word宏病毒。</p>
+<p>将文件上传至云沙箱，可发现该文件为恶意文件。</p>
+<p><img alt="image-20220516224022465" src="images/image-20220516224022465.png" /></p>
+<p>分析总结该文件执行流程如下：运行文件后会通过powershell执行恶意代码，下载了名为K2ngq9rh.exe的恶意程序，该恶意程序运行会执行多项恶意行为并将自身删除。</p>
+<p>打开文档前先禁用宏，防止word宏代码执行对机器进行高危操作，对宏代码进行分析。</p>
+<p><img alt="image-20220516224029531" src="images/image-20220516224029531.png" /></p>
+<p>分为Od7aj7ii3yu和K946e0s3qiq0两部分宏代码。</p>
+<p>Od7aj7ii3yu 函数为一个私有方法在文档打开时创建了6个字符串数组对象，为后续操作做准备。</p>
+<p><img alt="image-20220516224034585" src="images/image-20220516224034585.png" /></p>
+<p>K946e0s3qiq0为恶意宏代码的主体程序，代码中使用字符串拼接作为字典，使用mid、trim、split函数偏移对无序字符串进行取值。</p>
+<p>对其中一个部分验证如下：</p>
+<p><img alt="image-20220516224041282" src="images/image-20220516224041282.png" /></p>
+<p>继续追踪代码,发现公代码会调用wmi(winmgmts),使用win32_process接口获取计算机的系统信息。</p>
+<p><img alt="image-20220516224052695" src="images/image-20220516224052695.png" /></p>
+<p><img alt="image-20220516224101901" src="images/image-20220516224101901.png" /></p>
+<p>继续跟踪代码发现一个比较有意思的事情，在解密过程中会出现pizdec 字样的字符串，查询后是俄罗斯语，怀疑该钓鱼邮件与俄罗斯有关。</p>
+<p><img alt="image-20220516224114744" src="images/image-20220516224114744.png" /></p>
+<p>继续分析，可以看到在字符串解密后会使用powershell -encode 执行加密后的代码。</p>
+<p><img alt="image-20220516224120915" src="images/image-20220516224120915.png" /></p>
+<p><img alt="image-20220516224129298" src="images/image-20220516224129298.png" /></p>
+<p>该加密后的代码有2部分构成：</p>
+<ol>
+<li>
+<p>明文使用"."、"*"、"/"、" "等做混淆</p>
+</li>
+<li>
+<p>混淆后使用base64加密</p>
+</li>
+</ol>
+<blockquote>
+<p>逆向该过程还原明文</p>
+<p><img alt="image-20220516224203498" src="images/image-20220516224203498.png" /></p>
+<p><img alt="image-20220516224210822" src="images/image-20220516224210822.png" /></p>
+</blockquote>
+<p>分析宏代码释放的exe文件，在函数中发现了作者自定义的函数名称为lhxXfY9mIrDZ，结合宏代码中的pizdec。谷歌搜索后发现2020年9月18号的一个沙箱报告。</p>
+<p><img alt="image-20220516224252691" src="images/image-20220516224252691.png" /></p>
+<p>报告如下</p>
+<p><img alt="image-20220516224258387" src="images/image-20220516224258387.png" /></p>
+<p>木马逻辑分为加载器和木马核心，在加载器运行时，也就是qct8u1hKuXXwoP.exe会先获取系统的基本信息、是否为调试环境等。</p>
+<p>判断是否在debug环境下</p>
+<p><img alt="image-20220516224348755" src="images/image-20220516224348755.png" /></p>
+<p>如果是调试环境就会sleep，不执行后续动作。</p>
+<p><img alt="image-20220516224354872" src="images/image-20220516224354872.png" /></p>
+<p>获取系统的cpu 和 oem信息</p>
+<p><img alt="image-20220516224401057" src="images/image-20220516224401057.png" /></p>
+<p><img alt="image-20220516224447689" src="images/image-20220516224447689.png" /></p>
+<p>根据报告内容发现如果加载器运行正常会下载木马核心。</p>
+<p><img alt="image-20220516224930027" src="images/image-20220516224930027.png" /></p>
+<p>拼接下载地址，下载木马分析。在 ida中分析发现木马作者没有删去本机的调试路径。</p>
+<p><img alt="image-20220516224935277" src="images/image-20220516224935277.png" /></p>
+<p>根据此路径为关键字搜索可以确定该钓鱼邮件的组织为</p>
+<p>Emotet</p>
+<p><img alt="image-20220516224942166" src="images/image-20220516224942166.png" /></p>
+<p>Emotet恶意软件的第一个版本早在2014年就被广泛发现，其目的是通过拦截互联网流量来窃取银行凭证。首次在野外发现Emotet时，该恶意软件仅使用其本机信息窃取工具集，主要针对德国和奥地利的银行。Emotet背后的运营团队是Mealybug。该团队 是一个网络犯罪组织，自2014年以来一直保持活跃。我们可以通过其使用的自定义恶意软件Trojan.Emotet来识别它。近几年来，Mealybug似乎已经改变了其商业模式，从针对欧洲的银行客户转变为了使用其基础设施为全球其他威胁行为者提供恶意软件包装和交付服务。此次钓鱼邮件攻击，是针对于政府企业的一次APT攻击。</p>
+<p><img alt="image-20220516224953365" src="images/image-20220516224953365.png" /></p>
+<p>分析文件执行内容，可以发现该恶意文件会执行多种恶意行为，包括代码混淆、释放恶意文件、创建可以进程等：</p>
+<p><img alt="image-20220516225000130" src="images/image-20220516225000130.png" /></p>
+<p>文件执行过程中可观察到其实通过powershell进行数据的传输工作。</p>
+<p><img alt="image-20220516225010689" src="images/image-20220516225010689.png" /></p>
+<p><img alt="image-20220516225017253" src="images/image-20220516225017253.png" /></p>
+<p>通过对文件执行中的powershell代码进行解码分析，得到源代码。</p>
+<p><img alt="image-20220516225159931" src="images/image-20220516225159931.png" /></p>
+<p>解码得到</p>
+<p><img alt="image-20220516225205713" src="images/image-20220516225205713.png" /></p>
+<p>对代码进行分析得知代码内容为请求以下URL</p>
+<p><a href="http://theccwork.com/mail.theccwork.com/IJp/">http://theccwork.com/mail.theccwork.com/IJp/</a>\
+<a href="https://www.retirementprofessional.com/wp-admin/tjQ/">https://www.retirementprofessional.com/wp-admin/tjQ/</a>\
+<a href="https://writingfromling.live/wp-admin/GL/">https://writingfromling.live/wp-admin/GL/</a>\
+<a href="http://shahqutubuddin.org/ix/">http://shahqutubuddin.org/ix/</a>\
+<a href="https://jumpstart.store/wp-admin/q/">https://jumpstart.store/wp-admin/q/</a>\
+<a href="https://aidenshirt.com/wp-admin/e6f/">https://aidenshirt.com/wp-admin/e6f/</a>\
+<a href="https://edenrug.store/wp-admin/H/">https://edenrug.store/wp-admin/H/</a></p>
+<p>对以上URL进行溯源分析发现站点均为wordpress模板，wordpress为最新版本无法进行漏洞利用。部分信息如下：</p>
+<p><img alt="image-20220516225215984" src="images/image-20220516225215984.png" /></p>
+<p>访问该域名会提示此网站为钓鱼网站。</p>
+<p><img alt="image-20220516225221915" src="images/image-20220516225221915.png" /></p>
+<p>点击链接下载其中病毒文件并进行威胁情报分析。</p>
+<p><img alt="image-20220516225228889" src="images/image-20220516225228889.png" /></p>
+<p>对其请求的IP地址进行情报收集。</p>
+<p><img alt="image-20220516230439958" src="images/image-20220516230439958.png" /></p>
+<p>发现其为Emotet银行木马。</p>
+<p>2.本地执行此病毒木马通过分析流量发现其指向两个域名。</p>
+<p><img alt="image-20220516230449272" src="images/image-20220516230449272.png" /></p>
+<p>对流量中的域名地址进行溯源分析</p>
+<p><img alt="image-20220516230605313" src="images/image-20220516230605313.png" /></p>
+<p>其IP地址为Emotet银行木马地址。</p>
+<p>3.通过分析该病毒木马文件，发现其Host指向四个IP地址其中包含Emotet银行木马地址。</p>
+<p><img alt="image-20220516230615468" src="images/image-20220516230615468.png" /></p>
+<p><img alt="image-20220516230621015" src="images/image-20220516230621015.png" /></p>
+<p>通过百度词条可得知，EMOTET银行木马其主要通过垃圾邮件的方式进行传播。</p>
+<p><strong>结论：</strong></p>
+<p>根据以上线索推断分析，此事件为境外黑产团伙传播Emotet银行木马的钓鱼邮件攻击，尝试对攻击者进行溯源反制发现其相关站点为浮动变化站点。未能有进一步发现。</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      最后更新:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-05-17 00:13:06</span>
+      
+    
+  </small>
+</div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2017 - 2022
+    </div>
+  
+  <a >keep learning ，stay foolish ，continue thinking</a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://github.com/klsfct" target="_blank" rel="noopener" title="圆周 on github" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/google-tongji.js"></script>
+      
+    
+  </body>
+</html>
