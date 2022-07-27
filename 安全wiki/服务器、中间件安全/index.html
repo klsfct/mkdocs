@@ -1141,9 +1141,10 @@
 <p>，</p>
 <h4 id="iis">一. IIS<a class="headerlink" href="#iis" title="Permanent link">&para;</a></h4>
 <ol>
-<li>
-<p>PUT 漏洞</p>
-</li>
+<li>PUT 漏洞</li>
+</ol>
+<p>原理：iis put能直接写入目标服务器，web服务拓展中开启了webDAV，配置了写入权限</p>
+<ol>
 <li>
 <p>短文件名猜解</p>
 </li>
@@ -1153,9 +1154,12 @@
 <li>
 <p>解析漏洞</p>
 </li>
-<li>
-<p>认证绕过（ :<span class="arithmatex"><span class="MathJax_Preview">i30:</span><script type="math/tex">i30:</script></span>INDEX_ALLOCATION ）</p>
-</li>
+</ol>
+<p>原理：</p>
+<p>IIS 5.x/6.0解析漏洞带有*.asp.asa为后缀文件，文件夹的都会按照执行</p>
+<p>IIS6.0下，分号后面的不被解析；asp、asa、cer、cdx四种都可执行</p>
+<ol>
+<li>认证绕过（ :<span class="arithmatex"><span class="MathJax_Preview">i30:</span><script type="math/tex">i30:</script></span>INDEX_ALLOCATION ）</li>
 </ol>
 <h4 id="apache">二. Apache<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h4>
 <ol>
@@ -1201,7 +1205,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-22 23:38:31</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-07-27 22:31:40</span>
       
     
   </small>

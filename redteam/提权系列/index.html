@@ -13,7 +13,7 @@
     
     
       
-        <title>提权系列 - klsfct Docs</title>
+        <title>**HVV题库** - klsfct Docs</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#hvv" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              提权系列
+              **HVV题库**
             
           </span>
         </div>
@@ -1005,22 +1010,655 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    网络基础题：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    安全加固：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    应急响应：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    溯源：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    渗透测试基础：
+  </a>
+  
+    <nav class="md-nav" aria-label="渗透测试基础：">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL注入：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    文件上传：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xsscsrfssrf" class="md-nav__link">
+    XSS、CSRF和SSRF：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waf" class="md-nav__link">
+    WAF原理与绕过：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    反序列化：
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    其他漏洞：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    常见的未授权访问漏洞：
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    内网渗透：（了解）
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
 
-  <h1>提权系列</h1>
+<h1 id="hvv"><strong>HVV题库</strong><a class="headerlink" href="#hvv" title="Permanent link">&para;</a></h1>
+<h3 id="_1">网络基础题：<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>常见的服务对应哪些端口 7001、3389、443、21、22、25、3306</p>
+</li>
+<li></li>
+<li>
+<p>0SI7层是哪七层，其对应的功能</p>
+</li>
+<li>
+<p>TCP3次握手和4次挥手的工作步骤</p>
+</li>
+<li>
+<p>TCP/UDP协议的区别</p>
+</li>
+<li>
+<p>linux和windows（看系统进程的命令和杀列进程）基本命令</p>
+</li>
+<li>
+<p>如何手工快速判断目标站是windows还是linux</p>
+</li>
+</ol>
+<p>1、linux大小写敏感,windows大小写不敏感。-----已经测试证实
+   2、ping服务器，返还得TTL值不一样，windows一般在100以上，linux一般是100一下。—已经测试证实</p>
+<h3 id="_2">安全加固：<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>linux安全加国</p>
+</li>
+<li>
+<p>windows安全加固</p>
+</li>
+</ol>
+<p>控制面板&gt;管理工具&gt;本地安全策略，在账号策略里的密码策略</p>
+<p>安全审计：</p>
+<p>在“本地策略-&gt;审核策略</p>
+<p>账户锁定  </p>
+<p>控制面板 &gt; 管理工具 &gt; 本地安全策略，在 帐户策略里的帐户锁定策略 中</p>
+<p>用户权限</p>
+<h3 id="_3">应急响应：<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>windows应急响应 系统排查 文件排查</p>
+</li>
+<li>
+<p>Linux应急响应</p>
+</li>
+<li>
+<p>Windows日志分析</p>
+</li>
+<li>
+<p>linux日志分析</p>
+</li>
+<li>
+<p>常见的安全设备</p>
+</li>
+</ol>
+<h3 id="_4">溯源：<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>溯源方法</p>
+</li>
+<li>
+<p>攻击源捕获来源</p>
+</li>
+<li>
+<p>溯源处置</p>
+</li>
+<li>
+<p>攻击者画像</p>
+</li>
+</ol>
+<h3 id="_5">渗透测试基础：<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>如果让你渗适个网站，你的思路是什么。</p>
+</li>
+<li>
+<p>信息收集技术</p>
+</li>
+<li>
+<p>如何判断是否有CDN。</p>
+</li>
+<li>
+<p>如何绕过CDN</p>
+</li>
+</ol>
+<h4 id="sql">SQL注入：<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>SQL注入原理</p>
+</li>
+<li>
+<p>SQL注入分类</p>
+</li>
+<li>
+<p>SQL注入防御</p>
+</li>
+<li>
+<p>SQL注入判断注入点的思路</p>
+</li>
+<li>
+<p>报错注入的函数有哪些?</p>
+</li>
+<li>
+<p>SQL注入漏洞有哪些利用手法。</p>
+</li>
+<li>
+<p>Sql注入无回显的情况下，如何利用DNSlog。</p>
+</li>
+<li>
+<p>宽字节注入原理?如何利用宽字节注入漏洞。</p>
+</li>
+<li>
+<p>mysql注入点，用工具对目标站直接写入一句话，前提条件。</p>
+</li>
+<li>
+<p>盲注和延时注入的共同点?</p>
+</li>
+<li>
+<p>mysql的网站注入，5.0 以上和5.0以下有什么区别？</p>
+</li>
+</ol>
+<h4 id="_6">文件上传：<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>文件上传漏洞的绕过方法有哪些。</p>
+</li>
+<li>
+<p>文件上传的时候如何突破前端后缀验证。</p>
+</li>
+<li>
+<p>网站常见的文件上传点有哪些。</p>
+</li>
+</ol>
+<h4 id="xsscsrfssrf">XSS、CSRF和SSRF：<a class="headerlink" href="#xsscsrfssrf" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>csrf漏洞原理，危害与防护</p>
+</li>
+<li>
+<p>如何防止CSRF?</p>
+</li>
+<li>
+<p>ssrf 以及ssrf的防御?</p>
+</li>
+<li>
+<p>SSRF禁用127.0.0.1后如何绕过？</p>
+</li>
+<li>
+<p>XSS漏洞的分类，危害及防御</p>
+</li>
+<li>
+<p>CSRF和XSS和XXE有什么区别，以及修复建议。</p>
+</li>
+<li>
+<p>xss权限驻留方法。</p>
+</li>
+</ol>
+<h4 id="waf">WAF原理与绕过：<a class="headerlink" href="#waf" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>waf工作原理</p>
+</li>
+<li>
+<p>waf工作过程</p>
+</li>
+<li>
+<p>waf绕过文件上传</p>
+</li>
+<li>
+<p>waf绕过-SQL注入</p>
+</li>
+<li>
+<p>waf绕过-RCE</p>
+</li>
+</ol>
+<h4 id="_7">反序列化：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ol>
+<li>php反序列化原理</li>
+</ol>
+<p>反序列化：把对象转化的二进制字符串再转化为对象，使用unserialize()函数</p>
+<p>但是如果反序列化的内容是用户可以控制的</p>
+<p>且后台不正当的使用了PHP中的魔法函数就会导致安全问题</p>
+<p>当传给unserialize()的参数可控时，我们可以通过传入一个精心构造的序列化字符串，从而控制对象内部的变量甚至是函数。</p>
+<ol>
+<li>php的魔法函数有哪些</li>
+</ol>
+<div class="highlight"><pre><span></span><code>__construct()    #类的构造函数
+__destruct()    #类的析构函数,在对象被销毁时执行该函数
+__call()    #在对象中调用一个不可访问方法时调用
+__callStatic()    #用静态方式中调用一个不可访问方法时调用
+__get()    #获得一个类的成员变量时调用
+__set()    #设置一个类的成员变量时调用
+__isset()    #当对不可访问属性调用isset()或empty()时调用
+__unset()    #当对不可访问属性调用unset()时被调用。
+__sleep()    #执行serialize()时，先会调用这个函数
+__wakeup()    #执行unserialize()时，先会调用这个函数
+__toString()    #类被当成字符串时的回应方法
+__invoke()    #调用函数的方式调用一个对象时的回应方法
+__set_state()    #调用var_export()导出类时，此静态方法会被调用。
+__clone()    #当对象复制完成时调用
+__autoload()    #尝试加载未定义的类
+__debugInfo()    #打印所需调试信息
+</code></pre></div>
+<ol>
+<li>java反序列化原理</li>
+</ol>
+<div class="highlight"><pre><span></span><code>Java.io.ObjectOutputStream
+java.io.ObjectInputStream
+序列化： 　ObjectOutputStream类 --&gt; writeObject()
+
+注：该方法对参数指定的obj对象进行序列化，把字节序列写到一个目标输出流中
+按Java的标准约定是给文件一个.ser扩展名
+
+反序列化:　ObjectInputStream类 --&gt; readObject()
 
 
+XML
+JSON
+Jackson
+FastJson
+Hessian
+thrift
+protobuf
+</code></pre></div>
+<ol>
+<li>
+<p>fastison反序列化漏洞原理及利用</p>
+</li>
+<li>
+<p>fastjson不出网怎么利用</p>
+</li>
+<li>
+<p>shrio反序列化漏洞原理</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><code>shiro默认使用了CookieRememberMeManager，其处理cookie的流程是：
+得到rememberMe的cookie值 --&gt; Base64解码 --&gt; AES解密 --&gt; 反序列化
+然而AES的密钥是硬编码的，就导致了攻击者可以构造恶意数据造成反序列化的RCE漏洞。
+payload 构造的顺序则就是相对的反着来：
+恶意命令--&gt;序列化--&gt;AES加密--&gt;base64编码--&gt;发送cookie
+在整个漏洞利用过程中，比较重要的是AES加密的密钥，该秘钥默认是默认硬编码的，所以如果没有修改默认的密钥，就自己可以生成恶意构造的cookie了。
+shiro特征：
+未登陆的情况下，请求包的cookie中没有rememberMe字段，返回包set-Cookie里也没有deleteMe字段
+登陆失败的话，不管勾选RememberMe字段没有，返回包都会有rememberMe=deleteMe字段
+不勾选RememberMe字段，登陆成功的话，返回包set-Cookie会有rememberMe=deleteMe字段。但是之后的所有请求中Cookie都不会有rememberMe字段
+
+勾选RememberMe字段，登陆成功的话，返回包set-Cookie会有rememberMe=deleteMe字段，还会有rememberMe字段，之后的所有请求中Cookie都会有rememberMe字段
+</code></pre></div>
+<ol>
+<li>shrio的构造链有哪些</li>
+</ol>
+<p>通过在cookie的rememberMe字段中插入恶意payload，</p>
+<p>触发shiro框架的rememberMe的反序列化功能，导致任意代码执行。</p>
+<p>shiro 1.2.24中，提供了硬编码的AES密钥：kPH+bIxk5D2deZiIxcaaaA==</p>
+<p>由于开发人员未修改AES密钥而直接使用Shiro框架，导致了该问题</p>
+<ol>
+<li>
+<p>shrio的回显方式有哪些</p>
+</li>
+<li>
+<p>shrio550的特征</p>
+</li>
+<li>
+<p>jboss反序列化漏洞原理</p>
+</li>
+<li>
+<p>weblogic反序列化漏洞原理</p>
+</li>
+<li>
+<p>weblogic权限绕过</p>
+</li>
+</ol>
+<h3 id="_8">其他漏洞：<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>常见的中间件及漏洞</p>
+</li>
+<li>
+<p>常见的解析漏洞有哪些</p>
+</li>
+<li>
+<p>常见的框架漏洞有哪些</p>
+</li>
+<li>
+<p>常见的逻辑漏洞有哪些</p>
+</li>
+<li>
+<p>常用的句话木马?</p>
+</li>
+<li>
+<p>后台getshell的方法有哪些?</p>
+</li>
+<li>
+<p>拿到webshell不出网情况下怎么办</p>
+</li>
+<li>
+<p>inux和windows提权的方法</p>
+</li>
+</ol>
+<h3 id="_9">常见的未授权访问漏洞：<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p>a. MongoDB 未授权访问漏洞</p>
+<p>b. Redis 未授权访问漏洞</p>
+<p>c. Memcached 未授权访问漏洞</p>
+<p>d. JBOSS 未授权访问漏洞</p>
+<p>e. VNC 未授权访问漏洞</p>
+<p>f. Docker 未授权访问漏洞</p>
+<p>g. ZooKeeper 未授权访问漏洞</p>
+<p>h. Rsync 未授权访问漏洞</p>
+<p><strong>代码执行、文件读取、命令执行的函数：</strong></p>
+<p>文件执行：eval、call_user_func、call_user_func_array等</p>
+<p>文件读取：fopen()、readfile()、fread()、file()、show_source()等</p>
+<p>命令执行：system()、exec()、shell_exec()、passthru()、pcntl_exec()等</p>
+<p><strong>正向Shell和反向Shell的区别：</strong></p>
+<ol>
+<li>
+<p>正向Shell：攻击者连接被攻击者机器，可用于攻击者处于内网，被攻击者处于公网的情况。</p>
+</li>
+<li>
+<p>反向Shell：被攻击者主动连接攻击者，可用于攻击者处于外网，被攻击者处于内网的情况。</p>
+</li>
+</ol>
+<p><strong>常见的中间件有哪些？它们有哪些漏洞：</strong></p>
+<ol>
+<li>
+<p>IIS：PUT漏洞、短文件名猜解、远程代码执行、解析漏洞</p>
+</li>
+<li>
+<p>• Apache：解析漏洞、目录遍历</p>
+</li>
+<li>
+<p>• Nginx：文件解析、目录遍历、CRLF注入、目录穿越</p>
+</li>
+<li>
+<p>• Tomcat：远程代码执行、war后门文件部署</p>
+</li>
+<li>
+<p>• JBoss：反序列化漏洞、war后门文件部署</p>
+</li>
+<li>
+<p>• WebLogic：反序列化漏洞、SSRF任意文件上传、war后门文件部署</p>
+</li>
+<li>
+<p>• Apache Shiro反序列化漏洞： Shiro rememberMe（</p>
+</li>
+<li>
+<p>Shiro-550）、Shiro Padding Oracle</p>
+</li>
+<li>
+<p>Attack(Shiro-721)</p>
+</li>
+</ol>
+<p><strong>Windows常用的提权方法:</strong></p>
+<ol>
+<li>
+<p>• 系统内核溢出漏洞提权</p>
+</li>
+<li>
+<p>• 数据库提权</p>
+</li>
+<li>
+<p>• 错误的系统配置提权</p>
+</li>
+</ol>
+<p>&nbsp;</p>
+<ol>
+<li>• 组策略首选项提权</li>
+</ol>
+<p>&nbsp;</p>
+<ol>
+<li>
+<p>• WEB中间件漏洞提权</p>
+</li>
+<li>
+<p>• DLL劫持提权</p>
+</li>
+<li>
+<p>• 滥用高危权限令牌提权</p>
+</li>
+<li>
+<p>• 第三方软件/服务提权等</p>
+</li>
+</ol>
+<p><strong>常用的Webshell检测工具有哪些</strong></p>
+<ol>
+<li>
+<p>a. D盾</p>
+</li>
+<li>
+<p>b. 河马WEBSHELL</p>
+</li>
+<li>
+<p>c. 百度 WEBDIR+</p>
+</li>
+<li>
+<p>d. Web Shell Detector</p>
+</li>
+<li>
+<p>e. Sangfor WebShellKill [深信服]</p>
+</li>
+<li>
+<p>f. PHP Malware Finder</p>
+</li>
+</ol>
+<p><strong>一般情况下，哪些漏洞会高频被用于打点</strong></p>
+<blockquote>
+<p>a. Apache Shiro 相关漏洞</p>
+<p>b. Fastjson 漏洞</p>
+<p>c. Log4j</p>
+<p>d. 上传漏洞</p>
+<p>e. 边界网络设备资产 + 弱口令</p>
+</blockquote>
+<p><strong>应急响应的基本思路:</strong></p>
+<blockquote>
+<p>a. 收集信息：收集告警信息、客户反馈信息、设备主机信息等</p>
+<p>b. 判断类型：安全事件类型判断。（钓鱼邮件、Webshll、爆破、中毒等）</p>
+<p>c. 控制范围：隔离失陷设备</p>
+<p>d. 分析研判：根据收集回来的信息进行分析</p>
+<p>e. 处置：根据事件类型进行处置（进程、文件、邮件、启动项、注册表排查等）</p>
+<p>f. 输出报告</p>
+</blockquote>
+<p><strong>蓝队常用的反制手段有哪些:</strong></p>
+<blockquote>
+<p>a. 蜜罐</p>
+<p>b. 对攻击目标进行反渗透（IP定位、IP端口扫描、Web站点渗透）</p>
+<p>c. 应用漏洞挖掘&amp;利用（菜刀、Goby、Xray、蚁剑）</p>
+<p>d. id -> 社交特征关联</p>
+<p>e. 钓鱼网站 -> 后台扫描、XSS盲打</p>
+<p>f. 木马文件 -> 同源样本关联 -> 敏感字符串特征检测</p>
+</blockquote>
+<h3 id="_10">内网渗透：（了解）<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>内网渗透思路</p>
+</li>
+<li>
+<p>内网的信息收集技术</p>
+</li>
+<li>
+<p>常见的内网隧道技术有哪些?</p>
+</li>
+<li>
+<p>正反向代理区别</p>
+</li>
+<li>
+<p>正反向shell</p>
+</li>
+<li>
+<p>介绍几种权限维持的方法</p>
+</li>
+<li>
+<p>内网黄金票据、白银票据的区别和利用方法</p>
+</li>
+<li>
+<p>域渗透拿域控的思路</p>
+</li>
+<li>
+<p>常见的隧道工具有哪些</p>
+</li>
+<li>
+<p>常见的webshell管理工具</p>
+</li>
+<li>
+<p>冰蝎哥斯拉流星特征</p>
+</li>
+<li>
+<p>端口转发的原理</p>
+</li>
+<li>
+<p>hash和ntml hash的区别</p>
+</li>
+<li>
+<p>怎么获域控的ntml hash</p>
+</li>
+<li>
+<p>DNS出网协议怎么利用</p>
+</li>
+<li>
+<p>横向渗适命令执行的手段</p>
+</li>
+<li>
+<p>psexec和wmic的区别</p>
+</li>
+<li>
+<p>Dcom怎么操作?</p>
+</li>
+<li>
+<p>内存马如何进行排查</p>
+</li>
+<li>
+<p>现在主要的免杀手段是什么。</p>
+</li>
+<li>
+<p>什么是脱壳</p>
+</li>
+<li>
+<p>dll劫持原理</p>
+</li>
+<li>
+<p>redis几种利用方法</p>
+</li>
+<li>
+<p>SVN/GIT源代码泄露</p>
+</li>
+<li>
+<p>log4j的正则表达式</p>
+</li>
+<li>
+<p>log4j的反射机制</p>
+</li>
+</ol>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-02-22 23:38:31</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_datetime">2022-07-27 22:31:40</span>
       
     
   </small>

